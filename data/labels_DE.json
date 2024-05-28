@@ -1,0 +1,429 @@
+
+{
+  
+"EU28": "Europäische Union (28 Länder)",
+"EU27_2020": "Europäische Union (27 Länder)",
+"EA19": "Euroraum",
+"BE": "Belgien",
+"BG": "Bulgarien",
+"CZ": "Tschechien",
+"DK": "Dänemark",
+"DE": "Deutschland",
+"EE": "Estland",
+"IE": "Irland",
+"EL": "Griechenland",
+"ES": "Spanien",
+"FR": "Frankreich",
+"HR": "Kroatien",
+"IT": "Italien",
+"CY": "Zypern",
+"LV": "Lettland",
+"LT": "Litauen",
+"LU": "Luxemburg",
+"HU": "Ungarn",
+"MT": "Malta",
+"NL": "Niederlande",
+"AT": "Österreich",
+"PL": "Polen",
+"PT": "Portugal",
+"RO": "Rumänien",
+"SI": "Slowenien",
+"SK": "Slowakei",
+"FI": "Finnland",
+"SE": "Schweden",
+"UK": "Vereinigtes Königreich",
+"IS": "Island",
+"LI": "Liechtenstein",
+"NO": "Norwegen",
+"ME": "Montenegro",
+"MK": "NordMazedonien",
+"RS": "Serbien",
+"TR": "Türkei",
+"BA": "Bosnien und Herzegowina",
+"XK": "Kosovo (RSR VN 1244/99)",
+"MD": "Moldawien",
+"UA": "Ukraine",
+"GE": "Georgia",
+"AL": "Albanien",
+
+"ENBALTITLE": "Energiebilanzen",
+"ENBALTEXT": "Mit diesem interaktiven Tool können Sie ganz einfach Energiebilanzen visualisieren, sehen, wie viel Energie importiert oder produziert wird, Sektoren finden, in denen Energie verbraucht wird, und sich verschiedene Energiequellen ansehen.",
+
+"SANKEYTITLE": "Sankey-Diagramm - Energieflüsse",
+"SANKEYTEXT": "Mit diesem interaktiven Tool können Sie Energiedaten durch Flussdiagramme (Sankey-Diagramme) in der EU oder Ihrem Land visualisieren.",
+
+"ENTRADETITLE": "Energiehandel",
+"ENTRADETEXT": "Mit diesem interaktiven Tool können Sie die Handelsströme in Ihrem Land auf unterschiedliche Weise visualisieren. Verwenden Sie es und erzeugen Sie Ihre eigene Karte!",
+"ENDASHTITLE": "Energieindikatoren",
+"ENDASHTEXT": "Mit diesem interaktiven Tool können Sie ein Dashboard mit Energiestatistiken und Indikatoren für Ihr Land oder die EU visualisieren.",
+
+"ENMONTHLYTITLE": "Monatliche Energiedaten",
+"ENMONTHLYTEXT": "Mit diesem interaktiven Tool können Sie saisonale Energietrends in Europa oder Ihrem Land visualisieren.",
+
+"ENPRICESTITLE": "Energiepreise",
+"ENPRICESTEXT": "Mit diesem interaktiven Tool können Sie Strom- und Erdgaspreise in Europa oder Ihrem Land visualisieren.",
+
+"SHEDLIGHTTITLE": "Energie in der EU im Rampenlicht",
+"SHEDLIGHTTEXT": "Unsere interaktive Veröffentlichung nimmt Sie mit auf einen Ausflug in die Welt der Energie und bietet Ihnen einfache Texte, Visualisierungen und Videos.",
+
+"ENSCENARIOSTITLE": "Visualisieren Sie Energieszenarien",
+"ENSCENARIOSTEXT": "Erkunden Sie den historischen und zukünftigen Energieverbrauch mit dem interaktiven JRC-Tool. \nDieses Tool stammt nicht von Eurostat, sondern von der Gemeinsamen Forschungsstelle der Europäischen Kommission. Eurostat ist nicht verantwortlich für seine Entwicklung und Wartung.",
+
+"STATISTICALTITLE": "European statistical recovery dashboard",
+"STATISTICALTEXT": "",
+
+"4100": "Erdgas",
+"6000": "Elektrizität",
+"HOUSEHOLD": "Haushalte als Verbraucher",
+"N_HOUSEHOLD": "Nicht-Haushaltle als Verbraucher",
+
+"GJ_GCV": "Gigajoule (Bruttoheizwert = GCV)",
+"S_GJ_GCV": "GJ GCV",
+"KWH": "Kilowattstunde",
+"S_KWH": "kWh",
+"MWH": "Megawattstunde",
+"S_MWH": "MWh",
+"EUR": "Euro",
+"S_EUR": "\u20ac",
+"PPS": "Kaufkraftparität",
+"S_PPS": "PPS",
+"NAT": "Nationale Währung",
+"S_NAT": "NAT",
+
+"4141900": "Alle Verbrauchsgruppen : Der Verbrauch von GJ",
+"4141901": "Verbrauchsgruppe D1 : Verbrauch < 20 GJ",
+"4141902": "VerbrauchsgruppeD2 : 20 GJ < Verbrauch < 200 GJ",
+"4141903": "VerbrauchsgruppeD3 : Verbrauch > 200 GJ",
+
+"4142900": "Verbrauchsgruppe I1-I5 : Verbrauch + <3 999 999 GJ",
+"4142901": "Verbrauchsgruppe I1 : Verbrauch < 1 000 GJ",
+"4142902": "Verbrauchsgruppe I2 : 1 000 GJ < Verbrauch < 10 000 GJ",
+"4142903": "Verbrauchsgruppe I3 : 10 000 GJ < Verbrauch < 100 000 GJ",
+"4142904": "Verbrauchsgruppe I4 : 100 000 GJ < Verbrauch < 1 000 000 GJ",
+"4142905": "Verbrauchsgruppe I5 : 1 000 000 GJ < Verbrauch < 4 000 000 GJ",
+"4142906": "Verbrauchsgruppe I6 : Verbrauch > 4 000 000 GJ",
+
+"4161900": "Alle Verbrauchsgruppen :  Der Verbrauch von kWh",
+"4161901": "Verbrauchsgruppe DA : Verbrauch < 1 000 kWh",
+"4161902": "Verbrauchsgruppe DB : 1 000 kWh < Verbrauch < 2 500 kWh",
+"4161903": "Verbrauchsgruppe DC : 2 500 kWh < Verbrauch < 5 000 kWh",
+"4161904": "Verbrauchsgruppe DD : 5 000 kWh < Verbrauch < 15 000 kWh",
+"4161905": "Verbrauchsgruppe DE : Verbrauch > 15 000 kWh",
+
+"4162900": "Verbrauchsgruppen IA-IF : Verbrauch =< 149 999 MWh",
+"4162901": "Verbrauchsgruppe IA : Verbrauch < 20 MWh",
+"4162902": "Verbrauchsgruppe IB : 20 MWh < Verbrauch < 500 MWh",
+"4162903": "Verbrauchsgruppe IC : 500 MWh < Verbrauch < 2 000 MWh",
+"4162904": "VerbrauchsgruppeID : 2 000 MWh < Verbrauch < 20 000 MWh",
+"4162905": "Verbrauchsgruppe IE : 20 000 MWh < Verbrauch < 70 000 MWh",
+"4162906": "Verbrauchsgruppe IF : 70 000 MWh < Verbrauch < 150 000 MWh",
+"4162907": "Verbrauchsgruppe IG : Verbrauch > 150 000 MWh",
+
+"KWH1000-2499": "Verbrauchsgruppe DB: 1 000 kWh < Verbrauch <2 500 kWh",
+"KWH2500-4999": "Verbrauchsgruppe DC: 2 500 kWh < Verbrauch <5 000 kWh",
+"KWH5000-14999": "Verbrauchsgruppe DD: 5 000 kWh < Verbrauch <15 000 kWh",
+"KWH_LE15000": "Verbrauchsgruppe: Verbrauch > 15 000 kWh",
+"KWH_LT1000": "Verbrauchsgruppe: Verbrauch < 1 000 kWh",
+"TOT_KWH": "Alle Verbrauchsgruppen: Verbrauch von kWh",
+"TOT_GJ": "Alle Verbrauchsgruppe: Verbrauch von GJ",
+
+"TOT_MWH": "Verbrauchsgruppen IA-IF: Verbrauch = <149 999 MWh",
+"MWH_LT20": "Verbrauchsgruppe IA: Verbrauch < 20 MWh",
+"MWH20-499": "Verbrauchsgruppe IB: 20 MWh < Verbrauch <500 MWh",
+"MWH500-1999": "Verbrauchsgruppe-IC: 500 MWh < Verbrauch <2 000 MWh",
+"MWH2000-19999": "Verbrauchsgruppe-ID: 2 000 MWh < Verbrauch <20 000 MWh",
+"MWH20000-69999": "Verbrauchsgruppe IE: 20 000 MWh < Verbrauch <70 000 MWh",
+"MWH70000-149999": "Verbrauchsgruppe IF: 70 000 MWh < Verbrauch <150 000 MWh",
+"MWH_GE150000": "Verbrauchsgruppe IG: Verbrauch > 150 000 MWh",
+
+"GJ_LT1000": "Verbrauchsgruppe I1: Verbrauch < 1000 GJ",
+"GJ1000-9999": "Verbrauchsgruppe I2: 1.000 GJ < Verbrauch <10.000 GJ",
+"GJ10000-99999": "Verbrauchsgruppe I3: 10.000 GJ < Verbrauch <100.000 GJ",
+"GJ100000-999999": "Verbrauchsgruppe I4: 100.000 GJ < Verbrauch <1.000.000 GJ",
+"GJ1000000-3999999": "Verbrauchsgruppe I5: 1.000.000 GJ < Verbrauch <4.000.000 GJ",
+"GJ_GE4000000": "Verbrauchsgruppe I6: Verbrauch > 4.000.000 GJ",
+
+
+"SELECTCOMPONENT": "Komponente auswählen",
+"SELECTPRODUCT": "Kraftstoff auswählen",
+
+"SELECTCONSUMER": "Verbraucher auswählen",
+"SELECTCONSOMELEVEL": "Verbrauchsmenge auswählen ",
+"SELECTCURRENCY": "Währung auswählen",
+"SELECTUNIT": "Einheit auswählen",
+"SELECTDETAILS": "Details auswählen",
+"SELECTYEAR": "Jahr wählen",
+"SELECTCOUNTRY": "Land auswählen",
+
+"SELECTCHART": "Schaubild auswählen",
+"SELECTFUEL": "Kraftstoff auswählen",
+"SELECTFLOW": "Durchfluss auswählen",
+"SELECTDECIMALS": "Wählen Sie Dezimalstellen",
+"SELECTTRADE": "Handel auswählen",
+"SELECTINDICATOR": "Indikator auswählen",
+
+"SWITCHYES": "Ja",
+"SWITCHNO": "Nein",
+
+"nrg_cb_sffm": "Lieferung und Umwandlung fester fossiler Brennstoffe",
+"nrg_cb_oilm": "Lieferung und Umwandlung von Öl und Ölprodukten",
+"nrg_cb_cosm": "Rohölversorgung",
+"nrg_cb_gasm": "Lieferung, Umwandlung und Verbrauch von Erdgas",
+"nrg_cb_em": "Lieferung, Umwandlung und Verbrauch von Elektrizität",
+"nrg_cb_pem": "Nettostromerzeugung nach Brennstoffart",
+"nrg_cb_pem_RW": "Nettostromerzeugung aus erneuerbaren im Vergleich zu nicht-erneuerbaren Energieträgern ",
+
+"C0100": "Steinkohle",
+"C0200": "Braunkohle",
+"C0311": "Koksofenkoks",
+"P1100": "Torf",
+"S2000": "Ölschiefer und bituminöser Sand ",
+"O4640": "Naphtha",
+"O4652": "Motorbenzin",
+"O4661": " Flugturbinenkraftstoff auf Petroleumbasis  ",
+
+"O4671": " Dieselöl/Gasöl (destilliertes Heizöl) ",
+
+"O4630": "Flüssiggas",
+"O4680": "Heizöl",
+"G3000": "Erdgas",
+"E7000": "Elektrizität",
+"C0000": "Kohle und industriell erzeugte  Gase",
+"O4000XBIO": "Öl und Erdölprodukte (ohne Biokraftstoffanteil)",
+"N9000": "Kernbrennstoffe und andere Brennstoffe n.e.c.",
+
+"RA100": "Wasserkraft",
+"RA200": "Geothermie",
+"RA300": "Wind",
+"RA400": "Solarenergie",
+"RA500_5160": "Andere erneuerbare Energien",
+
+"O4000": "Öl und Erdölprodukte",
+"O4100_TOT_4200-4500": "Rohöl, NGL, Raffinerieausgangsstoffe , Additive und Oxygenate und andere Kohlenwasserstoffe",
+
+"O4600": "Ölprodukte",
+"rw": "Erneuerbare Energien",
+"Nrw": "Nicht erneuerbare Energien",
+"nrw": "Nicht erneuerbare Energien",
+"TOTAL": "Gesamt",
+"X9900": "Andere Kraftstoffe nicht weiter definiert",
+
+"CF": "Brennbare Brennstoffe",
+"C0000X0350-0370": "Feste fossile Brennstoffe",
+"C0110": "Anthrazit",
+"C0121": "Kokskohle",
+"C0129": "Sonstige bituminöse Kohle (Kesselkohle)",
+"C0210": "Subbituminöse Kohle",
+"C0220": "Braunkohle ",
+"C0320": "Steinkohlenbriketts",
+"C0330": "Braunkohlenbriketts",
+"C0340": "Kohlenteer",
+"P1200": "Torfprodukte",
+"O4100_TOT_4200-4500XBIO": "Rohöl, Erdgaskondensate, Raffinerieausgangsstoffe, Zusatzstoffe und Oxygenate und sonstige Kohlenwasserstoffe (ohne Biobrennstoffanteil)",
+"O4100_TOT": "Rohöl",
+"O4200": " Erdgaskondensate ",
+"O4300": "Raffinerieausgangsstoffe",
+"O4400X4410": " Zusatzstoffe und Oxygenate (ohne Biobrennstoffanteil)",
+"O4400": "Zusatzstoffe und  Oxygenate",
+"O4500": "Sonstige Kohlenwasserstoffe",
+"O4600XBIO": "Ölprodukte (ohne Biobrennstoffanteil)",
+
+"O4620": "Ethan",
+"O4651": "Flugbenzin",
+"O4652XR5210B": "Motorenbenzin (ohne Biobrennstoffanteil)",
+"O4653": "Flugturbinenkraftstoff",
+
+"O4661XR5230B": " Flugturbinenkraftstoff auf Petroleumbasis(ohne Biobrennstoffanteil)",
+
+"O4669": "Sonstiges Kerosin",
+
+"O4671XR5220B": " Dieselöl/Gasöl  (ohne Biodiesel)",
+
+
+"O46711": "Kraftfahrzeug-Diesel",
+
+"O46712": "Heizöl und sonstiges Gasöl",
+
+"O4681": "Schweröl (schwefelarm <1%)",
+"O4682": "Schweröl (hoher Schwefelgehalt >1%)",
+
+"O4691": "Testbenzin und Industriebrennstoffe ",
+
+
+"O4692": "Schmierstoffe",
+"O4693": "Paraffinwachse",
+"O4694": "Petrolkoks",
+"O4695": "Bitumen",
+"O4699": "Andere Erzeugnisse, ",
+
+"R5210B": "Gemischtes Biobenzin",
+"R5220B": "Gemischter Biodiesel", 
+"R5230B": "Gemischter Bioflugturbinenkraftstoff", 
+"G3200": "Verflüssigtes Erdgas",
+"R5111": "Holzpellets",
+"R5210P": "Reines Biobenzin",
+"R5210E": "Bioethanol",
+"R5220P": "Reiner Biodiesel",
+"R5230P": "Reiner Bio-Flugturbinenkraftstoff ",	
+"R5290": "Sonstige flüssige Biobrennstoffe",
+"H8000": "Wärme",
+"N900H": "Nukleare Wärme",
+"W6100_6220": "Nicht erneuerbarer Abfall",
+"RA000": "Erneuerbare Energien",
+"SFF_P1000": "Feste Brennstoffe",
+"G3000_C0350-370": "Gas",
+
+"SOLID":"Feste fossile Brennstoffe",
+"OIL":"Öl und Erdöl",
+"GAS":"Erdgas",
+"BIOFUELS":"Biokraftstoffe",
+"ELECTRICITY":"Elektrizität und Wärme",
+
+"IPRD": "Eigeneproduktion ",
+"IMP": "Importe",
+"EXP": "Exporte",
+"PRD": "Produktion",
+"NETIMP": "Nettoimporte",
+"GID_CAL": "Brutto-Inlandslieferungen - berechnet",
+"Net_imp": "Nettoimporte",
+"TO_RPI_RO": "Raffinerieausstoss",
+
+"STK_CHG_MG": "Lagerbestandsveränderungen - wie in MOS GAS definiert",
+
+"IC_CAL_MG": "Inlandverbrauch - berechnet wie in MOS GAS definiert",
+
+"DL": "Verteilungsverluste",
+"AIM": "Für den Binnenmarkt verfügbar",
+"noNrg": "Kein NRG im Datensatz",
+"NEG": "Nettostromerzeugung ",
+"RVN": "Erneuerbare verglichen mit nicht erneuerbaren Energieträgern",
+
+"MIO_M3": "Millionen Kubikmeter",
+"TJ_GCV": "Terajoule (Brennwert - Bruttoheizwert)",
+"THS_T": "Tausend Tonnen",
+"GWH": "Gigawattstunde",
+"KTOE": "Tausend Tonnen Öläquivalent",
+"TJ": "Terajoule",
+"GJ": "Gigajoule",
+"GWh": "Gigawattstunden",
+"Gcal": "Gigakalorien",
+"Tcal": "Terakalorien",
+"GBtu": "Giga British Thermal Unit (GBtu)",
+
+"chart_one": "Energieeffizienz",
+
+"chart_two": "Anteil der Energie aus erneuerbaren Quellen",
+"chart_three": "Intensität der Treibhausgasemissionen des Energieverbrauchs",
+
+"chart_four": "Energieintensität",
+"chart_five": "Energieproduktivität",
+"chart_six": "Energieimportabhängigkeit",
+"chart_seven": "Anteil fossiler Brennstoffe an der verfügbaren Bruttoenergie",
+
+"chart_eight": "Endenergieverbrauch in Haushalten pro Kopf",
+"chart_nine": "Endenergieverbrauch nach Produkt",
+"chart_ten": "Endenergieverbrauch nach Sektoren",
+"chart_eleven": "Disaggregierter Endenergieverbrauch in Haushalten - Mengen",
+"chart_twelve": "Endenergieverbrauch im Transportsektor nach Kraftstoffart",
+
+"chart_thirteen": "Endenergieverbrauch im Straßenverkehr nach Kraftstoffart",
+"chart_fourteen": "Endenergieverbrauch im Dienstleistungssektor nach Kraftstoffart",
+"chart_fifteen": "Endenergieverbrauch im Industriesektor nach Kraftstoffart",
+"chart_sixteen": "Endgültiger Nicht-Energieverbrauch nach Kraftstoffart",
+"chart_seventeen": "Brutto- und Nettoproduktion von Strom und gewonnener Wärme nach Anlagentyp und Betreiber",
+
+
+"chart_eighteen": "Bruttoproduktion von Strom und Wärme aus brennbaren Brennstoffen nach Anlagentyp und Betreiber",
+"chart_nineteen": "Bevölkerung, die nicht in der Lage ist, ihr Zuhause angemessen warm zu halten, nach Armutsniveau",
+
+"chart_twenty": "Marktanteil des größten Erzeugers auf dem Elektrizitätsmarkt",
+"chart_twenty_one": "Brutto verfügbare Energie nach Produkt",
+"chart_twenty_two": "Gesamtenergieversorgung nach Produkt",
+"fuelMainFuel" :"Gesamt - Hauptkraftstofffamilien ",
+"fuelCoal": "Kohle",
+"fuelFossil": "Gase auf fossiler Basis ",
+"fuelOtherFossil": "Andere fossile Brennstoffe und Abfälle",
+
+"fuelOil": "Primäröl ",
+"fuelMainPetroleum": "Haupterdölprodukte ",
+"fuelOtherPetroleum": "Andere Erdölprodukte",
+"fuelNonCombustible": "Nicht brennbare erneuerbare Energieträger",
+"fuelCombustible": "Brennbare erneuerbare Energieträger (Biokraftstoffe)",
+"fuelElectricity": "Elektrizität und Wärme (einschließlich Kernkraft)",
+
+"VOL_THS_BBL": "Volumen - Tausend Barrel",
+"AVGPRC_USD_BBL": "Durchschnittspreis - USD pro Barrel",
+"AVGPRC_USD_T": "Durchschnittspreis - USD pro Tonne",
+"WT_THS_T": "Gewicht - Tausend Tonnen",
+
+"SUBMIT" : "Absenden",
+
+"bar": "Balkendiagramm",
+"pie": "Tortendiagramm",
+"line": "Liniendiagramm",
+"db": "Datensatz",
+"meta": "Metadaten",
+"xlx": "Excel-Datei herunterladen",
+"csv": "CSV-Datei herunterladen",
+"table": "Tabelle",
+"place": "Lokalisierung",
+"index": "Index",
+"globe": "Weltkarte",
+"area": "Flächendiagramm",
+"sankey": "Sankey-Diagramm",
+"FIND": "Sie finden in diesem tool",
+
+"LINKS": "Links (Verweis)",
+"CREDITS": "Kredite ",
+"INFO": "Informationen",
+"COOKIES": "Cookies",
+"PRIVACY": "Datenschutz",
+"LEGAL": "Rechtlicher Hinweis",
+"THANKS": "Credits für das Share-Symbol von © D.R.3D Shutterstock.com.",
+"TUTORIAL": "Tutorial öffnen",
+"CLOSE": "Zurück zum Menü",
+"OPTIONS": "Optionsmenü anzeigen",
+"URL": "Werkzeug/Tool öffnen",
+"LANGUAGE": "Sprache auswählen",
+"MORE": "Passen Sie Ihr Diagramm an",
+"MOREMAP": "Passen Sie Ihre Karte an",
+"TOOLS": "Zum Tool",
+
+"tutBACK": "Zurück",
+"tutNEXT": "Weiter",
+"tutFINISH": "Schließen",
+
+
+
+"TOOLTITLE": "Ihr Portal zu den interaktiven Energievisualisierungstools",
+
+
+
+
+
+
+
+
+"COOKIETEXT": "Im Interesse der Benutzerfreundlichkeit verwenden wir auf unseren Seiten Cookies. Erfahren Sie <a href=\"http://ec.europa.eu/cookies/index_en.htm\"  target=\"_blank\">unsere Cookie-Politik.</a>",
+
+"COOKIECOMPLETEclose": "Schließen",
+"COOKIECOMPLETEacceptAll": "Alle Cookies akzeptieren",
+"COOKIECOMPLETEonlyTechnical": "Nur unbedingt notwendige Cookies akzeptieren",
+"COOKIECOMPLETE": "Ihre Cookie Präferenzen wurden gespeichert. Sie können sie jederzeit ändern. Informieren Sie sich \u00fcber unsere <a href=\"//ec.europa.eu/info/cookies_de\" target=\"_blank\">Cookie-Politik</a> oder klicken Sie auf den Link in der Fu\u00dfzeile.",
+
+"COSTOMIZE": "Diagramm anpassen",
+"GOTO": "Zum Werkzeug gehen",
+"SHARE": "Werkzeug teilen",
+"SHARET": "Auf Twitter teilen",
+"SHAREF": "Auf Facebook teilen",
+"SHAREL": "Auf LinkedIn teilen",
+"MAINTITLE": "Interaktive Energievisualisierung",
+"OFFICIAL": "Offizielle EU-Sprachen:"
+
+
+
+
+
+
+
+}
