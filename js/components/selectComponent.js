@@ -20,7 +20,7 @@ class CustomSingleSelect {
         const htmlContent = /*html*/`                
             <div id="${selectId}" class="ecl-form-group " role="application">            
                 <div class="ecl-help-block">${labelText}</div>
-                <div class="ecl-select__container">
+                <div class="ecl-select__container ecl-select__container--l">
                     <select class="ecl-select select" id="${this.select.label}" name="${nameText}" required>
                         ${optionsData ? `<optgroup label="${labelText}">${optionsData}</optgroup>` : ''}
                     </select>

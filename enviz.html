@@ -143,8 +143,33 @@
       </div>
     </div>
 
-<div id="modal-container">
+<div id="modal-container"></div>
 
+<div class="ecl-form-group"><label for="select-default" id="select-default-label" class="ecl-form-label">Select a country<span class="ecl-form-label__required" role="note" aria-label="required">*</span></label>
+  <div class="ecl-help-block" id="select-default-helper">This is the input's helper text.</div>
+  <div class="ecl-select__container ecl-select__container--l">
+    <select class="ecl-select" id="select-default" name="country" aria-label="country" required aria-describedby="select-default-helper" data-ecl-auto-init="Select">
+      <optgroup label="European countries">
+        <option value="1">Belgium</option>
+        <option value="2">France</option>
+        <option value="3" disabled>Luxembourg</option>
+        <option value="4">Germany</option>
+        <option value="5" selected>Bulgaria</option>
+        <option value="6">Italy</option>
+        <option value="7">Romania</option>
+        <option value="8">Greece</option>
+        <option value="9">Hungary</option>
+        <option value="10">Portugal</option>
+      </optgroup>
+      <optgroup label="Non European countries">
+        <option value="11">China</option>
+      </optgroup>
+      <option value="12">standalone option</option>
+    </select>
+    <div class="ecl-select__icon"><button class="ecl-button ecl-button--ghost ecl-button--icon-only" type="button" tabindex="-1"><span class="ecl-button__container"><span class="ecl-button__label" data-ecl-label="true">Toggle dropdown</span><svg class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-button__icon" focusable="false" aria-hidden="true" data-ecl-icon>
+            <use xlink:href="static/media/icons.aa842b0d.svg#corner-arrow"></use>
+          </svg></span></button></div>
+  </div>
 </div>
 
 
