@@ -55,7 +55,7 @@ function buildEmprices (toolOpen) {
         selectBoxContent = /*html*/`
                 <div id="select${item.id}" class="ecl-form-group " role="application">            
                     <div class="ecl-help-block">${languageNameSpace.labels[item.translation]}</div>
-                    <div class="ecl-select__container">
+                    <div class="ecl-select__container ecl-select__container--l">
                         <select class="ecl-select select" id="${item.id}" name="${languageNameSpace.labels[data.translation]}" required></select>
                         <div class="ecl-select__icon">
                             <i class="fas fa-chevron-down ecl-icon ecl-icon--s ecl-select__icon-shape" focusable="false" aria-hidden="true"></i>
