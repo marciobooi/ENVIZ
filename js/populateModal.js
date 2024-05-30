@@ -9,6 +9,9 @@ function populateModal(tool) {
         case "ENSANKEY":     
             buildSankey (toolId)
             break;
+        case "ENMONTHLY":     
+            buildEnmonthly (toolId)
+            break;
     
         default:
             break;

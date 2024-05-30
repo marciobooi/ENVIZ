@@ -34,3 +34,12 @@ function searchKeyByValue(namespace, value) {
         },            
     });  
 }
+
+
+function appendOptionsToSelect(dataArray, selectId, defaultValue = null) {
+    const options = dataArray.map(item => 
+      `<option value="${item}" ${item === defaultValue ? 'selected' : ''}>${languageNameSpace.labels[item] || item}</option>`
+    ).join('');
+    $(`#${selectId}`).append(options);
+  }
+  

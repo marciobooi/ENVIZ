@@ -36,45 +36,38 @@ function buildEmprices (toolId) {
   
 
     function selectDataset() {
-      REF.ENPproduct = $('#sProduct option:selected').val();
-      REF.ENPconsumer = $('#sConsumer option:selected').val();
-  
-      const dataset = getEnpricesDataset();
-      GetYarsFromDataset();
-  
-      const $sYear = $("#sYear");
-      const $sConsom = $("#sConsom");
-      const $sCurrency = $("#sCurrency");
-      const $sUnit = $("#sUnit");
-  
-      // Clear existing options
-      $sYear.empty();
-      $sConsom.empty();
-      $sCurrency.empty();
-      $sUnit.empty();
-  
-      // Populate year options
-      const yearOptions = years.map(year => `<option value="${year}">${year}</option>`).join('');
-      $sYear.append(yearOptions);
-  
-      // Populate consom options
-      const consomOptions = dataset.consoms.map(consom => 
-          `<option value="${consom}" ${consom === dataset.defaultConsom ? 'selected' : ''}>${languageNameSpace.labels[consom]}</option>`
-      ).join('');
-      $sConsom.append(consomOptions);
-  
-      // Populate currency options
-      const currencyOptions = dataset.currency.map(currency => 
-          `<option value="${currency}">${languageNameSpace.labels[currency]}</option>`
-      ).join('');
-      $sCurrency.append(currencyOptions);
-  
-      // Populate unit options
-      const unitOptions = dataset.unit.map(unit => 
-          `<option value="${unit}">${languageNameSpace.labels[unit]}</option>`
-      ).join('');
-      $sUnit.append(unitOptions);
-  }
+        REF.ENPproduct = $('#sProduct option:selected').val();
+        REF.ENPconsumer = $('#sConsumer option:selected').val();
+      
+        const dataset = getEnpricesDataset();
+        GetYarsFromDataset("ENPRICES");
+      
+        const $sYear = $("#sYear");
+        const $sConsom = $("#sConsom");
+        const $sCurrency = $("#sCurrency");
+        const $sUnit = $("#sUnit");
+      
+        // Clear existing options
+        $sYear.empty();
+        $sConsom.empty();
+        $sCurrency.empty();
+        $sUnit.empty();
+
+        const regularYears = years.filter(year => !year.includes('-')).sort((a, b) => b - a);
+
+        if (regularYears.length > 0) {
+            appendOptionsToSelect(regularYears, 'sYear');
+        } else {
+            years.reverse()
+            appendOptionsToSelect(years, 'sYear');
+        }
+        
+        appendOptionsToSelect(dataset.consoms, 'sConsom', dataset.defaultConsom);
+      
+        appendOptionsToSelect(dataset.currency, 'sCurrency');
+      
+        appendOptionsToSelect(dataset.unit, 'sUnit');
+      }
   
   
   
@@ -93,10 +86,6 @@ function buildEmprices (toolId) {
     
     selectDataset();
 });
-
-
-
-
 
       function ENPRICESUrl() {
 
@@ -151,14 +140,10 @@ function buildEmprices (toolId) {
 
     
         // production URL
-        // const url = "https://ec.europa.eu/eurostat/cache/infographs/energy_prices/enprices.html?" + urlParams.toString();
+        const url = "https://ec.europa.eu/eurostat/cache/infographs/energy_prices/enprices.html?" + urlParams.toString();
 
-        const testUrl = "https://marciobooi.github.io/ENPRICES/enprices.html?" + urlParams.toString();
-
-        const decodedURL = decodeURIComponent(testUrl);
+        const decodedURL = decodeURIComponent(url);
         const replacedURL = decodedURL.replace(/%2C/g, ',');
-
- 
     
         // Open the URL
         window.open(replacedURL, '_self').focus();
