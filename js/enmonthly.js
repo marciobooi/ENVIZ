@@ -18,14 +18,8 @@ function buildEnmonthly (toolOpen) {
 
 $(document).on("change", "#eChart", function () {
   REF.ENMdataset = $('#eChart option:selected').val()
-  log(REF.ENMdataset)
   selectDatasetEnmonthly()
 });
-
-
-
-
-
 
 
 function selectDatasetEnmonthly() {
@@ -40,9 +34,6 @@ function selectDatasetEnmonthly() {
   appendOptionsToSelect(datasetdata.nrg_bal, 'eFlow');
   appendOptionsToSelect(datasetdata.unit, 'eUnit');
 }
-  
-  
-
   
   
   function ENMONTHLYUrl () {

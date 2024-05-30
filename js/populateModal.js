@@ -12,6 +12,12 @@ function populateModal(tool) {
         case "ENMONTHLY":     
             buildEnmonthly (toolId)
             break;
+        case "ENTRADE":     
+            buildEntrade (toolId)
+            break;
+        case "ENBAL":     
+            buildEnbal (toolId)
+            break;
     
         default:
             break;

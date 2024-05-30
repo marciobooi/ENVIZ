@@ -20,7 +20,7 @@ function searchKeyByValue(namespace, value) {
     if(toolId === "ENPRICES") {
         apiUrl = `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/${REF.ENPdataset}?format=JSON&geo=EU27_2020&nrg_cons=TOT_KWH&currency=EUR&lang=en`;
     } else  {
-        apiUrl = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_bal_c?format=JSON&geo=EU27_2020&unit=KTOE&nrg_bal=NRGSUP&siec=TOTAL&lang=en"
+        apiUrl = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_bal_c?format=JSON&geo=BE&unit=KTOE&nrg_bal=NRGSUP&siec=TOTAL&lang=en"
     }    
            
     $.ajax({
@@ -28,9 +28,8 @@ function searchKeyByValue(namespace, value) {
         type: 'GET',
         dataType: 'json',
         async: false, // Set async to false for a synchronous request
-        success: function (data) {                  
+        success: function (data) {            
             years = Object.values(data.dimension.time.category.label)
-           
         },            
     });  
 }

@@ -13,7 +13,7 @@ class CustomSingleSelect {
 
         // Check if the first 4 characters of the first element are numeric
         if (data.length > 0 && this.isNumeric(data[0].substring(0, 4))) {
-            data.reverse();
+            id === "bDecimals" ? data : data.reverse();
         }
 
         // Create HTML structure
@@ -46,7 +46,7 @@ class CustomSingleSelect {
 
     // Create options for the select element
     createOptions(id, data) {
-        return data.map(item => `<option value="${item}">${ id === "sYear" ? item : languageNameSpace.labels[item]} </option>`).join('');
+        return data.map(item => `<option value="${item}">${ id === "sYear" || id === "tYear" || id === "bYear" || id === "bDecimals" ? item : languageNameSpace.labels[item]} </option>`).join('');
     }
 }
 
