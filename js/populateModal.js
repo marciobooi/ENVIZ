@@ -6,6 +6,9 @@ function populateModal(tool) {
         case "ENPRICES":     
             buildEmprices (toolId)
             break;
+        case "ENSANKEY":     
+            buildSankey (toolId)
+            break;
     
         default:
             break;

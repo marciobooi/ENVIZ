@@ -83,7 +83,7 @@ function populateElements(params) {
                 <div class="controls">
                 ${tool.id == "boxSeven" || tool.id == "boxEight" ? '' :
                     `<button id="${tool.id}modal" type="button" class="ecl-button ecl-button--secondary">${languageNameSpace.labels['COSTOMIZE']}</button>` }
-                <button id="${tool.id}Btn" type="button" class="ecl-button ecl-button--primary">${languageNameSpace.labels['GOTO']}</button>
+                    <button id="${tool.id}Btn" type="button" class="ecl-button ecl-button--primary">${languageNameSpace.labels['GOTO']}</button>
             </div>
             </div>`;
     
@@ -92,8 +92,7 @@ function populateElements(params) {
         container.setAttribute("role", "img");
         container.setAttribute("aria-label", `${tool.title} chart`);
     
-        container.innerHTML += htmlContent;
-
+        container.innerHTML += htmlContent;      
    
     });
     
@@ -117,7 +116,8 @@ function populateElements(params) {
                 
                 const modalElement = document.getElementById('modal-example');                  
                 if (modalElement) {
-                    populateModal(tool);                    
+                    populateModal(tool);     
+                    REF.isOpen = true               
                 }
             });
         }

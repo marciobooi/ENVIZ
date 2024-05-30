@@ -52,6 +52,7 @@ class Modal {
             modalElement.close();
             const modalInstance = new Modal();
             modalInstance.removeFromDOM('#modal-container');
+            REF.isOpen = false;
         }
         const modalInstance = new Modal();
     }

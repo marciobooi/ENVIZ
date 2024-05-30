@@ -1,11 +1,13 @@
 const dataNameSpace = {
     ref: {
+		isOpen: false,
         ENPgeos: "",
         ENPcomponent: 0,
         ENPdetails: 0,
         ENPproduct: "6000",
         ENPconsumer: "HOUSEHOLD",		
-		ENPdataset: "nrg_pc_204"
+		ENPdataset: "nrg_pc_204",
+		ENSdetails:0
     },
 }
 
@@ -107,3 +109,7 @@ codesEnprices = {
 		"defaultCurrency": "EUR"
 	},
 };
+
+
+let sankeyFuel = ["TOTAL", "SFF_P1000", "O4000", "G3000_C0350-370", "RA000", "W6100_6220", "N900H", "H8000", "E7000"]
+let sankeyUnits = ["KTOE","GJ","TJ","GWh","Gcal","Tcal","GBtu"]

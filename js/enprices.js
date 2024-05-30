@@ -1,29 +1,13 @@
-function getEnpricesDataset() {
-    const conditions = {
-        "4100_HOUSEHOLD_1": "nrg_pc_202_c",
-        "4100_HOUSEHOLD_0": "nrg_pc_202",
-        "4100_N_HOUSEHOLD_1": "nrg_pc_203_c",
-        "4100_N_HOUSEHOLD_0": "nrg_pc_203",
-        "6000_HOUSEHOLD_1": "nrg_pc_204_c",
-        "6000_HOUSEHOLD_0": "nrg_pc_204",
-        "6000_N_HOUSEHOLD_1": "nrg_pc_205_c",
-        "6000_N_HOUSEHOLD_0": "nrg_pc_205"
-    };        
 
-    const datasetKey = `${REF.ENPproduct}_${REF.ENPconsumer}_${REF.ENPcomponent}`;
-    REF.ENPdataset = conditions[datasetKey];
-    const dataset = codesEnprices[REF.ENPdataset];
-    return dataset;
-}
 
-function buildEmprices () {    
+function buildEmprices (toolId) {    
 
     const data = getEnpricesDataset()
 
-    GetYarsFromDataset()  
+    GetYarsFromDataset(toolId)  
 
     let enpricesSelectBox = [    
-        sYear = {id: "sYear", translation: "SELECTYEAR", class: "form-floating col-6 col-md-6 col-xl-6 gy-3",  arr: timeEnprices},
+        sYear = {id: "sYear", translation: "SELECTYEAR", class: "form-floating col-6 col-md-6 col-xl-6 gy-3",  arr: years},
         sProduct = {id: "sProduct", translation: "SELECTPRODUCT", class: "form-floating col-6 col-md-6 col-xl-6 gy-3",  arr: ['4100', '6000']},
         sConsumer = {id: "sConsumer", translation: "SELECTCONSUMER", class: "form-floating col-6 col-md-4 col-xl-4 gy-3",  arr: ['N_HOUSEHOLD', 'HOUSEHOLD']},
         sConsom = {id: "sConsom", translation: "SELECTCONSOMELEVEL", class: "form-floating col-6 col-md-4 col-xl-4 gy-3",  arr: data.consoms},
@@ -51,37 +35,47 @@ function buildEmprices () {
   
   
 
-  function selectDataset () {
-        
-      REF.ENPproduct = $('#sProduct option:selected').val()
-      REF.ENPconsumer = $('#sConsumer option:selected').val()     
-
-      const dataset = getEnpricesDataset()
-      GetYarsFromDataset() 
+    function selectDataset() {
+      REF.ENPproduct = $('#sProduct option:selected').val();
+      REF.ENPconsumer = $('#sConsumer option:selected').val();
   
-        $("#sYear").empty();
-        $("#sConsom").empty();
-        $("#sCurrency").empty();
-        $("#sUnit").empty();
-   
-           timeEnprices.forEach((year) => {
-               $("#sYear").append('<option value="' + year + '">' + year + "</option>");
-           });
-
-
-        dataset.consoms.forEach((consom) => {      
-            const isChecked = consom === dataset.defaultConsom ? 'checked' : '';   
-            $("#sConsom").append(`<option value="${consom}" ${isChecked}>${languageNameSpace.labels[consom]}</option>`);
-        });
-    
-          dataset.currency.forEach((currency) => {
-            $("#sCurrency").append('<option value="'+currency+'">'+languageNameSpace.labels[currency]+'</option>');
-          }); 
-    
-          dataset.unit.forEach((unit) => {
-            $("#sUnit").append('<option value="'+unit+'">'+languageNameSpace.labels[unit]+'</option>');
-          }); 
+      const dataset = getEnpricesDataset();
+      GetYarsFromDataset();
+  
+      const $sYear = $("#sYear");
+      const $sConsom = $("#sConsom");
+      const $sCurrency = $("#sCurrency");
+      const $sUnit = $("#sUnit");
+  
+      // Clear existing options
+      $sYear.empty();
+      $sConsom.empty();
+      $sCurrency.empty();
+      $sUnit.empty();
+  
+      // Populate year options
+      const yearOptions = years.map(year => `<option value="${year}">${year}</option>`).join('');
+      $sYear.append(yearOptions);
+  
+      // Populate consom options
+      const consomOptions = dataset.consoms.map(consom => 
+          `<option value="${consom}" ${consom === dataset.defaultConsom ? 'selected' : ''}>${languageNameSpace.labels[consom]}</option>`
+      ).join('');
+      $sConsom.append(consomOptions);
+  
+      // Populate currency options
+      const currencyOptions = dataset.currency.map(currency => 
+          `<option value="${currency}">${languageNameSpace.labels[currency]}</option>`
+      ).join('');
+      $sCurrency.append(currencyOptions);
+  
+      // Populate unit options
+      const unitOptions = dataset.unit.map(unit => 
+          `<option value="${unit}">${languageNameSpace.labels[unit]}</option>`
+      ).join('');
+      $sUnit.append(unitOptions);
   }
+  
   
   
     
@@ -101,22 +95,19 @@ function buildEmprices () {
 });
 
 
-function searchKeyByValue(namespace, value) {
-  for (const key in namespace) {
-      if (Object.prototype.hasOwnProperty.call(namespace, key)) {
-          if (namespace[key] === value) {
-              return key;
-          }
-      }
-  }
-  return null;
-}
-  
+
 
 
       function ENPRICESUrl() {
 
-      countriesToLoad = $('#enpricesSelect > .ecl-select__multiple button').map(function() { return $(this).text().trim() }).get();
+        if(REF.isOpen === false) { 
+          const url = "https://marciobooi.github.io/ENPRICES/enprices.html"
+          window.open(url, '_self').focus();
+          return; 
+        }
+
+
+      const countriesToLoad = $('#enpricesSelect > .ecl-select__multiple button').map(function() { return $(this).text().trim() }).get();
 
       const countryList = countriesToLoad[0].split(',').map(item => item.trim());
 
@@ -166,25 +157,29 @@ function searchKeyByValue(namespace, value) {
 
         const decodedURL = decodeURIComponent(testUrl);
         const replacedURL = decodedURL.replace(/%2C/g, ',');
+
+ 
     
         // Open the URL
         window.open(replacedURL, '_self').focus();
     }
-    
+         
+
+
+    function getEnpricesDataset() {
+      const conditions = {
+          "4100_HOUSEHOLD_1": "nrg_pc_202_c",
+          "4100_HOUSEHOLD_0": "nrg_pc_202",
+          "4100_N_HOUSEHOLD_1": "nrg_pc_203_c",
+          "4100_N_HOUSEHOLD_0": "nrg_pc_203",
+          "6000_HOUSEHOLD_1": "nrg_pc_204_c",
+          "6000_HOUSEHOLD_0": "nrg_pc_204",
+          "6000_N_HOUSEHOLD_1": "nrg_pc_205_c",
+          "6000_N_HOUSEHOLD_0": "nrg_pc_205"
+      };        
   
-  
-      
-    function GetYarsFromDataset() {     
-        const apiUrl = `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/${REF.ENPdataset}?format=JSON&geo=EU27_2020&nrg_cons=TOT_KWH&currency=EUR&lang=en`;
-               
-        $.ajax({
-            url: apiUrl,
-            type: 'GET',
-            dataType: 'json',
-            async: false, // Set async to false for a synchronous request
-            success: function (data) {                  
-                timeEnprices = Object.values(data.dimension.time.category.label)
-               
-            },            
-        });  
-    }
+      const datasetKey = `${REF.ENPproduct}_${REF.ENPconsumer}_${REF.ENPcomponent}`;
+      REF.ENPdataset = conditions[datasetKey];
+      const dataset = codesEnprices[REF.ENPdataset];
+      return dataset;
+  }
