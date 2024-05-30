@@ -58,4 +58,10 @@ button.ecl-button.ecl-button--ghost.ecl-modal__close {
     grid-gap: 2rem;
 }
 
+#toolSelects {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Adjust the min and max as needed */
+    grid-gap: 2rem;
+}
+
 /* CSS for each select container */

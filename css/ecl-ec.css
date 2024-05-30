@@ -21134,4 +21134,5 @@
 
 .ecl-select__multiple {
     width: 100%;
+    max-width: 100%;
 }

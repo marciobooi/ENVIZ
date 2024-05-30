@@ -159,18 +159,16 @@ function searchKeyByValue(namespace, value) {
 
 
     
-        // Construct the final URL
-        const url = "https://ec.europa.eu/eurostat/cache/infographs/energy_prices/enprices.html?" + urlParams.toString();
-        // const url = "https://ec.europa.eu/eurostat/cache/infographs/test_energy/enprices/enprices.html?" + urlParams.toString();
+        // production URL
+        // const url = "https://ec.europa.eu/eurostat/cache/infographs/energy_prices/enprices.html?" + urlParams.toString();
 
-        const decodedURL = decodeURIComponent(url);
+        const testUrl = "https://marciobooi.github.io/ENPRICES/enprices.html?" + urlParams.toString();
+
+        const decodedURL = decodeURIComponent(testUrl);
         const replacedURL = decodedURL.replace(/%2C/g, ',');
-
-        
-        console.log(replacedURL)
     
         // Open the URL
-        // window.open(url, '_self').focus();
+        window.open(replacedURL, '_self').focus();
     }
     
   
