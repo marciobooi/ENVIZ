@@ -5,63 +5,48 @@ class CustomSingleSelect {
         this.init();
     }
 
-    init() {
-        const selectId = `select-${this.select.label.toLowerCase()}-${Math.floor(Math.random() * 1000)}`;
+    init() {   
+        const { select, options } = this;
+        const id = select;
+        const labelText = options.translation;
+        let data = options.arr;
 
-        const optionsData = this.options.map(option => {
-            const label = languageNameSpace.labels[option];
-            const labelContent = label !== undefined ? label : option;
-            return `<option value="${option}">${labelContent}</option>`;
-        }).join('');
+        // Check if the first 4 characters of the first element are numeric
+        if (data.length > 0 && this.isNumeric(data[0].substring(0, 4))) {
+            data.reverse();
+        }
 
-        const labelText = languageNameSpace.labels[this.select.label];
-        const nameText = this.select.text;
-
-        const htmlContent = /*html*/`                
-            <div id="${selectId}" class="ecl-form-group " role="application">            
-                <div class="ecl-help-block">${labelText}</div>
-                <div class="ecl-select__container ecl-select__container--l">
-                    <select class="ecl-select select" id="${this.select.label}" name="${nameText}" required>
-                        ${optionsData ? `<optgroup label="${labelText}">${optionsData}</optgroup>` : ''}
+        // Create HTML structure
+        const htmlContent = /*html*/`
+            <div id="select${id}" class="ecl-form-group" role="application">
+                <div class="ecl-help-block">${languageNameSpace.labels[labelText]}</div>
+                <div class="ecl-select__container">
+                    <select class="ecl-select select" id="${id}" name="${languageNameSpace.labels[labelText]}" required>
+                        ${this.createOptions(id, data)}
                     </select>
                     <div class="ecl-select__icon">
                         <i class="fas fa-chevron-down ecl-icon ecl-icon--s ecl-select__icon-shape" focusable="false" aria-hidden="true"></i>
                     </div>
                 </div>
-            </div>`;
+            </div>`;    
 
+        // Append to container
         const toolOptionsContainer = document.querySelector("#toolSelects");
-        toolOptionsContainer.innerHTML += htmlContent;
+        if (toolOptionsContainer) {
+            toolOptionsContainer.innerHTML += htmlContent;
+        } else {
+            console.error('Container element #toolSelects not found.');
+        }
+    }
 
-        this.selectElement = document.getElementById(selectId);
-        this.selectContainer = this.selectElement;
+    // Check if a string is numeric
+    isNumeric(str) {
+        return !isNaN(str) && !isNaN(parseFloat(str));
+    }
 
-
-
-
-        const selectElements = document.querySelectorAll(".select");
-
-        selectElements.forEach(selectElement => {
-            selectElement.addEventListener('change', (event) => {
-      
-                if (selectElement.id === "SELECTPRODUCT") {
-                    REF.ENPproduct = event.target.value;
-                }
-                if (selectElement.id === "SELECTCONSUMER") {                  
-                    REF.ENPconsumer = event.target.value
-                }
-
-                // console.log(`${REF.ENPproduct}_${REF.ENPconsumer}_${REF.ENPcomponent}`)
-                // console.log(REF.ENPdataset)
-                // updateEnprices()
-            });
-        });
-
-
-
+    // Create options for the select element
+    createOptions(id, data) {
+        return data.map(item => `<option value="${item}">${ id === "sYear" ? item : languageNameSpace.labels[item]} </option>`).join('');
     }
 }
-
-
-
 

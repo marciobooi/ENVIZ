@@ -17,7 +17,7 @@ class CustomSelect {
         const htmlContent = /*html*/`
         <div id="${toolId}" class="ecl-form-group" role="application">
             <div id="select-multiple-helper" class="ecl-help-block">${languageNameSpace.labels['SELCOUNTRY']}</div>
-                <div class="ecl-select__container ecl-select__container--l">                
+                <div class="ecl-select__container">                
                 <select class="ecl-select"  name="country" required multiple data-ecl-auto-init="Select"
                     data-ecl-select-multiple data-ecl-select-default="${languageNameSpace.labels['SELCOUNTRY']}" data-ecl-select-search="${languageNameSpace.labels['SELKEY']}"
                     data-ecl-select-no-results="${languageNameSpace.labels['SELNOTF']}" data-ecl-select-all="${languageNameSpace.labels['SELALL']}"

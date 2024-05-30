@@ -21130,3 +21130,8 @@
 .ecl-u-z-max {
     z-index: 9999!important
 }
+
+
+.ecl-select__multiple {
+    width: 100%;
+}
