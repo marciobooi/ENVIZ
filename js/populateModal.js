@@ -18,6 +18,9 @@ function populateModal(tool) {
         case "ENBAL":     
             buildEnbal (toolId)
             break;
+        case "ENDASH":     
+            buildEndash (toolId)
+            break;
     
         default:
             break;

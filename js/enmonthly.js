@@ -3,11 +3,11 @@ function buildEnmonthly (toolOpen) {
   getEnmonthlyDataset();  
 
     let enmonthlySelectBox = [ 
-        sCountry = {id: "eCountry", translation: "SELECTCOUNTRY", class: "", arr: allCountries },
-        sChart= {id: "eChart", translation: "SELECTCHART", class: "", arr: enmonthlyCharts  },
-        sFuel= {id: "eFuel", translation: "SELECTFUEL", class: "", arr: datasetdata.siec },
-        sFlow= {id: "eFlow", translation: "SELECTFLOW", class: "", arr: datasetdata.nrg_bal },
-        sUnit= {id: "eUnit", translation: "SELECTUNIT", class: "", arr: datasetdata.unit },
+        eCountry = {id: "eCountry", translation: "SELECTCOUNTRY", class: "", arr: allCountries },
+        eChart= {id: "eChart", translation: "SELECTCHART", class: "", arr: enmonthlyCharts  },
+        eFuel= {id: "eFuel", translation: "SELECTFUEL", class: "", arr: datasetdata.siec },
+        eFlow= {id: "eFlow", translation: "SELECTFLOW", class: "", arr: datasetdata.nrg_bal },
+        eUnit= {id: "eUnit", translation: "SELECTUNIT", class: "", arr: datasetdata.unit },
     ]
 
 
