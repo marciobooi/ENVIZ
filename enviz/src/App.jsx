@@ -1,11 +1,13 @@
-
 import Navbar from './components/Navbar';
+import CardsContainer from './components/CardsContainer';
 
 function App() {
   return (
     <div>
       <Navbar />
-      {/* Other main page content */}
+      <main>
+        <CardsContainer />
+      </main>
     </div>
   );
 }

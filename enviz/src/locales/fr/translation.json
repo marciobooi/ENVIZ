@@ -27,5 +27,22 @@
     "shareOnX": "Partager sur X (Twitter)",
     "shareOnFacebook": "Partager sur Facebook",
     "shareOnLinkedIn": "Partager sur LinkedIn"
+  },
+  "card": {
+    "customizeButton": "Personnaliser le diagramme",
+    "goToToolButton": "Accéder à l'outil",
+    "containerLabel": "Outils de visualisation de l'énergie",
+    "descriptionLabel": "Description de l'outil",
+    "actionsLabel": "Actions de l'outil",
+    "electricity": {
+      "imageAlt": "Diagramme de visualisation des prix de l'électricité",
+      "title": "Prix de l'électricité",
+      "description": "Visualisation interactive des prix de l'électricité dans les pays de l'UE."
+    },
+    "gas": {
+      "imageAlt": "Diagramme de visualisation des prix du gaz",
+      "title": "Prix du gaz",
+      "description": "Visualisation interactive des prix du gaz naturel dans les pays de l'UE."
+    }
   }
 }

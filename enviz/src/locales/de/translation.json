@@ -27,5 +27,22 @@
     "shareOnLinkedIn": "Auf LinkedIn teilen",
     "shareOnX": "Auf Twitter teilen",
     "shareOnFacebook": "Auf Facebook teilen"
+  },
+  "card": {
+    "customizeButton": "Diagramm anpassen",
+    "goToToolButton": "Zum Tool gehen",
+    "containerLabel": "Energievisualisierungswerkzeuge",
+    "descriptionLabel": "Toolbeschreibung",
+    "actionsLabel": "Tool-Aktionen",
+    "electricity": {
+      "imageAlt": "Visualisierungsdiagramm für Strompreise",
+      "title": "Strompreise",
+      "description": "Interaktive Visualisierung der Strompreise in den EU-Ländern."
+    },
+    "gas": {
+      "imageAlt": "Visualisierungsdiagramm für Gaspreise",
+      "title": "Gaspreise",
+      "description": "Interaktive Visualisierung der Erdgaspreise in den EU-Ländern."
+    }
   }
 }

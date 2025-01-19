@@ -1,0 +1,60 @@
+.ecl-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ecl-color-white-100);
+  border: 1px solid var(--ecl-color-grey-50);
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add responsive adjustments */
+@media (max-width: 767px) {
+  .ecl-card__body {
+    padding: 1rem;
+  }
+
+  .ecl-card__actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ecl-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.ecl-button:focus {
+  outline: 2px solid var(--ecl-color-primary);
+  outline-offset: 2px;
+}
+
+.ecl-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.ecl-button:focus-visible {
+  outline: 2px solid var(--ecl-color-primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .ecl-card {
+    border: 1px solid CanvasText;
+  }
+
+  .ecl-button {
+    border: 1px solid ButtonText;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .ecl-button {
+    transition: none;
+  }
+}

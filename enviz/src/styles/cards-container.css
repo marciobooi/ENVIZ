@@ -1,0 +1,32 @@
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Ensure max 3 cards per row */
+@media (min-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet view - 2 cards per row */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile view - 1 card per row */
+@media (max-width: 767px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+}
