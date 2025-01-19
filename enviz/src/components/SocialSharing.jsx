@@ -71,17 +71,26 @@ const SocialSharing = ({ isVisible, setIsVisible }) => {
     };
 
     return (
-        <div className="social-share-wrapper" ref={menuRef}>
+        <div
+            className="social-share-wrapper"
+            ref={menuRef}
+            role="dialog"
+            aria-label={t('shareMenu.shareAreaLabel')}
+        >
             {isVisible && (
                 <ul
-                    ref={menuRef}
                     className="dropdown-menu"
                     role="menu"
                     aria-labelledby="shareBtn"
                     tabIndex={-1}
                 >
                     <div className="ecl-social-media-share">
-                        <p className="ecl-social-media-share__description" id="share-menu-title">
+                        <p
+                            className="ecl-social-media-share__description"
+                            id="share-menu-title"
+                            role="heading"
+                            aria-level="2"
+                        >
                             {t('shareMenu.shareTitle')}
                         </p>
                         <ul

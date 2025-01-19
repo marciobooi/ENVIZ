@@ -81,10 +81,12 @@ function LanguageSwitcher() {
                 type="button"
                 className="ecl-button ecl-button--secondary icon-bottom"
                 aria-expanded={isVisible}
-                aria-label={t('languageSwitcher.changeLanguage', { language: t(`languageSwitcher.languages.${activeLanguage}`) })}
+                aria-label={t('languageSwitcher.changeLanguage', {
+                    language: t(`languageSwitcher.languages.${activeLanguage}`)
+                })}
                 onClick={toggleVisibility}
             >
-                <FontAwesomeIcon icon={faGlobe} />
+                <FontAwesomeIcon icon={faGlobe} aria-hidden="true" />
                 <span className="language-text">
                     {t(`languageSwitcher.languages.${activeLanguage}`)}
                 </span>

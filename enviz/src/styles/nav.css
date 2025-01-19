@@ -1,3 +1,4 @@
+/* Base navbar styles */
 #navbar-container {
   display: grid;
   grid-template-columns: auto 0.5fr 0.5fr auto;
@@ -22,37 +23,18 @@
   width: 9rem;
 }
 
+/* Typography */
 .ecl-u-type-heading-1 {
   font-size: clamp(1rem, 2vw, 2rem) !important;
   font-weight: bold;
   color: white;
   margin: 0;
   white-space: nowrap;
-  /* overflow: hidden; */
   text-overflow: ellipsis;
   max-width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  .ecl-u-type-heading-1 {
-    font-size: 1rem !important;
-  }
-
-  #es_app_header_title {
-    max-width: 200px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .ecl-u-type-heading-1 {
-    font-size: 0.875rem !important;
-  }
-
-  #es_app_header_title {
-    max-width: 150px;
-  }
-}
-
+/* Layout components */
 .social-container {
   display: flex;
   justify-content: center;
@@ -65,6 +47,17 @@
 
 #lang-section {
   position: relative;
+}
+
+/* Language switcher styles */
+#toggleLanguageBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#toggleLanguageBtn .language-text {
+  display: inline-block;
 }
 
 li.ecl-site-header__language-item {
@@ -108,7 +101,7 @@ li.ecl-site-header__language-item.active {
   }
 
   #navbar-container:after {
-    display: none; /* Hide the banner on mobile */
+    display: none;
   }
 
   #navbar-container > div {
@@ -140,7 +133,6 @@ li.ecl-site-header__language-item.active {
     text-align: center;
   }
 
-  /* Language dropdown positioning for mobile */
   .ecl-site-header__language-container {
     position: fixed;
     top: 50%;
@@ -157,39 +149,38 @@ li.ecl-site-header__language-item.active {
 @media (max-width: 480px) {
   #navbar-container {
     display: grid;
-    grid-template-columns: 1fr; /* Single column on mobile */
-    grid-template-rows: auto auto auto; /* 3 rows */
-    gap: 10px; /* Adjust spacing as needed */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
     padding: 1.6rem;
   }
 
-    #navbar-container div:nth-child(1) {
-        grid-row: 1 / 2;
-    }
-    #navbar-container div:nth-child(2) {
-        grid-row: 2 / 1;
-        gap: 0;
-    }
-    #navbar-container div:nth-child(3) {
-        grid-row: 2 / 1;
-                gap: 0;
-    }
-    #navbar-container div:nth-child(4) {
-        display: flex;
-        justify-content: flex-start;
-        grid-row: 2;
-                
-    }
+  #navbar-container div:nth-child(1) {
+    grid-row: 1 / 2;
+  }
+  #navbar-container div:nth-child(2) {
+    grid-row: 2 / 1;
+    gap: 0;
+  }
+  #navbar-container div:nth-child(3) {
+    grid-row: 2 / 1;
+    gap: 0;
+  }
+  #navbar-container div:nth-child(4) {
+    display: flex;
+    justify-content: flex-start;
+    grid-row: 2;
+  }
 
- .ecl-u-type-heading-1 {
-        font-size: 1.5rem !important;
-        color: yellow;
-        line-height: 30px !important;
-        margin-left: 0;
-        text-align: left;
-    }
+  .ecl-u-type-heading-1 {
+    font-size: 1.5rem !important;
+    font-weight: 800;
+    line-height: 30px !important;
+    margin-left: 0;
+    text-align: left;
+  }
 
-    #toggleLanguageBtn {
+  #toggleLanguageBtn {
     color: var(--ecl-color-primary);
     background: white;
     border-radius: 50%;
@@ -199,14 +190,18 @@ li.ecl-site-header__language-item.active {
     justify-content: center;
     align-items: center;
     font-size: 1.2rem !important;
-    margin: 0 0.2rem 0 0.2rem;
+    margin: 0 0.2rem;
     border: 2px solid var(--c-p);
     padding: calc(var(--s-xs) - 2px) calc(var(--s-m) - 2px);
+  }
+
+      #toggleLanguageBtn .language-text {
+        display: none;
     }
 
-    .roundBtn {
-    margin: 0 0.2rem 0 0.2rem;
-}
+  .roundBtn {
+    margin: 0 0.2rem;
+  }
 
   #eurostatLogo {
     width: 6rem;
@@ -216,39 +211,11 @@ li.ecl-site-header__language-item.active {
     gap: 0.5rem;
   }
 
-  
-}
-
-@media (min-width: 768px) {
   .ecl-site-header__language-container {
-    left: 0;
-    transform: translateX(-42%);
-  }
-  .ecl-u-type-heading-1 {
-    font-size: 1.4rem !important;
-    color: red;
+    top: 29%;
+    width: 90%;
   }
 }
 
-/* Base styles for language button */
-#toggleLanguageBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
 
-#toggleLanguageBtn .language-text {
-  display: inline-block;
-}
 
-/* Mobile styles */
-@media (max-width: 768px) {
-  #toggleLanguageBtn {
-    padding: 0.5rem;
-    min-width: 2.5rem;
-  }
-
-  #toggleLanguageBtn .language-text {
-    display: none;
-  }
-}
