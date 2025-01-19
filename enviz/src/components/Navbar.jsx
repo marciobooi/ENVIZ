@@ -38,7 +38,7 @@ function Navbar() {
                 </h1>
             </div>
             <div className="social-container">
-                <button type="button" id="tutorialBtn" title={t('navbar.tutorialButton')} className="ecl-button ecl-button--secondary roundBtn" aria-label={t('navbar.tutorialreaLabel')}>
+                <button type="button" id="tutorialBtn" title={t('navbar.tutorialButton')} className="ecl-button ecl-button--secondary roundBtn" aria-label={t('navbar.tutorialAreaLabel')}>
                     <FontAwesomeIcon icon={faBookOpen} aria-hidden="true" />
                 </button>
                 <div className="dropdown" style={{ position: 'relative' }}>
@@ -57,6 +57,7 @@ function Navbar() {
                     </button>
                     <SocialSharing
                         isVisible={isShareMenuVisible}
+                        setIsVisible={setIsShareMenuVisible}
                     />
                 </div>
             </div>
