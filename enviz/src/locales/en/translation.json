@@ -1,0 +1,30 @@
+{
+  "OFFICIAL": "Official EU languages:",
+  "navbar": {
+    "title": "Interactive energy visualisation",
+    "tutorialButton": "Display tutorial",
+    "shareButton": "Share this page",
+    "languageButton": "Change language",
+    "tutorialreaLabel": "Display tutorial",
+    "shareAreaLabel": "Share this page",
+    "languageAreaLabel": "Changelanguage",
+    "imageAlt": "Eurostat - Official Logo"
+  },
+  "languageSwitcher": {
+    "selectLanguage": "Select your language",
+    "close": "Close",
+    "changeLanguage": "Change language, current language is {{language}}",
+    "languages": {
+      "en": "English",
+      "fr": "Français",
+      "de": "Deutsch"
+    }
+  },
+  "shareMenu": {
+    "shareTitle": "Share this page",
+    "shareDescription": "This visualisation tool, created by Eurostat, displays electricity and natural gas prices in the EU and other European countries with a great level of detail. Users can interact with the data and customise the display in many different ways.",
+    "shareOnX": "Share on X (Twitter)",
+    "shareOnFacebook": "Share on Facebook",
+    "shareOnLinkedIn": "Share on LinkedIn"
+  }
+}

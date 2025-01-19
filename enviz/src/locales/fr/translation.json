@@ -1,0 +1,31 @@
+{
+  "OFFICIAL": "Langues officielles de l'UE:",
+  "navbar": {
+    "title": "Visualisation interactive de l'énergie",
+    "tutorialButton": "Afficher le tutoriel",
+    "shareButton": "Partager cette page",
+    "languageButton": "Changer de langue",
+    "tutorialreaLabel": "Afficher le tutoriel",
+    "shareAreaLabel": "Partager cette page",
+    "languageAreaLabel": "Changer de langue",
+    "imageAlt": "Eurostat - Logo officiel"
+  },
+  "languageSwitcher": {
+    "selectLanguage": "Sélectionnez votre langue",
+    "close": "Fermer",
+    "changeLanguage": "Changer de langue, la langue actuelle est {{language}}",
+    "languages": {
+      "en": "Anglais",
+      "fr": "Français",
+      "de": "Allemand"
+    }
+  },
+  "shareMenu": {
+    "shareAreaLabel": "Partager cette page sur les médias sociaux",
+    "shareTitle": "Partager cette page",
+    "shareDescription": "Cet outil de visualisation, créé par Eurostat, affiche les prix de l'électricité et du gaz naturel dans l'UE et d'autres pays européens avec un grand niveau de détail. Les utilisateurs peuvent interagir avec les données et personnaliser l'affichage de nombreuses manières.",
+    "shareOnX": "Partager sur LinkedIn",
+    "shareOnFacebook": "Partager sur Facebook",
+    "shareOnLinkedIn": "Partager sur LinkedIn"
+  }
+}

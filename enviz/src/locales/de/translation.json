@@ -1,0 +1,31 @@
+{
+  "OFFICIAL": "Offizielle EU-Sprachen:",
+  "navbar": {
+    "title": "Interaktive Energievisualisierung",
+    "tutorialButton": "Tutorial anzeigen",
+    "shareButton": "Diese Seite teilen",
+    "languageButton": "Sprache ändern",
+    "tutorialreaLabel": "Tutorial anzeigen",
+    "shareAreaLabel": "Diese Seite teilen",
+    "languageAreaLabel": "Sprache ändern",
+    "imageAlt": "Eurostat - Offizielle Logo"
+  },
+  "languageSwitcher": {
+    "selectLanguage": "Wählen Sie Ihre Sprache",
+    "close": "Schließen",
+    "changeLanguage": "Sprache ändern, aktuelle Sprache ist {{language}}",
+    "languages": {
+      "en": "Englisch",
+      "fr": "Französisch",
+      "de": "Deutsch"
+    }
+  },
+  "shareMenu": {
+    "shareAreaLabel": "Diese Seite in sozialen Medien teilen",
+    "shareTitle": "Diese Seite teilen",
+    "shareDescription": "Dieses Visualisierungstool, erstellt von Eurostat, zeigt Strom- und Erdgaspreise in der EU und anderen europäischen Ländern mit einem hohen Detaillierungsgrad an. Benutzer können mit den Daten interagieren und die Anzeige auf vielfältige Weisen anpassen.",
+    "shareOnLinkedIn": "Auf LinkedIn teilen",
+    "shareOnX": "Auf Twitter teilen",
+    "shareOnFacebook": "Auf Facebook teilen"
+  }
+}
