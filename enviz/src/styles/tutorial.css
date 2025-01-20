@@ -41,25 +41,29 @@ div.react-joyride__tooltip > div:nth-child(2) > button {
 }
 
 div.react-joyride__tooltip > button:hover {
-    background-color: purple !important; /* Customize for hover */
-    border: 1px solid var(--c-p-hover);  /* Optional: Add border on hover */
+    background-color: var(--c-p-10) !important;
+    border: 1px solid var(--c-d) !important;
+    color: var(--c-d) !important;
 }
 
 /* skip btn */
 div.react-joyride__tooltip > div:nth-child(2) > div > button:hover {
-    background-color: red !important; /* Customize for hover */
-    border: 1px solid var(--c-p-hover);  /* Optional: Add border on hover */
+    background-color: var(--c-p-10) !important;
+    border: 1px solid var(--c-d) !important;
+    color: var(--c-d) !important;
 }
 
 
 /* back btn */
 div.react-joyride__tooltip > div:nth-child(2) > button:nth-child(2):hover {
-    background-color: yellow !important; /* Customize for hover */
-    border: 1px solid var(--c-p-hover);  /* Optional: Add border on hover */
+    background-color: var(--c-p-80) !important;
+    border-color: var(--c-p-80) !important;
+    color: #fff !important;
 }
 
 /* next btn */
 div.react-joyride__tooltip > div:nth-child(2) > button:hover {
-    background-color: green !important; /* Customize for hover */
-    border: 1px solid var(--c-p-hover);  /* Optional: Add border on hover */
+    background-color: #fff !important;
+    border: 2px solid var(--c-p) !important;
+    color: var(--c-p) !important;
 }
