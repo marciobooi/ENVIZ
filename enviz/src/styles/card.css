@@ -1,13 +1,51 @@
 .ecl-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--ecl-color-white-100);
-  border: 1px solid var(--ecl-color-grey-50);
+  background-color: #fff;
   border-radius: 4px;
   width: 100%;
   height: 100%;
   margin: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+}
+
+.ecl-card:hover {
+ box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.ecl-card__body {
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+
+h2.ecl-link.ecl-link--standalone {
+ cursor: default;
+}
+
+.ecl-card__actions {
+    display: flex;
+    justify-content: flex-end;
+    row-gap: 15px; /* Adjust the value to your desired gap */
+    align-items: center;
+    padding: 1rem;
+}
+
+.ecl-card__actions button {
+    margin-right: 15px; /* Adds spacing between buttons */
+}
+
+.ecl-card__actions button:last-child {
+    margin-right: 0; /* Removes extra space after the last button */
+}
+
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .ecl-card {
+    border: 1px solid CanvasText;
+  }
 }
 
 /* Add responsive adjustments */
@@ -24,31 +62,6 @@
   .ecl-button {
     width: 100%;
     text-align: center;
-  }
-}
-
-.ecl-button:focus {
-  outline: 2px solid var(--ecl-color-primary);
-  outline-offset: 2px;
-}
-
-.ecl-button:focus:not(:focus-visible) {
-  outline: none;
-}
-
-.ecl-button:focus-visible {
-  outline: 2px solid var(--ecl-color-primary);
-  outline-offset: 2px;
-}
-
-/* High contrast mode support */
-@media (forced-colors: active) {
-  .ecl-card {
-    border: 1px solid CanvasText;
-  }
-
-  .ecl-button {
-    border: 1px solid ButtonText;
   }
 }
 

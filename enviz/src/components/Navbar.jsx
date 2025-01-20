@@ -45,6 +45,7 @@ function Navbar() {
                     data-tooltip-content={t('tooltips.tutorial')}
                     className="ecl-button ecl-button--secondary roundBtn"
                     aria-label={t('navbar.tutorialAreaLabel')}
+                    aria-describedby="navbar-tooltip"
                 >
                     <FontAwesomeIcon icon={faBookOpen} aria-hidden="true" />
                 </button>
@@ -59,6 +60,7 @@ function Navbar() {
                         onClick={toggleShareMenu}
                         aria-expanded={isShareMenuVisible}
                         aria-label={t('navbar.shareAreaLabel')}
+                        aria-describedby="navbar-tooltip"
                     >
                         <FontAwesomeIcon icon={faShareAlt} aria-hidden="true" />
                     </button>
@@ -76,6 +78,7 @@ function Navbar() {
                     data-tooltip-id="navbar-tooltip"
                     data-tooltip-content={t('tooltips.home')}
                     aria-label={t('navbar.imageAlt')}
+                    aria-describedby="navbar-tooltip"
                 >
                     <img
                         id="eurostatLogo"

@@ -7,7 +7,7 @@ const CardsContainer = () => {
 
     const cardData = [
         {
-            imageUrl: "/path-to-image1.jpg",
+            imageUrl: "ENPRICES.png",
             imageAlt: t('card.electricity.imageAlt'),
             title: t('card.electricity.title'),
             description: t('card.electricity.description'),
@@ -15,7 +15,7 @@ const CardsContainer = () => {
             onGoToTool: () => console.log("Go to tool 1")
         },
         {
-            imageUrl: "/path-to-image2.jpg",
+            imageUrl: "/SANKEY.png",
             imageAlt: t('card.gas.imageAlt'),
             title: t('card.gas.title'),
             description: t('card.gas.description'),

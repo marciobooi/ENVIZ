@@ -22,25 +22,26 @@ const Card = ({ imageUrl, imageAlt, title, description, onCustomize, onGoToTool 
                     <div className="ecl-content-block__description">
                         {description}
                     </div>
-                    <div className="ecl-card__actions">
-                        <button
-                            className="ecl-button ecl-button--secondary"
-                            onClick={onCustomize}
-                            type="button"
-                            aria-label={t('card.customizeButton')}
-                        >
-                            {t('card.customizeButton')}
-                        </button>
-                        <button
-                            className="ecl-button ecl-button--primary"
-                            onClick={onGoToTool}
-                            type="button"
-                            aria-label={t('card.goToToolButton')}
-                        >
-                            {t('card.goToToolButton')}
-                        </button>
-                    </div>
                 </div>
+              
+            </div>
+            <div className="ecl-card__actions">
+                <button
+                    className="ecl-button ecl-button--secondary"
+                    onClick={onCustomize}
+                    type="button"
+                    aria-label={t('card.customizeButton')}
+                >
+                    {t('card.customizeButton')}
+                </button>
+                <button
+                    className="ecl-button ecl-button--primary"
+                    onClick={onGoToTool}
+                    type="button"
+                    aria-label={t('card.goToToolButton')}
+                >
+                    {t('card.goToToolButton')}
+                </button>
             </div>
         </article>
     );
