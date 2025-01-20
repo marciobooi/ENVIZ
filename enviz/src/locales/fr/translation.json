@@ -52,5 +52,39 @@
     "home": "Aller à la page d'accueil d'Eurostat",
     "customize": "Personnaliser les paramètres de visualisation",
     "goToTool": "Ouvrir l'outil de visualisation"
+  },
+  "tutorial": {
+    "next": "Suivant",
+    "back": "Retour",
+    "skip": "Passer le tutoriel",
+    "close": "Fermer le tutoriel",
+    "last": "Terminer",
+    "targetNotFound": "Élément du tutoriel introuvable",
+    "steps": {
+      "welcome": {
+        "title": "Bienvenue dans la Visualisation Énergétique",
+        "content": "Cet outil vous aide à explorer et comprendre les prix de l'énergie dans l'UE."
+      },
+      "cards": {
+        "title": "Outils de Visualisation",
+        "content": "Vous trouverez ici différents outils pour explorer les données énergétiques. Chaque carte représente une option de visualisation différente."
+      },
+      "actions": {
+        "title": "Actions de l'Outil",
+        "content": "Vous pouvez personnaliser les paramètres de visualisation ou accéder directement à l'outil à l'aide de ces boutons."
+      },
+      "share": {
+        "title": "Partagez vos Découvertes",
+        "content": "Partagez des informations intéressantes avec d'autres via différentes plateformes de médias sociaux."
+      },
+      "language": {
+        "title": "Options de Langue",
+        "content": "Changez la langue de l'interface selon votre préférence."
+      },
+      "home": {
+        "title": "Page d'Accueil Eurostat",
+        "content": "Retournez au site principal d'Eurostat à tout moment."
+      }
+    }
   }
 }

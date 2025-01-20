@@ -51,5 +51,39 @@
     "home": "Go to Eurostat homepage",
     "customize": "Customize the visualization settings",
     "goToTool": "Open the visualization tool"
+  },
+  "tutorial": {
+    "next": "Next",
+    "back": "Back",
+    "skip": "Skip tutorial",
+    "close": "Close tutorial",
+    "last": "Finish",
+    "targetNotFound": "Tutorial target not found",
+    "steps": {
+      "welcome": {
+        "title": "Welcome to Energy Visualization",
+        "content": "This tool helps you explore and understand energy prices across the EU."
+      },
+      "cards": {
+        "title": "Visualization Tools",
+        "content": "Here you'll find different tools to explore energy data. Each card represents a different visualization option."
+      },
+      "actions": {
+        "title": "Tool Actions",
+        "content": "You can customize the visualization settings or directly access the tool using these buttons."
+      },
+      "share": {
+        "title": "Share Your Findings",
+        "content": "Share interesting insights with others through various social media platforms."
+      },
+      "language": {
+        "title": "Language Options",
+        "content": "Change the interface language to your preferred option."
+      },
+      "home": {
+        "title": "Eurostat Homepage",
+        "content": "Return to the Eurostat main website at any time."
+      }
+    }
   }
 }

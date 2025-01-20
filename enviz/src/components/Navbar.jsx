@@ -5,14 +5,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookOpen, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect, useRef } from 'react';
 import ECLTooltip from './ECLTooltip';
+import { useTutorial } from '../utils/tutorialUtils';
 
 import '../styles/nav.css';
 import '../styles/cummon.css';
 
 function Navbar() {
     const { t } = useTranslation();
+    const { startTutorial } = useTutorial();
     const [isShareMenuVisible, setIsShareMenuVisible] = useState(false);
     const shareButtonRef = useRef(null);
+    const tutorialButtonRef = useRef(null);
+
+    const handleTutorialKeyDown = (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            startTutorial();
+        }
+    };
 
     const toggleShareMenu = () => {
         setIsShareMenuVisible(!isShareMenuVisible);
@@ -39,13 +49,15 @@ function Navbar() {
             </div>
             <div className="social-container">
                 <button
+                    ref={tutorialButtonRef}
                     type="button"
                     id="tutorialBtn"
                     data-tooltip-id="navbar-tooltip"
                     data-tooltip-content={t('tooltips.tutorial')}
                     className="ecl-button ecl-button--secondary roundBtn"
                     aria-label={t('navbar.tutorialAreaLabel')}
-                    aria-describedby="navbar-tooltip"
+                    onClick={startTutorial}
+                    onKeyDown={handleTutorialKeyDown}
                 >
                     <FontAwesomeIcon icon={faBookOpen} aria-hidden="true" />
                 </button>
