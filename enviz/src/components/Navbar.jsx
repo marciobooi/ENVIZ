@@ -4,10 +4,10 @@ import SocialSharing from './SocialSharing';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookOpen, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect, useRef } from 'react';
+import ECLTooltip from './ECLTooltip';
 
 import '../styles/nav.css';
 import '../styles/cummon.css';
-
 
 function Navbar() {
     const { t } = useTranslation();
@@ -32,26 +32,33 @@ function Navbar() {
 
     return (
         <div id="navbar-container">
-            <div id="es_app_header_title" className="">
-                <h1 id="toolTitle" className="ecl-u-type-heading-1" data-i18n="navbar.title">
+            <div id="es_app_header_title">
+                <h1 id="toolTitle" className="ecl-u-type-heading-1">
                     {t('navbar.title')}
                 </h1>
             </div>
             <div className="social-container">
-                <button type="button" id="tutorialBtn" title={t('navbar.tutorialButton')} className="ecl-button ecl-button--secondary roundBtn" aria-label={t('navbar.tutorialAreaLabel')}>
+                <button
+                    type="button"
+                    id="tutorialBtn"
+                    data-tooltip-id="navbar-tooltip"
+                    data-tooltip-content={t('tooltips.tutorial')}
+                    className="ecl-button ecl-button--secondary roundBtn"
+                    aria-label={t('navbar.tutorialAreaLabel')}
+                >
                     <FontAwesomeIcon icon={faBookOpen} aria-hidden="true" />
                 </button>
                 <div className="dropdown" style={{ position: 'relative' }}>
                     <button
                         ref={shareButtonRef}
                         id="shareBtn"
+                        data-tooltip-id="navbar-tooltip"
+                        data-tooltip-content={t('tooltips.share')}
                         className="ecl-button roundBtn ecl-button--secondary"
                         type="button"
-                        title={t('navbar.shareButton')}
                         onClick={toggleShareMenu}
                         aria-expanded={isShareMenuVisible}
                         aria-label={t('navbar.shareAreaLabel')}
-                        role="button"
                     >
                         <FontAwesomeIcon icon={faShareAlt} aria-hidden="true" />
                     </button>
@@ -63,10 +70,21 @@ function Navbar() {
             </div>
             <LanguageSwitcher />
             <div className="logo">
-                <a id="home" href="https://ec.europa.eu/eurostat/web/main/home">
-                    <img id="eurostatLogo" src="/estat-logo-horizontal.svg" alt={t('navbar.imageAlt')} />
+                <a
+                    id="home"
+                    href="https://ec.europa.eu/eurostat/web/main/home"
+                    data-tooltip-id="navbar-tooltip"
+                    data-tooltip-content={t('tooltips.home')}
+                    aria-label={t('navbar.imageAlt')}
+                >
+                    <img
+                        id="eurostatLogo"
+                        src="/estat-logo-horizontal.svg"
+                        alt={t('navbar.imageAlt')}
+                    />
                 </a>
             </div>
+            <ECLTooltip id="navbar-tooltip" />
         </div>
     );
 }

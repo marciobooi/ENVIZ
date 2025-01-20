@@ -27,6 +27,7 @@ const Card = ({ imageUrl, imageAlt, title, description, onCustomize, onGoToTool 
                             className="ecl-button ecl-button--secondary"
                             onClick={onCustomize}
                             type="button"
+                            aria-label={t('card.customizeButton')}
                         >
                             {t('card.customizeButton')}
                         </button>
@@ -34,6 +35,7 @@ const Card = ({ imageUrl, imageAlt, title, description, onCustomize, onGoToTool 
                             className="ecl-button ecl-button--primary"
                             onClick={onGoToTool}
                             type="button"
+                            aria-label={t('card.goToToolButton')}
                         >
                             {t('card.goToToolButton')}
                         </button>

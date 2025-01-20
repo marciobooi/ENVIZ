@@ -44,5 +44,13 @@
       "title": "Prix du gaz",
       "description": "Visualisation interactive des prix du gaz naturel dans les pays de l'UE."
     }
+  },
+  "tooltips": {
+    "tutorial": "Ouvrir le guide du tutoriel",
+    "share": "Partager cette visualisation",
+    "language": "Changer la langue de l'interface",
+    "home": "Aller à la page d'accueil d'Eurostat",
+    "customize": "Personnaliser les paramètres de visualisation",
+    "goToTool": "Ouvrir l'outil de visualisation"
   }
 }

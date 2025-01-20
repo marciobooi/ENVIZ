@@ -43,5 +43,13 @@
       "title": "Gas Prices",
       "description": "Interactive visualization of natural gas prices across EU countries."
     }
+  },
+  "tooltips": {
+    "tutorial": "Open the tutorial guide",
+    "share": "Share this visualization",
+    "language": "Change the interface language",
+    "home": "Go to Eurostat homepage",
+    "customize": "Customize the visualization settings",
+    "goToTool": "Open the visualization tool"
   }
 }

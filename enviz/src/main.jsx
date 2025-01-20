@@ -3,11 +3,7 @@ import { createRoot } from 'react-dom/client'
 import '@ecl/preset-ec/dist/styles/optional/ecl-reset.css';
 import '@ecl/preset-ec/dist/styles/optional/ecl-ec-default.css';
 import '@ecl/preset-ec/dist/styles/ecl-ec.css';
-import '@ecl/preset-ec/dist/styles/optional/ecl-ec-utilities.css'; 
-
-
-
-
+import '@ecl/preset-ec/dist/styles/optional/ecl-ec-utilities.css';
 
 
 import './index.css'

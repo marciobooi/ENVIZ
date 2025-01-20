@@ -44,5 +44,13 @@
       "title": "Gaspreise",
       "description": "Interaktive Visualisierung der Erdgaspreise in den EU-Ländern."
     }
+  },
+  "tooltips": {
+    "tutorial": "Öffnen Sie die Tutorial-Anleitung",
+    "share": "Diese Visualisierung teilen",
+    "language": "Ändern Sie die Schnittstellensprache",
+    "home": "Zur Eurostat-Homepage",
+    "customize": "Visualisierungseinstellungen anpassen",
+    "goToTool": "Visualisierungstool öffnen"
   }
 }

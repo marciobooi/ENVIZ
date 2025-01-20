@@ -1,0 +1,28 @@
+.ecl-tooltip {
+  background-color: white !important;
+  color: black !important;
+  font-family: var(--ecl-font-family) !important;
+  font-size: 0.875rem !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.25rem !important;
+  max-width: 200px !important;
+  z-index: 1000 !important;
+  opacity: 1 !important;
+  border: 2px solid var(--ecl-color-primary-100) !important;
+  box-shadow: 0 0 6px rgba(9, 49, 142, .2) !important;
+}
+
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .ecl-tooltip {
+    border: 1px solid ButtonText;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .ecl-tooltip {
+    transition: none !important;
+  }
+}
