@@ -33,15 +33,45 @@
     "containerLabel": "Energy visualization tools",
     "descriptionLabel": "Tool description",
     "actionsLabel": "Tool actions",
-    "electricity": {
-      "imageAlt": "Electricity price visualization diagram",
+    "enprices": {
+      "imageAlt": "Energy prices visualization tool",
       "title": "Electricity Prices",
-      "description": "Interactive visualization of electricity prices across EU countries."
+      "description": "Visualise electricity and natural gas prices in the EU or your country."
     },
-    "gas": {
-      "imageAlt": "Gas price visualization diagram",
-      "title": "Gas Prices",
-      "description": "Interactive visualization of natural gas prices across EU countries."
+    "ensankey": {
+      "imageAlt": "Sankey diagram visualization tool",
+      "title": "Sankey diagram - energy flows",
+      "description": "Visualise energy data through flow diagrams (Sankey diagrams) in the EU or your country."
+    },
+    "enmonthly": {
+      "imageAlt": "Monthly energy visualization tool",
+      "title": "Monthly energy data",
+      "description": "Visualise seasonal energy trends in the EU or your country."
+    },
+    "entrade": {
+      "imageAlt": "Energy trade visualization tool",
+      "title": "Energy trade",
+      "description": "Visualise the trade flows in different ways in your country. Use it and customise your own map!"
+    },
+    "enbal": {
+      "imageAlt": "Energy balances visualization tool",
+      "title": "Energy balances",
+      "description": "Visualise energy balances, see how much energy is imported or produced, find out sectors where the energy is consumed and check out different energy sources."
+    },
+    "endash": {
+      "imageAlt": "Energy indicators visualization tool",
+      "title": "Energy indicators",
+      "description": "Visualise a dashboard with energy statistics and indicators for your country or the EU."
+    },
+    "shedthelight": {
+      "imageAlt": "Shedding light on energy in the EU",
+      "title": "Interactive publication: Shedding light on energy in the EU",
+      "description": "through easy texts, visualisations and videos."
+    },
+    "EnergyScenarios": {
+      "imageAlt": "Energy scenarios tool",
+      "title": "Energy scenarios",
+      "description": "Explore historical and future energy use with the JRC interactive tool. This tool is not from Eurostat, but from the Joint Research"
     }
   },
   "tooltips": {

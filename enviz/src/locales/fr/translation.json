@@ -34,15 +34,45 @@
     "containerLabel": "Outils de visualisation de l'énergie",
     "descriptionLabel": "Description de l'outil",
     "actionsLabel": "Actions de l'outil",
-    "electricity": {
-      "imageAlt": "Diagramme de visualisation des prix de l'électricité",
+    "enprices": {
+      "imageAlt": "Outil de visualisation des prix de l'énergie",
       "title": "Prix de l'électricité",
-      "description": "Visualisation interactive des prix de l'électricité dans les pays de l'UE."
+      "description": "Visualisez les prix de l'électricité et du gaz naturel dans l'UE ou votre pays."
     },
-    "gas": {
-      "imageAlt": "Diagramme de visualisation des prix du gaz",
-      "title": "Prix du gaz",
-      "description": "Visualisation interactive des prix du gaz naturel dans les pays de l'UE."
+    "ensankey": {
+      "imageAlt": "Outil de visualisation des diagrammes de Sankey",
+      "title": "Diagramme de Sankey - flux énergétiques",
+      "description": "Visualisez les données énergétiques à travers des diagrammes de flux (diagrammes de Sankey) dans l'UE ou votre pays."
+    },
+    "enmonthly": {
+      "imageAlt": "Outil de visualisation des données mensuelles",
+      "title": "Données énergétiques mensuelles",
+      "description": "Visualisez les tendances saisonnières de l'énergie dans l'UE ou votre pays."
+    },
+    "entrade": {
+      "imageAlt": "Outil de visualisation du commerce énergétique",
+      "title": "Commerce de l'énergie",
+      "description": "Visualisez les flux commerciaux de différentes manières dans votre pays. Utilisez-le et personnalisez votre propre carte !"
+    },
+    "enbal": {
+      "imageAlt": "Outil de visualisation des bilans énergétiques",
+      "title": "Bilans énergétiques",
+      "description": "Visualisez les bilans énergétiques, découvrez la quantité d'énergie importée ou produite, identifiez les secteurs de consommation et explorez différentes sources d'énergie."
+    },
+    "endash": {
+      "imageAlt": "Outil de visualisation des indicateurs énergétiques",
+      "title": "Indicateurs énergétiques",
+      "description": "Visualisez un tableau de bord avec des statistiques et des indicateurs énergétiques pour votre pays ou l'UE."
+    },
+    "shedthelight": {
+      "imageAlt": "Faire la lumière sur l'énergie dans l'UE",
+      "title": "Publication interactive : Faire la lumière sur l'énergie dans l'UE",
+      "description": "à travers des textes simples, des visualisations et des vidéos."
+    },
+    "EnergyScenarios": {
+      "imageAlt": "Outil des scénarios énergétiques",
+      "title": "Scénarios énergétiques",
+      "description": "Explorez l'utilisation historique et future de l'énergie avec l'outil interactif du JRC. Cet outil n'est pas d'Eurostat, mais du Centre commun de recherche."
     }
   },
   "tooltips": {

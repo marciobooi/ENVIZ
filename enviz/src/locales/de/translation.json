@@ -34,15 +34,45 @@
     "containerLabel": "Energievisualisierungswerkzeuge",
     "descriptionLabel": "Toolbeschreibung",
     "actionsLabel": "Tool-Aktionen",
-    "electricity": {
-      "imageAlt": "Visualisierungsdiagramm für Strompreise",
+    "enprices": {
+      "imageAlt": "Energiepreise-Visualisierungstool",
       "title": "Strompreise",
-      "description": "Interaktive Visualisierung der Strompreise in den EU-Ländern."
+      "description": "Visualisieren Sie Strom- und Erdgaspreise in der EU oder Ihrem Land."
     },
-    "gas": {
-      "imageAlt": "Visualisierungsdiagramm für Gaspreise",
-      "title": "Gaspreise",
-      "description": "Interaktive Visualisierung der Erdgaspreise in den EU-Ländern."
+    "ensankey": {
+      "imageAlt": "Sankey-Diagramm-Visualisierungstool",
+      "title": "Sankey-Diagramm - Energieflüsse",
+      "description": "Visualisieren Sie Energiedaten durch Flussdiagramme (Sankey-Diagramme) in der EU oder Ihrem Land."
+    },
+    "enmonthly": {
+      "imageAlt": "Monatliche Energie-Visualisierungstool",
+      "title": "Monatliche Energiedaten",
+      "description": "Visualisieren Sie saisonale Energietrends in der EU oder Ihrem Land."
+    },
+    "entrade": {
+      "imageAlt": "Energiehandel-Visualisierungstool",
+      "title": "Energiehandel",
+      "description": "Visualisieren Sie die Handelsströme auf verschiedene Weise in Ihrem Land. Nutzen Sie es und gestalten Sie Ihre eigene Karte!"
+    },
+    "enbal": {
+      "imageAlt": "Energiebilanzen-Visualisierungstool",
+      "title": "Energiebilanzen",
+      "description": "Visualisieren Sie Energiebilanzen, sehen Sie wie viel Energie importiert oder produziert wird, finden Sie heraus, in welchen Sektoren die Energie verbraucht wird und prüfen Sie verschiedene Energiequellen."
+    },
+    "endash": {
+      "imageAlt": "Energieindikatoren-Visualisierungstool",
+      "title": "Energieindikatoren",
+      "description": "Visualisieren Sie ein Dashboard mit Energiestatistiken und -indikatoren für Ihr Land oder die EU."
+    },
+    "shedthelight": {
+      "imageAlt": "Licht ins Dunkel der Energie in der EU",
+      "title": "Interaktive Publikation: Licht ins Dunkel der Energie in der EU",
+      "description": "durch einfache Texte, Visualisierungen und Videos."
+    },
+    "EnergyScenarios": {
+      "imageAlt": "Energieszenarien-Tool",
+      "title": "Energieszenarien",
+      "description": "Erkunden Sie die historische und zukünftige Energienutzung mit dem interaktiven Tool des JRC. Dieses Tool stammt nicht von Eurostat, sondern von der Gemeinsamen Forschungsstelle."
     }
   },
   "tooltips": {
