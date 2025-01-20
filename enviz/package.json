@@ -12,6 +12,7 @@
   "dependencies": {
     "@ecl/preset-ec": "^4.10.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "axios": "^1.7.9",
     "i18next": "^24.2.1",
     "moment": "^2.30.1",
     "pikaday": "^1.8.2",
