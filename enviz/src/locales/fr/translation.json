@@ -116,5 +116,17 @@
         "content": "Retournez au site principal d'Eurostat à tout moment."
       }
     }
+  },
+  "footer": {
+    "legal": "Avis juridique",
+    "privacy": "Protection des données",
+    "cookies": "Cookies",
+    "accessibility": "Accessibilité",
+    "ariaLabel": "Navigation du pied de page",
+    "navAriaLabel": "Liens du pied de page",
+    "legalAriaLabel": "Consulter l'avis juridique",
+    "privacyAriaLabel": "Consulter la politique de confidentialité",
+    "cookiesAriaLabel": "Consulter la politique des cookies",
+    "accessibilityAriaLabel": "Consulter la déclaration d'accessibilité"
   }
 }

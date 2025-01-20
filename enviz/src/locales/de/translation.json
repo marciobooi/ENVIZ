@@ -116,5 +116,17 @@
         "content": "Kehren Sie jederzeit zur Eurostat-Hauptwebsite zurück."
       }
     }
+  },
+  "footer": {
+    "legal": "Rechtlicher Hinweis",
+    "privacy": "Datenschutz",
+    "cookies": "Cookies",
+    "accessibility": "Barrierefreiheit",
+    "ariaLabel": "Fußzeilennavigation",
+    "navAriaLabel": "Fußzeilenlinks",
+    "legalAriaLabel": "Rechtlichen Hinweis anzeigen",
+    "privacyAriaLabel": "Datenschutzerklärung anzeigen",
+    "cookiesAriaLabel": "Cookie-Richtlinie anzeigen",
+    "accessibilityAriaLabel": "Barrierefreiheitserklärung anzeigen"
   }
 }

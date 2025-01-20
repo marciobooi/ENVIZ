@@ -1,35 +1,46 @@
 .roundBtn {
-    color: var(--ecl-color-primary);
-    background: white;
-    border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem !important;
-    margin: 0 0.5rem 0 0.5rem;
+  color: var(--ecl-color-primary);
+  background: white;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem !important;
+  margin: 0 0.5rem 0 0.5rem;
 }
 
 .icon-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: stretch;
-    flex-direction: row;
-    gap: 0.4rem;
-    position: relative;
-    z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: stretch;
+  flex-direction: row;
+  gap: 0.4rem;
+  position: relative;
+  z-index: 1000;
 }
 
 button.ecl-link.ecl-link--standalone.ecl-link--icon.ecl-social-media-share__link {
-    border: none;
-    background-color: transparent;
+  border: none;
+  background-color: transparent;
 }
 
-button.ecl-button.ecl-button--primary:hover, button.ecl-button.ecl-button--primary:focus {
-   background-color: #fff;
-    border: 2px solid var(--c-p);
-    color: var(--c-p);
-    padding: calc(var(--s-xs) - 2px) calc(var(--s-m) - 2px);
+button.ecl-button.ecl-button--primary:hover,
+button.ecl-button.ecl-button--primary:focus {
+  background-color: #fff;
+  border: 2px solid var(--c-p);
+  color: var(--c-p);
+  padding: calc(var(--s-xs) - 2px) calc(var(--s-m) - 2px);
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
