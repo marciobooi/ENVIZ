@@ -1,11 +1,12 @@
-const getCardData = (t) => [
+
+const getCardData = (t, toggleModal) => [
   {
     id: 'enprices',
     imageUrl: '/ENPRICES.png',
     imageAlt: t('card.enprices.imageAlt'),
     title: t('card.enprices.title'),
     description: t('card.enprices.description'),
-    onCustomize: () => console.log('Customize electricity visualization'),
+    onCustomize: () => toggleModal('enprices'),
     onGoToTool: () =>
       (window.location.href =
         'https://ec.europa.eu/eurostat/cache/visualisations/energy-prices/enprices.html'),
