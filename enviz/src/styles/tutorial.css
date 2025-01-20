@@ -40,67 +40,26 @@ div.react-joyride__tooltip > div:nth-child(2) > button {
     text-decoration: none;
 }
 
-.react-joyride__button:focus {
-  outline: 2px solid var(--ecl-color-primary) !important;
-  outline-offset: 2px !important;
+div.react-joyride__tooltip > button:hover {
+    background-color: purple !important; /* Customize for hover */
+    border: 1px solid var(--c-p-hover);  /* Optional: Add border on hover */
 }
 
-.react-joyride__button:focus:not(:focus-visible) {
-  outline: none !important;
+/* skip btn */
+div.react-joyride__tooltip > div:nth-child(2) > div > button:hover {
+    background-color: red !important; /* Customize for hover */
+    border: 1px solid var(--c-p-hover);  /* Optional: Add border on hover */
 }
 
-[data-test-id="button-primary"] {
-    background-color: var(--c-p);
-    border: 0 solid var(--c-p);
-    color: #fff;
-    padding: calc(var(--s-xs)) calc(var(--s-m));
+
+/* back btn */
+div.react-joyride__tooltip > div:nth-child(2) > button:nth-child(2):hover {
+    background-color: yellow !important; /* Customize for hover */
+    border: 1px solid var(--c-p-hover);  /* Optional: Add border on hover */
 }
 
-.react-joyride__button--secondary {
-    background-color: #fff !important;
-    border: 2px solid var(--c-p) !important;
-    color: var(--c-p) !important;
-    padding: calc(var(--s-xs) - 2px) calc(var(--s-m) - 2px) !important;
-}
-
-.react-joyride__overlay {
-  transform: translateZ(0) !important;
-}
-
-.react-joyride__spotlight {
-  transform: translateZ(0) !important;
-    max-height: 100vh;
-  max-width: 100vw;
-  overflow: hidden;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-@media (forced-colors: active) {
-  .react-joyride__tooltip {
-    border: 2px solid ButtonText !important;
-  }
-
-  .react-joyride__button {
-    border: 1px solid ButtonText !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .react-joyride__tooltip,
-  .react-joyride__button,
-  .react-joyride__spotlight,
-  .react-joyride__overlay {
-    transition: none !important;
-  }
+/* next btn */
+div.react-joyride__tooltip > div:nth-child(2) > button:hover {
+    background-color: green !important; /* Customize for hover */
+    border: 1px solid var(--c-p-hover);  /* Optional: Add border on hover */
 }
