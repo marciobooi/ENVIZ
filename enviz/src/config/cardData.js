@@ -6,7 +6,9 @@ const getCardData = (t) => [
     title: t('card.enprices.title'),
     description: t('card.enprices.description'),
     onCustomize: () => console.log('Customize electricity visualization'),
-    onGoToTool: () => console.log('Go to electricity tool'),
+    onGoToTool: () =>
+      (window.location.href =
+        'https://ec.europa.eu/eurostat/cache/visualisations/energy-prices/enprices.html'),
   },
   {
     id: 'ensankey',
@@ -15,7 +17,9 @@ const getCardData = (t) => [
     title: t('card.ensankey.title'),
     description: t('card.ensankey.description'),
     onCustomize: () => console.log('Customize gas visualization'),
-    onGoToTool: () => console.log('Go to gas tool'),
+    onGoToTool: () =>
+      (window.location.href =
+        'https://ec.europa.eu/eurostat/cache/sankey/energy/sankey.html'),
   },
   {
     id: 'enmonthly',
@@ -24,7 +28,9 @@ const getCardData = (t) => [
     title: t('card.enmonthly.title'),
     description: t('card.enmonthly.description'),
     onCustomize: () => console.log('Customize gas visualization'),
-    onGoToTool: () => console.log('Go to gas tool'),
+    onGoToTool: () =>
+      (window.location.href =
+        'https://ec.europa.eu/eurostat/cache/visualisations/energy-monthly/enmonthly.html'),
   },
   {
     id: 'entrade',
@@ -33,7 +39,9 @@ const getCardData = (t) => [
     title: t('card.entrade.title'),
     description: t('card.entrade.description'),
     onCustomize: () => console.log('Customize gas visualization'),
-    onGoToTool: () => console.log('Go to gas tool'),
+    onGoToTool: () =>
+      (window.location.href =
+        'https://ec.europa.eu/eurostat/cache/visualisations/energy-trade/entrade.html'),
   },
   {
     id: 'enbal',
@@ -42,7 +50,9 @@ const getCardData = (t) => [
     title: t('card.enbal.title'),
     description: t('card.enbal.description'),
     onCustomize: () => console.log('Customize gas visualization'),
-    onGoToTool: () => console.log('Go to gas tool'),
+    onGoToTool: () =>
+      (window.location.href =
+        'https://ec.europa.eu/eurostat/cache/visualisations/energy-balances/enbal.html'),
   },
   {
     id: 'endash',
@@ -51,7 +61,9 @@ const getCardData = (t) => [
     title: t('card.endash.title'),
     description: t('card.endash.description'),
     onCustomize: () => console.log('Customize gas visualization'),
-    onGoToTool: () => console.log('Go to gas tool'),
+    onGoToTool: () =>
+      (window.location.href =
+        'https://ec.europa.eu/eurostat/cache/visualisations/energy-dashboard/endash.html'),
   },
   {
     id: 'shedthelight',
@@ -60,7 +72,9 @@ const getCardData = (t) => [
     title: t('card.shedthelight.title'),
     description: t('card.shedthelight.description'),
     onCustomize: () => console.log('Customize gas visualization'),
-    onGoToTool: () => console.log('Go to gas tool'),
+    onGoToTool: () =>
+      (window.location.href =
+        'https://ec.europa.eu/eurostat/web/interactive-publications/energy-2024'),
   },
   {
     id: 'EnergyScenarios',
@@ -69,7 +83,9 @@ const getCardData = (t) => [
     title: t('card.EnergyScenarios.title'),
     description: t('card.EnergyScenarios.description'),
     onCustomize: () => console.log('Customize gas visualization'),
-    onGoToTool: () => console.log('Go to gas tool'),
+    onGoToTool: () =>
+      (window.location.href =
+        'https://visitors-centre.jrc.ec.europa.eu/en/media/tools/energy-scenarios-explore-future-european-energy'),
   },
 ];
 
