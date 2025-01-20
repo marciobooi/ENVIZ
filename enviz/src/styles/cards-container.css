@@ -1,23 +1,35 @@
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   padding: 2rem;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
+/* Make the 7th card (shedthelight) span 2 columns */
+.cards-container > *:nth-child(7) {
+  grid-column: span 2;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* Ensure max 3 cards per row */
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .cards-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* Tablet view - 2 cards per row */
-@media (max-width: 1199px) and (min-width: 768px) {
+@media (max-width: 1023px) and (min-width: 768px) {
   .cards-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     padding: 1.5rem;
   }
 }
@@ -28,5 +40,10 @@
     grid-template-columns: 1fr;
     padding: 1rem;
     gap: 1.5rem;
+  }
+
+  /* Reset span on mobile */
+  .cards-container > *:nth-child(7) {
+    grid-column: 1;
   }
 }

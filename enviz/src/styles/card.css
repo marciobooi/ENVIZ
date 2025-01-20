@@ -22,6 +22,7 @@
 
 h2.ecl-link.ecl-link--standalone {
  cursor: default;
+ font-size: clamp(1.2rem, 2.5vw, 1.6rem);    
 }
 
 .ecl-card__actions {
@@ -40,6 +41,10 @@ h2.ecl-link.ecl-link--standalone {
     margin-right: 0; /* Removes extra space after the last button */
 }
 
+.ecl-card__image {  
+    max-height: 40vh;
+    height: 40vh;
+}
 
 /* High contrast mode support */
 @media (forced-colors: active) {

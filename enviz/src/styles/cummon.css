@@ -26,3 +26,10 @@ button.ecl-link.ecl-link--standalone.ecl-link--icon.ecl-social-media-share__link
     border: none;
     background-color: transparent;
 }
+
+button.ecl-button.ecl-button--primary:hover, button.ecl-button.ecl-button--primary:focus {
+   background-color: #fff;
+    border: 2px solid var(--c-p);
+    color: var(--c-p);
+    padding: calc(var(--s-xs) - 2px) calc(var(--s-m) - 2px);
+}
