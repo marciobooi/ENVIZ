@@ -23,7 +23,6 @@ const Card = ({ imageUrl, imageAlt, title, description, onCustomize, onGoToTool 
                         {description}
                     </div>
                 </div>
-              
             </div>
             <div className="ecl-card__actions">
                 <button
@@ -48,6 +47,7 @@ const Card = ({ imageUrl, imageAlt, title, description, onCustomize, onGoToTool 
 };
 
 Card.propTypes = {
+    id: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
     imageAlt: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
