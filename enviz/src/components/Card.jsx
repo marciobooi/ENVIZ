@@ -55,13 +55,16 @@ const Card = forwardRef(({ id, imageUrl, imageAlt, title, description, onCustomi
             </div>
             <div className="ecl-card__actions">
                 <button
+                    id="modal-toggle"
+                    aria-controls="modal-example"
+                    aria-haspopup="dialog"
                     className="ecl-button ecl-button--secondary"
                     onClick={onCustomize}
                     type="button"
                     aria-label={t('card.customizeButton')}
                 >
                     {t('card.customizeButton')}
-                </button>
+                </button> 
                 <button
                     className="ecl-button ecl-button--primary"
                     onClick={onGoToTool}

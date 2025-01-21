@@ -1,18 +1,28 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
 
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React</title>
+  <script src="/src/utils/ecl-ec.js"></script>
+</head>
 
+<body>
+  <div id="root"></div>
 
+  <script type="module" src="/src/main.jsx"></script>
 
+  <!-- Move this script to the end to make sure ECL is initialized after the page is loaded -->
+  <script>
+    if (window.ECL && typeof window.ECL.autoInit === 'function') {
+      ECL.autoInit();
+      console.log(window.ECL);
+    } else {
+      console.error("ECL not found or autoInit is not a function.");
+    }
+  </script>
+</body>
 
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
 </html>

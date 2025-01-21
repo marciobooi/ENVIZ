@@ -12,7 +12,7 @@ const Enprices = ({ isOpen, onClose }) => {
     useEffect(() => {
         if (!isOpen) return; // Only fetch when the modal is open
 
-        const fetchCountries = async () => {
+        const fetchEurostatData = async () => {
             setLoading(true);
             setError(null);
 
@@ -37,7 +37,7 @@ const Enprices = ({ isOpen, onClose }) => {
             }
         };
 
-        fetchCountries();
+        fetchEurostatData();
     }, [isOpen]);
 
     const handleSelectChange = (e) => {

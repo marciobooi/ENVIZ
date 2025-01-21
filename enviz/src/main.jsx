@@ -10,8 +10,6 @@ import './index.css'
 import App from './App.jsx'
 import './i18n'
 
-import '@ecl/preset-ec/dist/scripts/ecl-ec.js';
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
