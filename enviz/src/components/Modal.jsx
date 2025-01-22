@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
+import "../styles/modal.css";
+
 const ModalComponent = ({
     isOpen,
     modalTitle = "Modal title",
@@ -111,10 +113,8 @@ const ModalComponent = ({
                                 </button>
                             </header>
 
-                            <div className="ecl-modal__body ecl-modal__body--has-scroll">
-                                <div className="ecl-modal__body-scroll" data-ecl-modal-scroll="">
-                                    {bodyContent}
-                                </div>
+                            <div className="ecl-modal__body">
+                                {bodyContent}
                             </div>
 
                             <footer className="ecl-modal__footer">

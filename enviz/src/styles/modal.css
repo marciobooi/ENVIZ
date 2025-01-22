@@ -1,0 +1,7 @@
+.ecl-modal {
+    z-index: 9999;
+}
+
+.ecl-modal--full .ecl-modal__content {
+    height: 90vh;   
+}
