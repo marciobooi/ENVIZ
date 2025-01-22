@@ -197,5 +197,20 @@
       "selectedCount": "{{count}} countries selected",
       "noSelection": "No countries selected"
     }
+  },
+  "modal": {
+    "close": "Close",
+    "submit": "Submit",
+    "aria": {
+      "closeModal": "Close modal",
+      "submitModal": "Submit and close modal"
+    }
+  },
+  "select": {
+    "toggleDropdown": "Toggle dropdown",
+    "aria": {
+      "select": "Select an option",
+      "selected": "Selected option: {{option}}"
+    }
   }
 }
