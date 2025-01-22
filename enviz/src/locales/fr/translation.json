@@ -37,7 +37,59 @@
     "enprices": {
       "imageAlt": "Outil de visualisation des prix de l'énergie",
       "title": "Prix de l'électricité",
-      "description": "Visualisez les prix de l'électricité et du gaz naturel dans l'UE ou votre pays."
+      "description": "Visualisez les prix de l'électricité et du gaz naturel dans l'UE ou votre pays.",
+      "title": "Configuration des prix de l'énergie",
+      "year": {
+        "label": "Sélectionner l'année",
+        "helper": "Choisir l'année de référence"
+      },
+      "fuel": {
+        "label": "Type d'énergie",
+        "helper": "Choisir entre électricité ou gaz",
+        "electricity": "Électricité",
+        "gas": "Gaz naturel"
+      },
+      "consumer": {
+        "label": "Type de consommateur",
+        "helper": "Choisir entre ménages ou non-ménages",
+        "household": "Ménages",
+        "nonHousehold": "Non-ménages"
+      },
+      "consumption": {
+        "label": "Niveau de consommation",
+        "helper": "Sélectionner la tranche de consommation",
+        "lt1000": "Moins de 1000 kWh",
+        "ge15000": "15000 kWh ou plus",
+        "5000to14999": "5000-14999 kWh",
+        "2500to4999": "2500-4999 kWh",
+        "1000to2499": "1000-2499 kWh"
+      },
+      "currency": {
+        "label": "Devise",
+        "helper": "Sélectionner la devise d'affichage",
+        "eur": "Euro",
+        "pps": "Standard de pouvoir d'achat"
+      },
+      "unit": {
+        "label": "Unité",
+        "helper": "Sélectionner l'unité de mesure",
+        "kwh": "Kilowattheure (kWh)",
+        "mwh": "Mégawattheure (MWh)"
+      },
+      "component": {
+        "label": "Composante de prix",
+        "helper": "Sélectionner les composantes de prix à afficher",
+        "total": "Prix total",
+        "energy": "Énergie et fourniture",
+        "network": "Coûts de réseau",
+        "tax": "Taxes et prélèvements"
+      },
+      "details": {
+        "label": "Niveau de détail",
+        "helper": "Choisir le niveau de détail",
+        "main": "Indicateurs principaux",
+        "detailed": "Détail complet"
+      }
     },
     "ensankey": {
       "imageAlt": "Outil de visualisation des diagrammes de Sankey",

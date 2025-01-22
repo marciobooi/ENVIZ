@@ -37,7 +37,58 @@
     "enprices": {
       "imageAlt": "Energiepreise-Visualisierungstool",
       "title": "Strompreise",
-      "description": "Visualisieren Sie Strom- und Erdgaspreise in der EU oder Ihrem Land."
+      "description": "Visualisieren Sie Strom- und Erdgaspreise in der EU oder Ihrem Land.",
+      "year": {
+        "label": "Jahr auswählen",
+        "helper": "Wählen Sie das Bezugsjahr"
+      },
+      "fuel": {
+        "label": "Energieträger",
+        "helper": "Wählen Sie zwischen Strom oder Gas",
+        "electricity": "Strom",
+        "gas": "Erdgas"
+      },
+      "consumer": {
+        "label": "Verbrauchertyp",
+        "helper": "Wählen Sie zwischen Haushalten und Nicht-Haushalten",
+        "household": "Haushalte",
+        "nonHousehold": "Nicht-Haushalte"
+      },
+      "consumption": {
+        "label": "Verbrauchsniveau",
+        "helper": "Wählen Sie die Verbrauchsklasse",
+        "lt1000": "Weniger als 1000 kWh",
+        "ge15000": "15000 kWh oder mehr",
+        "5000to14999": "5000-14999 kWh",
+        "2500to4999": "2500-4999 kWh",
+        "1000to2499": "1000-2499 kWh"
+      },
+      "currency": {
+        "label": "Währung",
+        "helper": "Wählen Sie die Anzeigewährung",
+        "eur": "Euro",
+        "pps": "Kaufkraftstandard"
+      },
+      "unit": {
+        "label": "Einheit",
+        "helper": "Wählen Sie die Maßeinheit",
+        "kwh": "Kilowattstunde (kWh)",
+        "mwh": "Megawattstunde (MWh)"
+      },
+      "component": {
+        "label": "Preiskomponente",
+        "helper": "Wählen Sie die anzuzeigenden Preiskomponenten",
+        "total": "Gesamtpreis",
+        "energy": "Energie und Lieferung",
+        "network": "Netzkosten",
+        "tax": "Steuern und Abgaben"
+      },
+      "details": {
+        "label": "Detailgrad",
+        "helper": "Wählen Sie den Detailgrad",
+        "main": "Hauptindikatoren",
+        "detailed": "Detaillierte Aufschlüsselung"
+      }
     },
     "ensankey": {
       "imageAlt": "Sankey-Diagramm-Visualisierungstool",

@@ -1,51 +1,97 @@
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import { useState, useEffect, useRef } from "react";
 
 
 const SelectComponent = ({
     label = "Select a country",
     required = true,
-    helperText = "This is the input's helper text.",
     options = [],
     optgroups = [],
     name = "country",
-    selectedValue = "",
+    value = "",
     onChange,
 }) => {
     const { t } = useTranslation();
+    const [isOpen, setIsOpen] = useState(false);
+    const selectRef = useRef(null);
+    const buttonRef = useRef(null);
+
+    useEffect(() => {
+        const select = selectRef.current;
+
+        const handleSelectChange = () => {
+            onChange(select.value);
+            setIsOpen(false);
+        };
+
+        const handleFocus = () => {
+            setIsOpen(true);
+        };
+
+        const handleBlur = () => {
+            requestAnimationFrame(() => {
+                if (document.activeElement !== select) {
+                    setIsOpen(false);
+                }
+            });
+        };
+
+        const handleClickOutside = (event) => {
+            if (select && !select.contains(event.target) &&
+                buttonRef.current && !buttonRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        if (select) {
+            select.addEventListener('change', handleSelectChange);
+            select.addEventListener('focus', handleFocus);
+            select.addEventListener('blur', handleBlur);
+            document.addEventListener('click', handleClickOutside);
+        }
+
+        return () => {
+            if (select) {
+                select.removeEventListener('change', handleSelectChange);
+                select.removeEventListener('focus', handleFocus);
+                select.removeEventListener('blur', handleBlur);
+                document.removeEventListener('click', handleClickOutside);
+            }
+        };
+    }, [onChange]);
+
+    const handleToggle = () => {
+        setIsOpen(!isOpen);
+        if (!isOpen) {
+            selectRef.current?.focus();
+        }
+    };
 
     return (
         <div className="ecl-form-group">
             <label
-                htmlFor="select-default"
-                id="select-default-label"
+                htmlFor={name}
+                id={`select-${name}-label`}
                 className="ecl-form-label"
             >
                 {label}
-                {required && (
-                    <span
-                        className="ecl-form-label__required"
-                        role="note"
-                        aria-label="required"
-                    >
-                        *
-                    </span>
-                )}
+
             </label>
-            <div className="ecl-help-block" id="select-default-helper">
-                {helperText}
-            </div>
+
             <div className="ecl-select__container ecl-select__container--m">
                 <select
+                    ref={selectRef}
                     className="ecl-select"
-                    id="select-default"
+                    id={name}
                     name={name}
                     required={required}
-                    aria-describedby="select-default-helper"
+                    aria-describedby={`select-${name}-helper`}
                     data-ecl-auto-init="Select"
-                    value={selectedValue}
-                    onChange={(e) => onChange && onChange(e.target.value)}
+                    value={value}
+                    onChange={(e) => onChange(e.target.value)}
                 >
+                    <option value="" disabled>Select an option</option>
                     {optgroups.map((group, index) => (
                         <optgroup key={index} label={group.label}>
                             {group.options.map((option) => (
@@ -73,16 +119,20 @@ const SelectComponent = ({
                 </select>
                 <div className="ecl-select__icon">
                     <button
+                        ref={buttonRef}
                         className="ecl-button ecl-button--ghost ecl-button--icon-only"
-                        type="button"
                         tabIndex="-1"
+                        onClick={handleToggle}
                     >
                         <span className="ecl-button__container">
-                            <span className="ecl-button__label" data-ecl-label="true">
-                                {t('select.toggleDropdown')}
-                            </span>
-                            <svg className="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon" focusable="false" aria-hidden="true">
-                                <use xlinkHref="/icons.svg#corner-arrow"></use>
+                            <span className="ecl-button__label">{t('multiSelect.toggleDropdown')}</span>
+                            <svg
+                                className={`ecl-icon ecl-icon--s ${isOpen ? '' : 'ecl-icon--rotate-180'}`}
+                                viewBox="0 0 48 48"
+                                focusable="false"
+                                aria-hidden="true"
+                            >
+                                <path fillRule="evenodd" d="m45 30.12-2.73 2.82-18.24-18.36L5.73 33 3 30.18 24.03 9z" clipRule="evenodd" />
                             </svg>
                         </span>
                     </button>
@@ -98,10 +148,9 @@ SelectComponent.propTypes = {
     helperText: PropTypes.string,
     options: PropTypes.arrayOf(
         PropTypes.shape({
-            value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-                .isRequired,
+            value: PropTypes.string.isRequired,
             label: PropTypes.string.isRequired,
-            disabled: PropTypes.bool,
+            disabled: PropTypes.bool
         })
     ),
     optgroups: PropTypes.arrayOf(
@@ -109,17 +158,16 @@ SelectComponent.propTypes = {
             label: PropTypes.string.isRequired,
             options: PropTypes.arrayOf(
                 PropTypes.shape({
-                    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-                        .isRequired,
+                    value: PropTypes.string.isRequired,
                     label: PropTypes.string.isRequired,
-                    disabled: PropTypes.bool,
+                    disabled: PropTypes.bool
                 })
-            ).isRequired,
+            ).isRequired
         })
     ),
     name: PropTypes.string,
-    selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onChange: PropTypes.func,
+    value: PropTypes.string,
+    onChange: PropTypes.func.isRequired
 };
 
 export default SelectComponent;

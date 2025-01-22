@@ -167,20 +167,7 @@ const MultiSelect = ({ onChange }) => {
                 className="ecl-form-label"
             >
                 {t('multiSelect.label')}
-                <span
-                    className="ecl-form-label__required"
-                    role="note"
-                    aria-label={t('multiSelect.required')}
-                >
-                    *
-                </span>
             </label>
-            <div
-                className="ecl-help-block"
-                id="select-multiple-helper"
-            >
-                {t('multiSelect.helper')}
-            </div>
             <div className="ecl-select__container ecl-select__container--m ecl-select__container--hidden">
                 <select
                     ref={selectRef}

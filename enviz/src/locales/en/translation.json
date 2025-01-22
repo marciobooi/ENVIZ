@@ -33,11 +33,7 @@
     "containerLabel": "Energy visualization tools",
     "descriptionLabel": "Tool description",
     "actionsLabel": "Tool actions",
-    "enprices": {
-      "imageAlt": "Energy prices visualization tool",
-      "title": "Electricity Prices",
-      "description": "Visualise electricity and natural gas prices in the EU or your country."
-    },
+
     "ensankey": {
       "imageAlt": "Sankey diagram visualization tool",
       "title": "Sankey diagram - energy flows",
@@ -72,6 +68,11 @@
       "imageAlt": "Energy scenarios tool",
       "title": "Energy scenarios",
       "description": "Explore historical and future energy use with the JRC interactive tool. This tool is not from Eurostat, but from the Joint Research"
+    },
+    "enprices": {
+      "imageAlt": "Energy prices visualization tool",
+      "title": "Energy Prices Configuration",
+      "description": "Visualise electricity and natural gas prices in the EU or your country."
     }
   },
   "tooltips": {
@@ -129,9 +130,8 @@
     "accessibilityAriaLabel": "View accessibility statement"
   },
   "multiSelect": {
-    "label": "Select countries",
+    "label": "Select one or more countries",
     "required": "required",
-    "helper": "Select one or more countries",
     "placeholder": "Choose options",
     "searchPlaceholder": "Enter filter keyword",
     "selectAll": "Select all",
@@ -211,6 +211,62 @@
     "aria": {
       "select": "Select an option",
       "selected": "Selected option: {{option}}"
+    }
+  },
+  "enprices": {
+    "imageAlt": "Energy prices visualization tool",
+    "title": "Energy Prices Configuration",
+    "description": "Visualise electricity and natural gas prices in the EU or your country.",
+    "year": {
+      "label": "Select year",
+      "helper": "Choose the reference year"
+    },
+    "fuel": {
+      "label": "Select fuel type",
+      "helper": "Choose between electricity or gas",
+      "electricity": "Electricity",
+      "gas": "Natural gas"
+    },
+    "consumer": {
+      "label": "Select consumer type",
+      "helper": "Choose between household or non-household consumers",
+      "household": "Household",
+      "nonHousehold": "Non-household"
+    },
+    "consumption": {
+      "label": "Consumption level",
+      "helper": "Select the consumption band",
+      "lt1000": "Less than 1000 kWh",
+      "ge15000": "15000 kWh or more",
+      "5000to14999": "5000-14999 kWh",
+      "2500to4999": "2500-4999 kWh",
+      "1000to2499": "1000-2499 kWh"
+    },
+    "currency": {
+      "label": "Currency",
+      "helper": "Select the currency for display",
+      "eur": "Euro",
+      "pps": "Purchasing Power Standard"
+    },
+    "unit": {
+      "label": "Unit",
+      "helper": "Select the measurement unit",
+      "kwh": "Kilowatt hour (kWh)",
+      "mwh": "Megawatt hour (MWh)"
+    },
+    "component": {
+      "label": "Price component",
+      "helper": "Select which price components to display",
+      "total": "Total price",
+      "energy": "Energy and supply",
+      "network": "Network costs",
+      "tax": "Taxes and levies"
+    },
+    "details": {
+      "label": "Detail level",
+      "helper": "Choose the level of detail",
+      "main": "Main indicators",
+      "detailed": "Detailed breakdown"
     }
   }
 }
