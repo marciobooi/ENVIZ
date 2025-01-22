@@ -5,24 +5,52 @@ import Select from './Select';
 import MultiSelect from './MultiSelect';
 import RadioGroupComponent from './Radio';
 import { useTranslation } from 'react-i18next';
+import {
+    DEFAULTS,
+    getDatasetCode,
+    getConsumptionLevels,
+    getUnits,
+    getCurrencies,
+    getPriceDataset
+} from '../config/enpricesConfig';
 import '../styles/enprices.css';
 
 const Enprices = ({ isOpen, onClose }) => {
     const { t } = useTranslation();
+    const [currentDataset, setCurrentDataset] = useState(
+        getDatasetCode(DEFAULTS.dataset, DEFAULTS.fuel, DEFAULTS.consumer, DEFAULTS.component)
+    );
     const [formData, setFormData] = useState({
         countries: [],
         year: '',
-        fuel: '6000',
-        consumer: 'N_HOUSEHOLD',
-        consumptionLevel: 'KWH_LT1000',
-        currency: 'EUR',
-        unit: 'KWH',
-        component: 'total',
-        details: 'main'
+        ...DEFAULTS
     });
 
     const handleChange = (field, value) => {
-        setFormData(prev => ({ ...prev, [field]: value }));
+        let newFormData = { ...formData, [field]: value };
+
+        // If fuel, consumer, or component changes, we need to update the dataset
+        if (['fuel', 'consumer', 'component'].includes(field)) {
+            const newDataset = getDatasetCode(
+                field === 'fuel' ? value : formData.fuel,
+                field === 'consumer' ? value : formData.consumer,
+                field === 'component' ? value : formData.component === 'true'
+            );
+
+            setCurrentDataset(newDataset);
+
+            // Update consumption levels and units based on new dataset
+            const newConsumptionLevels = getConsumptionLevels(newDataset);
+            const newUnits = getUnits(newDataset);
+
+            newFormData = {
+                ...newFormData,
+                consumptionLevel: newConsumptionLevels[0],
+                unit: newUnits[0]
+            };
+        }
+
+        setFormData(newFormData);
     };
 
     // Select options
@@ -41,23 +69,20 @@ const Enprices = ({ isOpen, onClose }) => {
         { value: 'HOUSEHOLD', label: t('enprices.consumer.household') }
     ];
 
-    const consumptionOptions = [
-        { value: 'KWH_LT1000', label: t('enprices.consumption.lt1000') },
-        { value: 'KWH_GE15000', label: t('enprices.consumption.ge15000') },
-        { value: 'KWH5000-14999', label: t('enprices.consumption.5000to14999') },
-        { value: 'KWH2500-4999', label: t('enprices.consumption.2500to4999') },
-        { value: 'KWH1000-2499', label: t('enprices.consumption.1000to2499') }
-    ];
+    const consumptionOptions = getConsumptionLevels(currentDataset).map(level => ({
+        value: level,
+        label: t(`enprices.consumption.${level.toLowerCase()}`)
+    }));
 
-    const currencyOptions = [
-        { value: 'EUR', label: t('enprices.currency.eur') },
-        { value: 'PPS', label: t('enprices.currency.pps') }
-    ];
+    const currencyOptions = getCurrencies(currentDataset).map(currency => ({
+        value: currency,
+        label: t(`enprices.currency.${currency.toLowerCase()}`)
+    }));
 
-    const unitOptions = [
-        { value: 'KWH', label: t('enprices.unit.kwh') },
-        { value: 'MWH', label: t('enprices.unit.mwh') }
-    ];
+    const unitOptions = getUnits(currentDataset).map(unit => ({
+        value: unit,
+        label: t(`enprices.unit.${unit.toLowerCase()}`)
+    }));
 
     const handleSubmit = () => {
         // Handle form submission
@@ -142,9 +167,8 @@ const Enprices = ({ isOpen, onClose }) => {
                         helperText={t('enprices.component.helper')}
                         name="component"
                         options={[
-                            { value: 'true', label: "yes" },
-                            { value: 'false', label: "no" },
-   
+                            { value: 'true', label: t('common.yes') },
+                            { value: 'false', label: t('common.no') }
                         ]}
                         value={formData.component}
                         onChange={(value) => handleChange('component', value)}
@@ -156,8 +180,8 @@ const Enprices = ({ isOpen, onClose }) => {
                         helperText={t('enprices.details.helper')}
                         name="details"
                         options={[
-                            { value: 'true', label: "yes" },
-                            { value: 'false', label: "no" },
+                            { value: 'true', label: t('common.yes') },
+                            { value: 'false', label: t('common.no') }
                         ]}
                         value={formData.details}
                         onChange={(value) => handleChange('details', value)}

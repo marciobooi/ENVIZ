@@ -222,19 +222,19 @@
       "helper": "Choose the reference year"
     },
     "fuel": {
-      "label": "Select fuel type",
+      "label": "Select fuel",
       "helper": "Choose between electricity or gas",
       "electricity": "Electricity",
       "gas": "Natural gas"
     },
     "consumer": {
-      "label": "Select consumer type",
+      "label": "Select consumer",
       "helper": "Choose between household or non-household consumers",
       "household": "Household",
       "nonHousehold": "Non-household"
     },
     "consumption": {
-      "label": "Consumption level",
+      "label": "Select consumption level",
       "helper": "Select the consumption band",
       "lt1000": "Less than 1000 kWh",
       "ge15000": "15000 kWh or more",
@@ -243,30 +243,28 @@
       "1000to2499": "1000-2499 kWh"
     },
     "currency": {
-      "label": "Currency",
+      "label": "Select currency",
       "helper": "Select the currency for display",
       "eur": "Euro",
       "pps": "Purchasing Power Standard"
     },
     "unit": {
-      "label": "Unit",
+      "label": "Select unit",
       "helper": "Select the measurement unit",
       "kwh": "Kilowatt hour (kWh)",
       "mwh": "Megawatt hour (MWh)"
     },
     "component": {
-      "label": "Price component",
-      "helper": "Select which price components to display",
-      "total": "Total price",
-      "energy": "Energy and supply",
-      "network": "Network costs",
-      "tax": "Taxes and levies"
+      "label": "Select components",
+      "helper": "Select which price components to display"
     },
     "details": {
-      "label": "Detail level",
-      "helper": "Choose the level of detail",
-      "main": "Main indicators",
-      "detailed": "Detailed breakdown"
+      "label": "Select details",
+      "helper": "Choose the level of detail"
     }
+  },
+  "common": {
+    "yes": "Yes",
+    "no": "No"
   }
 }

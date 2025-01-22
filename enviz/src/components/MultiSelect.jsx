@@ -95,7 +95,6 @@ const MultiSelect = ({ onChange }) => {
                 const select = new window.ECL.Select(currentRef);
                 select.init();
                 currentRef.setAttribute('data-ecl-auto-initialized', 'true');
-                console.log('ECL Select initialized:', select);
             } catch (error) {
                 console.error('Failed to initialize ECL Select:', error);
             }
