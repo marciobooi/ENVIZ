@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 
 const SelectComponent = ({
@@ -11,6 +12,8 @@ const SelectComponent = ({
     selectedValue = "",
     onChange,
 }) => {
+    const { t } = useTranslation();
+
     return (
         <div className="ecl-form-group">
             <label
@@ -76,15 +79,10 @@ const SelectComponent = ({
                     >
                         <span className="ecl-button__container">
                             <span className="ecl-button__label" data-ecl-label="true">
-                                Toggle dropdown
+                                {t('select.toggleDropdown')}
                             </span>
-                            <svg
-                                className="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
-                                focusable="false"
-                                aria-hidden="true"
-                                data-ecl-icon=""
-                            >
-                                <use xlinkHref="static/media/icons.e3d8f25c.svg#corner-arrow"></use>
+                            <svg className="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon" focusable="false" aria-hidden="true">
+                                <use xlinkHref="/icons.svg#corner-arrow"></use>
                             </svg>
                         </span>
                     </button>

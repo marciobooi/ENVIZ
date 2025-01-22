@@ -128,5 +128,90 @@
     "privacyAriaLabel": "Datenschutzerklärung anzeigen",
     "cookiesAriaLabel": "Cookie-Richtlinie anzeigen",
     "accessibilityAriaLabel": "Barrierefreiheitserklärung anzeigen"
+  },
+  "multiSelect": {
+    "label": "Länder auswählen",
+    "required": "erforderlich",
+    "helper": "Wählen Sie ein oder mehrere Länder aus",
+    "placeholder": "Optionen auswählen",
+    "searchPlaceholder": "Suchbegriff eingeben",
+    "selectAll": "Alle auswählen",
+    "apply": "Anwenden",
+    "clearAll": "Alle löschen",
+    "toggleDropdown": "Dropdown-Liste umschalten",
+    "groups": {
+      "aggregates": "Aggregate",
+      "euCountries": "EU-Länder",
+      "eftaCountries": "EFTA-Länder",
+      "enlargementCountries": "Erweiterungsländer"
+    },
+    "countries": {
+      "EU27_2020": "EU (27 Länder)",
+      "EA": "Euroraum",
+      "BE": "Belgien",
+      "BG": "Bulgarien",
+      "CZ": "Tschechien",
+      "DK": "Dänemark",
+      "DE": "Deutschland",
+      "EE": "Estland",
+      "IE": "Irland",
+      "EL": "Griechenland",
+      "ES": "Spanien",
+      "FR": "Frankreich",
+      "HR": "Kroatien",
+      "IT": "Italien",
+      "CY": "Zypern",
+      "LV": "Lettland",
+      "LT": "Litauen",
+      "LU": "Luxemburg",
+      "HU": "Ungarn",
+      "MT": "Malta",
+      "NL": "Niederlande",
+      "AT": "Österreich",
+      "PL": "Polen",
+      "PT": "Portugal",
+      "RO": "Rumänien",
+      "SI": "Slowenien",
+      "SK": "Slowakei",
+      "FI": "Finnland",
+      "SE": "Schweden",
+      "IS": "Island",
+      "LI": "Liechtenstein",
+      "NO": "Norwegen",
+      "BA": "Bosnien und Herzegowina",
+      "ME": "Montenegro",
+      "MD": "Moldau",
+      "MK": "Nordmazedonien",
+      "GE": "Georgien",
+      "AL": "Albanien",
+      "RS": "Serbien",
+      "TR": "Türkiye",
+      "UA": "Ukraine",
+      "XK": "Kosovo"
+    },
+    "aria": {
+      "countrySelector": "Länderauswahl",
+      "dropdownDialog": "Länderauswahl-Dialog",
+      "searchInput": "Länder suchen",
+      "selectAllCheckbox": "Alle Länder auswählen",
+      "countryCheckbox": "{{country}} auswählen",
+      "selectedCount": "{{count}} Länder ausgewählt",
+      "noSelection": "Keine Länder ausgewählt"
+    }
+  },
+  "modal": {
+    "close": "Schließen",
+    "submit": "Bestätigen",
+    "aria": {
+      "closeModal": "Modal schließen",
+      "submitModal": "Bestätigen und Modal schließen"
+    }
+  },
+  "select": {
+    "toggleDropdown": "Dropdown-Liste umschalten",
+    "aria": {
+      "select": "Option auswählen",
+      "selected": "Ausgewählte Option: {{option}}"
+    }
   }
 }

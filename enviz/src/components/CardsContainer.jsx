@@ -1,24 +1,14 @@
 import Card from './Card';
-import ModalComponent from './Modal';
 import '../styles/cards-container.css';
 import { useTranslation } from 'react-i18next';
 import getCardData from '../config/cardData';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import PropTypes from 'prop-types';
 
-const CardsContainer = () => {
+const CardsContainer = ({ toggleModal }) => {
     const { t } = useTranslation();
-
-    // Declare toggleModal function first to avoid accessing it before initialization
-    const toggleModal = (cardId) => {
-        setModalState((prevState) => ({
-            isOpen: !prevState.isOpen,
-            cardId: cardId || null, // Set cardId when opening
-        }));
-    };
-
-    const cardData = getCardData(t, toggleModal); // Now it's accessible here
+    const cardData = getCardData(t, toggleModal);
     const cardRefs = useRef(new Map());
-    const [modalState, setModalState] = useState({ isOpen: false, cardId: null });
 
     const handleCardKeyDown = (event, currentIndex) => {
         const totalCards = cardData.length;
@@ -63,19 +53,12 @@ const CardsContainer = () => {
                     onKeyDown={(e) => handleCardKeyDown(e, index)}
                 />
             ))}
-            {/* Pass isOpen to ModalComponent */}
-            <ModalComponent
-                isOpen={modalState.isOpen} // Ensure this is passed
-                onClose={() => toggleModal(null)}
-                modalTitle="Card Details"
-                bodyContent={
-                    modalState.cardId
-                        ? `Details about card with ID: ${modalState.cardId}`
-                        : 'No card selected.'
-                }
-            />
         </div>
     );
+};
+
+CardsContainer.propTypes = {
+    toggleModal: PropTypes.func.isRequired
 };
 
 export default CardsContainer;

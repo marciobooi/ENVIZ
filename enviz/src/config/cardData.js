@@ -1,4 +1,3 @@
-
 const getCardData = (t, toggleModal) => [
   {
     id: 'enprices',

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 const ModalComponent = ({
     isOpen,
@@ -8,6 +9,7 @@ const ModalComponent = ({
     onClose,
     onSubmit,
 }) => {
+    const { t } = useTranslation();
     const modalRef = useRef(null);
     const previousActiveElement = useRef(null);
 
@@ -75,71 +77,71 @@ const ModalComponent = ({
 
     return (
         <>
-            {/* Modal Dialog */}
-            <dialog
-                ref={modalRef}
-                id="modal-example"
-                data-ecl-auto-init="Modal"
-                data-ecl-modal-toggle="modal-toggle"
-                aria-modal="true"
-                className="ecl-modal ecl-modal--full"
-                aria-labelledby="modal-example-header"
-                open={isOpen ? true : false}
-                tabIndex="-1" // Makes the dialog focusable
-            >
-                <div className="ecl-modal__container">
-                    <div className="ecl-modal__content ecl-container">
-                        {/* Modal Header */}
-                        <header className="ecl-modal__header">
-                            <div className="ecl-modal__header-content" id="modal-example-header">
-                                {modalTitle}
-                            </div>
-                            <button
-                                className="ecl-button ecl-button--tertiary ecl-modal__close"
-                                type="button"
-                                data-ecl-modal-close=""
-                                onClick={handleClose}
-                            >
-                                <span className="ecl-button__container">
-                                    <span className="ecl-button__label" data-ecl-label="true">Close</span>
-                                    <svg className="ecl-icon ecl-icon--m ecl-button__icon" focusable="false" aria-hidden="true" data-ecl-icon="">
-                                        <use xlinkHref="static/media/icons.e3d8f25c.svg#close" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </header>
-
-                        {/* Modal Body */}
-                        <div className="ecl-modal__body ecl-modal__body--has-scroll">
-                            <div className="ecl-modal__body-scroll" data-ecl-modal-scroll="">
-                                {bodyContent}
-                            </div>
-                            <div className="ecl-modal__body-overflow" aria-hidden="true"></div>
-                        </div>
-
-                        {/* Modal Footer */}
-                        <footer className="ecl-modal__footer">
-                            <div className="ecl-modal__footer-content">
+            {isOpen && (
+                <dialog
+                    ref={modalRef}
+                    id="modal-example"
+                    data-ecl-auto-init="Modal"
+                    data-ecl-modal-toggle="modal-toggle"
+                    aria-modal="true"
+                    className="ecl-modal ecl-modal--full"
+                    aria-labelledby="modal-example-header"
+                    open={true}
+                    tabIndex="-1"
+                >
+                    <div className="ecl-modal__container">
+                        <div className="ecl-modal__content ecl-container">
+                            <header className="ecl-modal__header">
+                                <div className="ecl-modal__header-content" id="modal-example-header">
+                                    {modalTitle}
+                                </div>
                                 <button
-                                    className="ecl-button ecl-button--secondary ecl-modal__button"
+                                    className="ecl-button ecl-button--tertiary ecl-modal__close"
                                     type="button"
                                     data-ecl-modal-close=""
                                     onClick={handleClose}
+                                    aria-label={t('modal.aria.closeModal')}
                                 >
-                                    Close
+                                    <span className="ecl-button__container">
+                                        <span className="ecl-button__label" data-ecl-label="true">{t('modal.close')}</span>
+                                        <svg className="ecl-icon ecl-icon--m ecl-button__icon" focusable="false" aria-hidden="true" data-ecl-icon="">
+                                            <use xlinkHref="static/media/icons.e3d8f25c.svg#close" />
+                                        </svg>
+                                    </span>
                                 </button>
-                                <button
-                                    className="ecl-button ecl-button--primary ecl-modal__button"
-                                    type="submit"
-                                    onClick={handleSubmit}
-                                >
-                                    Submit
-                                </button>
+                            </header>
+
+                            <div className="ecl-modal__body ecl-modal__body--has-scroll">
+                                <div className="ecl-modal__body-scroll" data-ecl-modal-scroll="">
+                                    {bodyContent}
+                                </div>
                             </div>
-                        </footer>
+
+                            <footer className="ecl-modal__footer">
+                                <div className="ecl-modal__footer-content">
+                                    <button
+                                        className="ecl-button ecl-button--secondary ecl-modal__button"
+                                        type="button"
+                                        data-ecl-modal-close=""
+                                        onClick={handleClose}
+                                        aria-label={t('modal.aria.closeModal')}
+                                    >
+                                        {t('modal.close')}
+                                    </button>
+                                    <button
+                                        className="ecl-button ecl-button--primary ecl-modal__button"
+                                        type="submit"
+                                        onClick={handleSubmit}
+                                        aria-label={t('modal.aria.submitModal')}
+                                    >
+                                        {t('modal.submit')}
+                                    </button>
+                                </div>
+                            </footer>
+                        </div>
                     </div>
-                </div>
-            </dialog>
+                </dialog>
+            )}
         </>
     );
 };

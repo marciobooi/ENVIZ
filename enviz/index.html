@@ -5,24 +5,15 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite + React</title>
-  <script src="/src/utils/ecl-ec.js"></script>
+  <title>ENVIZ</title>
+  <link rel="stylesheet" href="/ecl/ecl-eu.css">
+  <script src="/ecl/ecl-eu.js"></script>
 </head>
 
 <body>
   <div id="root"></div>
-
+  <!-- Include ECL JS before React -->
   <script type="module" src="/src/main.jsx"></script>
-
-  <!-- Move this script to the end to make sure ECL is initialized after the page is loaded -->
-  <script>
-    if (window.ECL && typeof window.ECL.autoInit === 'function') {
-      ECL.autoInit();
-      console.log(window.ECL);
-    } else {
-      console.error("ECL not found or autoInit is not a function.");
-    }
-  </script>
 </body>
 
 </html>

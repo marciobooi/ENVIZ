@@ -128,5 +128,90 @@
     "privacyAriaLabel": "Consulter la politique de confidentialité",
     "cookiesAriaLabel": "Consulter la politique des cookies",
     "accessibilityAriaLabel": "Consulter la déclaration d'accessibilité"
+  },
+  "multiSelect": {
+    "label": "Sélectionner des pays",
+    "required": "obligatoire",
+    "helper": "Sélectionnez un ou plusieurs pays",
+    "placeholder": "Choisir des options",
+    "searchPlaceholder": "Saisir un mot-clé",
+    "selectAll": "Tout sélectionner",
+    "apply": "Appliquer",
+    "clearAll": "Tout effacer",
+    "toggleDropdown": "Basculer la liste déroulante",
+    "groups": {
+      "aggregates": "Agrégats",
+      "euCountries": "Pays de l'UE",
+      "eftaCountries": "Pays de l'AELE",
+      "enlargementCountries": "Pays de l'élargissement"
+    },
+    "countries": {
+      "EU27_2020": "UE (27 pays)",
+      "EA": "Zone euro",
+      "BE": "Belgique",
+      "BG": "Bulgarie",
+      "CZ": "Tchéquie",
+      "DK": "Danemark",
+      "DE": "Allemagne",
+      "EE": "Estonie",
+      "IE": "Irlande",
+      "EL": "Grèce",
+      "ES": "Espagne",
+      "FR": "France",
+      "HR": "Croatie",
+      "IT": "Italie",
+      "CY": "Chypre",
+      "LV": "Lettonie",
+      "LT": "Lituanie",
+      "LU": "Luxembourg",
+      "HU": "Hongrie",
+      "MT": "Malte",
+      "NL": "Pays-Bas",
+      "AT": "Autriche",
+      "PL": "Pologne",
+      "PT": "Portugal",
+      "RO": "Roumanie",
+      "SI": "Slovénie",
+      "SK": "Slovaquie",
+      "FI": "Finlande",
+      "SE": "Suède",
+      "IS": "Islande",
+      "LI": "Liechtenstein",
+      "NO": "Norvège",
+      "BA": "Bosnie-Herzégovine",
+      "ME": "Monténégro",
+      "MD": "Moldavie",
+      "MK": "Macédoine du Nord",
+      "GE": "Géorgie",
+      "AL": "Albanie",
+      "RS": "Serbie",
+      "TR": "Türkiye",
+      "UA": "Ukraine",
+      "XK": "Kosovo"
+    },
+    "aria": {
+      "countrySelector": "Sélecteur de pays",
+      "dropdownDialog": "Dialogue de sélection de pays",
+      "searchInput": "Rechercher des pays",
+      "selectAllCheckbox": "Sélectionner tous les pays",
+      "countryCheckbox": "Sélectionner {{country}}",
+      "selectedCount": "{{count}} pays sélectionnés",
+      "noSelection": "Aucun pays sélectionné"
+    }
+  },
+  "modal": {
+    "close": "Fermer",
+    "submit": "Valider",
+    "aria": {
+      "closeModal": "Fermer la fenêtre modale",
+      "submitModal": "Valider et fermer la fenêtre modale"
+    }
+  },
+  "select": {
+    "toggleDropdown": "Basculer la liste déroulante",
+    "aria": {
+      "select": "Sélectionner une option",
+      "selected": "Option sélectionnée : {{option}}"
+    }
   }
 }

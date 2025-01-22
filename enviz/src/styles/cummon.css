@@ -44,3 +44,8 @@ button.ecl-button.ecl-button--primary:focus {
 main {
   flex: 1;
 }
+
+
+.ecl-link--standalone {
+cursor:pointer;
+}
