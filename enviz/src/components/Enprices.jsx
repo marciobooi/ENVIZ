@@ -211,7 +211,7 @@ const Enprices = ({ isOpen, onClose }) => {
 
     // Create the modal content
     const bodyContent = (
-        <div className="enprices-form">
+        <div className="form">
             <div className="form-row">
                 <div className="form-col">
                     <MultiSelect

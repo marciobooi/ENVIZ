@@ -138,7 +138,7 @@ const Sankey = ({ isOpen, onClose }) => {
     }));
 
     const bodyContent = (
-        <div className="sankey-form">
+        <div className="form">
             <div className="form-row">
                 <div className="form-col">
                     <MultiSelect
