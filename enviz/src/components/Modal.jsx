@@ -4,6 +4,17 @@ import { useTranslation } from "react-i18next";
 
 import "../styles/modal.css";
 
+const CloseIcon = () => (
+    <svg
+        className="ecl-icon ecl-icon--m ecl-button__icon"
+        focusable="false"
+        aria-hidden="false"
+        viewBox="0 0 24 24"
+    >
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+    </svg>
+);
+
 const ModalComponent = ({
     isOpen,
     modalTitle = "Modal title",
@@ -17,11 +28,12 @@ const ModalComponent = ({
 
     useEffect(() => {
         if (isOpen && modalRef.current) {
+            const currentModal = modalRef.current;
             // Store the previously focused element
             previousActiveElement.current = document.activeElement;
 
             // Focus the modal
-            modalRef.current.focus();
+            currentModal.focus();
 
             // ECL initialization
             if (window.ECL && typeof window.ECL.autoInit === "function") {
@@ -29,7 +41,7 @@ const ModalComponent = ({
             }
 
             // Get all focusable elements
-            const focusableElements = modalRef.current.querySelectorAll(
+            const focusableElements = currentModal.querySelectorAll(
                 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
             );
             const firstFocusable = focusableElements[0];
@@ -56,10 +68,10 @@ const ModalComponent = ({
                 }
             };
 
-            modalRef.current.addEventListener('keydown', trapFocus);
+            currentModal.addEventListener('keydown', trapFocus);
 
             return () => {
-                modalRef.current?.removeEventListener('keydown', trapFocus);
+                currentModal.removeEventListener('keydown', trapFocus);
                 // Restore focus when modal closes
                 if (previousActiveElement.current) {
                     previousActiveElement.current.focus();
@@ -105,10 +117,7 @@ const ModalComponent = ({
                                     aria-label={t('modal.aria.closeModal')}
                                 >
                                     <span className="ecl-button__container">
-                                        <span className="ecl-button__label" data-ecl-label="true">{t('modal.close')}</span>
-                                        <svg className="ecl-icon ecl-icon--m ecl-button__icon" focusable="false" aria-hidden="true" data-ecl-icon="">
-                                            <use xlinkHref="static/media/icons.e3d8f25c.svg#close" />
-                                        </svg>
+                                        <CloseIcon data-ecl-label="true" aria-label={t('modal.close')} />
                                     </span>
                                 </button>
                             </header>

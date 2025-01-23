@@ -10,10 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ecl/preset-eu": "^4.0.0",
-    "@ecl/dom-utils": "^4.0.0",
     "@ecl/builder": "^4.0.0",
+    "@ecl/dom-utils": "^4.0.0",
     "@ecl/event-manager": "^4.0.0",
+    "@ecl/preset-eu": "^4.0.0",
     "@ecl/resources-icons": "^4.0.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@jridgewell/sourcemap-codec": "^1.5.0",
@@ -26,7 +26,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^11.20.0",
+    "react-i18next": "^11.18.6",
     "react-joyride": "^2.9.3",
     "react-tooltip": "^5.28.0"
   },

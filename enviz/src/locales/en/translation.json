@@ -208,6 +208,8 @@
   },
   "select": {
     "toggleDropdown": "Toggle dropdown",
+    "placeholder": "Select an option",
+    "noOptions": "No options available",
     "aria": {
       "select": "Select an option",
       "selected": "Selected option: {{option}}"
@@ -265,6 +267,8 @@
   },
   "common": {
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "loading": "Loading data...",
+    "error": "Error"
   }
 }

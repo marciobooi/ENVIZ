@@ -1,30 +1,114 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes for validation
 import Modal from './Modal'; // Assuming you already have the modal component
 import Select from './Select';
 import MultiSelect from './MultiSelect';
 import RadioGroupComponent from './Radio';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 import {
     DEFAULTS,
     getDatasetCode,
     getConsumptionLevels,
     getUnits,
-    getCurrencies,
-    getPriceDataset
 } from '../config/enpricesConfig';
 import '../styles/enprices.css';
 
 const Enprices = ({ isOpen, onClose }) => {
     const { t } = useTranslation();
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [availableOptions, setAvailableOptions] = useState({
+        years: [],
+        consumptionLevels: [],
+        units: [],
+        countries: []
+    });
     const [currentDataset, setCurrentDataset] = useState(
-        getDatasetCode(DEFAULTS.dataset, DEFAULTS.fuel, DEFAULTS.consumer, DEFAULTS.component)
+        DEFAULTS.dataset
     );
     const [formData, setFormData] = useState({
-        countries: [],
+        countries: [], // Will be populated with all countries after fetch
         year: '',
         ...DEFAULTS
     });
+
+    const fetchData = async (datasetCode) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await axios.get(
+                `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/${datasetCode}?format=JSON&lang=en`,
+                { timeout: 10000 }
+            );
+            if (response.status !== 200) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const dimensions = response.data.dimension;
+
+            // Process time options
+            const timeLabels = dimensions.time.category.label;
+            const yearOptions = Object.entries(timeLabels).map(([value, label]) => ({
+                value,
+                label
+            }));
+
+            // Process consumption levels
+            const consumptionLabels = dimensions.nrg_cons.category.label;
+            const consumptionOptions = Object.entries(consumptionLabels).map(([value, label]) => ({
+                value,
+                label
+            }));
+
+            // Process units
+            const unitLabels = dimensions.unit.category.label;
+            const unitOptions = Object.entries(unitLabels).map(([value, label]) => ({
+                value,
+                label
+            }));
+
+            // Process currencies
+            const currencyLabels = dimensions.currency.category.label;
+            const currencyOptions = Object.entries(currencyLabels).map(([value, label]) => ({
+                value,
+                label
+            }));
+
+            // Get countries
+            const geoLabels = dimensions.geo.category.label;
+            const countryOptions = Object.entries(geoLabels).map(([value, label]) => ({
+                value,
+                label
+            }));
+
+            // Sort and filter options
+            const sortedOptions = {
+                years: yearOptions.sort((a, b) => b.value.localeCompare(a.value)),
+                consumptionLevels: consumptionOptions.filter(opt => opt.value && opt.label),
+                units: unitOptions.filter(opt => opt.value && opt.label),
+                currencies: currencyOptions.filter(opt => opt.value && opt.label),
+                countries: countryOptions
+            };
+
+            // Set latest year and all countries if not already set
+            if (!formData.year || !formData.countries.length) {
+                setFormData(prev => ({
+                    ...prev,
+                    year: sortedOptions.years[0].value,
+                    countries: countryOptions.map(opt => opt.value) // Select all countries
+                }));
+            }
+
+            setAvailableOptions(sortedOptions);
+            setData(dimensions);
+        } catch (err) {
+            setError(err.response?.data?.message || err.message || 'Failed to fetch data');
+            console.error('Error fetching data:', err);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const handleChange = (field, value) => {
         let newFormData = { ...formData, [field]: value };
@@ -32,12 +116,14 @@ const Enprices = ({ isOpen, onClose }) => {
         // If fuel, consumer, or component changes, we need to update the dataset
         if (['fuel', 'consumer', 'component'].includes(field)) {
             const newDataset = getDatasetCode(
+                null,  // Don't use current dataset when parameters change
                 field === 'fuel' ? value : formData.fuel,
                 field === 'consumer' ? value : formData.consumer,
                 field === 'component' ? value : formData.component === 'true'
             );
 
             setCurrentDataset(newDataset);
+            fetchData(newDataset);
 
             // Update consumption levels and units based on new dataset
             const newConsumptionLevels = getConsumptionLevels(newDataset);
@@ -53,11 +139,10 @@ const Enprices = ({ isOpen, onClose }) => {
         setFormData(newFormData);
     };
 
-    // Select options
-    const yearOptions = Array.from({ length: 24 }, (_, i) => ({
-        value: `${2024 - i}`,
-        label: `${2024 - i}`
-    }));
+    // Fetch initial data when component mounts
+    useEffect(() => {
+        fetchData(currentDataset);
+    }, [currentDataset]);
 
     const fuelOptions = [
         { value: '6000', label: t('enprices.fuel.electricity') },
@@ -69,25 +154,11 @@ const Enprices = ({ isOpen, onClose }) => {
         { value: 'HOUSEHOLD', label: t('enprices.consumer.household') }
     ];
 
-    const consumptionOptions = getConsumptionLevels(currentDataset).map(level => ({
-        value: level,
-        label: t(`enprices.consumption.${level.toLowerCase()}`)
-    }));
-
-    const currencyOptions = getCurrencies(currentDataset).map(currency => ({
-        value: currency,
-        label: t(`enprices.currency.${currency.toLowerCase()}`)
-    }));
-
-    const unitOptions = getUnits(currentDataset).map(unit => ({
-        value: unit,
-        label: t(`enprices.unit.${unit.toLowerCase()}`)
-    }));
-
     const handleSubmit = () => {
         // Handle form submission
         console.log({
             formData,
+            data,
         });
         onClose();
     };
@@ -95,9 +166,22 @@ const Enprices = ({ isOpen, onClose }) => {
     // Create the modal content
     const bodyContent = (
         <div className="enprices-form">
+            {loading && (
+                <div className="ecl-message ecl-message--info">
+                    <span className="ecl-message__title">{t('common.loading')}</span>
+                </div>
+            )}
+            {error && (
+                <div className="ecl-message ecl-message--error">
+                    <span className="ecl-message__title">{t('common.error')}</span>
+                    <span className="ecl-message__description">{error}</span>
+                </div>
+            )}
             <div className="form-row">
                 <div className="form-col">
                     <MultiSelect
+                        options={availableOptions.countries}
+                        value={formData.countries}
                         onChange={(values) => handleChange('countries', values)}
                     />
                 </div>
@@ -105,7 +189,7 @@ const Enprices = ({ isOpen, onClose }) => {
                     <Select
                         label={t('enprices.year.label')}
                         helperText={t('enprices.year.helper')}
-                        options={yearOptions}
+                        options={availableOptions.years}
                         value={formData.year}
                         onChange={(value) => handleChange('year', value)}
                     />
@@ -135,7 +219,7 @@ const Enprices = ({ isOpen, onClose }) => {
                     <Select
                         label={t('enprices.consumption.label')}
                         helperText={t('enprices.consumption.helper')}
-                        options={consumptionOptions}
+                        options={availableOptions.consumptionLevels}
                         value={formData.consumptionLevel}
                         onChange={(value) => handleChange('consumptionLevel', value)}
                     />
@@ -144,7 +228,7 @@ const Enprices = ({ isOpen, onClose }) => {
                     <Select
                         label={t('enprices.currency.label')}
                         helperText={t('enprices.currency.helper')}
-                        options={currencyOptions}
+                        options={availableOptions.currencies}
                         value={formData.currency}
                         onChange={(value) => handleChange('currency', value)}
                     />
@@ -156,7 +240,7 @@ const Enprices = ({ isOpen, onClose }) => {
                     <Select
                         label={t('enprices.unit.label')}
                         helperText={t('enprices.unit.helper')}
-                        options={unitOptions}
+                        options={availableOptions.units}
                         value={formData.unit}
                         onChange={(value) => handleChange('unit', value)}
                     />

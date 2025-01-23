@@ -157,15 +157,22 @@ export const DEFAULTS = {
   dataset: 'nrg_pc_204',
   fuel: '6000',
   consumer: 'N_HOUSEHOLD',
-  consumptionLevel: 'KWH_LT1000',
+  consumptionLevel: CODES.nrg_pc_204.defaultConsom,
   currency: 'EUR',
   unit: 'KWH',
   component: 'false',
   details: 'false',
+  year: '', // Will be set to latest year after API response
+  countries: ['EU27_2020'], // Start with EU27 selected
 };
 
 // Helper function to get the correct dataset code based on selections
-export const getDatasetCode = (fuel, consumer, hasComponents) => {
+export const getDatasetCode = (dataset, fuel, consumer, hasComponents) => {
+  // If dataset is provided and no parameters changed, return the same dataset
+  if (dataset && !fuel && !consumer && !hasComponents) {
+    return dataset;
+  }
+
   const baseCode =
     fuel === '6000'
       ? consumer === 'HOUSEHOLD'
