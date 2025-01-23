@@ -19,7 +19,7 @@ const BASE_URL = 'https://ec.europa.eu/eurostat/cache/visualisations/energy-pric
 
 const Enprices = ({ isOpen, onClose }) => {
     const { t, i18n } = useTranslation();
-    const [data, setData] = useState(null);
+    const [ setData ] = useState(null);
     const [availableOptions, setAvailableOptions] = useState({
         years: [],
         consumptionLevels: [],
@@ -205,7 +205,7 @@ const Enprices = ({ isOpen, onClose }) => {
             window.location.href = url;
             onClose();
         } catch (error) {
-            toast.error(t('enprices.errors.urlCreationFailed'));
+            toast.error(t('enprices.errors.urlCreationFailed', error));
         }
     };
 
