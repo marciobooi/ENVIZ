@@ -8,14 +8,21 @@ const MultiSelect = ({ onChange }) => {
     const searchInputRef = useRef(null);
     const lastFocusedElementRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedValues, setSelectedValues] = useState([]);
-    const { t } = useTranslation();
 
-    // Country groupings
+    // Initialize selectedValues with all countries selected
     const AGGREGATES_COUNTRY_CODES = ["EU27_2020", "EA"];
     const EU_COUNTRY_CODES = ["BE", "BG", "CZ", "DK", "DE", "EE", "IE", "EL", "ES", "FR", "HR", "IT", "CY", "LV", "LT", "LU", "HU", "MT", "NL", "AT", "PL", "PT", "RO", "SI", "SK", "FI", "SE"];
     const EFTA_COUNTRY_CODES = ["IS", "LI", "NO"];
     const ENLARGEMENT_COUNTRY_CODES = ["BA", "ME", "MD", "MK", "GE", "AL", "RS", "TR", "UA", "XK"];
+
+    const [selectedValues, setSelectedValues] = useState([
+        ...AGGREGATES_COUNTRY_CODES,
+        ...EU_COUNTRY_CODES,
+        ...EFTA_COUNTRY_CODES,
+        ...ENLARGEMENT_COUNTRY_CODES
+    ]);
+
+    const { t } = useTranslation();
 
     const handleToggle = (e) => {
         e.stopPropagation();
@@ -34,15 +41,12 @@ const MultiSelect = ({ onChange }) => {
         const firstElement = focusableElements[0];
         const lastElement = focusableElements[focusableElements.length - 1];
 
-        // If shift + tab
         if (e.shiftKey) {
             if (document.activeElement === firstElement) {
                 e.preventDefault();
                 lastElement.focus();
             }
-        }
-        // If just tab
-        else {
+        } else {
             if (document.activeElement === lastElement) {
                 e.preventDefault();
                 firstElement.focus();
@@ -61,99 +65,80 @@ const MultiSelect = ({ onChange }) => {
     };
 
     const handleCheckboxChange = (value, checked) => {
-        setSelectedValues(prev =>
-            checked
-                ? [...prev, value]
-                : prev.filter(v => v !== value)
+        setSelectedValues((prev) =>
+            checked ? [...prev, value] : prev.filter((v) => v !== value)
         );
     };
 
     const handleSelectAll = (checked) => {
-        const allValues = [...AGGREGATES_COUNTRY_CODES, ...EU_COUNTRY_CODES, ...EFTA_COUNTRY_CODES, ...ENLARGEMENT_COUNTRY_CODES];
+        const allValues = [
+            ...AGGREGATES_COUNTRY_CODES,
+            ...EU_COUNTRY_CODES,
+            ...EFTA_COUNTRY_CODES,
+            ...ENLARGEMENT_COUNTRY_CODES
+        ];
         setSelectedValues(checked ? allValues : []);
     };
 
     useEffect(() => {
         const currentRef = selectRef.current;
 
-        // Debugging: Verify ECL is available
-        // if (window.ECL) {
-        //     console.log('ECL is available:', window.ECL);
-        // } else {
-        //     console.error('ECL is not available. Ensure ECL JS is correctly imported.');
-        //     return;
-        // }
-
-        // Log data attributes for verification
-        // if (currentRef) {
-        //     console.log('Select Element Data Attributes:', currentRef.dataset);
-        // }
-
-        // Initialize ECL Select manually
-        if (currentRef && !currentRef.hasAttribute('data-ecl-auto-initialized')) {
+        if (currentRef && !currentRef.hasAttribute("data-ecl-auto-initialized")) {
             try {
                 const select = new window.ECL.Select(currentRef);
                 select.init();
-                currentRef.setAttribute('data-ecl-auto-initialized', 'true');
+                currentRef.setAttribute("data-ecl-auto-initialized", "true");
             } catch (error) {
-                console.error('Failed to initialize ECL Select:', error);
+                console.error("Failed to initialize ECL Select:", error);
             }
         }
 
-        // Handle change events
         const handleChange = (e) => {
-            const selectedOptions = Array.from(e.target.selectedOptions).map(o => o.value);
+            const selectedOptions = Array.from(e.target.selectedOptions).map((o) => o.value);
             onChange && onChange(selectedOptions);
-            // console.log('Selected Options:', selectedOptions);
         };
 
         if (currentRef) {
-            currentRef.addEventListener('change', handleChange);
-            // console.log('Change event listener added to MultiSelect.');
+            currentRef.addEventListener("change", handleChange);
         }
 
-        // Add click outside handler to close dropdown
         const handleClickOutside = (event) => {
-            if (dropdownRef.current &&
+            if (
+                dropdownRef.current &&
                 !dropdownRef.current.contains(event.target) &&
-                !event.target.closest('.ecl-select__multiple-toggle')) {
+                !event.target.closest(".ecl-select__multiple-toggle")
+            ) {
                 setIsOpen(false);
             }
         };
 
-        document.addEventListener('mousedown', handleClickOutside);
-        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("keydown", handleKeyDown);
 
-        // Cleanup function
         return () => {
             if (currentRef && currentRef.ECLSelect) {
                 currentRef.ECLSelect.destroy();
-                // console.log('ECL Select instance destroyed.');
             }
             if (currentRef) {
-                currentRef.removeEventListener('change', handleChange);
-                // console.log('Change event listener removed from MultiSelect.');
+                currentRef.removeEventListener("change", handleChange);
             }
-            document.removeEventListener('mousedown', handleClickOutside);
-            document.removeEventListener('keydown', handleKeyDown);
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("keydown", handleKeyDown);
         };
     }, [onChange]);
 
     useEffect(() => {
-        // Focus management
         if (isOpen) {
-            // Focus the search input when dropdown opens
             searchInputRef.current?.focus();
         } else if (lastFocusedElementRef.current) {
-            // Restore focus when dropdown closes
             lastFocusedElementRef.current.focus();
         }
     }, [isOpen]);
 
     const handleKeyDown = (e) => {
-        if (e.key === 'Escape') {
+        if (e.key === "Escape") {
             setIsOpen(false);
-        } else if (e.key === 'Tab') {
+        } else if (e.key === "Tab") {
             handleTabKey(e);
         }
     };
@@ -216,8 +201,8 @@ const MultiSelect = ({ onChange }) => {
                         onClick={handleToggle}
                     >
                         {selectedValues.length
-                            ? selectedValues.map(code => t(`multiSelect.countries.${code}`)).join(', ')
-                            : t('multiSelect.placeholder')
+                            ? selectedValues.map((code) => t(`multiSelect.countries.${code}`)).join(", ")
+                            : t("multiSelect.placeholder")
                         }
                     </button>
                     <div className="ecl-select__icon">
@@ -262,7 +247,7 @@ const MultiSelect = ({ onChange }) => {
                             type="checkbox"
                             id="select-multiple-all"
                             name="select-multiple-all"
-                            checked={selectedValues.length === 41}
+                            checked={selectedValues.length === (AGGREGATES_COUNTRY_CODES.length + EU_COUNTRY_CODES.length + EFTA_COUNTRY_CODES.length + ENLARGEMENT_COUNTRY_CODES.length)}
                             onChange={(e) => handleSelectAll(e.target.checked)}
                             aria-label={t('multiSelect.aria.selectAllCheckbox')}
                         />

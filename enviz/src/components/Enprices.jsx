@@ -6,6 +6,7 @@ import MultiSelect from './MultiSelect';
 import RadioGroupComponent from './Radio';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
     DEFAULTS,
     getDatasetCode,
@@ -18,7 +19,6 @@ const Enprices = ({ isOpen, onClose }) => {
     const { t } = useTranslation();
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
     const [availableOptions, setAvailableOptions] = useState({
         years: [],
         consumptionLevels: [],
@@ -36,7 +36,6 @@ const Enprices = ({ isOpen, onClose }) => {
 
     const fetchData = async (datasetCode) => {
         setLoading(true);
-        setError(null);
         try {
             const response = await axios.get(
                 `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/${datasetCode}?format=JSON&lang=en`,
@@ -46,37 +45,40 @@ const Enprices = ({ isOpen, onClose }) => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const dimensions = response.data.dimension;
+            if (!dimensions) {
+                throw new Error('Invalid data structure received from API');
+            }
 
             // Process time options
-            const timeLabels = dimensions.time.category.label;
+            const timeLabels = dimensions.time?.category?.label || {};
             const yearOptions = Object.entries(timeLabels).map(([value, label]) => ({
                 value,
                 label
             }));
 
             // Process consumption levels
-            const consumptionLabels = dimensions.nrg_cons.category.label;
+            const consumptionLabels = dimensions.nrg_cons?.category?.label || {};
             const consumptionOptions = Object.entries(consumptionLabels).map(([value, label]) => ({
                 value,
                 label
             }));
 
             // Process units
-            const unitLabels = dimensions.unit.category.label;
+            const unitLabels = dimensions.unit?.category?.label || {};
             const unitOptions = Object.entries(unitLabels).map(([value, label]) => ({
                 value,
                 label
             }));
 
             // Process currencies
-            const currencyLabels = dimensions.currency.category.label;
+            const currencyLabels = dimensions.currency?.category?.label || {};
             const currencyOptions = Object.entries(currencyLabels).map(([value, label]) => ({
                 value,
                 label
             }));
 
             // Get countries
-            const geoLabels = dimensions.geo.category.label;
+            const geoLabels = dimensions.geo?.category?.label || {};
             const countryOptions = Object.entries(geoLabels).map(([value, label]) => ({
                 value,
                 label
@@ -103,7 +105,7 @@ const Enprices = ({ isOpen, onClose }) => {
             setAvailableOptions(sortedOptions);
             setData(dimensions);
         } catch (err) {
-            setError(err.response?.data?.message || err.message || 'Failed to fetch data');
+            toast.error(err.response?.data?.message || err.message || 'Failed to fetch data');
             console.error('Error fetching data:', err);
         } finally {
             setLoading(false);
@@ -119,7 +121,7 @@ const Enprices = ({ isOpen, onClose }) => {
                 null,  // Don't use current dataset when parameters change
                 field === 'fuel' ? value : formData.fuel,
                 field === 'consumer' ? value : formData.consumer,
-                field === 'component' ? value : formData.component === 'true'
+                field === 'component' ? value === 'true' : formData.component === 'true'
             );
 
             setCurrentDataset(newDataset);
@@ -138,6 +140,16 @@ const Enprices = ({ isOpen, onClose }) => {
 
         setFormData(newFormData);
     };
+
+    // Ensure all countries are selected by default in MultiSelect
+    useEffect(() => {
+        if (availableOptions.countries.length > 0 && formData.countries.length === 0) {
+            setFormData(prev => ({
+                ...prev,
+                countries: availableOptions.countries.map(opt => opt.value)
+            }));
+        }
+    }, [availableOptions.countries]);
 
     // Fetch initial data when component mounts
     useEffect(() => {
@@ -169,12 +181,6 @@ const Enprices = ({ isOpen, onClose }) => {
             {loading && (
                 <div className="ecl-message ecl-message--info">
                     <span className="ecl-message__title">{t('common.loading')}</span>
-                </div>
-            )}
-            {error && (
-                <div className="ecl-message ecl-message--error">
-                    <span className="ecl-message__title">{t('common.error')}</span>
-                    <span className="ecl-message__description">{error}</span>
                 </div>
             )}
             <div className="form-row">

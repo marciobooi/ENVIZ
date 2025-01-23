@@ -4,6 +4,11 @@ import CardsContainer from './components/CardsContainer';
 import Tutorial from './components/Tutorial';
 import TutorialProvider from './contexts/TutorialContext';
 import Footer from './components/Footer';
+import { BrowserRouter } from 'react-router-dom';
+import { I18nextProvider } from 'react-i18next';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import i18n from './i18n';
 
 // import '@ecl/preset-eu/dist/scripts/ecl-eu.js';
 import Enprices from './components/Enprices';
@@ -26,21 +31,28 @@ function App() {
   const cardData = getCardData(t, toggleModal);
 
   return (
-    <TutorialProvider>
-      <div className="app-container">
-        <Navbar />
-        <main>
-          <CardsContainer cards={cardData} toggleModal={toggleModal} />
-        </main>
-        <Footer />
-        <Tutorial />
-        <Enprices
-          isOpen={activeModal === 'enprices'}
-          onClose={handleCloseModal}
-        />
-      </div>
-    </TutorialProvider>
+    <I18nextProvider i18n={i18n}>
+      <BrowserRouter>
+        <TutorialProvider>
+          <div className="app-container">
+            <Navbar />
+            <main>
+              <CardsContainer cards={cardData} toggleModal={toggleModal} />
+            </main>
+            <Footer />
+            <Tutorial />
+            <Enprices
+              isOpen={activeModal === 'enprices'}
+              onClose={handleCloseModal}
+            />
+            <ToastContainer position="top-right" autoClose={5000} />
+          </div>
+        </TutorialProvider>
+      </BrowserRouter>
+    </I18nextProvider>
   );
 }
 
 export default App;
+
+
