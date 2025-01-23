@@ -278,7 +278,8 @@
       "helper": "Choose the level of detail"
     },
     "errors": {
-      "fetchFailed": "Failed to fetch energy price data"
+      "fetchFailed": "Failed to fetch energy price data",
+      "urlCreationFailed": "Failed to create visualization URL"
     },
     "success": {
       "dataLoaded": "Energy price data loaded successfully"

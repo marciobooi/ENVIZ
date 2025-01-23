@@ -15,8 +15,10 @@ import {
 } from '../config/enpricesConfig';
 import '../styles/enprices.css';
 
+const BASE_URL = 'https://ec.europa.eu/eurostat/cache/visualisations/energy-prices/enprices.html';
+
 const Enprices = ({ isOpen, onClose }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [data, setData] = useState(null);
     const [availableOptions, setAvailableOptions] = useState({
         years: [],
@@ -175,12 +177,36 @@ const Enprices = ({ isOpen, onClose }) => {
     ];
 
     const handleSubmit = () => {
-        // Handle form submission
-        console.log({
-            formData,
-            data,
-        });
-        onClose();
+        try {
+            const params = new URLSearchParams({
+                geos: formData.countries.join(','),
+                product: formData.fuel,
+                consumer: formData.consumer,
+                consoms: formData.consumptionLevel,
+                unit: formData.unit,
+                currency: formData.currency,
+                language: i18n.language.toUpperCase(),
+                detail: formData.details === 'true' ? '1' : '0',
+                component: formData.component === 'true' ? '1' : '0',
+                time: formData.year,
+                // Default parameters
+                taxs: 'I_TAX,X_TAX,X_VAT',
+                nrg_prc: 'undefined',
+                order: 'DESC',
+                dataset: currentDataset,
+                chartInDetails: '0',
+                chartId: 'mainChart',
+                chartGeo: '',
+                percentage: '0',
+                share: 'false'
+            });
+
+            const url = `${BASE_URL}?${params.toString()}`;
+            window.location.href = url;
+            onClose();
+        } catch (error) {
+            toast.error(t('enprices.errors.urlCreationFailed'));
+        }
     };
 
     // Create the modal content

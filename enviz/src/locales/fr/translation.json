@@ -36,9 +36,8 @@
     "actionsLabel": "Actions de l'outil",
     "enprices": {
       "imageAlt": "Outil de visualisation des prix de l'énergie",
-      "title": "Prix de l'électricité",
-      "description": "Visualisez les prix de l'électricité et du gaz naturel dans l'UE ou votre pays.",
       "title": "Configuration des prix de l'énergie",
+      "description": "Visualisez les prix de l'électricité et du gaz naturel dans l'UE ou votre pays",
       "year": {
         "label": "Sélectionner l'année",
         "helper": "Choisir l'année de référence"
@@ -77,21 +76,16 @@
         "mwh": "Mégawattheure (MWh)"
       },
       "component": {
-        "label": "Composante de prix",
-        "helper": "Sélectionner les composantes de prix à afficher",
-        "total": "Prix total",
-        "energy": "Énergie et fourniture",
-        "network": "Coûts de réseau",
-        "tax": "Taxes et prélèvements"
+        "label": "Composantes de prix",
+        "helper": "Sélectionner les composantes de prix à afficher"
       },
       "details": {
         "label": "Niveau de détail",
-        "helper": "Choisir le niveau de détail",
-        "main": "Indicateurs principaux",
-        "detailed": "Détail complet"
+        "helper": "Choisir le niveau de détail"
       },
       "errors": {
-        "fetchFailed": "Échec du chargement des données sur les prix de l'énergie"
+        "fetchFailed": "Échec du chargement des données sur les prix de l'énergie",
+        "urlCreationFailed": "Échec de la création de l'URL de visualisation"
       },
       "success": {
         "dataLoaded": "Données sur les prix de l'énergie chargées avec succès"

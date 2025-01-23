@@ -36,8 +36,8 @@
     "actionsLabel": "Tool-Aktionen",
     "enprices": {
       "imageAlt": "Energiepreise-Visualisierungstool",
-      "title": "Strompreise",
-      "description": "Visualisieren Sie Strom- und Erdgaspreise in der EU oder Ihrem Land.",
+      "title": "Energiepreiskonfiguration",
+      "description": "Visualisieren Sie Strom- und Erdgaspreise in der EU oder Ihrem Land",
       "year": {
         "label": "Jahr auswählen",
         "helper": "Wählen Sie das Bezugsjahr"
@@ -76,21 +76,16 @@
         "mwh": "Megawattstunde (MWh)"
       },
       "component": {
-        "label": "Preiskomponente",
-        "helper": "Wählen Sie die anzuzeigenden Preiskomponenten",
-        "total": "Gesamtpreis",
-        "energy": "Energie und Lieferung",
-        "network": "Netzkosten",
-        "tax": "Steuern und Abgaben"
+        "label": "Preiskomponenten",
+        "helper": "Wählen Sie die anzuzeigenden Preiskomponenten"
       },
       "details": {
         "label": "Detailgrad",
-        "helper": "Wählen Sie den Detailgrad",
-        "main": "Hauptindikatoren",
-        "detailed": "Detaillierte Aufschlüsselung"
+        "helper": "Wählen Sie den Detailgrad"
       },
       "errors": {
-        "fetchFailed": "Abruf der Energiepreisdaten fehlgeschlagen"
+        "fetchFailed": "Abruf der Energiepreisdaten fehlgeschlagen",
+        "urlCreationFailed": "Erstellung der Visualisierungs-URL fehlgeschlagen"
       },
       "success": {
         "dataLoaded": "Energiepreisdaten erfolgreich geladen"
