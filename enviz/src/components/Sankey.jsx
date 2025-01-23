@@ -156,9 +156,6 @@ const Sankey = ({ isOpen, onClose }) => {
                         onChange={(value) => handleChange('year', value)}
                     />
                 </div>
-            </div>
-
-            <div className="form-row">
                 <div className="form-col">
                     <Select
                         label={t('sankey.fuel.label')}
@@ -168,6 +165,9 @@ const Sankey = ({ isOpen, onClose }) => {
                         onChange={(value) => handleChange('fuel', value)}
                     />
                 </div>
+            </div>
+
+            <div className="form-row">
                 <div className="form-col">
                     <Select
                         label={t('sankey.unit.label')}

@@ -12,7 +12,8 @@ import {
     getDatasetCode,
     getConsumptionLevels,
     getUnits,
-    BASE_URL
+    BASE_URL,
+    getPriceComponents
 } from '../config/enpricesConfig';
 import '../styles/form.css';
 
@@ -34,6 +35,7 @@ const Enprices = ({ isOpen, onClose }) => {
         year: '',
         ...DEFAULTS
     });
+    const [priceComponents, setPriceComponents] = useState([]);
 
     const fetchData = async (datasetCode) => {
         const toastId = toast.loading(t('common.loading'));
@@ -135,6 +137,11 @@ const Enprices = ({ isOpen, onClose }) => {
             );
 
             setCurrentDataset(newDataset);
+
+            // Get price components for new dataset
+            const components = getPriceComponents(newDataset);
+            setPriceComponents(components);
+
             fetchData(newDataset);
 
             // Update consumption levels and units based on new dataset
@@ -166,6 +173,12 @@ const Enprices = ({ isOpen, onClose }) => {
         fetchData(currentDataset);
     }, [currentDataset, i18n.language]);
 
+    // Initial setup of price components
+    useEffect(() => {
+        const components = getPriceComponents(currentDataset);
+        setPriceComponents(components);
+    }, [currentDataset]);
+
     const fuelOptions = [
         { value: '6000', label: t(`enprices.fuel.options.electricity`) },
         { value: '4100', label: t(`enprices.fuel.options.gas`) }
@@ -184,14 +197,13 @@ const Enprices = ({ isOpen, onClose }) => {
                 consumer: formData.consumer,
                 consoms: formData.consumptionLevel,
                 unit: formData.unit,
+                taxs: 'I_TAX,X_TAX,X_VAT',
+                nrg_prc: priceComponents.length > 0 ? priceComponents.join(',') : 'undefined',
                 currency: formData.currency,
                 language: i18n.language.toUpperCase(),
                 detail: formData.details === 'true' ? '1' : '0',
                 component: formData.component === 'true' ? '1' : '0',
                 time: formData.year,
-                // Default parameters
-                taxs: 'I_TAX,X_TAX,X_VAT',
-                nrg_prc: 'undefined',
                 order: 'DESC',
                 dataset: currentDataset,
                 chartInDetails: '0',
