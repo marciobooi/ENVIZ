@@ -140,9 +140,9 @@
     "toggleDropdown": "Basculer le menu déroulant",
     "groups": {
       "aggregates": "Agrégats",
-      "euCountries": "Pays de l'UE",
-      "eftaCountries": "Pays de l'AELE",
-      "enlargementCountries": "Pays en voie d'élargissement"
+      "eu_countries": "Pays de l'UE",
+      "efta_countries": "Pays de l'AELE",
+      "enlargement_countries": "Pays en voie d'élargissement"
     },
     "countries": {
       "EU27_2020": "UE (27 pays)",

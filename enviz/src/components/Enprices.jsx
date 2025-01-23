@@ -12,10 +12,10 @@ import {
     getDatasetCode,
     getConsumptionLevels,
     getUnits,
+    BASE_URL
 } from '../config/enpricesConfig';
-import '../styles/enprices.css';
+import '../styles/form.css';
 
-const BASE_URL = 'https://ec.europa.eu/eurostat/cache/visualisations/energy-prices/enprices.html';
 
 const Enprices = ({ isOpen, onClose }) => {
     const { t, i18n } = useTranslation();

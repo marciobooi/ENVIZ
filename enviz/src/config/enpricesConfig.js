@@ -213,3 +213,6 @@ export const findDatasetKey = (conditionFn) => {
   }
   return null; // Return null if no match is found
 };
+
+export const BASE_URL =
+  'https://ec.europa.eu/eurostat/cache/visualisations/energy-prices/enprices.html';

@@ -14,6 +14,7 @@ import {
     API_BASE_URL,
     VISUALIZATION_URL
 } from '../config/sankeyConfig';
+import '../styles/form.css'
 
 const Sankey = ({ isOpen, onClose }) => {
     const { t, i18n } = useTranslation();
@@ -109,18 +110,20 @@ const Sankey = ({ isOpen, onClose }) => {
         try {
             const params = new URLSearchParams({
                 geos: formData.countries.join(','),
-                siec: formData.fuel,
+                fuels: formData.fuel,
                 unit: formData.unit,
-                time: formData.year,
-                detail: formData.details === 'true' ? '1' : '0',
-                language: i18n.language.toUpperCase()
+                year: formData.year,
+                flowDisagg: formData.details === 'true' ? 'true' : 'false',
+                language: i18n.language.toUpperCase(),
+                highlight: "",
+                nodeDisagg: "0101000000000"
             });
 
             const url = `${VISUALIZATION_URL}?${params.toString()}`;
             window.location.href = url;
             onClose();
         } catch (error) {
-            toast.error(t('sankey.errors.urlCreationFailed'));
+            toast.error(t('sankey.errors.urlCreationFailed', error));
         }
     };
 

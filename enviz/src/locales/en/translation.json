@@ -140,9 +140,9 @@
     "toggleDropdown": "Toggle dropdown",
     "groups": {
       "aggregates": "Aggregates",
-      "euCountries": "EU countries",
-      "eftaCountries": "EFTA countries",
-      "enlargementCountries": "Enlargement countries"
+      "eu_countries": "EU countries",
+      "efta_countries": "EFTA countries",
+      "enlargement_countries": "Enlargement countries"
     },
     "countries": {
       "EU27_2020": "EU (27 countries)",
