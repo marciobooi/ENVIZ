@@ -1,5 +1,5 @@
 .ecl-modal {
-    z-index: 9999;
+   z-index: 1050
 }
 
 .ecl-modal--full .ecl-modal__content {

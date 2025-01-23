@@ -18,7 +18,6 @@ import '../styles/enprices.css';
 const Enprices = ({ isOpen, onClose }) => {
     const { t } = useTranslation();
     const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(false);
     const [availableOptions, setAvailableOptions] = useState({
         years: [],
         consumptionLevels: [],
@@ -35,7 +34,7 @@ const Enprices = ({ isOpen, onClose }) => {
     });
 
     const fetchData = async (datasetCode) => {
-        setLoading(true);
+        const toastId = toast.loading(t('common.loading'));
         try {
             const response = await axios.get(
                 `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/${datasetCode}?format=JSON&lang=en`,
@@ -104,11 +103,20 @@ const Enprices = ({ isOpen, onClose }) => {
 
             setAvailableOptions(sortedOptions);
             setData(dimensions);
+            toast.update(toastId, {
+                render: t('enprices.success.dataLoaded'),
+                type: 'success',
+                isLoading: false,
+                autoClose: 2000
+            });
         } catch (err) {
-            toast.error(err.response?.data?.message || err.message || 'Failed to fetch data');
+            toast.update(toastId, {
+                render: err.response?.data?.message || err.message || t('enprices.errors.fetchFailed'),
+                type: 'error',
+                isLoading: false,
+                autoClose: 5000
+            });
             console.error('Error fetching data:', err);
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -178,11 +186,6 @@ const Enprices = ({ isOpen, onClose }) => {
     // Create the modal content
     const bodyContent = (
         <div className="enprices-form">
-            {loading && (
-                <div className="ecl-message ecl-message--info">
-                    <span className="ecl-message__title">{t('common.loading')}</span>
-                </div>
-            )}
             <div className="form-row">
                 <div className="form-col">
                     <MultiSelect

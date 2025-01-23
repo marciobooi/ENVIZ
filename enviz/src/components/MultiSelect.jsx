@@ -1,28 +1,32 @@
 import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import { toast } from 'react-toastify';
+import { COUNTRY_GROUPS } from '../config/countryGroups';
+import CountryCheckbox from './CountryCheckbox';
 
-const MultiSelect = ({ onChange }) => {
+const MultiSelect = ({
+    onChange,
+    label = 'multiSelect.label',
+    required = true,
+}) => {
     const selectRef = useRef(null);
     const dropdownRef = useRef(null);
     const searchInputRef = useRef(null);
     const lastFocusedElementRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
-
-    // Initialize selectedValues with all countries selected
-    const AGGREGATES_COUNTRY_CODES = ["EU27_2020", "EA"];
-    const EU_COUNTRY_CODES = ["BE", "BG", "CZ", "DK", "DE", "EE", "IE", "EL", "ES", "FR", "HR", "IT", "CY", "LV", "LT", "LU", "HU", "MT", "NL", "AT", "PL", "PT", "RO", "SI", "SK", "FI", "SE"];
-    const EFTA_COUNTRY_CODES = ["IS", "LI", "NO"];
-    const ENLARGEMENT_COUNTRY_CODES = ["BA", "ME", "MD", "MK", "GE", "AL", "RS", "TR", "UA", "XK"];
-
-    const [selectedValues, setSelectedValues] = useState([
-        ...AGGREGATES_COUNTRY_CODES,
-        ...EU_COUNTRY_CODES,
-        ...EFTA_COUNTRY_CODES,
-        ...ENLARGEMENT_COUNTRY_CODES
-    ]);
-
+    const [searchTerm, setSearchTerm] = useState('');
     const { t } = useTranslation();
+
+    const allCountries = Object.values(COUNTRY_GROUPS).flat();
+    const [selectedValues, setSelectedValues] = useState(allCountries);
+
+    const getFilteredCountries = (group) => {
+        if (!searchTerm) return COUNTRY_GROUPS[group];
+        return COUNTRY_GROUPS[group].filter(code =>
+            t(`multiSelect.countries.${code}`).toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    };
 
     const handleToggle = (e) => {
         e.stopPropagation();
@@ -30,6 +34,7 @@ const MultiSelect = ({ onChange }) => {
             lastFocusedElementRef.current = document.activeElement;
         }
         setIsOpen(!isOpen);
+        setSearchTerm('');
     };
 
     const handleTabKey = (e) => {
@@ -55,13 +60,23 @@ const MultiSelect = ({ onChange }) => {
     };
 
     const handleApply = () => {
-        onChange(selectedValues);
-        setIsOpen(false);
+        try {
+            onChange(selectedValues);
+            setIsOpen(false);
+            toast.success(t('multiSelect.success.selectionApplied'));
+        } catch (error) {
+            toast.error(t('multiSelect.errors.applyFailed'));
+        }
     };
 
     const handleClear = () => {
-        setSelectedValues([]);
-        onChange([]);
+        try {
+            setSelectedValues([]);
+            onChange([]);
+            toast.info(t('multiSelect.success.selectionCleared'));
+        } catch (error) {
+            toast.error(t('multiSelect.errors.clearFailed'));
+        }
     };
 
     const handleCheckboxChange = (value, checked) => {
@@ -71,13 +86,26 @@ const MultiSelect = ({ onChange }) => {
     };
 
     const handleSelectAll = (checked) => {
-        const allValues = [
-            ...AGGREGATES_COUNTRY_CODES,
-            ...EU_COUNTRY_CODES,
-            ...EFTA_COUNTRY_CODES,
-            ...ENLARGEMENT_COUNTRY_CODES
-        ];
-        setSelectedValues(checked ? allValues : []);
+        try {
+            const newValues = checked ? [...allCountries] : [];
+            setSelectedValues(newValues);
+            announceSelectionChange(newValues.length);
+            toast.success(checked ? t('multiSelect.success.allSelected') : t('multiSelect.success.allDeselected'));
+        } catch (error) {
+            toast.error(t('multiSelect.errors.selectionFailed'));
+        }
+    };
+
+    const announceSelectionChange = (count) => {
+        const message = count === 0
+            ? t('multiSelect.aria.noSelection')
+            : t('multiSelect.aria.selectedCount', { count });
+
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.textContent = message;
+        document.body.appendChild(announcement);
+        setTimeout(() => document.body.removeChild(announcement), 1000);
     };
 
     useEffect(() => {
@@ -89,7 +117,7 @@ const MultiSelect = ({ onChange }) => {
                 select.init();
                 currentRef.setAttribute("data-ecl-auto-initialized", "true");
             } catch (error) {
-                console.error("Failed to initialize ECL Select:", error);
+                toast.error(t('multiSelect.errors.initialization'));
             }
         }
 
@@ -144,13 +172,19 @@ const MultiSelect = ({ onChange }) => {
     };
 
     return (
-        <div className="ecl-form-group" role="application">
+        <div
+            className="ecl-form-group"
+            role="application"
+            aria-label={t('multiSelect.aria.countrySelector')}
+            aria-describedby="select-multiple-helper"
+        >
             <label
                 htmlFor="select-multiple-toggle"
                 id="select-multiple-label"
                 className="ecl-form-label"
             >
-                {t('multiSelect.label')}
+                {t(label)}
+                {required && <span className="ecl-form-label__required">*</span>}
             </label>
             <div className="ecl-select__container ecl-select__container--m ecl-select__container--hidden">
                 <select
@@ -234,6 +268,8 @@ const MultiSelect = ({ onChange }) => {
                         ref={searchInputRef}
                         className="ecl-text-input"
                         type="search"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
                         placeholder={t('multiSelect.searchPlaceholder')}
                         aria-label={t('multiSelect.aria.searchInput')}
                     />
@@ -247,7 +283,7 @@ const MultiSelect = ({ onChange }) => {
                             type="checkbox"
                             id="select-multiple-all"
                             name="select-multiple-all"
-                            checked={selectedValues.length === (AGGREGATES_COUNTRY_CODES.length + EU_COUNTRY_CODES.length + EFTA_COUNTRY_CODES.length + ENLARGEMENT_COUNTRY_CODES.length)}
+                            checked={selectedValues.length === allCountries.length}
                             onChange={(e) => handleSelectAll(e.target.checked)}
                             aria-label={t('multiSelect.aria.selectAllCheckbox')}
                         />
@@ -262,116 +298,31 @@ const MultiSelect = ({ onChange }) => {
                     </div>
 
                     <div className="ecl-select__multiple-options" aria-live="polite">
-                        <fieldset data-ecl-multiple-group="Aggregates" className="ecl-select__multiple-group">
-                            <legend className="ecl-select__multiple-group__title">{t('multiSelect.groups.aggregates')}</legend>
-                            {AGGREGATES_COUNTRY_CODES.map((value, index) => (
-                                <div key={value} className="ecl-checkbox" data-select-multiple-value={value} data-visible="true">
-                                    <input
-                                        className="ecl-checkbox__input"
-                                        type="checkbox"
-                                        id={`select-multiple-${index + 1}`}
-                                        name={`select-multiple-${index + 1}`}
-                                        checked={selectedValues.includes(value)}
-                                        onChange={(e) => handleCheckboxChange(value, e.target.checked)}
-                                    />
-                                    <label className="ecl-checkbox__label" htmlFor={`select-multiple-${index + 1}`}>
-                                        <span className="ecl-checkbox__box" aria-hidden="true">
-                                            <svg className="ecl-icon ecl-icon--s ecl-checkbox__icon" focusable="false" aria-hidden="true" viewBox="0 0 48 48">
-                                                <path fillRule="evenodd" d="M19.53 36.69 6 23.19l2.13-2.13 11.4 11.4L39.99 12l2.13 2.13z" />
-                                            </svg>
-                                        </span>
-                                        <span className="ecl-checkbox__label-text">{t(`multiSelect.countries.${value}`)}</span>
-                                    </label>
-                                </div>
-                            ))}
-                        </fieldset>
+                        {Object.entries(COUNTRY_GROUPS).map(([groupKey, _]) => {
+                            const filteredCountries = getFilteredCountries(groupKey);
+                            if (filteredCountries.length === 0) return null;
 
-                        <fieldset data-ecl-multiple-group="EU countries" className="ecl-select__multiple-group">
-                            <legend className="ecl-select__multiple-group__title">{t('multiSelect.groups.euCountries')}</legend>
-                            {EU_COUNTRY_CODES.map((value, index) => (
-                                <div
-                                    key={value}
-                                    className="ecl-checkbox"
-                                    data-select-multiple-value={value}
-                                    data-visible="true"
+                            return (
+                                <fieldset
+                                    key={groupKey}
+                                    className="ecl-select__multiple-group"
+                                    aria-label={t(`multiSelect.groups.${groupKey.toLowerCase()}`)}
                                 >
-                                    <input
-                                        className="ecl-checkbox__input"
-                                        type="checkbox"
-                                        id={`select-multiple-${index + 7}`}
-                                        name={`select-multiple-${index + 7}`}
-                                        checked={selectedValues.includes(value)}
-                                        onChange={(e) => handleCheckboxChange(value, e.target.checked)}
-                                    />
-                                    <label className="ecl-checkbox__label" htmlFor={`select-multiple-${index + 7}`}>
-                                        <span className="ecl-checkbox__box" aria-hidden="true">
-                                            <svg className="ecl-icon ecl-icon--s ecl-checkbox__icon" focusable="false" aria-hidden="true" viewBox="0 0 48 48">
-                                                <path fillRule="evenodd" d="M19.53 36.69 6 23.19l2.13-2.13 11.4 11.4L39.99 12l2.13 2.13z" />
-                                            </svg>
-                                        </span>
-                                        <span className="ecl-checkbox__label-text">{t(`multiSelect.countries.${value}`)}</span>
-                                    </label>
-                                </div>
-                            ))}
-                        </fieldset>
-
-                        <fieldset data-ecl-multiple-group="EFTA countries" className="ecl-select__multiple-group">
-                            <legend className="ecl-select__multiple-group__title">{t('multiSelect.groups.eftaCountries')}</legend>
-                            {EFTA_COUNTRY_CODES.map((value, index) => (
-                                <div
-                                    key={value}
-                                    className="ecl-checkbox"
-                                    data-select-multiple-value={value}
-                                    data-visible="true"
-                                >
-                                    <input
-                                        className="ecl-checkbox__input"
-                                        type="checkbox"
-                                        id={`select-multiple-${index + 13}`}
-                                        name={`select-multiple-${index + 13}`}
-                                        checked={selectedValues.includes(value)}
-                                        onChange={(e) => handleCheckboxChange(value, e.target.checked)}
-                                    />
-                                    <label className="ecl-checkbox__label" htmlFor={`select-multiple-${index + 13}`}>
-                                        <span className="ecl-checkbox__box" aria-hidden="true">
-                                            <svg className="ecl-icon ecl-icon--s ecl-checkbox__icon" focusable="false" aria-hidden="true" viewBox="0 0 48 48">
-                                                <path fillRule="evenodd" d="M19.53 36.69 6 23.19l2.13-2.13 11.4 11.4L39.99 12l2.13 2.13z" />
-                                            </svg>
-                                        </span>
-                                        <span className="ecl-checkbox__label-text">{t(`multiSelect.countries.${value}`)}</span>
-                                    </label>
-                                </div>
-                            ))}
-                        </fieldset>
-
-                        <fieldset data-ecl-multiple-group="Enlargement countries" className="ecl-select__multiple-group">
-                            <legend className="ecl-select__multiple-group__title">{t('multiSelect.groups.enlargementCountries')}</legend>
-                            {ENLARGEMENT_COUNTRY_CODES.map((value, index) => (
-                                <div
-                                    key={value}
-                                    className="ecl-checkbox"
-                                    data-select-multiple-value={value}
-                                    data-visible="true"
-                                >
-                                    <input
-                                        className="ecl-checkbox__input"
-                                        type="checkbox"
-                                        id={`select-multiple-${index + 17}`}
-                                        name={`select-multiple-${index + 17}`}
-                                        checked={selectedValues.includes(value)}
-                                        onChange={(e) => handleCheckboxChange(value, e.target.checked)}
-                                    />
-                                    <label className="ecl-checkbox__label" htmlFor={`select-multiple-${index + 17}`}>
-                                        <span className="ecl-checkbox__box" aria-hidden="true">
-                                            <svg className="ecl-icon ecl-icon--s ecl-checkbox__icon" focusable="false" aria-hidden="true" viewBox="0 0 48 48">
-                                                <path fillRule="evenodd" d="M19.53 36.69 6 23.19l2.13-2.13 11.4 11.4L39.99 12l2.13 2.13z" />
-                                            </svg>
-                                        </span>
-                                        <span className="ecl-checkbox__label-text">{t(`multiSelect.countries.${value}`)}</span>
-                                    </label>
-                                </div>
-                            ))}
-                        </fieldset>
+                                    <legend className="ecl-select__multiple-group__title">
+                                        {t(`multiSelect.groups.${groupKey.toLowerCase()}`)}
+                                    </legend>
+                                    {filteredCountries.map((code) => (
+                                        <CountryCheckbox
+                                            key={code}
+                                            code={code}
+                                            checked={selectedValues.includes(code)}
+                                            onChange={handleCheckboxChange}
+                                            t={t}
+                                        />
+                                    ))}
+                                </fieldset>
+                            );
+                        })}
                     </div>
 
                     <div className="ecl-select-multiple-toolbar">
@@ -395,7 +346,10 @@ const MultiSelect = ({ onChange }) => {
 };
 
 MultiSelect.propTypes = {
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    label: PropTypes.string,
+    required: PropTypes.bool,
+    helperText: PropTypes.string
 };
 
 export default MultiSelect;

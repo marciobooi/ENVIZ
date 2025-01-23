@@ -88,6 +88,12 @@
         "helper": "Wählen Sie den Detailgrad",
         "main": "Hauptindikatoren",
         "detailed": "Detaillierte Aufschlüsselung"
+      },
+      "errors": {
+        "fetchFailed": "Abruf der Energiepreisdaten fehlgeschlagen"
+      },
+      "success": {
+        "dataLoaded": "Energiepreisdaten erfolgreich geladen"
       }
     },
     "ensankey": {
@@ -181,7 +187,7 @@
     "accessibilityAriaLabel": "Barrierefreiheitserklärung anzeigen"
   },
   "multiSelect": {
-    "label": "Länder auswählen",
+    "label": "Ein oder mehrere Länder auswählen",
     "required": "erforderlich",
     "helper": "Wählen Sie ein oder mehrere Länder aus",
     "placeholder": "Optionen auswählen",
@@ -195,6 +201,18 @@
       "euCountries": "EU-Länder",
       "eftaCountries": "EFTA-Länder",
       "enlargementCountries": "Erweiterungsländer"
+    },
+    "errors": {
+      "initialization": "Länderauswahl konnte nicht initialisiert werden",
+      "selectionFailed": "Aktualisierung der Länderauswahl fehlgeschlagen",
+      "applyFailed": "Anwendung der Länderauswahl fehlgeschlagen",
+      "clearFailed": "Löschen der Länderauswahl fehlgeschlagen"
+    },
+    "success": {
+      "allSelected": "Alle Länder ausgewählt",
+      "allDeselected": "Alle Länder abgewählt",
+      "selectionApplied": "Länderauswahl angewendet",
+      "selectionCleared": "Länderauswahl gelöscht"
     },
     "countries": {
       "EU27_2020": "EU (27 Länder)",

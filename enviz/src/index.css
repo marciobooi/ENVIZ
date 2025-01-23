@@ -1,3 +1,7 @@
 html {
   overflow-y: scroll;
 }
+
+.Toastify__toast-container {
+    z-index: 9999999999 !important; /* Ensure it's above the modal's z-index */
+}

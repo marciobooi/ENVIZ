@@ -44,11 +44,11 @@ function App() {
             <Enprices
               isOpen={activeModal === 'enprices'}
               onClose={handleCloseModal}
-            />
-            <ToastContainer position="top-right" autoClose={5000} />
+            />           
           </div>
         </TutorialProvider>
       </BrowserRouter>
+      <ToastContainer position="top-right" autoClose={5000} />
     </I18nextProvider>
   );
 }

@@ -27,29 +27,24 @@ const ModalComponent = ({
     const previousActiveElement = useRef(null);
 
     useEffect(() => {
-        if (isOpen && modalRef.current) {
-            const currentModal = modalRef.current;
+        const currentModal = modalRef.current;
+
+        if (isOpen && currentModal) {
             // Store the previously focused element
             previousActiveElement.current = document.activeElement;
 
-            // Focus the modal
-            currentModal.focus();
+            // Show the modal programmatically
+            currentModal.showModal();
 
-            // ECL initialization
-            if (window.ECL && typeof window.ECL.autoInit === "function") {
-                window.ECL.autoInit();
-            }
-
-            // Get all focusable elements
+            // Trap focus inside the modal
             const focusableElements = currentModal.querySelectorAll(
                 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
             );
             const firstFocusable = focusableElements[0];
             const lastFocusable = focusableElements[focusableElements.length - 1];
 
-            // Handle keyboard trap
             const trapFocus = (e) => {
-                if (e.key === 'Tab') {
+                if (e.key === "Tab") {
                     if (e.shiftKey) {
                         if (document.activeElement === firstFocusable) {
                             e.preventDefault();
@@ -62,17 +57,18 @@ const ModalComponent = ({
                         }
                     }
                 }
-
-                if (e.key === 'Escape') {
+                if (e.key === "Escape") {
                     handleClose();
                 }
             };
 
-            currentModal.addEventListener('keydown', trapFocus);
+            currentModal.addEventListener("keydown", trapFocus);
 
             return () => {
-                currentModal.removeEventListener('keydown', trapFocus);
-                // Restore focus when modal closes
+                currentModal.close();
+                currentModal.removeEventListener("keydown", trapFocus);
+
+                // Restore focus to the previously active element
                 if (previousActiveElement.current) {
                     previousActiveElement.current.focus();
                 }
@@ -90,68 +86,60 @@ const ModalComponent = ({
     };
 
     return (
-        <>
-            {isOpen && (
-                <dialog
-                    ref={modalRef}
-                    id="modal-example"
-                    data-ecl-auto-init="Modal"
-                    data-ecl-modal-toggle="modal-toggle"
-                    aria-modal="true"
-                    className="ecl-modal ecl-modal--full"
-                    aria-labelledby="modal-example-header"
-                    open={true}
-                    tabIndex="-1"
-                >
-                    <div className="ecl-modal__container">
-                        <div className="ecl-modal__content ecl-container">
-                            <header className="ecl-modal__header">
-                                <div className="ecl-modal__header-content" id="modal-example-header">
-                                    {modalTitle}
-                                </div>
-                                <button
-                                    className="ecl-button ecl-button--tertiary ecl-modal__close"
-                                    type="button"
-                                    data-ecl-modal-close=""
-                                    onClick={handleClose}
-                                    aria-label={t('modal.aria.closeModal')}
-                                >
-                                    <span className="ecl-button__container">
-                                        <CloseIcon data-ecl-label="true" aria-label={t('modal.close')} />
-                                    </span>
-                                </button>
-                            </header>
-
-                            <div className="ecl-modal__body">
-                                {bodyContent}
-                            </div>
-
-                            <footer className="ecl-modal__footer">
-                                <div className="ecl-modal__footer-content">
-                                    <button
-                                        className="ecl-button ecl-button--secondary ecl-modal__button"
-                                        type="button"
-                                        data-ecl-modal-close=""
-                                        onClick={handleClose}
-                                        aria-label={t('modal.aria.closeModal')}
-                                    >
-                                        {t('modal.close')}
-                                    </button>
-                                    <button
-                                        className="ecl-button ecl-button--primary ecl-modal__button"
-                                        type="submit"
-                                        onClick={handleSubmit}
-                                        aria-label={t('modal.aria.submitModal')}
-                                    >
-                                        {t('modal.submit')}
-                                    </button>
-                                </div>
-                            </footer>
+        <dialog
+            ref={modalRef}
+            id="modal-example"
+            data-ecl-auto-init="Modal"
+            data-ecl-modal-toggle="modal-toggle"
+            aria-modal="true"
+            className={`ecl-modal ecl-modal--full ${isOpen ? "is-open" : ""}`}
+            aria-labelledby="modal-example-header"
+        >
+            <div className="ecl-modal__container">
+                <div className="ecl-modal__content ecl-container">
+                    <header className="ecl-modal__header">
+                        <div className="ecl-modal__header-content" id="modal-example-header">
+                            {modalTitle}
                         </div>
-                    </div>
-                </dialog>
-            )}
-        </>
+                        <button
+                            className="ecl-button ecl-button--tertiary ecl-modal__close"
+                            type="button"
+                            data-ecl-modal-close=""
+                            onClick={handleClose}
+                            aria-label={t("modal.aria.closeModal")}
+                        >
+                            <span className="ecl-button__container">
+                                <CloseIcon data-ecl-label="true" aria-label={t("modal.close")} />
+                            </span>
+                        </button>
+                    </header>
+
+                    <div className="ecl-modal__body">{bodyContent}</div>
+
+                    <footer className="ecl-modal__footer">
+                        <div className="ecl-modal__footer-content">
+                            <button
+                                className="ecl-button ecl-button--secondary ecl-modal__button"
+                                type="button"
+                                data-ecl-modal-close=""
+                                onClick={handleClose}
+                                aria-label={t("modal.aria.closeModal")}
+                            >
+                                {t("modal.close")}
+                            </button>
+                            <button
+                                className="ecl-button ecl-button--primary ecl-modal__button"
+                                type="submit"
+                                onClick={handleSubmit}
+                                aria-label={t("modal.aria.submitModal")}
+                            >
+                                {t("modal.submit")}
+                            </button>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </dialog>
     );
 };
 

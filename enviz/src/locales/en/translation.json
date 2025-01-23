@@ -188,6 +188,18 @@
       "UA": "Ukraine",
       "XK": "Kosovo"
     },
+    "errors": {
+      "initialization": "Failed to initialize country selector",
+      "selectionFailed": "Failed to update country selection",
+      "applyFailed": "Failed to apply country selection",
+      "clearFailed": "Failed to clear country selection"
+    },
+    "success": {
+      "allSelected": "All countries selected",
+      "allDeselected": "All countries deselected",
+      "selectionApplied": "Country selection applied",
+      "selectionCleared": "Country selection cleared"
+    },
     "aria": {
       "countrySelector": "Country selector",
       "dropdownDialog": "Country selection dialog",
@@ -264,6 +276,12 @@
     "details": {
       "label": "Select details",
       "helper": "Choose the level of detail"
+    },
+    "errors": {
+      "fetchFailed": "Failed to fetch energy price data"
+    },
+    "success": {
+      "dataLoaded": "Energy price data loaded successfully"
     }
   },
   "common": {
