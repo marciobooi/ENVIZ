@@ -40,18 +40,22 @@ function App() {
             </main>
             <Footer />
             <Tutorial />
-            <Enprices
-              isOpen={activeModal === 'enprices'}
-              onClose={handleCloseModal}
-            />           
-            <Sankey
-              isOpen={activeModal === 'sankey'}
-              onClose={handleCloseModal}
-            />           
+            {activeModal === 'enprices' && (
+              <Enprices
+                isOpen={true}
+                onClose={handleCloseModal}
+              />
+            )}
+            {activeModal === 'sankey' && (
+              <Sankey
+                isOpen={true}
+                onClose={handleCloseModal}
+              />
+            )}
           </div>
         </TutorialProvider>
       </BrowserRouter>
-      
+
     </I18nextProvider>
   );
 }
