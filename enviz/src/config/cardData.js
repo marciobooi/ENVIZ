@@ -16,7 +16,7 @@ const getCardData = (t, toggleModal) => [
     imageAlt: t('card.ensankey.imageAlt'),
     title: t('card.ensankey.title'),
     description: t('card.ensankey.description'),
-    onCustomize: () => console.log('Customize gas visualization'),
+    onCustomize: () => toggleModal('sankey'),
     onGoToTool: () =>
       (window.location.href =
         'https://ec.europa.eu/eurostat/cache/sankey/energy/sankey.html'),

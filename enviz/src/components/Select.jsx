@@ -3,8 +3,9 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect, useRef } from "react";
 
 
+
 const SelectComponent = ({
-    label = "Select a country",
+    label,   
     required = true,
     options = [],
     optgroups = [],
@@ -12,7 +13,7 @@ const SelectComponent = ({
     value = "",
     onChange,
 }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef(null);
     const buttonRef = useRef(null);
@@ -59,7 +60,7 @@ const SelectComponent = ({
                 document.removeEventListener('click', handleClickOutside);
             }
         };
-    }, [onChange]);
+    }, [onChange, i18n.language]);
 
     const handleToggle = () => {
         setIsOpen(!isOpen);
@@ -75,8 +76,7 @@ const SelectComponent = ({
                 id={`select-${name}-label`}
                 className="ecl-form-label"
             >
-                {label}
-
+                {t(label)}
             </label>
 
             <div className="ecl-select__container ecl-select__container--m">
@@ -90,18 +90,20 @@ const SelectComponent = ({
                     data-ecl-auto-init="Select"
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
+                    data-ecl-select-default={t('select.placeholder')}
+                    data-ecl-select-no-results={t('select.noOptions')}
+                    aria-label={t(label)}
                 >
-                    <option value="" disabled>Select an option</option>
+                    <option value="" disabled>{t('select.placeholder')}</option>
                     {optgroups.map((group, index) => (
-                        <optgroup key={index} label={group.label}>
+                        <optgroup key={index} label={t(group.label)}>
                             {group.options.map((option) => (
                                 <option
                                     key={option.value}
                                     value={option.value}
-                                    aria-label={`${option.label} - ${group.label}`}
-                                    disabled={option.disabled}
+                                    aria-label={t(option.label)}
                                 >
-                                    {option.label}
+                                    {t(option.label)}
                                 </option>
                             ))}
                         </optgroup>
@@ -110,10 +112,9 @@ const SelectComponent = ({
                         <option
                             key={option.value}
                             value={option.value}
-                            aria-label={option.label}
-                            disabled={option.disabled}
+                            aria-label={t(option.label)}
                         >
-                            {option.label}
+                            {t(option.label)}
                         </option>
                     ))}
                 </select>
@@ -125,14 +126,14 @@ const SelectComponent = ({
                         onClick={handleToggle}
                     >
                         <span className="ecl-button__container">
-                            <span className="ecl-button__label">{t('multiSelect.toggleDropdown')}</span>
+                            <span className="ecl-button__label">{t('select.toggleDropdown')}</span>
                             <svg
                                 className={`ecl-icon ecl-icon--s ${isOpen ? '' : 'ecl-icon--rotate-180'}`}
                                 viewBox="0 0 48 48"
                                 focusable="false"
                                 aria-hidden="true"
                             >
-                                <path fillRule="evenodd" d="m45 30.12-2.73 2.82-18.24-18.36L5.73 33 3 30.18 24.03 9z" clipRule="evenodd" />
+                                <path fillRule="evenodd" d="m45 30.12-2.73 2.82-18.24-18.36L5.73 33 3 30.18 24.03 9z" />
                             </svg>
                         </span>
                     </button>

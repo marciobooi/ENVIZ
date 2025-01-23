@@ -7,8 +7,7 @@ import CountryCheckbox from './CountryCheckbox';
 
 const MultiSelect = ({
     onChange,
-    label = 'multiSelect.label',
-    required = true,
+    label,
 }) => {
     const selectRef = useRef(null);
     const dropdownRef = useRef(null);
@@ -20,6 +19,8 @@ const MultiSelect = ({
 
     const allCountries = Object.values(COUNTRY_GROUPS).flat();
     const [selectedValues, setSelectedValues] = useState(allCountries);
+
+    const defaultLabel = t('multiSelect.label');
 
     const getFilteredCountries = (group) => {
         if (!searchTerm) return COUNTRY_GROUPS[group];
@@ -65,7 +66,7 @@ const MultiSelect = ({
             setIsOpen(false);
             toast.success(t('multiSelect.success.selectionApplied'));
         } catch (error) {
-            toast.error(t('multiSelect.errors.applyFailed'));
+            toast.error(t('multiSelect.errors.applyFailed', error));
         }
     };
 
@@ -75,7 +76,7 @@ const MultiSelect = ({
             onChange([]);
             toast.info(t('multiSelect.success.selectionCleared'));
         } catch (error) {
-            toast.error(t('multiSelect.errors.clearFailed'));
+            toast.error(t('multiSelect.errors.clearFailed', error));
         }
     };
 
@@ -92,7 +93,7 @@ const MultiSelect = ({
             announceSelectionChange(newValues.length);
             toast.success(checked ? t('multiSelect.success.allSelected') : t('multiSelect.success.allDeselected'));
         } catch (error) {
-            toast.error(t('multiSelect.errors.selectionFailed'));
+            toast.error(t('multiSelect.errors.selectionFailed', error));
         }
     };
 
@@ -117,7 +118,7 @@ const MultiSelect = ({
                 select.init();
                 currentRef.setAttribute("data-ecl-auto-initialized", "true");
             } catch (error) {
-                toast.error(t('multiSelect.errors.initialization'));
+                toast.error(t('multiSelect.errors.initialization', error));
             }
         }
 
@@ -183,8 +184,7 @@ const MultiSelect = ({
                 id="select-multiple-label"
                 className="ecl-form-label"
             >
-                {t(label)}
-                {required && <span className="ecl-form-label__required">*</span>}
+                {label || defaultLabel}
             </label>
             <div className="ecl-select__container ecl-select__container--m ecl-select__container--hidden">
                 <select
@@ -298,7 +298,7 @@ const MultiSelect = ({
                     </div>
 
                     <div className="ecl-select__multiple-options" aria-live="polite">
-                        {Object.entries(COUNTRY_GROUPS).map(([groupKey, _]) => {
+                        {Object.entries(COUNTRY_GROUPS).map(([groupKey]) => {
                             const filteredCountries = getFilteredCountries(groupKey);
                             if (filteredCountries.length === 0) return null;
 

@@ -8,7 +8,7 @@
     "tutorialAreaLabel": "Tutorial anzeigen",
     "shareAreaLabel": "Diese Seite teilen",
     "languageAreaLabel": "Sprache ändern",
-    "imageAlt": "Eurostat - Offizielle Logo"
+    "imageAlt": "Eurostat - Offizielles Logo"
   },
   "languageSwitcher": {
     "selectLanguage": "Wählen Sie Ihre Sprache",
@@ -21,83 +21,26 @@
     }
   },
   "shareMenu": {
-    "shareAreaLabel": "Diese Seite in sozialen Medien teilen",
     "shareTitle": "Diese Seite teilen",
-    "shareDescription": "Dieses Visualisierungstool, erstellt von Eurostat, zeigt Strom- und Erdgaspreise in der EU und anderen europäischen Ländern mit einem hohen Detaillierungsgrad an. Benutzer können mit den Daten interagieren und die Anzeige auf vielfältige Weisen anpassen.",
-    "shareOnLinkedIn": "Auf LinkedIn teilen",
-    "shareOnX": "Auf Twitter teilen",
-    "shareOnFacebook": "Auf Facebook teilen"
+    "shareDescription": "Dieses von Eurostat entwickelte Visualisierungstool zeigt die Strom- und Erdgaspreise in der EU und anderen europäischen Ländern mit hohem Detailgrad. Benutzer können mit den Daten interagieren und die Anzeige auf verschiedene Weise anpassen.",
+    "shareOnX": "Auf X (Twitter) teilen",
+    "shareOnFacebook": "Auf Facebook teilen",
+    "shareOnLinkedIn": "Auf LinkedIn teilen"
   },
   "card": {
     "customizeButton": "Diagramm anpassen",
-    "goToToolButton": "Zum Tool gehen",
-    "containerLabel": "Energievisualisierungswerkzeuge",
+    "goToToolButton": "Zum Tool",
+    "containerLabel": "Energievisualisierungstools",
     "descriptionLabel": "Toolbeschreibung",
     "actionsLabel": "Tool-Aktionen",
-    "enprices": {
-      "imageAlt": "Energiepreise-Visualisierungstool",
-      "title": "Energiepreiskonfiguration",
-      "description": "Visualisieren Sie Strom- und Erdgaspreise in der EU oder Ihrem Land",
-      "year": {
-        "label": "Jahr auswählen",
-        "helper": "Wählen Sie das Bezugsjahr"
-      },
-      "fuel": {
-        "label": "Energieträger",
-        "helper": "Wählen Sie zwischen Strom oder Gas",
-        "electricity": "Strom",
-        "gas": "Erdgas"
-      },
-      "consumer": {
-        "label": "Verbrauchertyp",
-        "helper": "Wählen Sie zwischen Haushalten und Nicht-Haushalten",
-        "household": "Haushalte",
-        "nonHousehold": "Nicht-Haushalte"
-      },
-      "consumption": {
-        "label": "Verbrauchsniveau",
-        "helper": "Wählen Sie die Verbrauchsklasse",
-        "lt1000": "Weniger als 1000 kWh",
-        "ge15000": "15000 kWh oder mehr",
-        "5000to14999": "5000-14999 kWh",
-        "2500to4999": "2500-4999 kWh",
-        "1000to2499": "1000-2499 kWh"
-      },
-      "currency": {
-        "label": "Währung",
-        "helper": "Wählen Sie die Anzeigewährung",
-        "eur": "Euro",
-        "pps": "Kaufkraftstandard"
-      },
-      "unit": {
-        "label": "Einheit",
-        "helper": "Wählen Sie die Maßeinheit",
-        "kwh": "Kilowattstunde (kWh)",
-        "mwh": "Megawattstunde (MWh)"
-      },
-      "component": {
-        "label": "Preiskomponenten",
-        "helper": "Wählen Sie die anzuzeigenden Preiskomponenten"
-      },
-      "details": {
-        "label": "Detailgrad",
-        "helper": "Wählen Sie den Detailgrad"
-      },
-      "errors": {
-        "fetchFailed": "Abruf der Energiepreisdaten fehlgeschlagen",
-        "urlCreationFailed": "Erstellung der Visualisierungs-URL fehlgeschlagen"
-      },
-      "success": {
-        "dataLoaded": "Energiepreisdaten erfolgreich geladen"
-      }
-    },
+
     "ensankey": {
-      "imageAlt": "Sankey-Diagramm-Visualisierungstool",
+      "imageAlt": "Sankey-Diagramm Visualisierungstool",
       "title": "Sankey-Diagramm - Energieflüsse",
       "description": "Visualisieren Sie Energiedaten durch Flussdiagramme (Sankey-Diagramme) in der EU oder Ihrem Land."
     },
     "enmonthly": {
-      "imageAlt": "Monatliche Energie-Visualisierungstool",
+      "imageAlt": "Monatliches Energievisualisierungstool",
       "title": "Monatliche Energiedaten",
       "description": "Visualisieren Sie saisonale Energietrends in der EU oder Ihrem Land."
     },
@@ -107,9 +50,9 @@
       "description": "Visualisieren Sie die Handelsströme auf verschiedene Weise in Ihrem Land. Nutzen Sie es und gestalten Sie Ihre eigene Karte!"
     },
     "enbal": {
-      "imageAlt": "Energiebilanzen-Visualisierungstool",
+      "imageAlt": "Energiebilanz-Visualisierungstool",
       "title": "Energiebilanzen",
-      "description": "Visualisieren Sie Energiebilanzen, sehen Sie wie viel Energie importiert oder produziert wird, finden Sie heraus, in welchen Sektoren die Energie verbraucht wird und prüfen Sie verschiedene Energiequellen."
+      "description": "Visualisieren Sie Energiebilanzen, sehen Sie wie viel Energie importiert oder produziert wird, finden Sie heraus in welchen Sektoren die Energie verbraucht wird und überprüfen Sie verschiedene Energiequellen."
     },
     "endash": {
       "imageAlt": "Energieindikatoren-Visualisierungstool",
@@ -124,14 +67,19 @@
     "EnergyScenarios": {
       "imageAlt": "Energieszenarien-Tool",
       "title": "Energieszenarien",
-      "description": "Erkunden Sie die historische und zukünftige Energienutzung mit dem interaktiven Tool des JRC. Dieses Tool stammt nicht von Eurostat, sondern von der Gemeinsamen Forschungsstelle."
+      "description": "Erkunden Sie historische und zukünftige Energienutzung mit dem interaktiven JRC-Tool. Dieses Tool stammt nicht von Eurostat, sondern vom Joint Research Centre (JRC)."
+    },
+    "enprices": {
+      "imageAlt": "Energiepreise-Visualisierungstool",
+      "title": "Energiepreise-Konfiguration",
+      "description": "Visualisieren Sie Strom- und Erdgaspreise in der EU oder Ihrem Land."
     }
   },
   "tooltips": {
-    "tutorial": "Öffnen Sie die Tutorial-Anleitung",
+    "tutorial": "Tutorial-Anleitung öffnen",
     "share": "Diese Visualisierung teilen",
-    "language": "Ändern Sie die Schnittstellensprache",
-    "home": "Zur Eurostat-Homepage",
+    "language": "Oberflächensprache ändern",
+    "home": "Zur Eurostat-Startseite",
     "customize": "Visualisierungseinstellungen anpassen",
     "goToTool": "Visualisierungstool öffnen"
   },
@@ -141,19 +89,19 @@
     "skip": "Tutorial überspringen",
     "close": "Tutorial schließen",
     "last": "Beenden",
-    "targetNotFound": "Tutorial-Element nicht gefunden",
+    "targetNotFound": "Tutorial-Ziel nicht gefunden",
     "steps": {
       "welcome": {
-        "title": "Willkommen bei der Energievisualisierung",
-        "content": "Dieses Tool hilft Ihnen, die Energiepreise in der EU zu erkunden und zu verstehen."
+        "title": "Willkommen zur Energievisualisierung",
+        "content": "Dieses Tool hilft Ihnen, Energiepreise in der EU zu erkunden und zu verstehen."
       },
       "cards": {
-        "title": "Visualisierungswerkzeuge",
-        "content": "Hier finden Sie verschiedene Werkzeuge zur Erkundung von Energiedaten. Jede Karte stellt eine andere Visualisierungsoption dar."
+        "title": "Visualisierungstools",
+        "content": "Hier finden Sie verschiedene Tools zur Erkundung von Energiedaten. Jede Karte repräsentiert eine andere Visualisierungsoption."
       },
       "actions": {
-        "title": "Werkzeugaktionen",
-        "content": "Sie können die Visualisierungseinstellungen anpassen oder mit diesen Schaltflächen direkt auf das Werkzeug zugreifen."
+        "title": "Tool-Aktionen",
+        "content": "Sie können die Visualisierungseinstellungen anpassen oder direkt auf das Tool zugreifen mit diesen Schaltflächen."
       },
       "share": {
         "title": "Teilen Sie Ihre Erkenntnisse",
@@ -161,21 +109,21 @@
       },
       "language": {
         "title": "Sprachoptionen",
-        "content": "Ändern Sie die Sprache der Benutzeroberfläche nach Ihren Wünschen."
+        "content": "Ändern Sie die Oberflächensprache nach Ihren Wünschen."
       },
       "home": {
-        "title": "Eurostat-Homepage",
+        "title": "Eurostat-Startseite",
         "content": "Kehren Sie jederzeit zur Eurostat-Hauptwebsite zurück."
       }
     }
   },
   "footer": {
     "legal": "Rechtlicher Hinweis",
-    "privacy": "Datenschutz",
+    "privacy": "Datenschutzerklärung",
     "cookies": "Cookies",
     "accessibility": "Barrierefreiheit",
-    "ariaLabel": "Fußzeilennavigation",
-    "navAriaLabel": "Fußzeilenlinks",
+    "ariaLabel": "Footer-Navigation",
+    "navAriaLabel": "Footer-Links",
     "legalAriaLabel": "Rechtlichen Hinweis anzeigen",
     "privacyAriaLabel": "Datenschutzerklärung anzeigen",
     "cookiesAriaLabel": "Cookie-Richtlinie anzeigen",
@@ -184,34 +132,21 @@
   "multiSelect": {
     "label": "Ein oder mehrere Länder auswählen",
     "required": "erforderlich",
-    "helper": "Wählen Sie ein oder mehrere Länder aus",
-    "placeholder": "Optionen auswählen",
-    "searchPlaceholder": "Suchbegriff eingeben",
+    "placeholder": "Optionen wählen",
+    "searchPlaceholder": "Filterbegriff eingeben",
     "selectAll": "Alle auswählen",
     "apply": "Anwenden",
     "clearAll": "Alle löschen",
-    "toggleDropdown": "Dropdown-Liste umschalten",
+    "toggleDropdown": "Dropdown umschalten",
     "groups": {
       "aggregates": "Aggregate",
       "euCountries": "EU-Länder",
       "eftaCountries": "EFTA-Länder",
       "enlargementCountries": "Erweiterungsländer"
     },
-    "errors": {
-      "initialization": "Länderauswahl konnte nicht initialisiert werden",
-      "selectionFailed": "Aktualisierung der Länderauswahl fehlgeschlagen",
-      "applyFailed": "Anwendung der Länderauswahl fehlgeschlagen",
-      "clearFailed": "Löschen der Länderauswahl fehlgeschlagen"
-    },
-    "success": {
-      "allSelected": "Alle Länder ausgewählt",
-      "allDeselected": "Alle Länder abgewählt",
-      "selectionApplied": "Länderauswahl angewendet",
-      "selectionCleared": "Länderauswahl gelöscht"
-    },
     "countries": {
       "EU27_2020": "EU (27 Länder)",
-      "EA": "Euroraum",
+      "EA": "Eurozone",
       "BE": "Belgien",
       "BG": "Bulgarien",
       "CZ": "Tschechien",
@@ -244,14 +179,26 @@
       "NO": "Norwegen",
       "BA": "Bosnien und Herzegowina",
       "ME": "Montenegro",
-      "MD": "Moldau",
+      "MD": "Moldawien",
       "MK": "Nordmazedonien",
       "GE": "Georgien",
       "AL": "Albanien",
       "RS": "Serbien",
-      "TR": "Türkiye",
+      "TR": "Türkei",
       "UA": "Ukraine",
       "XK": "Kosovo"
+    },
+    "errors": {
+      "initialization": "Länderauswahl konnte nicht initialisiert werden",
+      "selectionFailed": "Länderauswahl konnte nicht aktualisiert werden",
+      "applyFailed": "Länderauswahl konnte nicht angewendet werden",
+      "clearFailed": "Länderauswahl konnte nicht gelöscht werden"
+    },
+    "success": {
+      "allSelected": "Alle Länder ausgewählt",
+      "allDeselected": "Alle Länder abgewählt",
+      "selectionApplied": "Länderauswahl angewendet",
+      "selectionCleared": "Länderauswahl gelöscht"
     },
     "aria": {
       "countrySelector": "Länderauswahl",
@@ -265,17 +212,134 @@
   },
   "modal": {
     "close": "Schließen",
-    "submit": "Bestätigen",
+    "submit": "Absenden",
     "aria": {
       "closeModal": "Modal schließen",
-      "submitModal": "Bestätigen und Modal schließen"
+      "submitModal": "Modal absenden und schließen"
     }
   },
   "select": {
-    "toggleDropdown": "Dropdown-Liste umschalten",
+    "toggleDropdown": "Dropdown umschalten",
+    "placeholder": "Option auswählen",
+    "noOptions": "Keine Optionen verfügbar",
+    "selectAll": "Alle auswählen",
     "aria": {
       "select": "Option auswählen",
       "selected": "Ausgewählte Option: {{option}}"
+    }
+  },
+  "enprices": {
+    "imageAlt": "Energiepreise-Visualisierungstool",
+    "title": "Energiepreise-Konfiguration",
+    "description": "Visualisieren Sie Strom- und Erdgaspreise in der EU oder Ihrem Land.",
+    "year": {
+      "label": "Jahr auswählen",
+      "helper": "Wählen Sie das Referenzjahr"
+    },
+    "fuel": {
+      "label": "Energieträger auswählen",
+      "helper": "Wählen Sie zwischen Strom oder Gas",
+      "options": {
+        "electricity": "Strom",
+        "gas": "Erdgas"
+      }
+    },
+    "consumer": {
+      "label": "Verbraucher auswählen",
+      "helper": "Wählen Sie zwischen Haushalts- oder Nicht-Haushaltsverbrauchern",
+      "options": {
+        "household": "Haushalt",
+        "nonHousehold": "Nicht-Haushalt"
+      }
+    },
+    "consumption": {
+      "label": "Verbrauchsniveau auswählen",
+      "helper": "Wählen Sie die Verbrauchsklasse",
+      "lt1000": "Weniger als 1000 kWh",
+      "ge15000": "15000 kWh oder mehr",
+      "5000to14999": "5000-14999 kWh",
+      "2500to4999": "2500-4999 kWh",
+      "1000to2499": "1000-2499 kWh"
+    },
+    "currency": {
+      "label": "Währung auswählen",
+      "helper": "Wählen Sie die Anzeigewährung",
+      "eur": "Euro",
+      "pps": "Kaufkraftstandard"
+    },
+    "unit": {
+      "label": "Einheit auswählen",
+      "helper": "Wählen Sie die Maßeinheit",
+      "kwh": "Kilowattstunde (kWh)",
+      "mwh": "Megawattstunde (MWh)"
+    },
+    "component": {
+      "label": "Komponenten auswählen",
+      "helper": "Wählen Sie die anzuzeigenden Preiskomponenten"
+    },
+    "details": {
+      "label": "Details auswählen",
+      "helper": "Wählen Sie den Detailgrad"
+    },
+    "errors": {
+      "fetchFailed": "Energiepreisdaten konnten nicht abgerufen werden",
+      "urlCreationFailed": "Visualisierungs-URL konnte nicht erstellt werden"
+    },
+    "success": {
+      "dataLoaded": "Energiepreisdaten erfolgreich geladen"
+    }
+  },
+  "common": {
+    "yes": "Ja",
+    "no": "Nein",
+    "loading": "Daten werden geladen...",
+    "error": "Fehler"
+  },
+  "sankey": {
+    "title": "Energiefluss-Konfiguration",
+    "description": "Visualisieren Sie Energieflüsse durch Sankey-Diagramme in der EU oder Ihrem Land",
+    "year": {
+      "label": "Jahr auswählen",
+      "helper": "Wählen Sie das Referenzjahr"
+    },
+    "fuel": {
+      "label": "Energiequelle auswählen",
+      "helper": "Wählen Sie die Art der Energie",
+      "options": {
+        "total": "Gesamt",
+        "sff_p1000": "Feste fossile Brennstoffe",
+        "o4000": "Öl und Erdölprodukte",
+        "g3000_c0350_370": "Erdgas",
+        "ra000": "Kernenergie",
+        "w6100_6220": "Wasser- und Windkraft",
+        "n900h": "Biokraftstoffe",
+        "h8000": "Wärme",
+        "e7000": "Strom"
+      }
+    },
+    "unit": {
+      "label": "Einheit auswählen",
+      "helper": "Wählen Sie die Maßeinheit",
+      "options": {
+        "ktoe": "Tausend Tonnen Öläquivalent",
+        "gj": "Gigajoule",
+        "tj": "Terajoule",
+        "gwh": "Gigawattstunden",
+        "gcal": "Gigakalorien",
+        "tcal": "Terakalorien",
+        "gbtu": "Milliarden British Thermal Units"
+      }
+    },
+    "details": {
+      "label": "Details auswählen",
+      "helper": "Wählen Sie den Detailgrad"
+    },
+    "errors": {
+      "fetchFailed": "Energieflussdaten konnten nicht abgerufen werden",
+      "urlCreationFailed": "Visualisierungs-URL konnte nicht erstellt werden"
+    },
+    "success": {
+      "dataLoaded": "Energieflussdaten erfolgreich geladen"
     }
   }
 }

@@ -10,6 +10,7 @@ import i18n from './i18n';
 
 // import '@ecl/preset-eu/dist/scripts/ecl-eu.js';
 import Enprices from './components/Enprices';
+import Sankey from './components/Sankey';
 import getCardData from './config/cardData';
 import { useTranslation } from 'react-i18next';
 
@@ -41,6 +42,10 @@ function App() {
             <Tutorial />
             <Enprices
               isOpen={activeModal === 'enprices'}
+              onClose={handleCloseModal}
+            />           
+            <Sankey
+              isOpen={activeModal === 'sankey'}
               onClose={handleCloseModal}
             />           
           </div>

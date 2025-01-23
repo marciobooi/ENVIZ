@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 const RadioGroupComponent = ({
     label,
@@ -8,9 +9,13 @@ const RadioGroupComponent = ({
     value,
     onChange
 }) => {
+    const { t, i18n } = useTranslation();
+
     return (
         <fieldset className="ecl-form-group">
-            <legend id={`${name}-label`} className="ecl-form-label">{label}</legend>
+            <legend id={`${name}-label`} className="ecl-form-label">
+                {t(label)}
+            </legend>
 
             <div
                 className="ecl-radio-group"
@@ -33,7 +38,7 @@ const RadioGroupComponent = ({
                             <span className="ecl-radio__box">
                                 <span className="ecl-radio__box-inner"></span>
                             </span>
-                            <span className="ecl-radio__label-text">{option.label}</span>
+                            <span className="ecl-radio__label-text">{t(option.label)}</span>
                         </label>
                     </div>
                 ))}

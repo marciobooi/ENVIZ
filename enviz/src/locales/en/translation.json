@@ -239,14 +239,18 @@
     "fuel": {
       "label": "Select fuel",
       "helper": "Choose between electricity or gas",
-      "electricity": "Electricity",
-      "gas": "Natural gas"
+      "options": {
+        "electricity": "Electricity",
+        "gas": "Natural gas"
+      }
     },
     "consumer": {
       "label": "Select consumer",
       "helper": "Choose between household or non-household consumers",
-      "household": "Household",
-      "nonHousehold": "Non-household"
+      "options": {
+        "household": "Household",
+        "nonHousehold": "Non-household"
+      }
     },
     "consumption": {
       "label": "Select consumption level",
@@ -290,5 +294,52 @@
     "no": "No",
     "loading": "Loading data...",
     "error": "Error"
+  },
+  "sankey": {
+    "title": "Energy Flow Configuration",
+    "description": "Visualise energy flows through Sankey diagrams in the EU or your country",
+    "year": {
+      "label": "Select year",
+      "helper": "Choose the reference year"
+    },
+    "fuel": {
+      "label": "Select energy source",
+      "helper": "Choose the type of energy",
+      "options": {
+        "total": "Total",
+        "sff_p1000": "Solid fossil fuels",
+        "o4000": "Oil and petroleum products",
+        "g3000_c0350_370": "Natural gas",
+        "ra000": "Nuclear heat",
+        "w6100_6220": "Hydro and wind",
+        "n900h": "Biofuels",
+        "h8000": "Heat",
+        "e7000": "Electricity"
+      }
+    },
+    "unit": {
+      "label": "Select unit",
+      "helper": "Select the measurement unit",
+      "options": {
+        "ktoe": "Thousand tonnes of oil equivalent",
+        "gj": "Gigajoules",
+        "tj": "Terajoules",
+        "gwh": "Gigawatt hours",
+        "gcal": "Gigacalories",
+        "tcal": "Teracalories",
+        "gbtu": "Billion British thermal units"
+      }
+    },
+    "details": {
+      "label": "Select details",
+      "helper": "Choose the level of detail"
+    },
+    "errors": {
+      "fetchFailed": "Failed to fetch energy flow data",
+      "urlCreationFailed": "Failed to create visualization URL"
+    },
+    "success": {
+      "dataLoaded": "Energy flow data loaded successfully"
+    }
   }
 }

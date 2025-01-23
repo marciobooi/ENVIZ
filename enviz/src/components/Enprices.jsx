@@ -19,7 +19,7 @@ const BASE_URL = 'https://ec.europa.eu/eurostat/cache/visualisations/energy-pric
 
 const Enprices = ({ isOpen, onClose }) => {
     const { t, i18n } = useTranslation();
-    const [ setData ] = useState(null);
+    const [data, setData] = useState(null);
     const [availableOptions, setAvailableOptions] = useState({
         years: [],
         consumptionLevels: [],
@@ -39,7 +39,7 @@ const Enprices = ({ isOpen, onClose }) => {
         const toastId = toast.loading(t('common.loading'));
         try {
             const response = await axios.get(
-                `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/${datasetCode}?format=JSON&lang=en`,
+                `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/${datasetCode}?format=JSON&lang=${i18n.language.toLowerCase()}`,
                 { timeout: 10000 }
             );
             if (response.status !== 200) {
@@ -164,16 +164,16 @@ const Enprices = ({ isOpen, onClose }) => {
     // Fetch initial data when component mounts
     useEffect(() => {
         fetchData(currentDataset);
-    }, [currentDataset]);
+    }, [currentDataset, i18n.language]);
 
     const fuelOptions = [
-        { value: '6000', label: t('enprices.fuel.electricity') },
-        { value: '4100', label: t('enprices.fuel.gas') }
+        { value: '6000', label: t(`enprices.fuel.options.electricity`) },
+        { value: '4100', label: t(`enprices.fuel.options.gas`) }
     ];
 
     const consumerOptions = [
-        { value: 'N_HOUSEHOLD', label: t('enprices.consumer.nonHousehold') },
-        { value: 'HOUSEHOLD', label: t('enprices.consumer.household') }
+        { value: 'N_HOUSEHOLD', label: t(`enprices.consumer.options.nonHousehold`) },
+        { value: 'HOUSEHOLD', label: t(`enprices.consumer.options.household`) }
     ];
 
     const handleSubmit = () => {
@@ -218,12 +218,13 @@ const Enprices = ({ isOpen, onClose }) => {
                         options={availableOptions.countries}
                         value={formData.countries}
                         onChange={(values) => handleChange('countries', values)}
+                        label="multiSelect.label"
                     />
                 </div>
                 <div className="form-col">
                     <Select
-                        label={t('enprices.year.label')}
-                        helperText={t('enprices.year.helper')}
+                        label="enprices.year.label"
+                        helperText="enprices.year.helper"
                         options={availableOptions.years}
                         value={formData.year}
                         onChange={(value) => handleChange('year', value)}
@@ -231,8 +232,8 @@ const Enprices = ({ isOpen, onClose }) => {
                 </div>
                 <div className="form-col">
                     <Select
-                        label={t('enprices.fuel.label')}
-                        helperText={t('enprices.fuel.helper')}
+                        label="enprices.fuel.label"
+                        helperText="enprices.fuel.helper"
                         options={fuelOptions}
                         value={formData.fuel}
                         onChange={(value) => handleChange('fuel', value)}
@@ -243,8 +244,8 @@ const Enprices = ({ isOpen, onClose }) => {
             <div className="form-row">
                 <div className="form-col">
                     <Select
-                        label={t('enprices.consumer.label')}
-                        helperText={t('enprices.consumer.helper')}
+                        label="enprices.consumer.label"
+                        helperText="enprices.consumer.helper"
                         options={consumerOptions}
                         value={formData.consumer}
                         onChange={(value) => handleChange('consumer', value)}
@@ -252,8 +253,8 @@ const Enprices = ({ isOpen, onClose }) => {
                 </div>
                 <div className="form-col">
                     <Select
-                        label={t('enprices.consumption.label')}
-                        helperText={t('enprices.consumption.helper')}
+                        label="enprices.consumption.label"
+                        helperText="enprices.consumption.helper"
                         options={availableOptions.consumptionLevels}
                         value={formData.consumptionLevel}
                         onChange={(value) => handleChange('consumptionLevel', value)}
@@ -261,8 +262,8 @@ const Enprices = ({ isOpen, onClose }) => {
                 </div>
                 <div className="form-col">
                     <Select
-                        label={t('enprices.currency.label')}
-                        helperText={t('enprices.currency.helper')}
+                        label="enprices.currency.label"
+                        helperText="enprices.currency.helper"
                         options={availableOptions.currencies}
                         value={formData.currency}
                         onChange={(value) => handleChange('currency', value)}
@@ -273,8 +274,8 @@ const Enprices = ({ isOpen, onClose }) => {
             <div className="form-row">
                 <div className="form-col">
                     <Select
-                        label={t('enprices.unit.label')}
-                        helperText={t('enprices.unit.helper')}
+                        label="enprices.unit.label"
+                        helperText="enprices.unit.helper"
                         options={availableOptions.units}
                         value={formData.unit}
                         onChange={(value) => handleChange('unit', value)}
@@ -282,12 +283,12 @@ const Enprices = ({ isOpen, onClose }) => {
                 </div>
                 <div className="form-col">
                     <RadioGroupComponent
-                        label={t('enprices.component.label')}
-                        helperText={t('enprices.component.helper')}
+                        label="enprices.component.label"
+                        helperText="enprices.component.helper"
                         name="component"
                         options={[
-                            { value: 'true', label: t('common.yes') },
-                            { value: 'false', label: t('common.no') }
+                            { value: 'true', label: 'common.yes' },
+                            { value: 'false', label: 'common.no' }
                         ]}
                         value={formData.component}
                         onChange={(value) => handleChange('component', value)}
@@ -295,12 +296,12 @@ const Enprices = ({ isOpen, onClose }) => {
                 </div>
                 <div className="form-col">
                     <RadioGroupComponent
-                        label={t('enprices.details.label')}
-                        helperText={t('enprices.details.helper')}
+                        label="enprices.details.label"
+                        helperText="enprices.details.helper"
                         name="details"
                         options={[
-                            { value: 'true', label: t('common.yes') },
-                            { value: 'false', label: t('common.no') }
+                            { value: 'true', label: 'common.yes' },
+                            { value: 'false', label: 'common.no' }
                         ]}
                         value={formData.details}
                         onChange={(value) => handleChange('details', value)}
