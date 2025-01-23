@@ -181,7 +181,7 @@ const Sankey = ({ isOpen, onClose }) => {
                     <RadioGroupComponent
                         label={t('sankey.details.label')}
                         helperText={t('sankey.details.helper')}
-                        name="details"
+                        name="sankeyDetails"
                         options={[
                             { value: 'true', label: t('common.yes') },
                             { value: 'false', label: t('common.no') }
