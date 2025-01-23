@@ -6,8 +6,6 @@ import TutorialProvider from './contexts/TutorialContext';
 import Footer from './components/Footer';
 import { BrowserRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import i18n from './i18n';
 
 // import '@ecl/preset-eu/dist/scripts/ecl-eu.js';
@@ -48,7 +46,7 @@ function App() {
           </div>
         </TutorialProvider>
       </BrowserRouter>
-      <ToastContainer position="top-right" autoClose={5000} />
+      
     </I18nextProvider>
   );
 }

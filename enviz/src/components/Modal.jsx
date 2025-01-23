@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import { ToastContainer } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 import "../styles/modal.css";
 
 const CloseIcon = () => (
@@ -86,6 +88,7 @@ const ModalComponent = ({
     };
 
     return (
+        
         <dialog
             ref={modalRef}
             id="modal-example"
@@ -95,6 +98,7 @@ const ModalComponent = ({
             className={`ecl-modal ecl-modal--full ${isOpen ? "is-open" : ""}`}
             aria-labelledby="modal-example-header"
         >
+            <ToastContainer position="top-center" autoClose={3000} closeButton="true" />
             <div className="ecl-modal__container">
                 <div className="ecl-modal__content ecl-container">
                     <header className="ecl-modal__header">
