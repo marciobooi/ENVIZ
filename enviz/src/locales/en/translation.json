@@ -46,7 +46,7 @@
     },
     "entrade": {
       "imageAlt": "Energy trade visualization tool",
-      "title": "Energy trade",
+      "title": "Energy Trade Configuration",
       "description": "Visualise the trade flows in different ways in your country. Use it and customise your own map!"
     },
     "enbal": {
@@ -429,6 +429,125 @@
       "datasetChanged": "Chart type changed, options updated"
     },
     "errors": {
+      "urlCreationFailed": "Failed to create visualization URL"
+    }
+  },
+  "entrade": {
+    "title": "Energy Trade Configuration",
+    "description": "Visualise the trade flows in different ways in your country. Use it and customise your own map!",
+    "country": {
+      "label": "Select country",
+      "helper": "Select a country"
+    },
+    "year": {
+      "label": "Select year",
+      "helper": "Select the reference year"
+    },
+    "trade": {
+      "label": "Select trade flow",
+      "helper": "Select import or export",
+      "imp": "Import",
+      "exp": "Export"
+    },
+    "fuel": {
+      "label": "Select fuel",
+      "helper": "Select the fuel type",
+      "gas": "Natural gas",
+      "solid": "Solid fuels",
+      "oil": "Oil",
+      "biofuels": "Biofuels",
+      "electricity": "Electricity"
+    },
+    "siec": {
+      "label": "Select indicator",
+      "helper": "Select the energy indicator",
+      "G3000": "Natural gas",
+      "G3200": "Liquefied natural gas",
+      "C0000X0350-0370": "Solid fossil fuels",
+      "C0100": "Hard coal",
+      "C0110": "Coking coal",
+      "C0121": "Steam coal",
+      "C0129": "Other bituminous coal",
+      "C0200": "Brown coal",
+      "C0210": "Lignite",
+      "C0220": "Sub-bituminous coal",
+      "C0311": "Coke oven coke",
+      "C0320": "Patent fuel",
+      "C0330": "Brown coal briquettes",
+      "C0340": "Coal tar",
+      "P1100": "Crude oil",
+      "P1200": "Natural gas liquids",
+      "O4000": "Oil and petroleum products",
+      "O4000XBIO": "Oil and petroleum products (excluding biofuels)",
+      "O4100_TOT_4200-4500": "Crude oil total",
+      "O4100_TOT_4200-4500XBIO": "Crude oil total (excluding biofuels)",
+      "O4100_TOT": "Total crude oil",
+      "O4200": "NGL (Natural gas liquids)",
+      "O4300": "Refinery feedstocks",
+      "O4400X4410": "Additives and oxygenates",
+      "O4400": "Additives/blending components",
+      "O4500": "Other hydrocarbons",
+      "O4600": "Oil products",
+      "O4600XBIO": "Oil products (excluding biofuels)",
+      "O4620": "Refinery gas",
+      "O4630": "Ethane",
+      "O4640": "Liquefied petroleum gases",
+      "O4651": "Naphtha",
+      "O4652": "Motor gasoline",
+      "O4652XR5210B": "Motor gasoline (excluding biofuels)",
+      "O4653": "Aviation gasoline",
+      "O4661": "Gasoline type jet fuel",
+      "O4661XR5230B": "Gasoline type jet fuel (excluding biofuels)",
+      "O4669": "Other kerosene",
+      "O4671": "Gas/diesel oil",
+      "O4671XR5220B": "Gas/diesel oil (excluding biofuels)",
+      "O46711": "Transport diesel",
+      "O46712": "Heating and other gas oil",
+      "O4680": "Fuel oil",
+      "O4681": "White spirit and industrial spirits",
+      "O4682": "Lubricants",
+      "O4691": "Bitumen",
+      "O4692": "Petroleum coke",
+      "O4693": "Paraffin waxes",
+      "O4694": "Other oil products n.e.c.",
+      "O4695": "Other oil products",
+      "O4699": "Non-specified oil products",
+      "R5111": "Pure biogasoline",
+      "R5210P": "Pure biodiesels",
+      "R5210E": "Pure biodiesels (FAME)",
+      "R5220P": "Pure bio jet kerosene",
+      "R5230P": "Other liquid biofuels",
+      "R5290": "Other liquid biofuels n.e.c.",
+      "E7000": "Electricity",
+      "H8000": "Heat"
+    },
+    "unit": {
+      "label": "Select unit",
+      "helper": "Select the measurement unit",
+      "TJ_GCV": "Terajoules (GCV)",
+      "MIO_M3": "Million cubic meters",
+      "THS_T": "Thousand tonnes",
+      "GWH": "Gigawatt hours",
+      "TJ": "Terajoules"
+    },
+    "detail": {
+      "label": "Select detail",
+      "helper": "Select the level of detail"
+    },
+    "filter": {
+      "label": "Select filter",
+      "helper": "Select data filter",
+      "all": "All countries",
+      "top5": "Top 5 countries"
+    },
+    "success": {
+      "redirecting": "Redirecting to visualization...",
+      "fuelChanged": "Fuel type changed, options updated",
+      "optionsUpdated": "Options updated based on selected fuel and trade flow",
+      "yearsLoaded": "Years data loaded successfully"
+    },
+    "errors": {
+      "yearsFetchFailed": "Failed to fetch years data",
       "urlCreationFailed": "Failed to create visualization URL"
     }
   }

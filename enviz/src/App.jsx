@@ -12,6 +12,7 @@ import i18n from './i18n';
 import Enprices from './components/Enprices';
 import Sankey from './components/Sankey';
 import Enmonthly from './components/Enmonthly';
+import Entrade from './components/Entrade';
 import getCardData from './config/cardData';
 import { useTranslation } from 'react-i18next';
 
@@ -55,6 +56,12 @@ function App() {
             )}
             {activeModal === 'enmonthly' && (
               <Enmonthly
+                isOpen={true}
+                onClose={handleCloseModal}
+              />
+            )}
+            {activeModal === 'entrade' && (
+              <Entrade
                 isOpen={true}
                 onClose={handleCloseModal}
               />

@@ -38,7 +38,7 @@ const getCardData = (t, toggleModal) => [
     imageAlt: t('card.entrade.imageAlt'),
     title: t('card.entrade.title'),
     description: t('card.entrade.description'),
-    onCustomize: () => console.log('Customize gas visualization'),
+    onCustomize: () => toggleModal('entrade'),
     onGoToTool: () =>
       (window.location.href =
         'https://ec.europa.eu/eurostat/cache/visualisations/energy-trade/entrade.html'),
