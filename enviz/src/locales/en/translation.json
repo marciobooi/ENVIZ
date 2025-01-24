@@ -293,7 +293,8 @@
     "yes": "Yes",
     "no": "No",
     "loading": "Loading data...",
-    "error": "Error"
+    "error": "Error",
+    "scrollToTop": "Scroll to top of page"
   },
   "sankey": {
     "title": "Energy Flow Configuration",

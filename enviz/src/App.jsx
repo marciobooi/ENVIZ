@@ -17,6 +17,7 @@ import Enbal from './components/Enbal';
 import Endash from './components/Endash';
 import getCardData from './config/cardData';
 import { useTranslation } from 'react-i18next';
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
                 onClose={handleCloseModal}
               />
             )}
+            <ScrollToTop />
           </div>
         </TutorialProvider>
       </BrowserRouter>

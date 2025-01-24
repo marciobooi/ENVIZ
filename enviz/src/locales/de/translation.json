@@ -407,7 +407,8 @@
     "yes": "Ja",
     "no": "Nein",
     "loading": "Daten werden geladen...",
-    "error": "Fehler"
+    "error": "Fehler",
+    "scrollToTop": "Zum Seitenanfang scrollen"
   },
   "sankey": {
     "title": "Energiefluss-Konfiguration",

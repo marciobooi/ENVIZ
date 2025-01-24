@@ -369,7 +369,8 @@
     "yes": "Oui",
     "no": "Non",
     "loading": "Chargement des données...",
-    "error": "Erreur"
+    "error": "Erreur",
+    "scrollToTop": "Remonter en haut de la page"
   },
   "sankey": {
     "title": "Configuration des flux énergétiques",
