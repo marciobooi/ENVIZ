@@ -14,6 +14,7 @@ import Sankey from './components/Sankey';
 import Enmonthly from './components/Enmonthly';
 import Entrade from './components/Entrade';
 import Enbal from './components/Enbal';
+import Endash from './components/Endash';
 import getCardData from './config/cardData';
 import { useTranslation } from 'react-i18next';
 
@@ -69,6 +70,12 @@ function App() {
             )}
             {activeModal === 'enbal' && (
               <Enbal
+                isOpen={true}
+                onClose={handleCloseModal}
+              />
+            )}
+            {activeModal === 'endash' && (
+              <Endash
                 isOpen={true}
                 onClose={handleCloseModal}
               />

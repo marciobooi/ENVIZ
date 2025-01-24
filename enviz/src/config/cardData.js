@@ -60,7 +60,7 @@ const getCardData = (t, toggleModal) => [
     imageAlt: t('card.endash.imageAlt'),
     title: t('card.endash.title'),
     description: t('card.endash.description'),
-    onCustomize: () => console.log('Customize gas visualization'),
+    onCustomize: () => toggleModal('endash'),
     onGoToTool: () =>
       (window.location.href =
         'https://ec.europa.eu/eurostat/cache/visualisations/energy-dashboard/endash.html'),
