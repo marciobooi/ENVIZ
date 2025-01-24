@@ -1,7 +1,7 @@
 const getCardData = (t, toggleModal) => [
   {
     id: 'enprices',
-    imageUrl: '/ENPRICES.png',
+    imageUrl: '/ENPRICES.webp',
     imageAlt: t('card.enprices.imageAlt'),
     title: t('card.enprices.title'),
     description: t('card.enprices.description'),
@@ -12,7 +12,7 @@ const getCardData = (t, toggleModal) => [
   },
   {
     id: 'ensankey',
-    imageUrl: '/SANKEY.png',
+    imageUrl: '/SANKEY.webp',
     imageAlt: t('card.ensankey.imageAlt'),
     title: t('card.ensankey.title'),
     description: t('card.ensankey.description'),
@@ -23,7 +23,7 @@ const getCardData = (t, toggleModal) => [
   },
   {
     id: 'enmonthly',
-    imageUrl: '/ENMONTHLY.png',
+    imageUrl: '/ENMONTHLY.webp',
     imageAlt: t('card.enmonthly.imageAlt'),
     title: t('card.enmonthly.title'),
     description: t('card.enmonthly.description'),
@@ -45,7 +45,7 @@ const getCardData = (t, toggleModal) => [
   },
   {
     id: 'enbal',
-    imageUrl: '/ENBAL.png',
+    imageUrl: '/ENBAL.webp',
     imageAlt: t('card.enbal.imageAlt'),
     title: t('card.enbal.title'),
     description: t('card.enbal.description'),
@@ -56,7 +56,7 @@ const getCardData = (t, toggleModal) => [
   },
   {
     id: 'endash',
-    imageUrl: '/ENDASH.png',
+    imageUrl: '/ENDASH.webp',
     imageAlt: t('card.endash.imageAlt'),
     title: t('card.endash.title'),
     description: t('card.endash.description'),
@@ -67,7 +67,7 @@ const getCardData = (t, toggleModal) => [
   },
   {
     id: 'shedthelight',
-    imageUrl: '/SHEDLIGHT.png',
+    imageUrl: '/SHEDLIGHT.webp',
     imageAlt: t('card.shedthelight.imageAlt'),
     title: t('card.shedthelight.title'),
     description: t('card.shedthelight.description'),
@@ -78,7 +78,7 @@ const getCardData = (t, toggleModal) => [
   },
   {
     id: 'EnergyScenarios',
-    imageUrl: '/ENSCENARIOS.jpg',
+    imageUrl: '/ENSCENARIOS.webp',
     imageAlt: t('card.EnergyScenarios.imageAlt'),
     title: t('card.EnergyScenarios.title'),
     description: t('card.EnergyScenarios.description'),
