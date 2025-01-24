@@ -17,11 +17,13 @@ import {
     getCurrencies  // Add this if needed
 } from '../config/enpricesConfig';
 import '../styles/form.css';
+import Spinner from './Spinner';    
 
 
 const Enprices = ({ isOpen, onClose }) => {
     const { t, i18n } = useTranslation();
     const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [availableOptions, setAvailableOptions] = useState({
         years: [],
         consumptionLevels: [],
@@ -40,6 +42,7 @@ const Enprices = ({ isOpen, onClose }) => {
 
     const fetchData = async (datasetCode) => {
         const toastId = toast.loading(t('common.loading'));
+        setLoading(true);
         try {
             const response = await axios.get(
                 `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/${datasetCode}?format=JSON&lang=${i18n.language.toLowerCase()}`,
@@ -122,6 +125,8 @@ const Enprices = ({ isOpen, onClose }) => {
                 autoClose: 5000
             });
             console.error('Error fetching data:', err);
+        } finally {
+            setLoading(false); // Set loading to false after fetching
         }
     };
 
@@ -213,7 +218,11 @@ const Enprices = ({ isOpen, onClose }) => {
     };
 
     // Create the modal content
-    const bodyContent = (
+    const bodyContent =  loading ? (
+        <div className="loading">
+            <Spinner text={t('common.loading')} size="m" color="primary" centered />
+        </div>
+    ) : (
         <div className="form">
             <div className="form-row">
                 <div className="form-col">

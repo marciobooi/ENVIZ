@@ -18,6 +18,7 @@ import {
 } from '../config/entradeConfig';
 import { COUNTRY_GROUPS } from '../config/countryGroups';
 import '../styles/form.css';
+import Spinner from './Spinner';
 
 
 
@@ -26,6 +27,7 @@ const Entrade = ({ isOpen, onClose }) => {
 
     // State
     const [years, setYears] = useState([]);
+    const [loading, setLoading] = useState(true); // Loading state for data fetch
     const [formData, setFormData] = useState({
         geo: DEFAULTS.geo,
         year: DEFAULTS.year,
@@ -56,6 +58,7 @@ const Entrade = ({ isOpen, onClose }) => {
     // Fetch available years dynamically
     useEffect(() => {
         const fetchYearsDebounced = debounce(async () => {
+            setLoading(true);
             try {
                 const params = new URLSearchParams({
                     format: 'JSON',
@@ -73,6 +76,8 @@ const Entrade = ({ isOpen, onClose }) => {
             } catch {
                 setYears([DEFAULTS.year]); // Fallback to default year
                 toast.error(t('entrade.errors.yearsFetchFailed'));
+            } finally {
+                setLoading(false); // Set loading to false after fetching
             }
         }, 300);
 
@@ -194,7 +199,11 @@ const Entrade = ({ isOpen, onClose }) => {
         { value: 'top5', label: t('entrade.filter.top5') },
     ];
 
-    const bodyContent = (
+    const bodyContent = loading ? (
+        <div className="loading">
+            <Spinner text={t('common.loading')} size="m" color="primary" centered />
+        </div>
+    ) : (
         <div className="form">
             <div className="form-row">
                 <div className="form-col">
@@ -269,7 +278,8 @@ const Entrade = ({ isOpen, onClose }) => {
                 </div>
             </div>
         </div>
-    );
+    )
+   
 
     return (
         <Modal
