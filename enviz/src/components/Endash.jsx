@@ -13,8 +13,13 @@ const Endash = ({ isOpen, onClose }) => {
     const [formData, setFormData] = useState({
         geos: DEFAULTS.geos
     });
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (value) => {
+        if (!value) {
+            toast.error(t('endash.errors.missingCountry'));
+            return;
+        }
         setFormData(prev => ({
             ...prev,
             geos: value
@@ -23,6 +28,7 @@ const Endash = ({ isOpen, onClose }) => {
 
     const handleSubmit = () => {
         try {
+            setIsLoading(true);
             const params = new URLSearchParams({
                 geos: formData.geos
             });
@@ -31,8 +37,10 @@ const Endash = ({ isOpen, onClose }) => {
             window.location.href = url;
             onClose();
             toast.success(t('endash.success.redirecting'));
-        } catch {
+        } catch (error) {
             toast.error(t('endash.errors.urlCreationFailed'));
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -63,8 +71,9 @@ const Endash = ({ isOpen, onClose }) => {
             isOpen={isOpen}
             onClose={onClose}
             onSubmit={handleSubmit}
-            modalTitle={t('endash.title')}
+            modalTitle={t('card.endash.title')}
             bodyContent={bodyContent}
+            isLoading={isLoading}
         />
     );
 };

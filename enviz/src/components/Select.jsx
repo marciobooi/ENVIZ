@@ -19,9 +19,9 @@ const SelectComponent = ({
     const buttonRef = useRef(null);
 
     // Helper function to check if string is a year or semester format
-    const isYearOrSemester = (str) => {
-        const yearPattern = /^\d{4}$/;  // Matches exactly 4 digits
-        const semesterPattern = /^\d{4}-S[12]$/;  // Matches YYYY-S1 or YYYY-S2
+    const isDateFormat = (str) => {
+        const yearPattern = /^\d{4}$/;
+        const semesterPattern = /^\d{4}-S[12]$/;
         return yearPattern.test(str) || semesterPattern.test(str);
     };
 
@@ -30,13 +30,12 @@ const SelectComponent = ({
         const aLabel = t(a.label);
         const bLabel = t(b.label);
 
-        // If both are years or semesters, don't sort (maintain original order)
-        if (isYearOrSemester(aLabel) && isYearOrSemester(bLabel)) {
+        // Don't sort dates/years
+        if (isDateFormat(aLabel) || isDateFormat(bLabel)) {
             return 0;
         }
 
-        // Otherwise, sort alphabetically
-        return aLabel.localeCompare(bLabel);
+        return aLabel.localeCompare(bLabel, i18n.language);
     });
 
     useEffect(() => {

@@ -23,6 +23,7 @@ const ModalComponent = ({
     bodyContent = "Scrollable content goes here.",
     onClose,
     onSubmit,
+    isLoading,
 }) => {
     const { t } = useTranslation();
     const modalRef = useRef(null);
@@ -88,7 +89,7 @@ const ModalComponent = ({
     };
 
     return (
-        
+
         <dialog
             ref={modalRef}
             id="modal-example"
@@ -127,6 +128,7 @@ const ModalComponent = ({
                                 type="button"
                                 data-ecl-modal-close=""
                                 onClick={handleClose}
+                                disabled={isLoading}
                                 aria-label={t("modal.aria.closeModal")}
                             >
                                 {t("modal.close")}
@@ -135,9 +137,17 @@ const ModalComponent = ({
                                 className="ecl-button ecl-button--primary ecl-modal__button"
                                 type="submit"
                                 onClick={handleSubmit}
+                                disabled={isLoading}
                                 aria-label={t("modal.aria.submitModal")}
                             >
-                                {t("modal.submit")}
+                                {isLoading ? (
+                                    <span className="ecl-button__loading">
+                                        <span className="ecl-spinner ecl-spinner--inverted" />
+                                        {t("common.loading")}
+                                    </span>
+                                ) : (
+                                    t("modal.submit")
+                                )}
                             </button>
                         </div>
                     </footer>
@@ -153,6 +163,7 @@ ModalComponent.propTypes = {
     bodyContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     onClose: PropTypes.func,
     onSubmit: PropTypes.func,
+    isLoading: PropTypes.bool,
 };
 
 export default ModalComponent;

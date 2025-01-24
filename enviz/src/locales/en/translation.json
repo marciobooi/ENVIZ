@@ -62,7 +62,7 @@
     "shedthelight": {
       "imageAlt": "Shedding light on energy in the EU",
       "title": "Interactive publication: Shedding light on energy in the EU",
-      "description": "through easy texts, visualisations and videos."
+      "description": "Take a guided tour with our user-friendly interactive publication and explore energy statistics through easy texts, visualisations and videos."
     },
     "EnergyScenarios": {
       "imageAlt": "Energy scenarios tool",
@@ -294,7 +294,8 @@
     "no": "No",
     "loading": "Loading data...",
     "error": "Error",
-    "scrollToTop": "Scroll to top of page"
+    "scrollToTop": "Scroll to top of page",
+    "toolBy": "Tool by {{organization}}"
   },
   "sankey": {
     "title": "Energy Flow Configuration",
@@ -597,6 +598,21 @@
       "urlCreationFailed": "Failed to create visualization URL",
       "datasetNotFound": "Dataset not found for selected options",
       "missingFields": "Please fill in all required fields"
+    }
+  },
+  "endash": {
+    "title": "Energy Dashboard Configuration",
+    "description": "Visualise energy indicators in your country or the EU",
+    "country": {
+      "label": "Select country",
+      "helper": "Select a country to view its energy indicators"
+    },
+    "errors": {
+      "missingCountry": "Please select a country",
+      "urlCreationFailed": "Failed to create visualization URL"
+    },
+    "success": {
+      "redirecting": "Redirecting to visualization..."
     }
   }
 }

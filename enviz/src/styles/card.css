@@ -8,10 +8,14 @@
   margin: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .ecl-card:hover {
-  box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .ecl-card__body {
@@ -43,6 +47,14 @@ h2.ecl-link.ecl-link--standalone {
 .ecl-card__image {
   max-height: 40vh;
   height: 40vh;
+  transition: transform 0.3s ease;
+}
+
+
+.ecl-label--high {
+  color: #004494;
+  font-weight: 600;
+  font-size: 0.875rem;
 }
 
 /* High contrast mode support */
@@ -71,8 +83,17 @@ h2.ecl-link.ecl-link--standalone {
 
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  .ecl-button {
+  .ecl-card,
+  .ecl-card__image {
     transition: none;
+  }
+
+  .ecl-card:hover,
+  .ecl-card:hover .ecl-card__image {
+    transform: none;
   }
 }
 
+.ecl-card:hover .ecl-card__image {
+  transform: scale(1.02);
+}

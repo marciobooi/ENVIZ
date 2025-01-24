@@ -46,122 +46,7 @@
     },
     "entrade": {
       "title": "Energiehandel-Konfiguration",
-      "description": "Visualisieren Sie die Handelsströme auf verschiedene Arten in Ihrem Land. Nutzen Sie es und gestalten Sie Ihre eigene Karte!",
-      "country": {
-        "label": "Land auswählen",
-        "helper": "Wählen Sie ein Land aus"
-      },
-      "year": {
-        "label": "Jahr auswählen",
-        "helper": "Wählen Sie das Bezugsjahr"
-      },
-      "trade": {
-        "label": "Handelsstrom auswählen",
-        "helper": "Wählen Sie Import oder Export",
-        "imp": "Import",
-        "exp": "Export"
-      },
-      "fuel": {
-        "label": "Brennstoff auswählen",
-        "helper": "Wählen Sie den Brennstofftyp",
-        "gas": "Erdgas",
-        "solid": "Feste Brennstoffe",
-        "oil": "Öl",
-        "biofuels": "Biokraftstoffe",
-        "electricity": "Elektrizität"
-      },
-      "siec": {
-        "label": "Indikator auswählen",
-        "helper": "Wählen Sie den Energieindikator",
-        "G3000": "Erdgas",
-        "G3200": "Flüssigerdgas",
-        "C0000X0350-0370": "Feste fossile Brennstoffe",
-        "C0100": "Steinkohle",
-        "C0110": "Kokskohle",
-        "C0121": "Kesselkohle",
-        "C0129": "Sonstige Steinkohle",
-        "C0200": "Braunkohle",
-        "C0210": "Lignit",
-        "C0220": "Subbituminöse Kohle",
-        "C0311": "Steinkohlenkoks",
-        "C0320": "Braunkohlenbriketts",
-        "C0330": "Braunkohlenbriketts",
-        "C0340": "Kohlenteer",
-        "P1100": "Rohöl",
-        "P1200": "Erdgaskondensate",
-        "O4000": "Öl und Erdölprodukte",
-        "O4000XBIO": "Öl und Erdölprodukte (ohne Biokraftstoffe)",
-        "O4100_TOT_4200-4500": "Rohöl gesamt",
-        "O4100_TOT_4200-4500XBIO": "Rohöl gesamt (ohne Biokraftstoffe)",
-        "O4100_TOT": "Rohöl gesamt",
-        "O4200": "Erdgaskondensate",
-        "O4300": "Raffinerie-Einsatzprodukte",
-        "O4400X4410": "Additive und Sauerstoffverbindungen",
-        "O4400": "Additive/Mischkomponenten",
-        "O4500": "Andere Kohlenwasserstoffe",
-        "O4600": "Ölprodukte",
-        "O4600XBIO": "Ölprodukte (ohne Biokraftstoffe)",
-        "O4620": "Raffineriegas",
-        "O4630": "Ethan",
-        "O4640": "Flüssiggas",
-        "O4651": "Naphtha",
-        "O4652": "Motorenbenzin",
-        "O4652XR5210B": "Motorenbenzin (ohne Biokraftstoffe)",
-        "O4653": "Flugbenzin",
-        "O4661": "Flugturbinenkraftstoff",
-        "O4661XR5230B": "Flugturbinenkraftstoff (ohne Biokraftstoffe)",
-        "O4669": "Anderes Kerosin",
-        "O4671": "Diesel/Gasöl",
-        "O4671XR5220B": "Diesel/Gasöl (ohne Biokraftstoffe)",
-        "O46711": "Dieselkraftstoff",
-        "O46712": "Heizöl und anderes Gasöl",
-        "O4680": "Heizöl",
-        "O4681": "Testbenzin und Spezial-Benzine",
-        "O4682": "Schmierstoffe",
-        "O4691": "Bitumen",
-        "O4692": "Petrolkoks",
-        "O4693": "Paraffine",
-        "O4694": "Andere Ölprodukte a.n.g.",
-        "O4695": "Andere Ölprodukte",
-        "O4699": "Nicht spezifizierte Ölprodukte",
-        "R5111": "Reines Biobenzin",
-        "R5210P": "Reiner Biodiesel",
-        "R5210E": "Reiner Biodiesel (FAME)",
-        "R5220P": "Reines Bio-Kerosin",
-        "R5230P": "Andere flüssige Biokraftstoffe",
-        "R5290": "Andere flüssige Biokraftstoffe a.n.g.",
-        "E7000": "Elektrizität",
-        "H8000": "Wärme"
-      },
-      "unit": {
-        "label": "Einheit auswählen",
-        "helper": "Wählen Sie die Maßeinheit",
-        "TJ_GCV": "Terajoule (Ho)",
-        "MIO_M3": "Millionen Kubikmeter",
-        "THS_T": "Tausend Tonnen",
-        "GWH": "Gigawattstunden",
-        "TJ": "Terajoule"
-      },
-      "detail": {
-        "label": "Detail auswählen",
-        "helper": "Wählen Sie die Detailstufe"
-      },
-      "filter": {
-        "label": "Filter auswählen",
-        "helper": "Wählen Sie den Datenfilter",
-        "all": "Alle Länder",
-        "top5": "Top 5 Länder"
-      },
-      "success": {
-        "redirecting": "Weiterleitung zur Visualisierung...",
-        "fuelChanged": "Brennstofftyp geändert, Optionen aktualisiert",
-        "optionsUpdated": "Optionen basierend auf ausgewähltem Brennstoff und Handelsstrom aktualisiert",
-        "yearsLoaded": "Jahresdaten erfolgreich geladen"
-      },
-      "errors": {
-        "yearsFetchFailed": "Jahresdaten konnten nicht abgerufen werden",
-        "urlCreationFailed": "Visualisierungs-URL konnte nicht erstellt werden"
-      }
+      "description": "Visualisieren Sie die Handelsströme auf verschiedene Arten in Ihrem Land. Nutzen Sie es und gestalten Sie Ihre eigene Karte!"
     },
     "enbal": {
       "imageAlt": "Energiebilanz-Visualisierungstool",
@@ -176,7 +61,7 @@
     "shedthelight": {
       "imageAlt": "Licht ins Dunkel der Energie in der EU",
       "title": "Interaktive Publikation: Licht ins Dunkel der Energie in der EU",
-      "description": "durch einfache Texte, Visualisierungen und Videos."
+      "description": "Unsere interaktive Veröffentlichung nimmt Sie mit auf einen Ausflug in die Welt der Energie und bietet Ihnen einfache Texte, Visualisierungen und Videos."
     },
     "EnergyScenarios": {
       "imageAlt": "Energieszenarien-Tool",
@@ -408,7 +293,8 @@
     "no": "Nein",
     "loading": "Daten werden geladen...",
     "error": "Fehler",
-    "scrollToTop": "Zum Seitenanfang scrollen"
+    "scrollToTop": "Zum Seitenanfang scrollen",
+    "toolBy": "Tool von {{organization}}"
   },
   "sankey": {
     "title": "Energiefluss-Konfiguration",
@@ -540,6 +426,140 @@
       "urlCreationFailed": "Visualisierungs-URL konnte nicht erstellt werden",
       "datasetNotFound": "Datensatz für ausgewählte Optionen nicht gefunden",
       "missingFields": "Bitte füllen Sie alle erforderlichen Felder aus"
+    }
+  },
+  "entrade": {
+    "title": "Energiehandel-Konfiguration",
+    "description": "Visualisieren Sie die Handelsströme auf verschiedene Arten in Ihrem Land. Nutzen Sie es und gestalten Sie Ihre eigene Karte!",
+    "country": {
+      "label": "Land auswählen",
+      "helper": "Wählen Sie ein Land aus"
+    },
+    "year": {
+      "label": "Jahr auswählen",
+      "helper": "Wählen Sie das Bezugsjahr"
+    },
+    "trade": {
+      "label": "Handelsstrom auswählen",
+      "helper": "Wählen Sie Import oder Export",
+      "imp": "Import",
+      "exp": "Export"
+    },
+    "fuel": {
+      "label": "Brennstoff auswählen",
+      "helper": "Wählen Sie den Brennstofftyp",
+      "gas": "Erdgas",
+      "solid": "Feste Brennstoffe",
+      "oil": "Öl",
+      "biofuels": "Biokraftstoffe",
+      "electricity": "Elektrizität"
+    },
+    "siec": {
+      "label": "Indikator auswählen",
+      "helper": "Wählen Sie den Energieindikator",
+      "G3000": "Erdgas",
+      "G3200": "Flüssigerdgas",
+      "C0000X0350-0370": "Feste fossile Brennstoffe",
+      "C0100": "Steinkohle",
+      "C0110": "Kokskohle",
+      "C0121": "Kesselkohle",
+      "C0129": "Sonstige Steinkohle",
+      "C0200": "Braunkohle",
+      "C0210": "Lignit",
+      "C0220": "Subbituminöse Kohle",
+      "C0311": "Steinkohlenkoks",
+      "C0320": "Braunkohlenbriketts",
+      "C0330": "Braunkohlenbriketts",
+      "C0340": "Kohlenteer",
+      "P1100": "Rohöl",
+      "P1200": "Erdgaskondensate",
+      "O4000": "Öl und Erdölprodukte",
+      "O4000XBIO": "Öl und Erdölprodukte (ohne Biokraftstoffe)",
+      "O4100_TOT_4200-4500": "Rohöl gesamt",
+      "O4100_TOT_4200-4500XBIO": "Rohöl gesamt (ohne Biokraftstoffe)",
+      "O4100_TOT": "Rohöl gesamt",
+      "O4200": "Erdgaskondensate",
+      "O4300": "Raffinerie-Einsatzprodukte",
+      "O4400X4410": "Additive und Sauerstoffverbindungen",
+      "O4400": "Additive/Mischkomponenten",
+      "O4500": "Andere Kohlenwasserstoffe",
+      "O4600": "Ölprodukte",
+      "O4600XBIO": "Ölprodukte (ohne Biokraftstoffe)",
+      "O4620": "Raffineriegas",
+      "O4630": "Ethan",
+      "O4640": "Flüssiggas",
+      "O4651": "Naphtha",
+      "O4652": "Motorenbenzin",
+      "O4652XR5210B": "Motorenbenzin (ohne Biokraftstoffe)",
+      "O4653": "Flugbenzin",
+      "O4661": "Flugturbinenkraftstoff",
+      "O4661XR5230B": "Flugturbinenkraftstoff (ohne Biokraftstoffe)",
+      "O4669": "Anderes Kerosin",
+      "O4671": "Diesel/Gasöl",
+      "O4671XR5220B": "Diesel/Gasöl (ohne Biokraftstoffe)",
+      "O46711": "Dieselkraftstoff",
+      "O46712": "Heizöl und anderes Gasöl",
+      "O4680": "Heizöl",
+      "O4681": "Testbenzin und Spezial-Benzine",
+      "O4682": "Schmierstoffe",
+      "O4691": "Bitumen",
+      "O4692": "Petrolkoks",
+      "O4693": "Paraffine",
+      "O4694": "Andere Ölprodukte a.n.g.",
+      "O4695": "Andere Ölprodukte",
+      "O4699": "Nicht spezifizierte Ölprodukte",
+      "R5111": "Reines Biobenzin",
+      "R5210P": "Reiner Biodiesel",
+      "R5210E": "Reiner Biodiesel (FAME)",
+      "R5220P": "Reines Bio-Kerosin",
+      "R5230P": "Andere flüssige Biokraftstoffe",
+      "R5290": "Andere flüssige Biokraftstoffe a.n.g.",
+      "E7000": "Elektrizität",
+      "H8000": "Wärme"
+    },
+    "unit": {
+      "label": "Einheit auswählen",
+      "helper": "Wählen Sie die Maßeinheit",
+      "TJ_GCV": "Terajoule (Ho)",
+      "MIO_M3": "Millionen Kubikmeter",
+      "THS_T": "Tausend Tonnen",
+      "GWH": "Gigawattstunden",
+      "TJ": "Terajoule"
+    },
+    "detail": {
+      "label": "Detail auswählen",
+      "helper": "Wählen Sie die Detailstufe"
+    },
+    "filter": {
+      "label": "Filter auswählen",
+      "helper": "Wählen Sie den Datenfilter",
+      "all": "Alle Länder",
+      "top5": "Top 5 Länder"
+    },
+    "success": {
+      "redirecting": "Weiterleitung zur Visualisierung...",
+      "fuelChanged": "Brennstofftyp geändert, Optionen aktualisiert",
+      "optionsUpdated": "Optionen basierend auf ausgewähltem Brennstoff und Handelsstrom aktualisiert",
+      "yearsLoaded": "Jahresdaten erfolgreich geladen"
+    },
+    "errors": {
+      "yearsFetchFailed": "Jahresdaten konnten nicht abgerufen werden",
+      "urlCreationFailed": "Visualisierungs-URL konnte nicht erstellt werden"
+    }
+  },
+  "endash": {
+    "title": "Energiedashboard-Konfiguration",
+    "description": "Visualisieren Sie Energieindikatoren in Ihrem Land oder der EU",
+    "country": {
+      "label": "Land auswählen",
+      "helper": "Wählen Sie ein Land aus, um dessen Energieindikatoren anzuzeigen"
+    },
+    "errors": {
+      "missingCountry": "Bitte wählen Sie ein Land aus",
+      "urlCreationFailed": "Visualisierungs-URL konnte nicht erstellt werden"
+    },
+    "success": {
+      "redirecting": "Weiterleitung zur Visualisierung..."
     }
   }
 }

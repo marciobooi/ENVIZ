@@ -47,83 +47,7 @@
     "entrade": {
       "imageAlt": "Outil de visualisation des échanges énergétiques",
       "title": "Configuration du commerce énergétique",
-      "description": "Visualisez les flux commerciaux de différentes manières dans votre pays. Utilisez-le et personnalisez votre propre carte !",
-      "country": {
-        "label": "Sélectionner le pays",
-        "helper": "Sélectionnez un pays"
-      },
-      "year": {
-        "label": "Sélectionner l'année",
-        "helper": "Sélectionnez l'année de référence"
-      },
-      "trade": {
-        "label": "Sélectionner le flux commercial",
-        "helper": "Sélectionnez import ou export",
-        "imp": "Importation",
-        "exp": "Exportation"
-      },
-      "fuel": {
-        "label": "Sélectionner le combustible",
-        "helper": "Sélectionnez le type de combustible",
-        "gas": "Gaz naturel",
-        "solid": "Combustibles solides",
-        "oil": "Pétrole",
-        "biofuels": "Biocarburants",
-        "electricity": "Électricité"
-      },
-      "siec": {
-        "label": "Sélectionner l'indicateur",
-        "helper": "Sélectionnez l'indicateur énergétique",
-        "G3000": "Gaz naturel",
-        "G3200": "Gaz naturel liquéfié",
-        "C0000X0350-0370": "Combustibles fossiles solides",
-        "C0100": "Houille",
-        "C0110": "Charbon à coke",
-        "C0121": "Charbon vapeur",
-        "C0129": "Autres houilles bitumineuses",
-        "C0200": "Lignite",
-        "C0210": "Lignite",
-        "C0220": "Charbon sub-bitumineux",
-        "C0311": "Coke de four à coke",
-        "C0320": "Agglomérés de houille",
-        "C0330": "Briquettes de lignite",
-        "C0340": "Goudron de houille",
-        "P1100": "Pétrole brut",
-        "P1200": "Liquides de gaz naturel",
-        "O4000": "Pétrole et produits pétroliers",
-        "O4000XBIO": "Pétrole et produits pétroliers (hors biocarburants)",
-        "E7000": "Électricité",
-        "H8000": "Chaleur"
-      },
-      "unit": {
-        "label": "Sélectionner l'unité",
-        "helper": "Sélectionnez l'unité de mesure",
-        "TJ_GCV": "Térajoules (PCS)",
-        "MIO_M3": "Millions de mètres cubes",
-        "THS_T": "Milliers de tonnes",
-        "GWH": "Gigawattheures",
-        "TJ": "Térajoules"
-      },
-      "detail": {
-        "label": "Sélectionner le détail",
-        "helper": "Sélectionnez le niveau de détail"
-      },
-      "filter": {
-        "label": "Sélectionner le filtre",
-        "helper": "Sélectionnez le filtre de données",
-        "all": "Tous les pays",
-        "top5": "Top 5 des pays"
-      },
-      "success": {
-        "redirecting": "Redirection vers la visualisation...",
-        "fuelChanged": "Type de combustible modifié, options mises à jour",
-        "optionsUpdated": "Options mises à jour selon le combustible et le flux commercial sélectionnés",
-        "yearsLoaded": "Données annuelles chargées avec succès"
-      },
-      "errors": {
-        "yearsFetchFailed": "Échec du chargement des données annuelles",
-        "urlCreationFailed": "Échec de la création de l'URL de visualisation"
-      }
+      "description": "Visualisez les flux commerciaux de différentes manières dans votre pays. Utilisez-le et personnalisez votre propre carte !"
     },
     "enbal": {
       "imageAlt": "Outil de visualisation des bilans énergétiques",
@@ -138,12 +62,12 @@
     "shedthelight": {
       "imageAlt": "Faire la lumière sur l'énergie dans l'UE",
       "title": "Publication interactive : Faire la lumière sur l'énergie dans l'UE",
-      "description": "à travers des textes faciles, des visualisations et des vidéos."
+      "description": "Bénéficiez d’une visite guidée avec notre publication interactive et explorez les statistiques de l’énergie par le biais de textes courts, d’infographies et de vidéos."
     },
     "EnergyScenarios": {
-      "imageAlt": "Outil de scénarios énergétiques",
+      "imageAlt": "Outil des scénarios énergétiques",
       "title": "Scénarios énergétiques",
-      "description": "Explorez l'utilisation énergétique historique et future avec l'outil interactif JRC. Cet outil n'est pas d'Eurostat mais du Centre commun de recherche (JRC)."
+      "description": "Explorez l'utilisation historique et future de l'énergie avec l'outil interactif du JRC. Cet outil n'est pas d'Eurostat, mais du Centre commun de recherche (JRC)."
     },
     "enprices": {
       "imageAlt": "Outil de visualisation des prix de l'énergie",
@@ -370,7 +294,8 @@
     "no": "Non",
     "loading": "Chargement des données...",
     "error": "Erreur",
-    "scrollToTop": "Remonter en haut de la page"
+    "scrollToTop": "Remonter en haut de la page",
+    "toolBy": "Outil par {{organization}}"
   },
   "sankey": {
     "title": "Configuration des flux énergétiques",
@@ -502,6 +427,102 @@
       "urlCreationFailed": "Échec de la création de l'URL de visualisation",
       "datasetNotFound": "Jeu de données introuvable pour les options sélectionnées",
       "missingFields": "Veuillez remplir tous les champs obligatoires"
+    }
+  },
+  "entrade": {
+    "imageAlt": "Outil de visualisation des échanges énergétiques",
+    "title": "Configuration du commerce énergétique",
+    "description": "Visualisez les flux commerciaux de différentes manières dans votre pays. Utilisez-le et personnalisez votre propre carte !",
+    "country": {
+      "label": "Sélectionner le pays",
+      "helper": "Sélectionnez un pays"
+    },
+    "year": {
+      "label": "Sélectionner l'année",
+      "helper": "Sélectionnez l'année de référence"
+    },
+    "trade": {
+      "label": "Sélectionner le flux commercial",
+      "helper": "Sélectionnez import ou export",
+      "imp": "Importation",
+      "exp": "Exportation"
+    },
+    "fuel": {
+      "label": "Sélectionner le combustible",
+      "helper": "Sélectionnez le type de combustible",
+      "gas": "Gaz naturel",
+      "solid": "Combustibles solides",
+      "oil": "Pétrole",
+      "biofuels": "Biocarburants",
+      "electricity": "Électricité"
+    },
+    "siec": {
+      "label": "Sélectionner l'indicateur",
+      "helper": "Sélectionnez l'indicateur énergétique",
+      "G3000": "Gaz naturel",
+      "G3200": "Gaz naturel liquéfié",
+      "C0000X0350-0370": "Combustibles fossiles solides",
+      "C0100": "Houille",
+      "C0110": "Charbon à coke",
+      "C0121": "Charbon vapeur",
+      "C0129": "Autres houilles bitumineuses",
+      "C0200": "Lignite",
+      "C0210": "Lignite",
+      "C0220": "Charbon sub-bitumineux",
+      "C0311": "Coke de four à coke",
+      "C0320": "Agglomérés de houille",
+      "C0330": "Briquettes de lignite",
+      "C0340": "Goudron de houille",
+      "P1100": "Pétrole brut",
+      "P1200": "Liquides de gaz naturel",
+      "O4000": "Pétrole et produits pétroliers",
+      "O4000XBIO": "Pétrole et produits pétroliers (hors biocarburants)",
+      "E7000": "Électricité",
+      "H8000": "Chaleur"
+    },
+    "unit": {
+      "label": "Sélectionner l'unité",
+      "helper": "Sélectionnez l'unité de mesure",
+      "TJ_GCV": "Térajoules (PCS)",
+      "MIO_M3": "Millions de mètres cubes",
+      "THS_T": "Milliers de tonnes",
+      "GWH": "Gigawattheures",
+      "TJ": "Térajoules"
+    },
+    "detail": {
+      "label": "Sélectionner le détail",
+      "helper": "Sélectionnez le niveau de détail"
+    },
+    "filter": {
+      "label": "Sélectionner le filtre",
+      "helper": "Sélectionnez le filtre de données",
+      "all": "Tous les pays",
+      "top5": "Top 5 des pays"
+    },
+    "success": {
+      "redirecting": "Redirection vers la visualisation...",
+      "fuelChanged": "Type de combustible modifié, options mises à jour",
+      "optionsUpdated": "Options mises à jour selon le combustible et le flux commercial sélectionnés",
+      "yearsLoaded": "Données annuelles chargées avec succès"
+    },
+    "errors": {
+      "yearsFetchFailed": "Échec du chargement des données annuelles",
+      "urlCreationFailed": "Échec de la création de l'URL de visualisation"
+    }
+  },
+  "endash": {
+    "title": "Configuration du tableau de bord énergétique",
+    "description": "Visualiser les indicateurs énergétiques de votre pays ou de l'UE",
+    "country": {
+      "label": "Sélectionner le pays",
+      "helper": "Sélectionnez un pays pour afficher ses indicateurs énergétiques"
+    },
+    "errors": {
+      "missingCountry": "Veuillez sélectionner un pays",
+      "urlCreationFailed": "Échec de la création de l'URL de visualisation"
+    },
+    "success": {
+      "redirecting": "Redirection vers la visualisation..."
     }
   }
 }

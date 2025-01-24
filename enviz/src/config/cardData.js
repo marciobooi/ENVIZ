@@ -83,7 +83,7 @@ const getCardData = (t, toggleModal) => [
     title: t('card.EnergyScenarios.title'),
     description: t('card.EnergyScenarios.description'),
     hasCustomization: false,
-    label: 'Tool by JRC',
+    label: t('common.toolBy', { organization: 'JRC' }),
     onGoToTool: () =>
       (window.location.href =
         'https://visitors-centre.jrc.ec.europa.eu/en/media/tools/energy-scenarios-explore-future-european-energy'),
