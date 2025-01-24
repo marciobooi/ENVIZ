@@ -139,10 +139,10 @@
     "clearAll": "Clear all",
     "toggleDropdown": "Toggle dropdown",
     "groups": {
-      "aggregates": "Aggregates",
-      "eu_countries": "EU countries",
-      "efta_countries": "EFTA countries",
-      "enlargement_countries": "Enlargement countries"
+      "AGGREGATES": "Aggregates",
+      "EU_COUNTRIES": "EU countries",
+      "EFTA_COUNTRIES": "EFTA countries",
+      "ENLARGEMENT_COUNTRIES": "Enlargement countries"
     },
     "countries": {
       "EU27_2020": "EU (27 countries)",
@@ -340,6 +340,96 @@
     },
     "success": {
       "dataLoaded": "Energy flow data loaded successfully"
+    }
+  },
+  "enmonthly": {
+    "imageAlt": "Monthly energy visualization tool",
+    "title": "Monthly energy data",
+    "description": "Visualise seasonal energy trends in the EU or your country.",
+    "country": {
+      "label": "Select country",
+      "helper": "Select a country"
+    },
+    "chart": {
+      "label": "Select chart",
+      "helper": "Select the type of the chart"
+    },
+    "siec": {
+      "label": "Select fuel",
+      "helper": "Select the fuel type",
+      "C0100": "Hard coal",
+      "C0200": "Brown coal",
+      "C0311": "Coke",
+      "P1100": "Crude oil",
+      "S2000": "Oil shale and oil sands",
+      "O4640": "Gas/Diesel oil",
+      "O4652": "Fuel oil",
+      "O4661": "Naphtha",
+      "O4671": "LPG",
+      "O4630": "Kerosene",
+      "O4680": "Other oil products",
+      "G3000": "Natural gas",
+      "E7000": "Electricity",
+      "TOTAL": "Total",
+      "CF": "Fossil fuels",
+      "O4000XBIO": "Oil and petroleum products",
+      "RA100": "Hydro",
+      "RA300": "Wind",
+      "RA200": "Geothermal",
+      "RA400": "Solar",
+      "RA500_5160": "Biomass",
+      "N9000": "Nuclear",
+      "X9900": "Other",
+      "C0000": "Coal and manufactured gases",
+      "RVN": "Renewables",
+      "nrg_cb_cosm": "Crude oil"
+    },
+    "nrgBal": {
+      "label": "Select flow",
+      "helper": "Select the energy flow",
+      "IPRD": "Indigenous production",
+      "IMP": "Imports",
+      "EXP": "Exports",
+      "Net_imp": "Net imports",
+      "GID_CAL": "Gross inland deliveries",
+      "TO_RPI_RO": "Refinery intake",
+      "PRD": "Production",
+      "STK_CHG_MG": "Stock change",
+      "IC_CAL_MG": "Inland consumption",
+      "DL": "Deliveries",
+      "AIM": "Available for inland market",
+      "NEG": "Net electricity generation",
+      "STK_FLOW": "Stock flow",
+      "STKCL_EUE": "Closing stock EU emergency",
+      "STKCL_NAT": "Closing stock National",
+      "E7000": "Electricity"
+    },
+    "unit": {
+      "label": "Select unit",
+      "helper": "Select the measurement unit",
+      "THS_T": "Thousand tonnes",
+      "VOL_THS_BBL": "Thousand barrels",
+      "AVGPRC_USD_BBL": "USD per barrel",
+      "AVGPRC_USD_T": "USD per tonne",
+      "WT_THS_T": "Thousand tonnes",
+      "MIO_M3": "Million cubic meters",
+      "TJ_GCV": "Terajoules (GCV)",
+      "GWH": "Gigawatt hours"
+    },
+    "charts": {
+      "nrg_cb_pem_RW": "Renewable electricity generation",
+      "nrg_cb_sffm": "Solid fossil fuels",
+      "nrg_cb_oilm": "Oil and petroleum products",
+      "nrg_cb_gasm": "Natural gas",
+      "nrg_cb_em": "Electricity",
+      "nrg_cb_pem": "Power generation"
+    },
+    "success": {
+      "redirecting": "Redirecting to visualization...",
+      "datasetChanged": "Chart type changed, options updated"
+    },
+    "errors": {
+      "urlCreationFailed": "Failed to create visualization URL"
     }
   }
 }

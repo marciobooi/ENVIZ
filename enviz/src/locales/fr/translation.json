@@ -139,10 +139,10 @@
     "clearAll": "Tout effacer",
     "toggleDropdown": "Basculer le menu déroulant",
     "groups": {
-      "aggregates": "Agrégats",
-      "eu_countries": "Pays de l'UE",
-      "efta_countries": "Pays de l'AELE",
-      "enlargement_countries": "Pays en voie d'élargissement"
+      "AGGREGATES": "Agrégats",
+      "EU_COUNTRIES": "Pays de l'UE",
+      "EFTA_COUNTRIES": "Pays de l'AELE",
+      "ENLARGEMENT_COUNTRIES": "Pays en voie d'élargissement"
     },
     "countries": {
       "EU27_2020": "UE (27 pays)",
@@ -340,6 +340,46 @@
     },
     "success": {
       "dataLoaded": "Données sur les flux énergétiques chargées avec succès"
+    }
+  },
+  "enmonthly": {
+    "imageAlt": "Outil de visualisation énergétique mensuelle",
+    "title": "Données énergétiques mensuelles",
+    "description": "Visualisez les tendances énergétiques saisonnières dans l'UE ou votre pays.",
+    "country": {
+      "label": "Sélectionner le pays",
+      "helper": "Sélectionnez un pays"
+    },
+    "chart": {
+      "label": "Sélectionner le graphique",
+      "helper": "Sélectionnez le type du graphique"
+    },
+    "siec": {
+      "label": "Sélectionner le combustible",
+      "helper": "Sélectionnez le type de combustible"
+    },
+    "nrgBal": {
+      "label": "Sélectionner le flux",
+      "helper": "Sélectionnez le flux énergétique"
+    },
+    "unit": {
+      "label": "Sélectionner l'unité",
+      "helper": "Sélectionnez l'unité de mesure"
+    },
+    "charts": {
+      "nrg_cb_pem_RW": "Production d'électricité renouvelable",
+      "nrg_cb_sffm": "Combustibles fossiles solides",
+      "nrg_cb_oilm": "Pétrole et produits pétroliers",
+      "nrg_cb_gasm": "Gaz naturel",
+      "nrg_cb_em": "Électricité",
+      "nrg_cb_pem": "Production d'électricité"
+    },
+    "success": {
+      "redirecting": "Redirection vers la visualisation...",
+      "datasetChanged": "Type de graphique modifié, options mises à jour"
+    },
+    "errors": {
+      "urlCreationFailed": "Échec de la création de l'URL de visualisation"
     }
   }
 }

@@ -13,7 +13,8 @@ import {
     getConsumptionLevels,
     getUnits,
     BASE_URL,
-    getPriceComponents
+    getPriceComponents,
+    getCurrencies  // Add this if needed
 } from '../config/enpricesConfig';
 import '../styles/form.css';
 
@@ -138,12 +139,6 @@ const Enprices = ({ isOpen, onClose }) => {
 
             setCurrentDataset(newDataset);
 
-            // Get price components for new dataset
-            const components = getPriceComponents(newDataset);
-            setPriceComponents(components);
-
-            fetchData(newDataset);
-
             // Update consumption levels and units based on new dataset
             const newConsumptionLevels = getConsumptionLevels(newDataset);
             const newUnits = getUnits(newDataset);
@@ -168,16 +163,12 @@ const Enprices = ({ isOpen, onClose }) => {
         }
     }, [availableOptions.countries]);
 
-    // Fetch initial data when component mounts
-    useEffect(() => {
-        fetchData(currentDataset);
-    }, [currentDataset, i18n.language]);
-
-    // Initial setup of price components
+    // Combine the two useEffects that depend on currentDataset
     useEffect(() => {
         const components = getPriceComponents(currentDataset);
         setPriceComponents(components);
-    }, [currentDataset]);
+        fetchData(currentDataset);
+    }, [currentDataset, i18n.language]);
 
     const fuelOptions = [
         { value: '6000', label: t(`enprices.fuel.options.electricity`) },

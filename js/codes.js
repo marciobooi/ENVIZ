@@ -113,7 +113,6 @@ codesEnprices = {
 };
 
 codesDatasetEnmonthly = {
-
 	"nrg_cb_sffm": {		
 		"nrg_bal": ["IPRD","IMP","EXP","Net_imp","GID_CAL",], 
 		"siec": ["C0100", "C0200", "C0311", "P1100","S2000"], 

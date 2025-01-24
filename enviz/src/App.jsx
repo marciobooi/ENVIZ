@@ -11,6 +11,7 @@ import i18n from './i18n';
 // import '@ecl/preset-eu/dist/scripts/ecl-eu.js';
 import Enprices from './components/Enprices';
 import Sankey from './components/Sankey';
+import Enmonthly from './components/Enmonthly';
 import getCardData from './config/cardData';
 import { useTranslation } from 'react-i18next';
 
@@ -48,6 +49,12 @@ function App() {
             )}
             {activeModal === 'sankey' && (
               <Sankey
+                isOpen={true}
+                onClose={handleCloseModal}
+              />
+            )}
+            {activeModal === 'enmonthly' && (
+              <Enmonthly
                 isOpen={true}
                 onClose={handleCloseModal}
               />

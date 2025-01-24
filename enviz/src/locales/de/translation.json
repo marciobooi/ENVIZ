@@ -139,10 +139,10 @@
     "clearAll": "Alle löschen",
     "toggleDropdown": "Dropdown umschalten",
     "groups": {
-      "aggregates": "Aggregate",
-      "eu_countries": "EU-Länder",
-      "efta_countries": "EFTA-Länder",
-      "enlargement_countries": "Erweiterungsländer"
+      "AGGREGATES": "Aggregate",
+      "EU_COUNTRIES": "EU-Länder",
+      "EFTA_COUNTRIES": "EFTA-Länder",
+      "ENLARGEMENT_COUNTRIES": "Erweiterungsländer"
     },
     "countries": {
       "EU27_2020": "EU (27 Länder)",
@@ -340,6 +340,46 @@
     },
     "success": {
       "dataLoaded": "Energieflussdaten erfolgreich geladen"
+    }
+  },
+  "enmonthly": {
+    "imageAlt": "Monatliches Energievisualisierungstool",
+    "title": "Monatliche Energiedaten",
+    "description": "Visualisieren Sie saisonale Energietrends in der EU oder Ihrem Land.",
+    "country": {
+      "label": "Land auswählen",
+      "helper": "Wählen Sie ein Land aus"
+    },
+    "chart": {
+      "label": "Diagramm auswählen",
+      "helper": "Wählen Sie den Typ des Diagramms"
+    },
+    "siec": {
+      "label": "Brennstoff auswählen",
+      "helper": "Wählen Sie den Typ des Brennstoffs"
+    },
+    "nrgBal": {
+      "label": "Energiefluss auswählen",
+      "helper": "Wählen Sie den Energiefluss aus"
+    },
+    "unit": {
+      "label": "Einheit auswählen",
+      "helper": "Wählen Sie die Maßeinheit aus"
+    },
+    "charts": {
+      "nrg_cb_pem_RW": "Erneuerbare Stromerzeugung",
+      "nrg_cb_sffm": "Feste fossile Brennstoffe",
+      "nrg_cb_oilm": "Erdöl und Erdölprodukte",
+      "nrg_cb_gasm": "Erdgas",
+      "nrg_cb_em": "Elektrizität",
+      "nrg_cb_pem": "Stromerzeugung"
+    },
+    "success": {
+      "redirecting": "Weiterleitung zur Visualisierung...",
+      "datasetChanged": "Diagrammtyp geändert, Optionen aktualisiert"
+    },
+    "errors": {
+      "urlCreationFailed": "Fehler beim Erstellen der Visualisierungs-URL"
     }
   }
 }

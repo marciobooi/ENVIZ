@@ -27,7 +27,7 @@ const getCardData = (t, toggleModal) => [
     imageAlt: t('card.enmonthly.imageAlt'),
     title: t('card.enmonthly.title'),
     description: t('card.enmonthly.description'),
-    onCustomize: () => console.log('Customize gas visualization'),
+    onCustomize: () => toggleModal('enmonthly'),
     onGoToTool: () =>
       (window.location.href =
         'https://ec.europa.eu/eurostat/cache/visualisations/energy-monthly/enmonthly.html'),
