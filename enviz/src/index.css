@@ -26,6 +26,8 @@ html {
 
 }
 
-
+.globan-invalid-domain {
+  display: none !important;
+}
 
 

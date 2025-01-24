@@ -614,5 +614,11 @@
     "success": {
       "redirecting": "Redirecting to visualization..."
     }
+  },
+  "meta": {
+    "title": "Energy Visualisation Portal",
+    "menuTitle": "Energy data visualisation menu",
+    "description": "This interactive menu, created by Eurostat, allows users to navigate through the various energy data visualisation tools and display energy statistics data with a great level of detail.",
+    "keywords": "Energy, data, statistics, energy balance, energy supply, energy transformation, energy consumption, fuels, coal, oil, gas, electricity, renewables, electricity prices, gas prices, imports, exports, indicators, Sankey, monthly data"
   }
 }

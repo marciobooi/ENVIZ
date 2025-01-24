@@ -561,5 +561,11 @@
     "success": {
       "redirecting": "Weiterleitung zur Visualisierung..."
     }
+  },
+  "meta": {
+    "title": "Energievisualisierungsportal",
+    "menuTitle": "Energiedaten-Visualisierungsmenü",
+    "description": "Dieses von Eurostat erstellte interaktive Menü ermöglicht es Benutzern, durch die verschiedenen Energiedaten-Visualisierungstools zu navigieren und Energiestatistikdaten mit einem hohen Detaillierungsgrad anzuzeigen.",
+    "keywords": "Energie, Daten, Statistiken, Energiebilanz, Energieversorgung, Energieumwandlung, Energieverbrauch, Brennstoffe, Kohle, Öl, Gas, Elektrizität, Erneuerbare, Strompreise, Gaspreise, Importe, Exporte, Indikatoren, Sankey, Monatsdaten"
   }
 }

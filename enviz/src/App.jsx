@@ -1,92 +1,85 @@
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
+import { HelmetProvider } from 'react-helmet-async';
+
+// Components
 import Navbar from './components/Navbar';
 import CardsContainer from './components/CardsContainer';
 import Tutorial from './components/Tutorial';
 import TutorialProvider from './contexts/TutorialContext';
 import Footer from './components/Footer';
-import { BrowserRouter } from 'react-router-dom';
-import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n';
-
-// import '@ecl/preset-eu/dist/scripts/ecl-eu.js';
+import ScrollToTop from './components/ScrollToTop';
 import Enprices from './components/Enprices';
 import Sankey from './components/Sankey';
 import Enmonthly from './components/Enmonthly';
 import Entrade from './components/Entrade';
 import Enbal from './components/Enbal';
 import Endash from './components/Endash';
-import getCardData from './config/cardData';
-import { useTranslation } from 'react-i18next';
-import ScrollToTop from './components/ScrollToTop';
+import ErrorBoundary from './components/ErrorBoundary';
+import MetaTags from './components/MetaTags';
 
 
 function App() {
-  const { t } = useTranslation();
+
+  const [isLoading, setIsLoading] = useState(true);
   const [activeModal, setActiveModal] = useState(null);
 
-  const toggleModal = (modalId) => {
-    setActiveModal(activeModal === modalId ? null : modalId);
-  };
+  const handleToggleModal = useCallback((modalId) => {
+    setActiveModal(prevModal => prevModal === modalId ? null : modalId);
+  }, []);
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setActiveModal(null);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const modalComponents = {
+    enprices: Enprices,
+    sankey: Sankey,
+    enmonthly: Enmonthly,
+    entrade: Entrade,
+    enbal: Enbal,
+    endash: Endash
   };
 
-  const cardData = getCardData(t, toggleModal);
+  if (isLoading) {
+    return (
+      <div className="ecl-container">
+        <div className="ecl-spinner" />
+      </div>
+    );
+  }
+
+  const ModalComponent = activeModal ? modalComponents[activeModal] : null;
 
   return (
-    <I18nextProvider i18n={i18n}>
-      <BrowserRouter>
-        <TutorialProvider>
-          <div className="app-container">
-            <Navbar />
-            <main>
-              <CardsContainer cards={cardData} toggleModal={toggleModal} />
-            </main>
-            <Footer />
-            <Tutorial />
-            {activeModal === 'enprices' && (
-              <Enprices
-                isOpen={true}
-                onClose={handleCloseModal}
-              />
-            )}
-            {activeModal === 'sankey' && (
-              <Sankey
-                isOpen={true}
-                onClose={handleCloseModal}
-              />
-            )}
-            {activeModal === 'enmonthly' && (
-              <Enmonthly
-                isOpen={true}
-                onClose={handleCloseModal}
-              />
-            )}
-            {activeModal === 'entrade' && (
-              <Entrade
-                isOpen={true}
-                onClose={handleCloseModal}
-              />
-            )}
-            {activeModal === 'enbal' && (
-              <Enbal
-                isOpen={true}
-                onClose={handleCloseModal}
-              />
-            )}
-            {activeModal === 'endash' && (
-              <Endash
-                isOpen={true}
-                onClose={handleCloseModal}
-              />
-            )}
-            <ScrollToTop />
-          </div>
-        </TutorialProvider>
-      </BrowserRouter>
-
-    </I18nextProvider>
+    <HelmetProvider>
+      <I18nextProvider i18n={i18n}>
+        <BrowserRouter>
+          <ErrorBoundary>
+            <TutorialProvider>
+              <MetaTags />
+              <div className="app-container">
+                <Navbar />
+                <main>
+                  <CardsContainer toggleModal={handleToggleModal} />
+                  {ModalComponent && <ModalComponent isOpen onClose={handleCloseModal} />}
+                </main>
+                <Footer />
+                <Tutorial />
+                <ScrollToTop />
+              </div>
+            </TutorialProvider>
+          </ErrorBoundary>
+        </BrowserRouter>
+      </I18nextProvider>
+    </HelmetProvider>
   );
 }
 

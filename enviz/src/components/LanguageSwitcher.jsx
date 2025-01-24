@@ -71,6 +71,20 @@ function LanguageSwitcher() {
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
         setActiveLanguage(lng);
+        document.documentElement.lang = lng;
+
+        // Re-render globan component
+        const container = document.getElementById('euGlobanContainer');
+        if (container) {
+            container.innerHTML = '';
+            window.$wt?.render("euGlobanContainer", {
+                utility: "globan",
+                theme: "dark",
+                lang: lng,
+            });
+        }
+
+        // Meta tags will automatically update through React Helmet
     };
 
     return (

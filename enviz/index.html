@@ -8,12 +8,40 @@
   <title>ENVIZ</title>
   <link rel="stylesheet" href="/ecl/ecl-eu.css">
   <script src="/ecl/ecl-eu.js"></script>
+  <script defer type="text/javascript" src="https://europa.eu/webtools/load.js"></script>
+
+      <!-- need to be added the correct params -->
+      <script type="application/json"> {
+            "utility" : "analytics",
+            "siteID" : "59",
+            "instance" : "ec.europa.eu",
+            "is404" : false
+          } </script>
 </head>
 
 <body>
+    <div id="euGlobanContainer"></div>
   <div id="root"></div>
   <!-- Include ECL JS before React -->
   <script type="module" src="/src/main.jsx"></script>
+
+<script>
+  // Initialize globan when webtools is ready
+  window.addEventListener("wtReady", function () {
+    if (window.$wt) {
+      window.$wt.render("euGlobanContainer", {
+        utility: "globan",     
+        theme: "dark",
+      });
+    }
+  });
+</script>
+
+<script type="application/json">{
+  "utility": "cck",
+  "url": "http://ec.europa.eu/cookies/index_en.htm",
+  "target": true
+}</script>
 </body>
 
 </html>

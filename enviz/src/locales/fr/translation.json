@@ -62,7 +62,7 @@
     "shedthelight": {
       "imageAlt": "Faire la lumière sur l'énergie dans l'UE",
       "title": "Publication interactive : Faire la lumière sur l'énergie dans l'UE",
-      "description": "Bénéficiez d’une visite guidée avec notre publication interactive et explorez les statistiques de l’énergie par le biais de textes courts, d’infographies et de vidéos."
+      "description": "Bénéficiez d'une visite guidée avec notre publication interactive et explorez les statistiques de l'énergie par le biais de textes courts, d'infographies et de vidéos."
     },
     "EnergyScenarios": {
       "imageAlt": "Outil des scénarios énergétiques",
@@ -524,5 +524,11 @@
     "success": {
       "redirecting": "Redirection vers la visualisation..."
     }
+  },
+  "meta": {
+    "title": "Portail de visualisation de l'énergie",
+    "menuTitle": "Menu de visualisation des données énergétiques",
+    "description": "Ce menu interactif, créé par Eurostat, permet aux utilisateurs de naviguer à travers les différents outils de visualisation des données énergétiques et d'afficher les données statistiques énergétiques avec un grand niveau de détail.",
+    "keywords": "Énergie, données, statistiques, bilan énergétique, approvisionnement énergétique, transformation énergétique, consommation d'énergie, combustibles, charbon, pétrole, gaz, électricité, renouvelables, prix de l'électricité, prix du gaz, importations, exportations, indicateurs, Sankey, données mensuelles"
   }
 }
