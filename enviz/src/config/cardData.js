@@ -71,7 +71,7 @@ const getCardData = (t, toggleModal) => [
     imageAlt: t('card.shedthelight.imageAlt'),
     title: t('card.shedthelight.title'),
     description: t('card.shedthelight.description'),
-    onCustomize: () => console.log('Customize gas visualization'),
+    hasCustomization: false,
     onGoToTool: () =>
       (window.location.href =
         'https://ec.europa.eu/eurostat/web/interactive-publications/energy-2024'),
@@ -82,7 +82,8 @@ const getCardData = (t, toggleModal) => [
     imageAlt: t('card.EnergyScenarios.imageAlt'),
     title: t('card.EnergyScenarios.title'),
     description: t('card.EnergyScenarios.description'),
-    onCustomize: () => console.log('Customize gas visualization'),
+    hasCustomization: false,
+    label: 'Tool by JRC',
     onGoToTool: () =>
       (window.location.href =
         'https://visitors-centre.jrc.ec.europa.eu/en/media/tools/energy-scenarios-explore-future-european-energy'),

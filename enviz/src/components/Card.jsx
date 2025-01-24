@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { forwardRef } from 'react';
 import '../styles/card.css';
 
-const Card = forwardRef(({ id, imageUrl, imageAlt, title, description, onCustomize, onGoToTool, onKeyDown }, ref) => {
+const Card = forwardRef(({ id, imageUrl, imageAlt, title, description, onCustomize, onGoToTool, onKeyDown, hasCustomization = true, label }, ref) => {
     const { t } = useTranslation();
 
     const handleKeyDown = (event) => {
@@ -36,13 +36,22 @@ const Card = forwardRef(({ id, imageUrl, imageAlt, title, description, onCustomi
             >
                 {`You are on ${title}.`}
             </div>
-            <picture className="ecl-picture ecl-card__picture">
-                <img
-                    className="ecl-card__image"
-                    src={imageUrl}
-                    alt={imageAlt}
-                />
-            </picture>
+            <div className="ecl-card__image-container">
+                {label && (
+                    <div className="ecl-content-block__label-container" aria-label="Labels">
+                        <div className="ecl-content-block__label-item">
+                            <span className="ecl-label ecl-label--high">{label}</span>
+                        </div>
+                    </div>
+                )}
+                <picture className="ecl-picture ecl-card__picture">
+                    <img
+                        className="ecl-card__image"
+                        src={imageUrl}
+                        alt={imageAlt}
+                    />
+                </picture>
+            </div>
             <div className="ecl-card__body">
                 <div className="ecl-content-block ecl-card__content-block">
                     <div className="ecl-content-block__title" id={`card-title-${id}`}>
@@ -54,19 +63,21 @@ const Card = forwardRef(({ id, imageUrl, imageAlt, title, description, onCustomi
                 </div>
             </div>
             <div className="ecl-card__actions">
+                {hasCustomization && (
+                    <button
+                        id="modal-toggle"
+                        aria-controls="modal-example"
+                        aria-haspopup="dialog"
+                        className="ecl-button ecl-button--secondary"
+                        onClick={onCustomize}
+                        type="button"
+                        aria-label={t('card.customizeButton')}
+                    >
+                        {t('card.customizeButton')}
+                    </button>
+                )}
                 <button
-                    id="modal-toggle"
-                    aria-controls="modal-example"
-                    aria-haspopup="dialog"
-                    className="ecl-button ecl-button--secondary"
-                    onClick={onCustomize}
-                    type="button"
-                    aria-label={t('card.customizeButton')}
-                >
-                    {t('card.customizeButton')}
-                </button> 
-                <button
-                    className="ecl-button ecl-button--primary"
+                    className={`ecl-button ecl-button--primary ${!hasCustomization ? 'ecl-button--full-width' : ''}`}
                     onClick={onGoToTool}
                     type="button"
                     aria-label={t('card.goToToolButton')}
@@ -84,9 +95,11 @@ Card.propTypes = {
     imageAlt: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    onCustomize: PropTypes.func.isRequired,
+    onCustomize: PropTypes.func,
     onGoToTool: PropTypes.func.isRequired,
-    onKeyDown: PropTypes.func
+    onKeyDown: PropTypes.func,
+    hasCustomization: PropTypes.bool,
+    label: PropTypes.string
 };
 
 Card.displayName = 'Card';

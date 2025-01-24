@@ -5,3 +5,27 @@ html {
 .Toastify__toast-container {
     z-index: 9999999999 !important; /* Ensure it's above the modal's z-index */
 }
+
+
+.ecl-card__image-container {
+  position: relative;
+}
+
+.ecl-content-block__label-container {
+  position: absolute;
+  z-index: 1;
+}
+
+.ecl-content-block__label-item {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  z-index: 1;
+  display: flex;
+  cursor: default;
+
+}
+
+
+
+

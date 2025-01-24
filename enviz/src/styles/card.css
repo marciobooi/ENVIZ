@@ -11,39 +11,38 @@
 }
 
 .ecl-card:hover {
- box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
 .ecl-card__body {
-    padding: 1rem;
-    margin-top: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
 }
 
-
 h2.ecl-link.ecl-link--standalone {
- cursor: default;
- font-size: clamp(1.2rem, 2.5vw, 1.6rem);    
+  cursor: default;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
 }
 
 .ecl-card__actions {
-    display: flex;
-    justify-content: flex-end;
-    row-gap: 15px; /* Adjust the value to your desired gap */
-    align-items: center;
-    padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  row-gap: 15px; /* Adjust the value to your desired gap */
+  align-items: center;
+  padding: 1rem;
 }
 
 .ecl-card__actions button {
-    margin-right: 15px; /* Adds spacing between buttons */
+  margin-right: 15px; /* Adds spacing between buttons */
 }
 
 .ecl-card__actions button:last-child {
-    margin-right: 0; /* Removes extra space after the last button */
+  margin-right: 0; /* Removes extra space after the last button */
 }
 
-.ecl-card__image {  
-    max-height: 40vh;
-    height: 40vh;
+.ecl-card__image {
+  max-height: 40vh;
+  height: 40vh;
 }
 
 /* High contrast mode support */
@@ -76,3 +75,4 @@ h2.ecl-link.ecl-link--standalone {
     transition: none;
   }
 }
+
