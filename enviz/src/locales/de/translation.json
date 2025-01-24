@@ -165,8 +165,8 @@
     },
     "enbal": {
       "imageAlt": "Energiebilanz-Visualisierungstool",
-      "title": "Energiebilanzen",
-      "description": "Visualisieren Sie Energiebilanzen, sehen Sie wie viel Energie importiert oder produziert wird, finden Sie heraus in welchen Sektoren die Energie verbraucht wird und überprüfen Sie verschiedene Energiequellen."
+      "title": "Energiebilanz-Konfiguration",
+      "description": "Visualisieren Sie Energiebilanzen, sehen Sie wie viel Energie importiert oder produziert wird, finden Sie heraus in welchen Sektoren die Energie verbraucht wird und prüfen Sie verschiedene Energiequellen."
     },
     "endash": {
       "imageAlt": "Energieindikatoren-Visualisierungstool",
@@ -494,6 +494,51 @@
     },
     "errors": {
       "urlCreationFailed": "Fehler beim Erstellen der Visualisierungs-URL"
+    }
+  },
+  "enbal": {
+    "country": {
+      "label": "Land auswählen",
+      "helper": "Wählen Sie ein Land aus"
+    },
+    "year": {
+      "label": "Jahr auswählen",
+      "helper": "Wählen Sie das Bezugsjahr"
+    },
+    "fuel": {
+      "label": "Brennstoff auswählen",
+      "helper": "Wählen Sie den Brennstofftyp",
+      "fuelMainFuel": "Hauptbrennstoffe",
+      "fuelElectricity": "Elektrizität",
+      "fuelCombustible": "Brennbare Brennstoffe",
+      "fuelNonCombustible": "Nicht brennbare Brennstoffe",
+      "fuelOtherPetroleum": "Andere Erdölprodukte",
+      "fuelMainPetroleum": "Haupterdölprodukte",
+      "fuelOil": "Öl",
+      "fuelOtherFossil": "Andere fossile Brennstoffe",
+      "fuelFossil": "Fossile Brennstoffe",
+      "fuelCoal": "Kohle"
+    },
+    "unit": {
+      "label": "Einheit auswählen",
+      "helper": "Wählen Sie die Maßeinheit",
+      "KTOE": "Tausend Tonnen Öläquivalent",
+      "GWH": "Gigawattstunden",
+      "TJ": "Terajoule"
+    },
+    "decimals": {
+      "label": "Dezimalstellen auswählen",
+      "helper": "Wählen Sie die Anzahl der Dezimalstellen"
+    },
+    "success": {
+      "redirecting": "Weiterleitung zur Visualisierung...",
+      "yearsLoaded": "Jahresdaten erfolgreich geladen"
+    },
+    "errors": {
+      "yearsFetchFailed": "Jahresdaten konnten nicht abgerufen werden",
+      "urlCreationFailed": "Visualisierungs-URL konnte nicht erstellt werden",
+      "datasetNotFound": "Datensatz für ausgewählte Optionen nicht gefunden",
+      "missingFields": "Bitte füllen Sie alle erforderlichen Felder aus"
     }
   }
 }

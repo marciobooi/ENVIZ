@@ -127,8 +127,8 @@
     },
     "enbal": {
       "imageAlt": "Outil de visualisation des bilans énergétiques",
-      "title": "Bilans énergétiques",
-      "description": "Visualisez les bilans énergétiques, découvrez combien d'énergie est importée ou produite, identifiez les secteurs où l'énergie est consommée et examinez les différentes sources d'énergie."
+      "title": "Configuration du bilan énergétique",
+      "description": "Visualisez les bilans énergétiques, découvrez la quantité d'énergie importée ou produite, identifiez les secteurs de consommation et explorez différentes sources d'énergie."
     },
     "endash": {
       "imageAlt": "Outil de visualisation des indicateurs énergétiques",
@@ -456,6 +456,51 @@
     },
     "errors": {
       "urlCreationFailed": "Échec de la création de l'URL de visualisation"
+    }
+  },
+  "enbal": {
+    "country": {
+      "label": "Sélectionner le pays",
+      "helper": "Sélectionnez un pays"
+    },
+    "year": {
+      "label": "Sélectionner l'année",
+      "helper": "Sélectionnez l'année de référence"
+    },
+    "fuel": {
+      "label": "Sélectionner le combustible",
+      "helper": "Sélectionnez le type de combustible",
+      "fuelMainFuel": "Combustibles principaux",
+      "fuelElectricity": "Électricité",
+      "fuelCombustible": "Combustibles",
+      "fuelNonCombustible": "Combustibles non combustibles",
+      "fuelOtherPetroleum": "Autres produits pétroliers",
+      "fuelMainPetroleum": "Principaux produits pétroliers",
+      "fuelOil": "Pétrole",
+      "fuelOtherFossil": "Autres combustibles fossiles",
+      "fuelFossil": "Combustibles fossiles",
+      "fuelCoal": "Charbon"
+    },
+    "unit": {
+      "label": "Sélectionner l'unité",
+      "helper": "Sélectionnez l'unité de mesure",
+      "KTOE": "Milliers de tonnes équivalent pétrole",
+      "GWH": "Gigawattheures",
+      "TJ": "Térajoules"
+    },
+    "decimals": {
+      "label": "Sélectionner les décimales",
+      "helper": "Sélectionnez le nombre de décimales"
+    },
+    "success": {
+      "redirecting": "Redirection vers la visualisation...",
+      "yearsLoaded": "Données annuelles chargées avec succès"
+    },
+    "errors": {
+      "yearsFetchFailed": "Échec du chargement des données annuelles",
+      "urlCreationFailed": "Échec de la création de l'URL de visualisation",
+      "datasetNotFound": "Jeu de données introuvable pour les options sélectionnées",
+      "missingFields": "Veuillez remplir tous les champs obligatoires"
     }
   }
 }

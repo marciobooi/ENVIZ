@@ -550,5 +550,52 @@
       "yearsFetchFailed": "Failed to fetch years data",
       "urlCreationFailed": "Failed to create visualization URL"
     }
+  },
+  "enbal": {
+    "title": "Energy Balance Configuration",
+    "description": "Visualise energy balances, see how much energy is imported or produced, find out sectors where the energy is consumed and check out different energy sources.",
+    "country": {
+      "label": "Select country",
+      "helper": "Select a country"
+    },
+    "year": {
+      "label": "Select year",
+      "helper": "Select the reference year"
+    },
+    "fuel": {
+      "label": "Select fuel",
+      "helper": "Select the fuel type",
+      "fuelMainFuel": "Main fuels",
+      "fuelElectricity": "Electricity",
+      "fuelCombustible": "Combustible fuels",
+      "fuelNonCombustible": "Non-combustible fuels",
+      "fuelOtherPetroleum": "Other petroleum products",
+      "fuelMainPetroleum": "Main petroleum products",
+      "fuelOil": "Oil",
+      "fuelOtherFossil": "Other fossil fuels",
+      "fuelFossil": "Fossil fuels",
+      "fuelCoal": "Coal"
+    },
+    "unit": {
+      "label": "Select unit",
+      "helper": "Select the measurement unit",
+      "KTOE": "Thousand tonnes of oil equivalent",
+      "GWH": "Gigawatt hours",
+      "TJ": "Terajoules"
+    },
+    "decimals": {
+      "label": "Select decimals",
+      "helper": "Select the number of decimal places"
+    },
+    "success": {
+      "redirecting": "Redirecting to visualization...",
+      "yearsLoaded": "Years data loaded successfully"
+    },
+    "errors": {
+      "yearsFetchFailed": "Failed to fetch years data",
+      "urlCreationFailed": "Failed to create visualization URL",
+      "datasetNotFound": "Dataset not found for selected options",
+      "missingFields": "Please fill in all required fields"
+    }
   }
 }

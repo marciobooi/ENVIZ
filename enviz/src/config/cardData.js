@@ -49,7 +49,7 @@ const getCardData = (t, toggleModal) => [
     imageAlt: t('card.enbal.imageAlt'),
     title: t('card.enbal.title'),
     description: t('card.enbal.description'),
-    onCustomize: () => console.log('Customize gas visualization'),
+    onCustomize: () => toggleModal('enbal'),
     onGoToTool: () =>
       (window.location.href =
         'https://ec.europa.eu/eurostat/cache/visualisations/energy-balances/enbal.html'),
