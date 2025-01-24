@@ -201,7 +201,7 @@ const Entrade = ({ isOpen, onClose }) => {
 
     const bodyContent = loading ? (
         <div className="loading">
-            <Spinner text={t('common.loading')} size="m" color="primary" centered />
+            <Spinner text={t('common.loading')} size="l" color="primary" centered />
         </div>
     ) : (
         <div className="form">
