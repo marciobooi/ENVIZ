@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 
 
 const SelectComponent = ({
-    label,   
+    label,
     required = true,
     options = [],
     optgroups = [],
@@ -17,6 +17,27 @@ const SelectComponent = ({
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef(null);
     const buttonRef = useRef(null);
+
+    // Helper function to check if string is a year or semester format
+    const isYearOrSemester = (str) => {
+        const yearPattern = /^\d{4}$/;  // Matches exactly 4 digits
+        const semesterPattern = /^\d{4}-S[12]$/;  // Matches YYYY-S1 or YYYY-S2
+        return yearPattern.test(str) || semesterPattern.test(str);
+    };
+
+    // Sort options based on their type
+    const sortedOptions = [...options].sort((a, b) => {
+        const aLabel = t(a.label);
+        const bLabel = t(b.label);
+
+        // If both are years or semesters, don't sort (maintain original order)
+        if (isYearOrSemester(aLabel) && isYearOrSemester(bLabel)) {
+            return 0;
+        }
+
+        // Otherwise, sort alphabetically
+        return aLabel.localeCompare(bLabel);
+    });
 
     useEffect(() => {
         const select = selectRef.current;
@@ -108,7 +129,7 @@ const SelectComponent = ({
                             ))}
                         </optgroup>
                     ))}
-                    {options.map((option) => (
+                    {sortedOptions.map((option) => (
                         <option
                             key={option.value}
                             value={option.value}
