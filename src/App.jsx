@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 import { HelmetProvider } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 // Components
 import Navbar from './components/Navbar';
@@ -19,12 +20,14 @@ import Enbal from './components/Enbal';
 import Endash from './components/Endash';
 import ErrorBoundary from './components/ErrorBoundary';
 import MetaTags from './components/MetaTags';
+import Spinner from './components/Spinner';
 
 
 function App() {
 
   const [isLoading, setIsLoading] = useState(true);
   const [activeModal, setActiveModal] = useState(null);
+  const { t } = useTranslation();
 
   const handleToggleModal = useCallback((modalId) => {
     setActiveModal(prevModal => prevModal === modalId ? null : modalId);
@@ -50,8 +53,12 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="ecl-container">
-        <div className="ecl-spinner" />
+      <div className="spinner-container">
+        <Spinner
+          text={t('common.loading')}
+          size="l"
+          color="primary"
+        />
       </div>
     );
   }
@@ -67,7 +74,7 @@ function App() {
               <MetaTags />
               <div className="app-container">
                 <Navbar />
-                <main>
+                <main id="main-content" tabIndex="-1">
                   <CardsContainer toggleModal={handleToggleModal} />
                   {ModalComponent && <ModalComponent isOpen onClose={handleCloseModal} />}
                 </main>

@@ -169,6 +169,14 @@ const MultiSelect = ({
             setIsOpen(false);
         } else if (e.key === "Tab") {
             handleTabKey(e);
+        } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            const options = dropdownRef.current.querySelectorAll('input[type="checkbox"]');
+            const currentIndex = Array.from(options).indexOf(document.activeElement);
+            const nextIndex = e.key === 'ArrowDown' ?
+                (currentIndex + 1) % options.length :
+                (currentIndex - 1 + options.length) % options.length;
+            options[nextIndex].focus();
         }
     };
 
@@ -257,6 +265,7 @@ const MultiSelect = ({
 
                 <div
                     ref={dropdownRef}
+                    onKeyDown={handleKeyDown}
                     className="ecl-select__multiple-dropdown ecl-select__container ecl-select__container--m"
                     id="select-multiple-dropdown"
                     style={{ display: isOpen ? 'block' : 'none' }}

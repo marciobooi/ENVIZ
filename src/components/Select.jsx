@@ -7,11 +7,13 @@ import { useState, useEffect, useRef } from "react";
 const SelectComponent = ({
     label,
     required = true,
+    helperText = "",
     options = [],
     optgroups = [],
     name = "country",
     value = "",
     onChange,
+    error = "",
 }) => {
     const { t, i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
@@ -97,6 +99,7 @@ const SelectComponent = ({
                 className="ecl-form-label"
             >
                 {t(label)}
+                {required && <span className="required-mark" aria-label={t('form.required')}>*</span>}
             </label>
 
             <div className="ecl-select__container ecl-select__container--m">
@@ -113,6 +116,9 @@ const SelectComponent = ({
                     data-ecl-select-default={t('select.placeholder')}
                     data-ecl-select-no-results={t('select.noOptions')}
                     aria-label={t(label)}
+                    aria-labelledby={`select-${name}-label select-${name}-description`}
+                    aria-required={required}
+                    aria-invalid={!!error}
                 >
                     <option value="" disabled>{t('select.placeholder')}</option>
                     {optgroups.map((group, index) => (
@@ -159,6 +165,14 @@ const SelectComponent = ({
                     </button>
                 </div>
             </div>
+            {error && (
+                <div id={`select-${name}-error`} className="error-message" role="alert">
+                    {error}
+                </div>
+            )}
+            <div id={`select-${name}-description`} className="helper-text">
+                {helperText}
+            </div>
         </div>
     );
 };
@@ -188,7 +202,8 @@ SelectComponent.propTypes = {
     ),
     name: PropTypes.string,
     value: PropTypes.string,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    error: PropTypes.string
 };
 
 export default SelectComponent;

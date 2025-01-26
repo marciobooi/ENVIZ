@@ -30,6 +30,8 @@ const Sankey = ({ isOpen, onClose }) => {
         ...DEFAULTS
     });
 
+    const [loading, setLoading] = useState(false);
+
     const fetchData = async () => {
         const toastId = toast.loading(t('common.loading'));
         try {
@@ -195,13 +197,18 @@ const Sankey = ({ isOpen, onClose }) => {
     );
 
     return (
-        <Modal
-            isOpen={isOpen}
-            onClose={onClose}
-            onSubmit={handleSubmit}
-            modalTitle={t('sankey.title')}
-            bodyContent={bodyContent}
-        />
+        <>
+            <div aria-live="polite" className="sr-only">
+                {loading ? t('common.loading') : ''}
+            </div>
+            <Modal
+                isOpen={isOpen}
+                onClose={onClose}
+                onSubmit={handleSubmit}
+                modalTitle={t('sankey.title')}
+                bodyContent={bodyContent}
+            />
+        </>
     );
 };
 

@@ -1,94 +1,92 @@
-/* Spinner container */
 .ecl-spinner {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  margin: 0 auto;
-    width: 100%;
-    height: 100%;
+  gap: 1rem;
 }
 
-/* Center the spinner */
 .ecl-spinner--centered {
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Primary gradient stroke */
-.ecl-spinner--primary .ecl-spinner__circle {
-  stroke: url(#gradient-primary); /* Gradient stroke */
-}
-
-/* Secondary gradient stroke */
-.ecl-spinner--secondary .ecl-spinner__circle {
-  stroke: url(#gradient-secondary); /* Secondary gradient stroke */
-}
-
-/* Spinner sizes */
-.ecl-spinner--s {
-  width: 60px;
-  height: 60px;
-}
-
-.ecl-spinner--m {
+.spinner-2 {
   width: 100px;
   height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  animation: text-color 2s ease-in-out infinite alternate;
 }
 
-.ecl-spinner--l {
-  width: 140px;
-  height: 140px;
+.spinner-2::before,
+.spinner-2::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 7px solid transparent;
+  mix-blend-mode: overlay;
+  animation: rotate var(--duration) var(--timing) infinite;
+  pointer-events: none;
 }
 
-/* SVG loader */
-.ecl-spinner__loader {
-  animation: spin 1.5s linear infinite;
-  transform-origin: center;
+.spinner-2::before {
+  border-left-color: var(--ecl-color-primary-80);
+  --duration: 2s;
+  --timing: ease-in;
 }
 
-/* Circle loader with dash animation */
-.ecl-spinner__circle {
-  stroke-dasharray: 1, 200;
-  stroke-dashoffset: 0;
-  animation: dash 1.5s ease-in-out infinite;
-  stroke-width: 4px;
-  stroke-linecap: round;
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2)); /* Subtle shadow */
+.spinner-2::after {
+  border-right-color: var(--ecl-color-secondary-80);
+  --duration: 2.5s;
+  --timing: ease-out;
 }
 
-/* Spinner text styling */
 .ecl-spinner__text {
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #6c757d;
+  color: var(--spinner-color, #004494);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  animation: text-pulse 2s ease-in-out infinite;
+  margin: 2rem;
 }
 
-/* Animations */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
+
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+
+/* Update the pulse animation for smoother text effect */
+@keyframes text-pulse {
+  0%,
   100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes dash {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
+    opacity: 1;
+    transform: scale(1);
   }
   50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35px;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124px;
+    opacity: 0.7;
+    transform: scale(0.98);
   }
 }

@@ -12,7 +12,17 @@ class ErrorBoundary extends React.Component {
     }
 
     componentDidCatch(error, errorInfo) {
-        console.error('Error:', error, errorInfo);
+        const { t } = this.props;
+        const message = t('errors.announcement', { error: error.message });
+
+        // Announce error to screen readers
+        const announcement = document.createElement('div');
+        announcement.setAttribute('role', 'alert');
+        announcement.setAttribute('aria-live', 'assertive');
+        announcement.textContent = message;
+        document.body.appendChild(announcement);
+
+        setTimeout(() => document.body.removeChild(announcement), 1000);
     }
 
     render() {

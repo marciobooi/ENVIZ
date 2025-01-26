@@ -12,15 +12,6 @@
   grid-column: span 2;
 }
 
-.ecl-spinner {
-  width: 4rem;
-  height: 4rem;
-  margin: 2rem auto;
-  border: 0.25rem solid #004494;
-  border-radius: 50%;
-  border-top-color: transparent;
-  animation: spin 1s linear infinite;
-}
 
 @keyframes spin {
   to {
@@ -64,11 +55,4 @@
   }
 }
 
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  .ecl-spinner {
-    animation: none;
-    border-top-color: #004494;
-    opacity: 0.5;
-  }
-}
+

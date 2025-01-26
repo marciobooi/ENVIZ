@@ -38,5 +38,22 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: #4b4b4b;
+}
+
+/* Add focus styles */
+:focus {
+  outline: 3px solid #004494;
+  outline-offset: 2px;
+}
+
+/* Ensure sufficient color contrast */
+.read-the-docs {
+  color: #4b4b4b;
+}
+
+/* Add visual focus indicator that doesn't rely on color alone */
+.form-control:focus {
+  box-shadow: 0 0 0 3px rgba(0, 68, 148, 0.25);
+  border-color: #004494;
 }

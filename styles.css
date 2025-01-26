@@ -1,0 +1,16 @@
+// Make focus visible
+:focus {
+  outline: 2px solid #4A90E2;
+  outline-offset: 2px;
+}
+
+// Don't hide focus ring
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Ensure sufficient color contrast (WCAG 2.1 Level AA requires 4.5:1 for normal text)
+.text-content {
+  color: #333333;  /* Dark gray on white background */
+  background-color: #FFFFFF;
+} 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes for validation
 import Modal from './Modal'; // Assuming you already have the modal component
 import Select from './Select';
@@ -14,10 +14,9 @@ import {
     getUnits,
     BASE_URL,
     getPriceComponents,
-    getCurrencies  // Add this if needed
 } from '../config/enpricesConfig';
 import '../styles/form.css';
-import Spinner from './Spinner';    
+import Spinner from './Spinner';
 
 
 const Enprices = ({ isOpen, onClose }) => {
@@ -39,6 +38,7 @@ const Enprices = ({ isOpen, onClose }) => {
         ...DEFAULTS
     });
     const [priceComponents, setPriceComponents] = useState([]);
+    const componentId = useRef(`enprices-${Math.random().toString(36).substr(2, 9)}`).current;
 
     const fetchData = async (datasetCode) => {
         const toastId = toast.loading(t('common.loading'));
@@ -218,7 +218,7 @@ const Enprices = ({ isOpen, onClose }) => {
     };
 
     // Create the modal content
-    const bodyContent =  loading ? (
+    const bodyContent = loading ? (
         <div className="loading">
             <Spinner text={t('common.loading')} size="m" color="primary" centered />
         </div>
@@ -230,7 +230,6 @@ const Enprices = ({ isOpen, onClose }) => {
                         options={availableOptions.countries}
                         value={formData.countries}
                         onChange={(values) => handleChange('countries', values)}
-                        label="multiSelect.label"
                     />
                 </div>
                 <div className="form-col">
@@ -244,6 +243,8 @@ const Enprices = ({ isOpen, onClose }) => {
                 </div>
                 <div className="form-col">
                     <Select
+                        aria-label={t('enprices.fuel.ariaLabel')}
+                        aria-describedby={`fuel-description-${componentId}`}
                         label="enprices.fuel.label"
                         helperText="enprices.fuel.helper"
                         options={fuelOptions}
@@ -251,6 +252,10 @@ const Enprices = ({ isOpen, onClose }) => {
                         onChange={(value) => handleChange('fuel', value)}
                     />
                 </div>
+            </div>
+
+            <div id={`fuel-description-${componentId}`} className="sr-only">
+                {t('enprices.fuel.description')}
             </div>
 
             <div className="form-row">
