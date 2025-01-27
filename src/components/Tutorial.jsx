@@ -91,14 +91,21 @@ const Tutorial = () => {
     const handleJoyrideCallback = (data) => {
         const { action, status, index, type } = data;
 
+        // Handle Back button click
+        if (action === ACTIONS.PREV) {
+            setStepIndex(Math.max(0, index - 1));
+            setJoyrideKey((prevKey) => prevKey + 1); // Force re-render to update Joyride's internal state
+        }
+
+        // Handle Next button click and update stepIndex
+        if (action === ACTIONS.NEXT) {
+            setStepIndex(index + 1);
+            setJoyrideKey((prevKey) => prevKey + 1); // Force re-render to update Joyride's internal state
+        }
+
         // End tutorial on finish/skip
         if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status) || action === ACTIONS.CLOSE) {
             endTutorial();
-        }
-
-        // Update step index
-        if (type === EVENTS.STEP_AFTER) {
-            setStepIndex(index + 1);
         }
 
         // Announce current step content
@@ -123,21 +130,22 @@ const Tutorial = () => {
                 className="sr-only"
             />
             <Joyride
-                key={joyrideKey} // Force Joyride to restart when key changes
+                key={joyrideKey}
                 steps={steps}
                 run={isTutorialOpen}
-                stepIndex={stepIndex} // Control the current step
+                stepIndex={stepIndex}
                 continuous
-                showProgress
+                // showProgress
                 showSkipButton
                 scrollToFirstStep={false}
                 disableScrolling={true}
-                spotlightPadding={10} // Adds slight padding for spotlight focus
+                spotlightPadding={10}
                 scrollOffset={0}
                 floaterProps={{
                     hideArrow: false,
                     offset: 16,
-                    disableAnimation: true
+                    disableAnimation: true,
+                    textContent: t('tutorial.next'), // Set translated text for Next button
                 }}
                 styles={{
                     options: {
