@@ -7,13 +7,14 @@ import { toast } from 'react-toastify';
 import { DEFAULTS, BASE_URL } from '../config/endashConfig';
 import { COUNTRY_GROUPS } from '../config/countryGroups';
 import '../styles/form.css';
+import Spinner from './Spinner';
 
 const Endash = ({ isOpen, onClose }) => {
     const { t } = useTranslation();
     const [formData, setFormData] = useState({
         geos: DEFAULTS.geos
     });
-    const [isLoading, setIsLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (value) => {
         if (!value) {
@@ -28,7 +29,7 @@ const Endash = ({ isOpen, onClose }) => {
 
     const handleSubmit = () => {
         try {
-            setIsLoading(true);
+            setLoading(true);
             const params = new URLSearchParams({
                 geos: formData.geos
             });
@@ -38,13 +39,17 @@ const Endash = ({ isOpen, onClose }) => {
             onClose();
             toast.success(t('endash.success.redirecting'));
         } catch (error) {
-            toast.error(t('endash.errors.urlCreationFailed'));
+            toast.error(t('endash.errors.urlCreationFailed', error));
         } finally {
-            setIsLoading(false);
+            setLoading(false);
         }
     };
 
-    const bodyContent = (
+    const bodyContent = loading ? (
+        <div className="loading">
+            <Spinner text={t('common.loading')} size="m" color="primary" centered />
+        </div>
+    ) : (
         <div className="form">
             <div className="form-row">
                 <div className="form-col">
@@ -73,7 +78,7 @@ const Endash = ({ isOpen, onClose }) => {
             onSubmit={handleSubmit}
             modalTitle={t('card.endash.title')}
             bodyContent={bodyContent}
-            isLoading={isLoading}
+            isLoading={loading}
         />
     );
 };

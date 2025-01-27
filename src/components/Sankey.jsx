@@ -15,6 +15,7 @@ import {
     VISUALIZATION_URL
 } from '../config/sankeyConfig';
 import '../styles/form.css'
+import Spinner from './Spinner';
 
 const Sankey = ({ isOpen, onClose }) => {
     const { t, i18n } = useTranslation();
@@ -30,10 +31,11 @@ const Sankey = ({ isOpen, onClose }) => {
         ...DEFAULTS
     });
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const fetchData = async () => {
-        const toastId = toast.loading(t('common.loading'));
+                const toastId = toast.loading(t('common.loading'));
+        setLoading(true);
         try {
             const response = await axios.get(
                 `${API_BASE_URL}/${DEFAULTS.dataset}?format=JSON&geo=BE&unit=KTOE&nrg_bal=NRGSUP&siec=TOTAL&lang=${i18n.language}`,
@@ -94,6 +96,8 @@ const Sankey = ({ isOpen, onClose }) => {
                 autoClose: 5000
             });
             console.error('Error fetching data:', err);
+        } finally {
+            setLoading(false); // Set loading to false after fetching
         }
     };
 
@@ -139,7 +143,11 @@ const Sankey = ({ isOpen, onClose }) => {
         label: t(`sankey.unit.options.${value.toLowerCase()}`)
     }));
 
-    const bodyContent = (
+    const bodyContent = loading ? (
+        <div className="loading">
+            <Spinner text={t('common.loading')} size="m" color="primary" centered />
+        </div>
+    ) : (
         <div className="form">
             <div className="form-row">
                 <div className="form-col">
