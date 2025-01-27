@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ENVIZ</title>
+  <link rel="stylesheet" href="/ecl/ecl-eu.css">
+  <script src="/ecl/ecl-eu.js"></script>
+  <script defer type="text/javascript" src="https://europa.eu/webtools/load.js"></script>
+
+      <!-- need to be added the correct params -->
+      <script type="application/json"> {
+            "utility" : "analytics",
+            "siteID" : "59",
+            "instance" : "ec.europa.eu",
+            "is404" : false
+          } </script>
+
+  <!-- Add accessibility documentation -->
+  <link rel="help" href="/accessibility.html" />
+  <script type="module" crossorigin src="/assets/index-jwXOR0bA.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BvlHChz9.css">
+</head>
+
+<body>
+    <div id="euGlobanContainer"></div>
+  <div id="root"></div>
+  <!-- Include ECL JS before React -->
+
+<script>
+  // Initialize globan when webtools is ready
+  window.addEventListener("wtReady", function () {
+    if (window.$wt) {
+      window.$wt.render("euGlobanContainer", {
+        utility: "globan",     
+        theme: "dark",
+      });
+    }
+  });
+</script>
+
+<script type="application/json">{
+  "utility": "cck",
+  "url": "http://ec.europa.eu/cookies/index_en.htm",
+  "target": true
+}</script>
+
+
+</body>
+
+</html>
