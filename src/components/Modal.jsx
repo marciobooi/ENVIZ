@@ -61,7 +61,10 @@ const ModalComponent = ({
                     }
                 }
                 if (e.key === "Escape") {
-                    handleClose();
+                    const openDropdown = currentModal.querySelector('.ecl-select__multiple-dropdown[style*="display: block"]');
+                    if (!openDropdown) {
+                        handleClose();
+                    }
                 }
             };
 

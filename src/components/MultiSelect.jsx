@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { toast } from 'react-toastify';
@@ -8,96 +8,152 @@ import CountryCheckbox from './CountryCheckbox';
 const MultiSelect = ({
     onChange,
     label,
+    helperText
 }) => {
+    // Refs
     const selectRef = useRef(null);
     const dropdownRef = useRef(null);
     const searchInputRef = useRef(null);
     const lastFocusedElementRef = useRef(null);
+    const componentId = useRef(`multiselect-${Math.random().toString(36).substr(2, 9)}`).current;
+
+    // State
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedValues, setSelectedValues] = useState(Object.values(COUNTRY_GROUPS).flat());
+
     const { t } = useTranslation();
-
-    const allCountries = Object.values(COUNTRY_GROUPS).flat();
-    const [selectedValues, setSelectedValues] = useState(allCountries);
-
     const defaultLabel = t('multiSelect.label');
 
-    const getFilteredCountries = (group) => {
+    // Filter handlers
+    const getFilteredCountries = useCallback((group) => {
         if (!searchTerm) return COUNTRY_GROUPS[group];
         return COUNTRY_GROUPS[group].filter(code =>
             t(`multiSelect.countries.${code}`).toLowerCase().includes(searchTerm.toLowerCase())
         );
-    };
+    }, [searchTerm, t]);
 
-    const handleToggle = (e) => {
-        e.stopPropagation();
-        if (!isOpen) {
-            lastFocusedElementRef.current = document.activeElement;
-        }
-        setIsOpen(!isOpen);
-        setSearchTerm('');
-    };
-
-    const handleTabKey = (e) => {
-        if (!isOpen) return;
-
-        const focusableElements = dropdownRef.current.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
-
-        if (e.shiftKey) {
-            if (document.activeElement === firstElement) {
-                e.preventDefault();
-                lastElement.focus();
+    // Mouse event handlers
+    const handleMouseEvents = {
+        handleToggle: (e) => {
+            e.stopPropagation();
+            if (!isOpen) {
+                lastFocusedElementRef.current = document.activeElement;
             }
-        } else {
-            if (document.activeElement === lastElement) {
-                e.preventDefault();
-                firstElement.focus();
+            setIsOpen(!isOpen);
+            setSearchTerm('');
+        },
+
+        handleClickOutside: useCallback((event) => {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target) &&
+                !event.target.closest(".ecl-select__multiple-toggle")
+            ) {
+                setIsOpen(false);
             }
-        }
+        }, []),
     };
 
-    const handleApply = () => {
-        try {
-            onChange(selectedValues);
-            setIsOpen(false);
-            toast.success(t('multiSelect.success.selectionApplied'));
-        } catch (error) {
-            toast.error(t('multiSelect.errors.applyFailed', error));
-        }
+    // Keyboard event handlers
+    const handleKeyboardEvents = {
+        handleKeyDown: useCallback((e) => {
+            if (!isOpen) return;
+
+            // Move all declarations outside switch
+            const focusableElements = dropdownRef.current?.querySelectorAll(
+                'input[type="search"], input[type="checkbox"], button:not([disabled])'
+            );
+            const elements = Array.from(focusableElements || []);
+            const firstElement = elements[0];
+            const lastElement = elements[elements.length - 1];
+            const checkboxes = Array.from(
+                dropdownRef.current?.querySelectorAll('input[type="checkbox"]') || []
+            ).filter(el => !el.disabled);
+            const currentIndex = checkboxes.indexOf(document.activeElement);
+            const nextIndex = e.key === "ArrowDown"
+                ? (currentIndex + 1) % checkboxes.length
+                : (currentIndex - 1 + checkboxes.length) % checkboxes.length;
+
+            switch (e.key) {
+                case "Escape":
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsOpen(false);
+                    document.getElementById("select-multiple-toggle")?.focus();
+                    break;
+
+                case "Tab":
+                    if (!elements.length) return;
+                    if (e.shiftKey && document.activeElement === firstElement) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    } else if (!e.shiftKey && document.activeElement === lastElement) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                    break;
+
+                case "ArrowDown":
+                case "ArrowUp":
+                    e.preventDefault();
+                    if (!checkboxes.length) return;
+                    checkboxes[nextIndex].focus();
+                    break;
+
+                default:
+                    break;
+            }
+        }, [isOpen]),
     };
 
-    const handleClear = () => {
-        try {
-            setSelectedValues([]);
-            onChange([]);
-            toast.info(t('multiSelect.success.selectionCleared'));
-        } catch (error) {
-            toast.error(t('multiSelect.errors.clearFailed', error));
-        }
+    // Selection handlers
+    const selectionHandlers = {
+        handleCheckboxChange: useCallback((value, checked) => {
+            setSelectedValues(prev =>
+                checked ? [...prev, value] : prev.filter(v => v !== value)
+            );
+        }, []),
+
+        handleSelectAll: useCallback((checked) => {
+            try {
+                const allCountries = Object.values(COUNTRY_GROUPS).flat();
+                const newValues = checked ? [...allCountries] : [];
+                setSelectedValues(newValues);
+                announceSelectionChange(newValues.length);
+                toast.success(
+                    checked
+                        ? t('multiSelect.success.allSelected')
+                        : t('multiSelect.success.allDeselected')
+                );
+            } catch (error) {
+                toast.error(t('multiSelect.errors.selectionFailed', error));
+            }
+        }, [t]),
+
+        handleApply: useCallback(() => {
+            try {
+                onChange(selectedValues);
+                setIsOpen(false);
+                toast.success(t('multiSelect.success.selectionApplied'));
+            } catch (error) {
+                toast.error(t('multiSelect.errors.applyFailed', error));
+            }
+        }, [onChange, selectedValues, t]),
+
+        handleClear: useCallback(() => {
+            try {
+                setSelectedValues([]);
+                onChange([]);
+                toast.info(t('multiSelect.success.selectionCleared'));
+            } catch (error) {
+                toast.error(t('multiSelect.errors.clearFailed', error));
+            }
+        }, [onChange, t]),
     };
 
-    const handleCheckboxChange = (value, checked) => {
-        setSelectedValues((prev) =>
-            checked ? [...prev, value] : prev.filter((v) => v !== value)
-        );
-    };
-
-    const handleSelectAll = (checked) => {
-        try {
-            const newValues = checked ? [...allCountries] : [];
-            setSelectedValues(newValues);
-            announceSelectionChange(newValues.length);
-            toast.success(checked ? t('multiSelect.success.allSelected') : t('multiSelect.success.allDeselected'));
-        } catch (error) {
-            toast.error(t('multiSelect.errors.selectionFailed', error));
-        }
-    };
-
-    const announceSelectionChange = (count) => {
+    // Accessibility helpers
+    const announceSelectionChange = useCallback((count) => {
         const message = count === 0
             ? t('multiSelect.aria.noSelection')
             : t('multiSelect.aria.selectedCount', { count });
@@ -107,54 +163,16 @@ const MultiSelect = ({
         announcement.textContent = message;
         document.body.appendChild(announcement);
         setTimeout(() => document.body.removeChild(announcement), 1000);
-    };
+    }, [t]);
 
+    // Effects
     useEffect(() => {
-        const currentRef = selectRef.current;
-
-        if (currentRef && !currentRef.hasAttribute("data-ecl-auto-initialized")) {
-            try {
-                const select = new window.ECL.Select(currentRef);
-                select.init();
-                currentRef.setAttribute("data-ecl-auto-initialized", "true");
-            } catch (error) {
-                toast.error(t('multiSelect.errors.initialization', error));
-            }
-        }
-
-        const handleChange = (e) => {
-            const selectedOptions = Array.from(e.target.selectedOptions).map((o) => o.value);
-            onChange && onChange(selectedOptions);
-        };
-
-        if (currentRef) {
-            currentRef.addEventListener("change", handleChange);
-        }
-
-        const handleClickOutside = (event) => {
-            if (
-                dropdownRef.current &&
-                !dropdownRef.current.contains(event.target) &&
-                !event.target.closest(".ecl-select__multiple-toggle")
-            ) {
-                setIsOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        document.addEventListener("keydown", handleKeyDown);
+        document.addEventListener("mousedown", handleMouseEvents.handleClickOutside);
 
         return () => {
-            if (currentRef && currentRef.ECLSelect) {
-                currentRef.ECLSelect.destroy();
-            }
-            if (currentRef) {
-                currentRef.removeEventListener("change", handleChange);
-            }
-            document.removeEventListener("mousedown", handleClickOutside);
-            document.removeEventListener("keydown", handleKeyDown);
+            document.removeEventListener("mousedown", handleMouseEvents.handleClickOutside);
         };
-    }, [onChange]);
+    }, [handleMouseEvents.handleClickOutside]);
 
     useEffect(() => {
         if (isOpen) {
@@ -164,28 +182,12 @@ const MultiSelect = ({
         }
     }, [isOpen]);
 
-    const handleKeyDown = (e) => {
-        if (e.key === "Escape") {
-            setIsOpen(false);
-        } else if (e.key === "Tab") {
-            handleTabKey(e);
-        } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-            e.preventDefault();
-            const options = dropdownRef.current.querySelectorAll('input[type="checkbox"]');
-            const currentIndex = Array.from(options).indexOf(document.activeElement);
-            const nextIndex = e.key === 'ArrowDown' ?
-                (currentIndex + 1) % options.length :
-                (currentIndex - 1 + options.length) % options.length;
-            options[nextIndex].focus();
-        }
-    };
-
     return (
         <div
             className="ecl-form-group"
             role="application"
             aria-label={t('multiSelect.aria.countrySelector')}
-            aria-describedby="select-multiple-helper"
+            aria-describedby={helperText ? `select-multiple-helper-${componentId}` : undefined}
         >
             <label
                 htmlFor="select-multiple-toggle"
@@ -194,6 +196,16 @@ const MultiSelect = ({
             >
                 {label || defaultLabel}
             </label>
+
+            {helperText && (
+                <div
+                    id={`select-multiple-helper-${componentId}`}
+                    className="ecl-help-block"
+                >
+                    {t(helperText)}
+                </div>
+            )}
+
             <div className="ecl-select__container ecl-select__container--m ecl-select__container--hidden">
                 <select
                     ref={selectRef}
@@ -201,7 +213,7 @@ const MultiSelect = ({
                     id="select-multiple"
                     name="countries"
                     required=""
-                    aria-describedby="select-multiple-helper"
+                    aria-describedby={helperText ? `select-multiple-helper-${componentId}` : undefined}
                     data-ecl-auto-init="Select"
                     multiple=""
                     data-ecl-select-multiple=""
@@ -240,7 +252,7 @@ const MultiSelect = ({
                         aria-expanded={isOpen}
                         aria-labelledby="select-multiple-label"
                         aria-describedby="select-multiple-helper"
-                        onClick={handleToggle}
+                        onClick={handleMouseEvents.handleToggle}
                     >
                         {selectedValues.length
                             ? selectedValues.map((code) => t(`multiSelect.countries.${code}`)).join(", ")
@@ -251,7 +263,7 @@ const MultiSelect = ({
                         <button
                             className="ecl-button ecl-button--ghost ecl-button--icon-only"
                             tabIndex="-1"
-                            onClick={handleToggle}
+                            onClick={handleMouseEvents.handleToggle}
                         >
                             <span className="ecl-button__container">
                                 <span className="ecl-button__label">{t('multiSelect.toggleDropdown')}</span>
@@ -265,13 +277,12 @@ const MultiSelect = ({
 
                 <div
                     ref={dropdownRef}
-                    onKeyDown={handleKeyDown}
-                    className="ecl-select__multiple-dropdown ecl-select__container ecl-select__container--m"
-                    id="select-multiple-dropdown"
-                    style={{ display: isOpen ? 'block' : 'none' }}
+                    className="ecl-select__multiple-dropdown"
                     role="dialog"
                     aria-modal="true"
                     aria-label={t('multiSelect.aria.dropdownDialog')}
+                    onKeyDown={handleKeyboardEvents.handleKeyDown}
+                    style={{ display: isOpen ? 'block' : 'none' }}
                 >
                     <input
                         ref={searchInputRef}
@@ -292,8 +303,8 @@ const MultiSelect = ({
                             type="checkbox"
                             id="select-multiple-all"
                             name="select-multiple-all"
-                            checked={selectedValues.length === allCountries.length}
-                            onChange={(e) => handleSelectAll(e.target.checked)}
+                            checked={selectedValues.length === Object.values(COUNTRY_GROUPS).flat().length}
+                            onChange={(e) => selectionHandlers.handleSelectAll(e.target.checked)}
                             aria-label={t('multiSelect.aria.selectAllCheckbox')}
                         />
                         <label className="ecl-checkbox__label" htmlFor="select-multiple-all">
@@ -325,7 +336,7 @@ const MultiSelect = ({
                                             key={code}
                                             code={code}
                                             checked={selectedValues.includes(code)}
-                                            onChange={handleCheckboxChange}
+                                            onChange={selectionHandlers.handleCheckboxChange}
                                             t={t}
                                         />
                                     ))}
@@ -337,13 +348,13 @@ const MultiSelect = ({
                     <div className="ecl-select-multiple-toolbar">
                         <button
                             className="ecl-button ecl-button--primary"
-                            onClick={handleApply}
+                            onClick={selectionHandlers.handleApply}
                         >
                             {t('multiSelect.apply')}
                         </button>
                         <button
                             className="ecl-button ecl-button--secondary"
-                            onClick={handleClear}
+                            onClick={selectionHandlers.handleClear}
                         >
                             {t('multiSelect.clearAll')}
                         </button>
@@ -357,7 +368,6 @@ const MultiSelect = ({
 MultiSelect.propTypes = {
     onChange: PropTypes.func.isRequired,
     label: PropTypes.string,
-    required: PropTypes.bool,
     helperText: PropTypes.string
 };
 
