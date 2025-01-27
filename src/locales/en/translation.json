@@ -130,7 +130,7 @@
     "accessibilityAriaLabel": "View accessibility statement"
   },
   "multiSelect": {
-    "label": "Select one or more countries",
+    "label": "Select countries",
     "required": "required",
     "placeholder": "Choose options",
     "searchPlaceholder": "Enter filter keyword",
@@ -138,11 +138,12 @@
     "apply": "Apply",
     "clearAll": "Clear all",
     "toggleDropdown": "Toggle dropdown",
+    "helperText": "Select one or more countries",
     "groups": {
-      "AGGREGATES": "Aggregates",
-      "EU_COUNTRIES": "EU countries",
-      "EFTA_COUNTRIES": "EFTA countries",
-      "ENLARGEMENT_COUNTRIES": "Enlargement countries"
+      "aggregates": "Aggregates",
+      "eu_countries": "EU countries",
+      "efta_countries": "EFTA countries",
+      "enlargement_countries": "Enlargement countries"
     },
     "countries": {
       "EU27_2020": "EU (27 countries)",

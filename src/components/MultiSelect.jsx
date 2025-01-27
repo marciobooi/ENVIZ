@@ -360,7 +360,11 @@ const MultiSelect = ({
                         </button>
                     </div>
                 </div>
+                <div id={`select-multiple-description`} className="helper-text sr-only">
+                        {t('multiSelect.helperText')}
+                </div>
             </div>
+          
         </div>
     );
 };

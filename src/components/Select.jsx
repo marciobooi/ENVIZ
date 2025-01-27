@@ -99,7 +99,6 @@ const SelectComponent = ({
                 className="ecl-form-label"
             >
                 {t(label)}
-                {required && <span className="required-mark" aria-label={t('form.required')}>*</span>}
             </label>
 
             <div className="ecl-select__container ecl-select__container--m">
@@ -170,8 +169,8 @@ const SelectComponent = ({
                     {error}
                 </div>
             )}
-            <div id={`select-${name}-description`} className="helper-text">
-                {helperText}
+            <div id={`select-${name}-description`} className="helper-text sr-only">
+                {t(helperText)}
             </div>
         </div>
     );
