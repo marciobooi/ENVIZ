@@ -13,6 +13,7 @@ const Tutorial = () => {
     const [joyrideKey, setJoyrideKey] = useState(0); // Force Joyride to reinitialize
     const lastFocusedElement = useRef(null);
     const tooltipRef = useRef(null);
+    const [currentStep, setCurrentStep] = useState(0);
 
     // Focus trap effect
     useEffect(() => {
@@ -91,16 +92,19 @@ const Tutorial = () => {
     const handleJoyrideCallback = (data) => {
         const { action, status, index, type } = data;
 
+        // Update currentStep whenever the step changes
+        setCurrentStep(index + 1);
+
         // Handle Back button click
         if (action === ACTIONS.PREV) {
             setStepIndex(Math.max(0, index - 1));
-            setJoyrideKey((prevKey) => prevKey + 1); // Force re-render to update Joyride's internal state
+            setJoyrideKey((prevKey) => prevKey + 1);
         }
 
         // Handle Next button click and update stepIndex
         if (action === ACTIONS.NEXT) {
             setStepIndex(index + 1);
-            setJoyrideKey((prevKey) => prevKey + 1); // Force re-render to update Joyride's internal state
+            setJoyrideKey((prevKey) => prevKey + 1);
         }
 
         // End tutorial on finish/skip
@@ -120,6 +124,11 @@ const Tutorial = () => {
         }
     };
 
+    const getNextLabelWithProgress = () => {
+        const translatedNext = t('tutorial.next');
+        return `${translatedNext} (${stepIndex} / ${steps.length})`;
+    };
+
     return (
         <>
             {/* Live region for screen reader announcements */}
@@ -135,7 +144,7 @@ const Tutorial = () => {
                 run={isTutorialOpen}
                 stepIndex={stepIndex}
                 continuous
-                // showProgress
+                showProgress
                 showSkipButton
                 scrollToFirstStep={false}
                 disableScrolling={true}
@@ -145,7 +154,6 @@ const Tutorial = () => {
                     hideArrow: false,
                     offset: 16,
                     disableAnimation: true,
-                    textContent: t('tutorial.next'), // Set translated text for Next button
                 }}
                 styles={{
                     options: {
@@ -160,8 +168,8 @@ const Tutorial = () => {
                         borderRadius: '4px',
                     },
                     buttonNext: {
-                        backgroundColor:" var(--c-p)",
-                        border: "0 solid var(--c-p)",   
+                        backgroundColor: " var(--c-p)",
+                        border: "0 solid var(--c-p)",
                         color: "#fff",
                         // padding: "calc(var(--s-xs)) calc(var(--s-m))"
                     },
@@ -183,8 +191,8 @@ const Tutorial = () => {
                     back: t('tutorial.back'),
                     close: t('tutorial.close'),
                     last: t('tutorial.last'),
-                    next: t('tutorial.next'),
                     skip: t('tutorial.skip'),
+                    nextLabelWithProgress: getNextLabelWithProgress(currentStep),
                 }}
                 callback={handleJoyrideCallback}
             />

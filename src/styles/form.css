@@ -8,9 +8,11 @@
 }
 
 .form-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: center;
 }
 
 .form-col {

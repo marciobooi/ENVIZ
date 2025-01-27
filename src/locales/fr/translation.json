@@ -86,7 +86,7 @@
   "tutorial": {
     "next": "Suivant",
     "back": "Retour",
-    "skip": "Passer le tutoriel",
+    "skip": "Fermer le tutoriel",
     "close": "Fermer le tutoriel",
     "last": "Terminer",
     "targetNotFound": "Cible du tutoriel non trouvée",
