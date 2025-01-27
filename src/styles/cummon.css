@@ -41,6 +41,19 @@ button.ecl-button.ecl-button--primary:focus {
   flex-direction: column;
 }
 
-main {
+.ecl-button:focus {
+    box-shadow: var(--sh-1);
+    text-decoration: none;
+}
+
+main {  
   flex: 1;
+}
+
+@media (max-width: 768px) {
+  .ecl-card__actions .ecl-button {
+    font-size: 0.8rem !important;
+    width: 100%;
+    margin-right: initial;
+  }
 }

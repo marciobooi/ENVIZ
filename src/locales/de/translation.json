@@ -207,7 +207,8 @@
       "countryCheckbox": "{{country}} auswählen",
       "selectedCount": "{{count}} Länder ausgewählt",
       "noSelection": "Keine Länder ausgewählt"
-    }
+    },
+    "helperText": "Wählen Sie ein oder mehrere Länder aus"
   },
   "modal": {
     "close": "Schließen",
@@ -357,15 +358,65 @@
     },
     "siec": {
       "label": "Brennstoff auswählen",
-      "helper": "Wählen Sie den Typ des Brennstoffs"
+      "helper": "Wählen Sie den Typ des Brennstoffs",
+      "C0100": "Steinkohle",
+      "C0200": "Braunkohle",
+      "C0311": "Koks",
+      "P1100": "Rohöl",
+      "S2000": "Ölschiefer und Ölsande",
+      "O4640": "Gas/Dieselöl",
+      "O4652": "Kraftstoff",
+      "O4661": "Naphtha",
+      "O4671": "Flüssiggas",
+      "O4630": "Kerosin",
+      "O4680": "Andere Erdölprodukte",
+      "G3000": "Erdgas",
+      "E7000": "Elektrizität",
+      "TOTAL": "Gesamt",
+      "CF": "Fossile Brennstoffe",
+      "O4000XBIO": "Öl und Erdölprodukte",
+      "RA100": "Wasserkraft",
+      "RA300": "Windkraft",
+      "RA200": "Geothermie",
+      "RA400": "Solar",
+      "RA500_5160": "Biomasse",
+      "N9000": "Kernkraft",
+      "X9900": "Sonstige",
+      "C0000": "Kohle und hergestellte Gase",
+      "RVN": "Erneuerbare",
+      "nrg_cb_cosm": "Rohöl"
     },
     "nrgBal": {
       "label": "Energiefluss auswählen",
-      "helper": "Wählen Sie den Energiefluss aus"
+      "helper": "Wählen Sie den Energiefluss aus",
+      "IPRD": "Inländische Produktion",
+      "IMP": "Importe",
+      "EXP": "Exporte",
+      "Net_imp": "Nettoimporte",
+      "GID_CAL": "Bruttoinlandslieferungen",
+      "TO_RPI_RO": "Raffinerieeinsatz",
+      "PRD": "Produktion",
+      "STK_CHG_MG": "Bestandsveränderung",
+      "IC_CAL_MG": "Inlandsverbrauch",
+      "DL": "Lieferungen",
+      "AIM": "Verfügbar für den Inlandsmarkt",
+      "NEG": "Netto-Stromerzeugung",
+      "STK_FLOW": "Bestandsfluss",
+      "STKCL_EUE": "Schlussbestand EU-Notfall",
+      "STKCL_NAT": "Schlussbestand National",
+      "E7000": "Elektrizität"
     },
     "unit": {
       "label": "Einheit auswählen",
-      "helper": "Wählen Sie die Maßeinheit aus"
+      "helper": "Wählen Sie die Maßeinheit aus",
+      "THS_T": "Tausend Tonnen",
+      "VOL_THS_BBL": "Tausend Barrel",
+      "AVGPRC_USD_BBL": "USD pro Barrel",
+      "AVGPRC_USD_T": "USD pro Tonne",
+      "WT_THS_T": "Tausend Tonnen",
+      "MIO_M3": "Millionen Kubikmeter",
+      "TJ_GCV": "Terajoule (Ho)",
+      "GWH": "Gigawattstunden"
     },
     "charts": {
       "nrg_cb_pem_RW": "Erneuerbare Stromerzeugung",
