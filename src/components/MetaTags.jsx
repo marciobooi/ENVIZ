@@ -26,15 +26,15 @@ function MetaTags() {
             <meta property="og:site_name" content={t('meta.menuTitle')} />
             <meta
                 property="og:url"
-                content="https://ec.europa.eu/eurostat/cache/infographs/energy_portal/enviz.html"
+                content="https://ec.europa.eu/eurostat/cache/visualisations/energy_portal/enviz.html"
             />
             <meta
                 property="og:image"
-                content="https://ec.europa.eu/eurostat/cache/infographs/energy_portal/shareico.png"
+                content="https://ec.europa.eu/eurostat/cache/visualisations/energy_portal/shareico.png"
             />
             <meta
                 property="og:image:secure_url"
-                content="https://ec.europa.eu/eurostat/cache/infographs/energy_portal/shareico.png"
+                content="https://ec.europa.eu/eurostat/cache/visualisations/energy_portal/shareico.png"
             />
 
             {/* Twitter meta tags */}
@@ -42,7 +42,7 @@ function MetaTags() {
             <meta name="twitter:description" content={t('meta.description')} />
             <meta
                 name="twitter:image"
-                content="https://ec.europa.eu/eurostat/cache/infographs/energy_portal/shareico.png"
+                content="https://ec.europa.eu/eurostat/cache/visualisations/energy_portal/shareico.png"
             />
         </Helmet>
     );
