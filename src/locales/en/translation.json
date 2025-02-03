@@ -7,7 +7,7 @@
     "languageButton": "Change language",
     "tutorialAreaLabel": "Display tutorial",
     "shareAreaLabel": "Share this page",
-    "languageAreaLabel": "Changelanguage",
+    "languageAreaLabel": "Change language",
     "imageAlt": "Eurostat - Official Logo"
   },
   "languageSwitcher": {
@@ -16,8 +16,8 @@
     "changeLanguage": "Change language, current language is {{language}}",
     "languages": {
       "en": "English",
-      "fr": "Français",
-      "de": "Deutsch"
+      "fr": "French",
+      "de": "German"
     }
   },
   "shareMenu": {
@@ -51,7 +51,7 @@
     },
     "enbal": {
       "imageAlt": "Energy balances visualization tool",
-      "title": "Energy balances",
+      "title": "Energy balances configuration",
       "description": "Visualise energy balances, see how much energy is imported or produced, find out sectors where the energy is consumed and check out different energy sources."
     },
     "endash": {
@@ -132,7 +132,7 @@
   "multiSelect": {
     "label": "Select countries",
     "required": "required",
-    "placeholder": "Choose options",
+    "placeholder": "Select options",
     "searchPlaceholder": "Enter filter keyword",
     "selectAll": "Select all",
     "apply": "Apply",
@@ -235,11 +235,11 @@
     "description": "Visualise electricity and natural gas prices in the EU or your country.",
     "year": {
       "label": "Select year",
-      "helper": "Choose the reference year"
+      "helper": "Select the reference year"
     },
     "fuel": {
       "label": "Select fuel",
-      "helper": "Choose between electricity or gas",
+      "helper": "Select between electricity or gas",
       "options": {
         "electricity": "Electricity",
         "gas": "Natural gas"
@@ -247,7 +247,7 @@
     },
     "consumer": {
       "label": "Select consumer",
-      "helper": "Choose between household or non-household consumers",
+      "helper": "Select between household or non-household consumers",
       "options": {
         "household": "Household",
         "nonHousehold": "Non-household"
@@ -280,7 +280,7 @@
     },
     "details": {
       "label": "Select details",
-      "helper": "Choose the level of detail"
+      "helper": "Select the level of detail"
     },
     "errors": {
       "fetchFailed": "Failed to fetch energy price data",
@@ -303,19 +303,19 @@
     "description": "Visualise energy flows through Sankey diagrams in the EU or your country",
     "year": {
       "label": "Select year",
-      "helper": "Choose the reference year"
+      "helper": "Select the reference year"
     },
     "fuel": {
       "label": "Select energy source",
-      "helper": "Choose the type of energy",
+      "helper": "Select the type of energy",
       "options": {
         "total": "Total",
-        "sff_p1000": "Solid fossil fuels",
+        "sff_p1000": "Solid fossil fuels and peat",
         "o4000": "Oil and petroleum products",
-        "g3000_c0350_370": "Natural gas",
-        "ra000": "Nuclear heat",
-        "w6100_6220": "Hydro and wind",
-        "n900h": "Biofuels",
+        "g3000_c0350_370": "Gas",
+        "ra000": "Renewables and biofuels",
+        "w6100_6220": "Non-renewable waste",
+        "n900h": "Nuclear heat",
         "h8000": "Heat",
         "e7000": "Electricity"
       }
@@ -330,12 +330,12 @@
         "gwh": "Gigawatt hours",
         "gcal": "Gigacalories",
         "tcal": "Teracalories",
-        "gbtu": "Billion British thermal units"
+        "gbtu": "Billion BTU"
       }
     },
     "details": {
       "label": "Select details",
-      "helper": "Choose the level of detail"
+      "helper": "Select the level of detail"
     },
     "errors": {
       "fetchFailed": "Failed to fetch energy flow data",
@@ -362,27 +362,27 @@
       "helper": "Select the fuel type",
       "C0100": "Hard coal",
       "C0200": "Brown coal",
-      "C0311": "Coke",
-      "P1100": "Crude oil",
+      "C0311": "Coke oven coke",
+      "P1100": "Peat",
       "S2000": "Oil shale and oil sands",
-      "O4640": "Gas/Diesel oil",
-      "O4652": "Fuel oil",
-      "O4661": "Naphtha",
-      "O4671": "LPG",
-      "O4630": "Kerosene",
-      "O4680": "Other oil products",
+      "O4640": "Naphtha",
+      "O4652": "Motor gasoline",
+      "O4661": "Kerosene-type jet fuel",
+      "O4671": "Gas oil and diesel oil",
+      "O4630": "Liquefied petroleum gases",
+      "O4680": "Fuel oil",
       "G3000": "Natural gas",
       "E7000": "Electricity",
       "TOTAL": "Total",
-      "CF": "Fossil fuels",
-      "O4000XBIO": "Oil and petroleum products",
+      "CF": "Combustible fuels",
+      "O4000XBIO": "Oil and petroleum products (excluding biofuel portion)",
       "RA100": "Hydro",
       "RA300": "Wind",
       "RA200": "Geothermal",
       "RA400": "Solar",
-      "RA500_5160": "Biomass",
-      "N9000": "Nuclear",
-      "X9900": "Other",
+      "RA500_5160": "Other renewable energies",
+      "N9000": "Nuclear fuels and other fuels n.e.c.",
+      "X9900": "Other fuels n.e.c.",
       "C0000": "Coal and manufactured gases",
       "RVN": "Renewables",
       "nrg_cb_cosm": "Crude oil"
@@ -394,17 +394,17 @@
       "IMP": "Imports",
       "EXP": "Exports",
       "Net_imp": "Net imports",
-      "GID_CAL": "Gross inland deliveries",
-      "TO_RPI_RO": "Refinery intake",
+      "GID_CAL": "Gross inland deliveries - calculated",
+      "TO_RPI_RO": "Transformation output - refineries and petrochemical industry - refinery output",
       "PRD": "Production",
-      "STK_CHG_MG": "Stock change",
-      "IC_CAL_MG": "Inland consumption",
-      "DL": "Deliveries",
-      "AIM": "Available for inland market",
+      "STK_CHG_MG": "Stock changes - as defined in MOS GAS",
+      "IC_CAL_MG": "Inland consumption - calculated as defined in MOS GAS",
+      "DL": "Distribution losses",
+      "AIM": "Available to internal market",
       "NEG": "Net electricity generation",
       "STK_FLOW": "Stock flow",
       "STKCL_EUE": "Closing stock EU emergency",
-      "STKCL_NAT": "Closing stock National",
+      "STKCL_NAT": "Closing stocks on national territory",
       "E7000": "Electricity"
     },
     "unit": {
@@ -435,7 +435,55 @@
       "urlCreationFailed": "Failed to create visualization URL"
     }
   },
+  "enbal": {
+    "title": "Energy Balance Configuration",
+    "description": "Visualise energy balances, see how much energy is imported or produced, find out sectors where the energy is consumed and check out different energy sources.",
+    "country": {
+      "label": "Select country",
+      "helper": "Select a country"
+    },
+    "year": {
+      "label": "Select year",
+      "helper": "Select the reference year"
+    },
+    "fuel": {
+      "label": "Select fuel",
+      "helper": "Select the fuel type",
+      "fuelMainFuel": "Main fuels",
+      "fuelElectricity": "Electricity",
+      "fuelCombustible": "Combustible fuels",
+      "fuelNonCombustible": "Non-combustible fuels",
+      "fuelOtherPetroleum": "Other petroleum products",
+      "fuelMainPetroleum": "Main petroleum products",
+      "fuelOil": "Primary oil",
+      "fuelOtherFossil": "Other fossil fuels",
+      "fuelFossil": "Fossil fuels",
+      "fuelCoal": "Coal"
+    },
+    "unit": {
+      "label": "Select unit",
+      "helper": "Select the measurement unit",
+      "KTOE": "Thousand tonnes of oil equivalent",
+      "GWH": "Gigawatt hours",
+      "TJ": "Terajoules"
+    },
+    "decimals": {
+      "label": "Select decimals",
+      "helper": "Select the number of decimal places"
+    },
+    "success": {
+      "redirecting": "Redirecting to visualization...",
+      "yearsLoaded": "Years data loaded successfully"
+    },
+    "errors": {
+      "yearsFetchFailed": "Failed to fetch years data",
+      "urlCreationFailed": "Failed to create visualization URL",
+      "datasetNotFound": "Dataset not found for selected options",
+      "missingFields": "Please fill in all required fields"
+    }
+  },
   "entrade": {
+    "imageAlt": "Energy trade visualization tool",
     "title": "Energy Trade Configuration",
     "description": "Visualise the trade flows in different ways in your country. Use it and customise your own map!",
     "country": {
@@ -468,59 +516,59 @@
       "G3200": "Liquefied natural gas",
       "C0000X0350-0370": "Solid fossil fuels",
       "C0100": "Hard coal",
-      "C0110": "Coking coal",
-      "C0121": "Steam coal",
+      "C0110": "Anthracite",
+      "C0121": "Coking coal",
       "C0129": "Other bituminous coal",
       "C0200": "Brown coal",
-      "C0210": "Lignite",
-      "C0220": "Sub-bituminous coal",
+      "C0220": "Lignite",
+      "C0210": "Sub-bituminous coal",
       "C0311": "Coke oven coke",
       "C0320": "Patent fuel",
       "C0330": "Brown coal briquettes",
       "C0340": "Coal tar",
-      "P1100": "Crude oil",
-      "P1200": "Natural gas liquids",
+      "P1100": "Peat",
+      "P1200": "Peat products",
       "O4000": "Oil and petroleum products",
       "O4000XBIO": "Oil and petroleum products (excluding biofuels)",
-      "O4100_TOT_4200-4500": "Crude oil total",
-      "O4100_TOT_4200-4500XBIO": "Crude oil total (excluding biofuels)",
-      "O4100_TOT": "Total crude oil",
-      "O4200": "NGL (Natural gas liquids)",
+      "O4100_TOT_4200-4500": "Crude oil, NGL, refinery feedstocks, additives and oxygenates and other hydrocarbons",
+      "O4100_TOT_4200-4500XBIO": "Crude oil, NGL, refinery feedstocks, additives and oxygenates and other hydrocarbons (excluding biofuel portion)",
+      "O4100_TOT": "Crude oil",
+      "O4200": "Natural gas liquids",
       "O4300": "Refinery feedstocks",
-      "O4400X4410": "Additives and oxygenates",
-      "O4400": "Additives/blending components",
+      "O4400X4410": "Additives and oxygenates (excluding biofuel portion)",
+      "O4400": "Additives and oxygenates",
       "O4500": "Other hydrocarbons",
       "O4600": "Oil products",
-      "O4600XBIO": "Oil products (excluding biofuels)",
-      "O4620": "Refinery gas",
-      "O4630": "Ethane",
-      "O4640": "Liquefied petroleum gases",
-      "O4651": "Naphtha",
+      "O4600XBIO": "Oil products (excluding biofuel portion)",
+      "O4620": "Ethane",
+      "O4630": "Liquefied petroleum gases",
+      "O4640": "Naphtha",
+      "O4651": "Aviation gasoline",
       "O4652": "Motor gasoline",
-      "O4652XR5210B": "Motor gasoline (excluding biofuels)",
-      "O4653": "Aviation gasoline",
-      "O4661": "Gasoline type jet fuel",
-      "O4661XR5230B": "Gasoline type jet fuel (excluding biofuels)",
+      "O4652XR5210B": "Motor gasoline (excluding biofuel portion)",
+      "O4653": "Gasoline-type jet fuel",
+      "O4661": "Kerosene-type jet fuel",
+      "O4661XR5230B": "Kerosene-type jet fuel (excluding biofuel portion)",
       "O4669": "Other kerosene",
-      "O4671": "Gas/diesel oil",
-      "O4671XR5220B": "Gas/diesel oil (excluding biofuels)",
-      "O46711": "Transport diesel",
-      "O46712": "Heating and other gas oil",
+      "O4671": "Gas oil and diesel oil",
+      "O4671XR5220B": "Gas oil and diesel oil (excluding biofuel portion)",
+      "O46711": "Road diesel",
+      "O46712": "Heating and other gasoil",
       "O4680": "Fuel oil",
-      "O4681": "White spirit and industrial spirits",
-      "O4682": "Lubricants",
-      "O4691": "Bitumen",
-      "O4692": "Petroleum coke",
+      "O4681": "Fuel oil (low sulphur <1%)",
+      "O4682": "Fuel oil (high sulphur >=1%)",
+      "O4691": "White spirit and special boiling point industrial spirits",
+      "O4692": "Lubricants",
       "O4693": "Paraffin waxes",
-      "O4694": "Other oil products n.e.c.",
-      "O4695": "Other oil products",
-      "O4699": "Non-specified oil products",
-      "R5111": "Pure biogasoline",
-      "R5210P": "Pure biodiesels",
-      "R5210E": "Pure biodiesels (FAME)",
-      "R5220P": "Pure bio jet kerosene",
-      "R5230P": "Other liquid biofuels",
-      "R5290": "Other liquid biofuels n.e.c.",
+      "O4694": "Petroleum coke",
+      "O4695": "Bitumen",
+      "O4699": "Other oil products n.e.c.",
+      "R5111": "Wood pellets",
+      "R5210P": "Pure biogasoline",
+      "R5210E": "Bioethanol",
+      "R5220P": "Pure biodiesels",
+      "R5230P": "Pure bio jet kerosene",
+      "R5290": "Other liquid biofuels",
       "E7000": "Electricity",
       "H8000": "Heat"
     },
@@ -552,53 +600,6 @@
     "errors": {
       "yearsFetchFailed": "Failed to fetch years data",
       "urlCreationFailed": "Failed to create visualization URL"
-    }
-  },
-  "enbal": {
-    "title": "Energy Balance Configuration",
-    "description": "Visualise energy balances, see how much energy is imported or produced, find out sectors where the energy is consumed and check out different energy sources.",
-    "country": {
-      "label": "Select country",
-      "helper": "Select a country"
-    },
-    "year": {
-      "label": "Select year",
-      "helper": "Select the reference year"
-    },
-    "fuel": {
-      "label": "Select fuel",
-      "helper": "Select the fuel type",
-      "fuelMainFuel": "Main fuels",
-      "fuelElectricity": "Electricity",
-      "fuelCombustible": "Combustible fuels",
-      "fuelNonCombustible": "Non-combustible fuels",
-      "fuelOtherPetroleum": "Other petroleum products",
-      "fuelMainPetroleum": "Main petroleum products",
-      "fuelOil": "Oil",
-      "fuelOtherFossil": "Other fossil fuels",
-      "fuelFossil": "Fossil fuels",
-      "fuelCoal": "Coal"
-    },
-    "unit": {
-      "label": "Select unit",
-      "helper": "Select the measurement unit",
-      "KTOE": "Thousand tonnes of oil equivalent",
-      "GWH": "Gigawatt hours",
-      "TJ": "Terajoules"
-    },
-    "decimals": {
-      "label": "Select decimals",
-      "helper": "Select the number of decimal places"
-    },
-    "success": {
-      "redirecting": "Redirecting to visualization...",
-      "yearsLoaded": "Years data loaded successfully"
-    },
-    "errors": {
-      "yearsFetchFailed": "Failed to fetch years data",
-      "urlCreationFailed": "Failed to create visualization URL",
-      "datasetNotFound": "Dataset not found for selected options",
-      "missingFields": "Please fill in all required fields"
     }
   },
   "endash": {

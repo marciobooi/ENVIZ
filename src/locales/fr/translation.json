@@ -45,7 +45,7 @@
       "description": "Visualisez les tendances énergétiques saisonnières dans l'UE ou votre pays."
     },
     "entrade": {
-      "imageAlt": "Outil de visualisation des échanges énergétiques",
+      "imageAlt": "Outil de visualisation du commerce énergétique",
       "title": "Configuration du commerce énergétique",
       "description": "Visualisez les flux commerciaux de différentes manières dans votre pays. Utilisez-le et personnalisez votre propre carte !"
     },
@@ -132,17 +132,18 @@
   "multiSelect": {
     "label": "Sélectionnez un ou plusieurs pays",
     "required": "requis",
-    "placeholder": "Choisissez des options",
+    "placeholder": "Sélectionnez des options",
     "searchPlaceholder": "Entrez un mot-clé de filtre",
     "selectAll": "Tout sélectionner",
     "apply": "Appliquer",
     "clearAll": "Tout effacer",
     "toggleDropdown": "Basculer le menu déroulant",
+    "helperText": "Sélectionnez un ou plusieurs pays",
     "groups": {
-      "AGGREGATES": "Agrégats",
-      "EU_COUNTRIES": "Pays de l'UE",
-      "EFTA_COUNTRIES": "Pays de l'AELE",
-      "ENLARGEMENT_COUNTRIES": "Pays en voie d'élargissement"
+      "aggregates": "Agrégats",
+      "eu_countries": "Pays de l'UE",
+      "efta_countries": "Pays de l'AELE",
+      "enlargement_countries": "Pays en voie d'élargissement"
     },
     "countries": {
       "EU27_2020": "UE (27 pays)",
@@ -177,7 +178,7 @@
       "IS": "Islande",
       "LI": "Liechtenstein",
       "NO": "Norvège",
-      "BA": "Bosnie-Herzégovine",
+      "BA": "Bosnie Herzégovine",
       "ME": "Monténégro",
       "MD": "Moldavie",
       "MK": "Macédoine du Nord",
@@ -234,11 +235,11 @@
     "description": "Visualisez les prix de l'électricité et du gaz naturel dans l'UE ou votre pays.",
     "year": {
       "label": "Sélectionnez l'année",
-      "helper": "Choisissez l'année de référence"
+      "helper": "Sélectionnez l'année de référence"
     },
     "fuel": {
       "label": "Sélectionnez le combustible",
-      "helper": "Choisissez entre électricité ou gaz",
+      "helper": "Sélectionnez entre électricité ou gaz",
       "options": {
         "electricity": "Électricité",
         "gas": "Gaz naturel"
@@ -246,7 +247,7 @@
     },
     "consumer": {
       "label": "Sélectionnez le consommateur",
-      "helper": "Choisissez entre consommateurs domestiques ou non domestiques",
+      "helper": "Sélectionnez entre consommateurs domestiques ou non domestiques",
       "options": {
         "household": "Domestique",
         "nonHousehold": "Non domestique"
@@ -254,7 +255,7 @@
     },
     "consumption": {
       "label": "Sélectionnez le niveau de consommation",
-      "helper": "Choisissez la bande de consommation",
+      "helper": "Sélectionnez la bande de consommation",
       "lt1000": "Moins de 1000 kWh",
       "ge15000": "15000 kWh ou plus",
       "5000to14999": "5000-14999 kWh",
@@ -263,23 +264,23 @@
     },
     "currency": {
       "label": "Sélectionnez la devise",
-      "helper": "Choisissez la devise à afficher",
+      "helper": "Sélectionnez la devise à afficher",
       "eur": "Euro",
       "pps": "Standard de pouvoir d'achat"
     },
     "unit": {
       "label": "Sélectionnez l'unité",
-      "helper": "Choisissez l'unité de mesure",
+      "helper": "Sélectionnez l'unité de mesure",
       "kwh": "Kilowattheure (kWh)",
       "mwh": "Mégawattheure (MWh)"
     },
     "component": {
       "label": "Sélectionnez les composants",
-      "helper": "Choisissez les composants de prix à afficher"
+      "helper": "Sélectionnez les composants de prix à afficher"
     },
     "details": {
       "label": "Sélectionnez les détails",
-      "helper": "Choisissez le niveau de détail"
+      "helper": "Sélectionnez le niveau de détail"
     },
     "errors": {
       "fetchFailed": "Échec de la récupération des données sur les prix de l'énergie",
@@ -302,26 +303,26 @@
     "description": "Visualisez les flux énergétiques à travers des diagrammes de Sankey dans l'UE ou votre pays",
     "year": {
       "label": "Sélectionnez l'année",
-      "helper": "Choisissez l'année de référence"
+      "helper": "Sélectionnez l'année de référence"
     },
     "fuel": {
       "label": "Sélectionnez la source d'énergie",
-      "helper": "Choisissez le type d'énergie",
+      "helper": "Sélectionnez le type d'énergie",
       "options": {
         "total": "Total",
-        "sff_p1000": "Combustibles fossiles solides",
-        "o4000": "Produits pétroliers",
-        "g3000_c0350_370": "Gaz naturel",
-        "ra000": "Chaleur nucléaire",
-        "w6100_6220": "Hydroélectrique et éolien",
-        "n900h": "Biocarburants",
+        "sff_p1000": "Combustibles fossiles solides et tourbe",
+        "o4000": "Pétrole et produits pétroliers",
+        "g3000_c0350_370": "Gaz",
+        "ra000": "Renouvelables et biocarburants",
+        "w6100_6220": "Déchets non-renouvelables",
+        "n900h": "Chaleur nucléaire",
         "h8000": "Chaleur",
         "e7000": "Électricité"
       }
     },
     "unit": {
       "label": "Sélectionnez l'unité",
-      "helper": "Choisissez l'unité de mesure",
+      "helper": "Sélectionnez l'unité de mesure",
       "options": {
         "ktoe": "Mille tonnes équivalent pétrole",
         "gj": "Gigajoules",
@@ -334,7 +335,7 @@
     },
     "details": {
       "label": "Sélectionnez les détails",
-      "helper": "Choisissez le niveau de détail"
+      "helper": "Sélectionnez le niveau de détail"
     },
     "errors": {
       "fetchFailed": "Échec de la récupération des données sur les flux énergétiques",
@@ -357,52 +358,58 @@
       "helper": "Sélectionnez le type du graphique"
     },
     "siec": {
+      "label": "Sélectionnez le combustible",
+      "helper": "Sélectionnez le type de combustible",
       "C0100": "Houille",
-      "C0200": "Lignite",
-      "C0311": "Coke",
-      "P1100": "Pétrole brut",
-      "S2000": "Schiste et sables bitumineux",
-      "O4640": "Gazole/carburant diesel",
+      "C0200": "Charbon brun",
+      "C0311": "Coke de four à coke",
+      "P1100": "Tourbe",
+      "S2000": "Schistes bitumineux et sables bitumineux",
+      "O4640": "Naphta",
       "O4652": "Essence moteur",
-      "O4661": "Naphta",
-      "O4671": "GPL",
-      "O4630": "Kérosène",
-      "O4680": "Autres produits pétroliers",
+      "O4661": "Carburéacteur type kérosène",
+      "O4671": "Gazole et carburant diesel",
+      "O4630": "Gaz de pétrole liquéfiés",
+      "O4680": "Fioul",
       "G3000": "Gaz naturel",
       "E7000": "Électricité",
       "TOTAL": "Total",
-      "CF": "Combustibles fossiles",
-      "O4000XBIO": "Pétrole et produits pétroliers",
+      "CF": "Carburants combustibles",
+      "O4000XBIO": "Pétrole et produits pétroliers (part de biocarburant non comprise)",
       "RA100": "Hydraulique",
       "RA300": "Éolien",
       "RA200": "Géothermie",
       "RA400": "Solaire",
-      "RA500_5160": "Biomasse",
-      "N9000": "Nucléaire",
-      "X9900": "Autres",
+      "RA500_5160": "Autres énergies renouvelables",
+      "N9000": "Combustibles nucléaires et autres combustibles n.c.a.",
+      "X9900": "Autres combustibles n.c.a.",
       "C0000": "Charbon et gaz manufacturés",
       "RVN": "Renouvelables",
       "nrg_cb_cosm": "Pétrole brut"
     },
     "nrgBal": {
-      "IPRD": "Production indigène",
+      "label": "Sélectionner le flux",
+      "helper": "Sélectionner le flux énergétiques",
+      "IPRD": "Production nationale",
       "IMP": "Importations",
       "EXP": "Exportations",
       "Net_imp": "Importations nettes",
-      "GID_CAL": "Livraisons intérieures brutes",
-      "TO_RPI_RO": "Entrées en raffinerie",
+      "GID_CAL": "Livraisons intérieures brutes - calculées",
+      "TO_RPI_RO": "Sorties de transformation - raffineries et industrie pétrochimique - production des raffineries",
       "PRD": "Production",
-      "STK_CHG_MG": "Variation des stocks",
-      "IC_CAL_MG": "Consommation intérieure",
-      "DL": "Livraisons",
+      "STK_CHG_MG": "Variations des stocks - selon définition de MOS GAS",
+      "IC_CAL_MG": "Consommation intérieure - calculée selon définition de MOS GAS",
+      "DL": "Pertes de distribution",
       "AIM": "Disponible pour le marché intérieur",
       "NEG": "Production nette d'électricité",
       "STK_FLOW": "Flux des stocks",
       "STKCL_EUE": "Stock de clôture UE urgence",
-      "STKCL_NAT": "Stock de clôture National",
+      "STKCL_NAT": "Stocks finals sur le territoire national",
       "E7000": "Électricité"
     },
     "unit": {
+      "label": "Sélectionnez l'unité",
+      "helper": "Sélectionnez l'unité de mesure",
       "THS_T": "Milliers de tonnes",
       "VOL_THS_BBL": "Milliers de barils",
       "AVGPRC_USD_BBL": "USD par baril",
@@ -429,6 +436,8 @@
     }
   },
   "enbal": {
+    "title": "Configuration du bilan énergétique",
+    "description": "Visualisez les bilans énergétiques, voyez quelle quantité d'énergie est importée ou produite, découvrez les secteurs où l'énergie est consommée et découvrez différentes sources d'énergie.",
     "country": {
       "label": "Sélectionner le pays",
       "helper": "Sélectionnez un pays"
@@ -442,11 +451,11 @@
       "helper": "Sélectionnez le type de combustible",
       "fuelMainFuel": "Combustibles principaux",
       "fuelElectricity": "Électricité",
-      "fuelCombustible": "Combustibles",
-      "fuelNonCombustible": "Combustibles non combustibles",
+      "fuelCombustible": "Carburants combustibles",
+      "fuelNonCombustible": "Carburants non combustibles",
       "fuelOtherPetroleum": "Autres produits pétroliers",
       "fuelMainPetroleum": "Principaux produits pétroliers",
-      "fuelOil": "Pétrole",
+      "fuelOil": "Pétrole primaire",
       "fuelOtherFossil": "Autres combustibles fossiles",
       "fuelFossil": "Combustibles fossiles",
       "fuelCoal": "Charbon"
@@ -474,7 +483,7 @@
     }
   },
   "entrade": {
-    "imageAlt": "Outil de visualisation des échanges énergétiques",
+    "imageAlt": "Outil de visualisation du commerce énergétique",
     "title": "Configuration du commerce énergétique",
     "description": "Visualisez les flux commerciaux de différentes manières dans votre pays. Utilisez-le et personnalisez votre propre carte !",
     "country": {
@@ -507,20 +516,59 @@
       "G3200": "Gaz naturel liquéfié",
       "C0000X0350-0370": "Combustibles fossiles solides",
       "C0100": "Houille",
-      "C0110": "Charbon à coke",
-      "C0121": "Charbon vapeur",
-      "C0129": "Autres houilles bitumineuses",
-      "C0200": "Lignite",
-      "C0210": "Lignite",
-      "C0220": "Charbon sub-bitumineux",
+      "C0110": "Anthracite",
+      "C0121": "Charbon à coke",
+      "C0129": "Autre charbon bitumineux",
+      "C0200": "Charbon brun",
+      "C0220": "Lignite",
+      "C0210": "Charbon sub-bitumineux",
       "C0311": "Coke de four à coke",
-      "C0320": "Agglomérés de houille",
+      "C0320": "Aggloméré",
       "C0330": "Briquettes de lignite",
       "C0340": "Goudron de houille",
-      "P1100": "Pétrole brut",
-      "P1200": "Liquides de gaz naturel",
+      "P1100": "Tourbe",
+      "P1200": "Produits dérivés de la tourbe",
       "O4000": "Pétrole et produits pétroliers",
-      "O4000XBIO": "Pétrole et produits pétroliers (hors biocarburants)",
+      "O4000XBIO": "Pétrole et produits pétroliers (part de biocarburant non comprise)",
+      "O4100_TOT_4200-4500": "Pétrole brut, LGN, produits d'alimentation et autres hydrocarbures",
+      "O4100_TOT_4200-4500XBIO": "Pétrole brut, LGN, produits d'alimentation et autres hydrocarbures (part de biocarburant non comprise)",
+      "O4100_TOT": "Pétrole brut",
+      "O4200": "Liquides du gaz naturel",
+      "O4300": "Produits d'alimentation des raffineries",
+      "O4400X4410": "Additifs et composés oxygénés (part de biocarburant non comprise)",
+      "O4400": "Additifs et composés oxygénés",
+      "O4500": "Autres hydrocarbures",
+      "O4600": "Produits pétroliers",
+      "O4600XBIO": "Produits pétroliers (part de biocarburant non comprise)",
+      "O4620": "Éthane",
+      "O4630": "Gaz de pétrole liquéfiés",
+      "O4640": "Naphta",
+      "O4651": "Essence d'aviation",
+      "O4652": "Essence moteur",
+      "O4652XR5210B": "Essence moteur (part de biocarburant non comprise)",
+      "O4653": "Carburéacteur type essence",
+      "O4661": "Carburéacteur type kérosène",
+      "O4661XR5230B": "Carburéacteur type kérosène (part de biocarburant non comprise)",
+      "O4669": "Autre kérosène",
+      "O4671": "Gazole et carburant diesel",
+      "O4671XR5220B": "Gazole et carburant diesel (part de biocarburant non comprise)",
+      "O46711": "Diesel routier",
+      "O46712": "Fioul domestique et autres gazoles",
+      "O4680": "Fioul",
+      "O4681": "Fioul (faible teneur en soufre <1%)",
+      "O4682": "Fioul (haute teneur en soufre >=1%)",
+      "O4691": "White spirit et essences industrielles à point de début d'ébullition spécial",
+      "O4692": "Lubrifiants",
+      "O4693": "Cires de paraffine",
+      "O4694": "Coke de pétrole",
+      "O4695": "Bitume",
+      "O4699": "Autres produits pétroliers n.c.a.",
+      "R5111": "Granulés de bois",
+      "R5210P": "Bioessence pure",
+      "R5210E": "Bioéthanol",
+      "R5220P": "Biodiesels purs",
+      "R5230P": "Biokérosène pur",
+      "R5290": "Autres biocarburants liquides",
       "E7000": "Électricité",
       "H8000": "Chaleur"
     },
