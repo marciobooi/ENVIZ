@@ -51,9 +51,11 @@
 
 /* Language switcher styles */
 #toggleLanguageBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* margin: auto; */
+    position: relative;
 }
 
 #toggleLanguageBtn .language-text {
@@ -68,6 +70,12 @@ li.ecl-site-header__language-item.active {
   background-color: #e7edfa;
   box-shadow: inset 4px 0 0 0 #0e47cb;
   color: #171a22;
+}
+
+.ecl-site-header__language-container {
+    top: 50%;
+    left: 50% !important;
+    transform: translate(-50%, 10%) !important;
 }
 
 /* Tablet styles */

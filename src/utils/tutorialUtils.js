@@ -1,10 +1,7 @@
-import { useContext } from 'react';
-import { TutorialContext } from '../contexts/TutorialContextDef';
+import { create } from 'zustand';
 
-export const useTutorial = () => {
-  const context = useContext(TutorialContext);
-  if (!context) {
-    throw new Error('useTutorial must be used within a TutorialProvider');
-  }
-  return context;
-};
+export const useTutorial = create((set) => ({
+    isTutorialOpen: false,
+    startTutorial: () => set({ isTutorialOpen: true }),
+    endTutorial: () => set({ isTutorialOpen: false }),
+}));

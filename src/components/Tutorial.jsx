@@ -5,15 +5,42 @@ import { useTutorial } from '../utils/tutorialUtils';
 import getTutorialSteps from '../config/tutorialSteps';
 import '../styles/tutorial.css';
 
+const TUTORIAL_COOKIE_NAME = 'tutorial_completed';
+const COOKIE_EXPIRATION_DAYS = 60; // 2 months
+
 const Tutorial = () => {
     const { t } = useTranslation();
-    const { isTutorialOpen, endTutorial } = useTutorial();
+    const { isTutorialOpen, endTutorial, startTutorial } = useTutorial();
     const steps = getTutorialSteps(t);
     const [stepIndex, setStepIndex] = useState(0); // Track the current step index
     const [joyrideKey, setJoyrideKey] = useState(0); // Force Joyride to reinitialize
     const lastFocusedElement = useRef(null);
     const tooltipRef = useRef(null);
     const [currentStep, setCurrentStep] = useState(0);
+
+    // Check if tutorial should auto-start
+    useEffect(() => {
+        const checkTutorialStatus = () => {
+            const tutorialCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith(TUTORIAL_COOKIE_NAME));
+
+            if (!tutorialCookie) {
+                // No cookie found, start tutorial
+                startTutorial();
+            }
+        };
+
+        // Small delay to ensure the page is fully loaded
+        const timeoutId = setTimeout(checkTutorialStatus, 1000);
+        return () => clearTimeout(timeoutId);
+    }, [startTutorial]);
+
+    const setTutorialCookie = () => {
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + COOKIE_EXPIRATION_DAYS);
+        document.cookie = `${TUTORIAL_COOKIE_NAME}=true; expires=${expirationDate.toUTCString()}; path=/; SameSite=Strict`;
+    };
 
     // Focus trap effect
     useEffect(() => {
@@ -93,7 +120,7 @@ const Tutorial = () => {
         const { action, status, index, type } = data;
 
         // Update currentStep whenever the step changes
-        setCurrentStep(index + 1);
+        // setCurrentStep(index + 1);
 
         // Handle Back button click
         if (action === ACTIONS.PREV) {
@@ -107,8 +134,9 @@ const Tutorial = () => {
             setJoyrideKey((prevKey) => prevKey + 1);
         }
 
-        // End tutorial on finish/skip
+        // Set cookie when tutorial is completed or skipped
         if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status) || action === ACTIONS.CLOSE) {
+            setTutorialCookie();
             endTutorial();
         }
 

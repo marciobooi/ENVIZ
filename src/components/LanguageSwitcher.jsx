@@ -104,7 +104,7 @@ function LanguageSwitcher() {
                 <span className="language-text">
                     {t(`languageSwitcher.languages.${activeLanguage}`)}
                 </span>
-            </button>
+          
 
             {isVisible && (
                 <div
@@ -161,7 +161,8 @@ function LanguageSwitcher() {
                         </div>
                     </div>
                 </div>
-            )}
+                )}
+            </button>
         </div>
     );
 }
