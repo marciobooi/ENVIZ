@@ -1,7 +1,6 @@
 {
-  "OFFICIAL": "Official EU languages:",
   "navbar": {
-    "title": "Interactive energy visualisation",
+    "title": "Interactive energy visualisations",
     "tutorialButton": "Display tutorial",
     "shareButton": "Share this page",
     "languageButton": "Change language",
@@ -30,32 +29,32 @@
   "card": {
     "customizeButton": "Customize diagram",
     "goToToolButton": "Go to the tool",
-    "containerLabel": "Energy visualization tools",
+    "containerLabel": "Energy visualisation tools",
     "descriptionLabel": "Tool description",
     "actionsLabel": "Tool actions",
 
     "ensankey": {
-      "imageAlt": "Sankey diagram visualization tool",
+      "imageAlt": "Sankey diagram visualisation tool",
       "title": "Sankey diagram - energy flows",
       "description": "Visualise energy data through flow diagrams (Sankey diagrams) in the EU or your country."
     },
     "enmonthly": {
-      "imageAlt": "Monthly energy visualization tool",
+      "imageAlt": "Monthly energy visualisation tool",
       "title": "Monthly energy data",
       "description": "Visualise seasonal energy trends in the EU or your country."
     },
     "entrade": {
-      "imageAlt": "Energy trade visualization tool",
-      "title": "Energy Trade Configuration",
+      "imageAlt": "Energy trade visualisation tool",
+      "title": "Energy Trade",
       "description": "Visualise the trade flows in different ways in your country. Use it and customise your own map!"
     },
     "enbal": {
-      "imageAlt": "Energy balances visualization tool",
-      "title": "Energy balances configuration",
+      "imageAlt": "Energy balances visualisation tool",
+      "title": "Energy balances",
       "description": "Visualise energy balances, see how much energy is imported or produced, find out sectors where the energy is consumed and check out different energy sources."
     },
     "endash": {
-      "imageAlt": "Energy indicators visualization tool",
+      "imageAlt": "Energy indicators visualisation tool",
       "title": "Energy indicators",
       "description": "Visualise a dashboard with energy statistics and indicators for your country or the EU."
     },
@@ -70,18 +69,18 @@
       "description": "Explore historical and future energy use with the JRC interactive tool. This tool is not from Eurostat, but from the Joint Research"
     },
     "enprices": {
-      "imageAlt": "Energy prices visualization tool",
-      "title": "Energy Prices Configuration",
+      "imageAlt": "Energy prices visualisation tool",
+      "title": "Energy Prices",
       "description": "Visualise electricity and natural gas prices in the EU or your country."
     }
   },
   "tooltips": {
     "tutorial": "Open the tutorial guide",
-    "share": "Share this visualization",
+    "share": "Share this visualisation",
     "language": "Change the interface language",
     "home": "Go to Eurostat homepage",
-    "customize": "Customize the visualization settings",
-    "goToTool": "Open the visualization tool"
+    "customize": "Customize the visualisation settings",
+    "goToTool": "Open the visualisation tool"
   },
   "tutorial": {
     "next": "Next",
@@ -92,16 +91,16 @@
     "targetNotFound": "Tutorial target not found",
     "steps": {
       "welcome": {
-        "title": "Welcome to Energy Visualization",
+        "title": "Welcome to Energy visualisation",
         "content": "This tool helps you explore and understand energy prices across the EU."
       },
       "cards": {
-        "title": "Visualization Tools",
-        "content": "Here you'll find different tools to explore energy data. Each card represents a different visualization option."
+        "title": "Visualisation Tools",
+        "content": "Here you'll find different tools to explore energy data. Each card represents a different visualisation option."
       },
       "actions": {
         "title": "Tool Actions",
-        "content": "You can customize the visualization settings or directly access the tool using these buttons."
+        "content": "You can customize the visualisation settings or directly access the tool using these buttons."
       },
       "share": {
         "title": "Share Your Findings",
@@ -230,7 +229,7 @@
     }
   },
   "enprices": {
-    "imageAlt": "Energy prices visualization tool",
+    "imageAlt": "Energy prices visualisation tool",
     "title": "Energy Prices Configuration",
     "description": "Visualise electricity and natural gas prices in the EU or your country.",
     "year": {
@@ -284,7 +283,7 @@
     },
     "errors": {
       "fetchFailed": "Failed to fetch energy price data",
-      "urlCreationFailed": "Failed to create visualization URL"
+      "urlCreationFailed": "Failed to create visualisation URL"
     },
     "success": {
       "dataLoaded": "Energy price data loaded successfully"
@@ -339,14 +338,14 @@
     },
     "errors": {
       "fetchFailed": "Failed to fetch energy flow data",
-      "urlCreationFailed": "Failed to create visualization URL"
+      "urlCreationFailed": "Failed to create visualisation URL"
     },
     "success": {
       "dataLoaded": "Energy flow data loaded successfully"
     }
   },
   "enmonthly": {
-    "imageAlt": "Monthly energy visualization tool",
+    "imageAlt": "Monthly energy visualisation tool",
     "title": "Monthly energy data",
     "description": "Visualise seasonal energy trends in the EU or your country.",
     "country": {
@@ -428,11 +427,11 @@
       "nrg_cb_pem": "Power generation"
     },
     "success": {
-      "redirecting": "Redirecting to visualization...",
+      "redirecting": "Redirecting to visualisation...",
       "datasetChanged": "Chart type changed, options updated"
     },
     "errors": {
-      "urlCreationFailed": "Failed to create visualization URL"
+      "urlCreationFailed": "Failed to create visualisation URL"
     }
   },
   "enbal": {
@@ -472,18 +471,18 @@
       "helper": "Select the number of decimal places"
     },
     "success": {
-      "redirecting": "Redirecting to visualization...",
+      "redirecting": "Redirecting to visualisation...",
       "yearsLoaded": "Years data loaded successfully"
     },
     "errors": {
       "yearsFetchFailed": "Failed to fetch years data",
-      "urlCreationFailed": "Failed to create visualization URL",
+      "urlCreationFailed": "Failed to create visualisation URL",
       "datasetNotFound": "Dataset not found for selected options",
       "missingFields": "Please fill in all required fields"
     }
   },
   "entrade": {
-    "imageAlt": "Energy trade visualization tool",
+    "imageAlt": "Energy trade visualisation tool",
     "title": "Energy Trade Configuration",
     "description": "Visualise the trade flows in different ways in your country. Use it and customise your own map!",
     "country": {
@@ -592,14 +591,14 @@
       "top5": "Top 5 countries"
     },
     "success": {
-      "redirecting": "Redirecting to visualization...",
+      "redirecting": "Redirecting to visualisation...",
       "fuelChanged": "Fuel type changed, options updated",
       "optionsUpdated": "Options updated based on selected fuel and trade flow",
       "yearsLoaded": "Years data loaded successfully"
     },
     "errors": {
       "yearsFetchFailed": "Failed to fetch years data",
-      "urlCreationFailed": "Failed to create visualization URL"
+      "urlCreationFailed": "Failed to create visualisation URL"
     }
   },
   "endash": {
@@ -611,10 +610,10 @@
     },
     "errors": {
       "missingCountry": "Please select a country",
-      "urlCreationFailed": "Failed to create visualization URL"
+      "urlCreationFailed": "Failed to create visualisation URL"
     },
     "success": {
-      "redirecting": "Redirecting to visualization..."
+      "redirecting": "Redirecting to visualisation..."
     }
   },
   "meta": {

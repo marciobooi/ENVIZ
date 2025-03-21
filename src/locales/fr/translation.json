@@ -1,7 +1,6 @@
 {
-  "OFFICIAL": "Langues officielles de l'UE :",
   "navbar": {
-    "title": "Visualisation interactive de l'énergie",
+    "title": "Visualisations interactives de l'énergie",
     "tutorialButton": "Afficher le tutoriel",
     "shareButton": "Partager cette page",
     "languageButton": "Changer la langue",
@@ -41,17 +40,17 @@
     },
     "enmonthly": {
       "imageAlt": "Outil de visualisation énergétique mensuelle",
-      "title": "Données énergétiques mensuelles",
+      "title": "Énergie mensuelle",
       "description": "Visualisez les tendances énergétiques saisonnières dans l'UE ou votre pays."
     },
     "entrade": {
       "imageAlt": "Outil de visualisation du commerce énergétique",
-      "title": "Configuration du commerce énergétique",
+      "title": "Commerce de l'énergie",
       "description": "Visualisez les flux commerciaux de différentes manières dans votre pays. Utilisez-le et personnalisez votre propre carte !"
     },
     "enbal": {
       "imageAlt": "Outil de visualisation des bilans énergétiques",
-      "title": "Configuration du bilan énergétique",
+      "title": "Bilans énergétiques",
       "description": "Visualisez les bilans énergétiques, découvrez la quantité d'énergie importée ou produite, identifiez les secteurs de consommation et explorez différentes sources d'énergie."
     },
     "endash": {
@@ -71,7 +70,7 @@
     },
     "enprices": {
       "imageAlt": "Outil de visualisation des prix de l'énergie",
-      "title": "Configuration des prix de l'énergie",
+      "title": "Prix de l'énergie",
       "description": "Visualisez les prix de l'électricité et du gaz naturel dans l'UE ou votre pays."
     }
   },

@@ -94,7 +94,7 @@ function Navbar() {
                 >
                     <img
                         id="eurostatLogo"
-                        src="/estat-logo-horizontal.svg"
+                        src="./estat-logo-horizontal.svg"
                         alt={t('navbar.imageAlt')}
                     />
                 </a>

@@ -22,6 +22,7 @@
   align-items: center;
   margin-top: var(--s-xs) !important;
   color: var(--c-d) !important;
+  text-decoration: underline !important;
 }
 
 .ecl-site-footer__list-item:not(:last-child) {
@@ -38,8 +39,8 @@
   position: relative;
 }
 
-.ecl-site-footer__link:hover {
-  text-decoration: underline;
+.ecl-site-footer__link:visited {
+  color: var(--c-d) !important;
 }
 
 /* Keyboard focus styles */

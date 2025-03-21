@@ -232,7 +232,7 @@ const MultiSelect = ({
                         <span className="ecl-button__container">
                             <span className="ecl-button__label" data-ecl-label="true">{t('multiSelect.toggleDropdown')}</span>
                             <svg className="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon" focusable="false" aria-hidden="true">
-                                <use xlinkHref="/icons.svg#corner-arrow"></use>
+                                <use xlinkHref="./icons.svg#corner-arrow"></use>
                             </svg>
                         </span>
                     </button>

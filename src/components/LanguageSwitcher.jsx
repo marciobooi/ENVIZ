@@ -140,7 +140,6 @@ function LanguageSwitcher() {
                             className="ecl-site-header__language-category ecl-site-header__language-category--3-col"
                             data-ecl-language-list-eu=""
                         >
-                            <div className="ecl-site-header__language-category-title">{t('OFFICIAL')}</div>
                             <ul className="ecl-site-header__language-list">
                                 {['en', 'de', 'fr'].map((lang) => (
                                     <li

@@ -1,7 +1,6 @@
 {
-  "OFFICIAL": "Offizielle EU-Sprachen:",
   "navbar": {
-    "title": "Interaktive Energievisualisierung",
+    "title": "Interaktive Energievisualisierungen",
     "tutorialButton": "Tutorial anzeigen",
     "shareButton": "Diese Seite teilen",
     "languageButton": "Sprache ändern",
@@ -41,17 +40,17 @@
     },
     "enmonthly": {
       "imageAlt": "Monatliches Energievisualisierungstool",
-      "title": "Monatliche Energiedaten",
+      "title": "Energie monatlich",
       "description": "Visualisieren Sie saisonale Energietrends in der EU oder Ihrem Land."
     },
     "entrade": {
       "imageAlt": "Energiehandel Visualisierungstool",
-      "title": "Energiehandel-Konfiguration",
+      "title": "Energiehandel",
       "description": "Visualisieren Sie die Handelsströme auf verschiedene Arten in Ihrem Land. Nutzen Sie es und gestalten Sie Ihre eigene Karte!"
     },
     "enbal": {
       "imageAlt": "Energiebilanz-Visualisierungstool",
-      "title": "Energiebilanz-Konfiguration",
+      "title": "Energiebilanzen",
       "description": "Visualisieren Sie Energiebilanzen, sehen Sie wie viel Energie importiert oder produziert wird, finden Sie heraus in welchen Sektoren die Energie verbraucht wird und prüfen Sie verschiedene Energiequellen."
     },
     "endash": {
@@ -71,7 +70,7 @@
     },
     "enprices": {
       "imageAlt": "Energiepreise-Visualisierungstool",
-      "title": "Energiepreise-Konfiguration",
+      "title": "Energiepreise",
       "description": "Visualisieren Sie Strom- und Erdgaspreise in der EU oder Ihrem Land."
     }
   },
