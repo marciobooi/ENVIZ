@@ -21,17 +21,17 @@
   display: flex;
   align-items: center;
   margin-top: var(--s-xs) !important;
-  color: var(--c-d) !important;
+  color: var(--c-p) !important;
   text-decoration: underline !important;
 }
 
 .ecl-site-footer__list-item:not(:last-child) {
-  border-right: 1px solid var(--c-d);
+  border-right: 1px solid var(--c-p);
   height: 1.25rem;
 }
 
 .ecl-site-footer__link {
-  color: var(--c-d);
+  color: var(--c-p);
   text-decoration: none;
   padding: 0.5rem;
   font: var(--f-ui-m);
@@ -40,7 +40,7 @@
 }
 
 .ecl-site-footer__link:visited {
-  color: var(--c-d) !important;
+  color: var(--c-p) !important;
 }
 
 /* Keyboard focus styles */
@@ -53,6 +53,12 @@
 .ecl-site-footer__link:focus:not(:focus-visible) {
   outline: none;
   text-decoration: none;
+}
+
+.ecl-link--standalone:hover{
+    color: var(--c-p);
+    text-decoration: none;
+    font-weight: bold;
 }
 
 /* High contrast mode support */

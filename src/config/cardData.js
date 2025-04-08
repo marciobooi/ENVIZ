@@ -67,14 +67,14 @@ const getCardData = (t, toggleModal) => [
   },
   {
     id: 'shedthelight',
-    imageUrl: './SHEDLIGHT.webp',
+    imageUrl: './SHEDLIGHT.png',
     imageAlt: t('card.shedthelight.imageAlt'),
     title: t('card.shedthelight.title'),
     description: t('card.shedthelight.description'),
     hasCustomization: false,
     onGoToTool: () =>
       (window.location.href =
-        'https://ec.europa.eu/eurostat/web/interactive-publications/energy-2024'),
+        'https://ec.europa.eu/eurostat/web/interactive-publications/energy-2025'),
   },
   {
     id: 'EnergyScenarios',
