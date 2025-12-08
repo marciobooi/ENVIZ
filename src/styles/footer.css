@@ -31,7 +31,7 @@
 }
 
 .ecl-site-footer__link {
-  color: var(--c-p);
+  color: #0a3a9c; /* Darker blue for WCAG AAA 7:1 contrast ratio */
   text-decoration: none;
   padding: 0.5rem;
   font: var(--f-ui-m);
@@ -40,7 +40,7 @@
 }
 
 .ecl-site-footer__link:visited {
-  color: var(--c-p) !important;
+  color: #0a3a9c !important; /* Darker blue for WCAG AAA 7:1 contrast ratio */
 }
 
 /* Keyboard focus styles */

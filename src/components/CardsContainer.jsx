@@ -34,9 +34,8 @@ const CardsContainer = ({ toggleModal }) => {
     };
 
     return (
-        <div
+        <ul
             className="cards-container"
-            role="list"
             aria-label={t('card.containerLabel')}
         >
             {cardData.map((card, index) => (
@@ -53,7 +52,7 @@ const CardsContainer = ({ toggleModal }) => {
                     onKeyDown={(e) => handleCardKeyDown(e, index)}
                 />
             ))}
-        </div>
+        </ul>
     );
 };
 

@@ -213,6 +213,7 @@ const MultiSelect = ({
                     id="select-multiple"
                     name="countries"
                     required=""
+                    aria-label={label || defaultLabel}
                     aria-describedby={helperText ? `select-multiple-helper-${componentId}` : undefined}
                     data-ecl-auto-init="Select"
                     multiple=""

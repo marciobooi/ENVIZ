@@ -52,7 +52,7 @@ h2.ecl-link.ecl-link--standalone {
 
 
 .ecl-label--high {
-  color: #004494;
+  color: #003070; /* Darker blue for WCAG AAA 7:1 contrast ratio on yellow background */
   font-weight: 600;
   font-size: 0.875rem;
 }

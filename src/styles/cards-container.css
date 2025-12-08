@@ -5,6 +5,12 @@
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  list-style: none;
+}
+
+/* Ensure li elements display properly */
+.cards-container > li {
+  list-style: none;
 }
 
 /* Make the 7th card (shedthelight) span 2 columns */

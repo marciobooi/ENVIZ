@@ -41,7 +41,7 @@ function Navbar() {
     }, [isShareMenuVisible]);
 
     return (
-        <div id="navbar-container">
+        <header id="navbar-container" role="banner">
             <div id="es_app_header_title">
                 <h1 id="toolTitle" className="ecl-u-type-heading-1">
                     {t('navbar.title')}
@@ -100,7 +100,7 @@ function Navbar() {
                 </a>
             </div>
             <ECLTooltip id="navbar-tooltip" />
-        </div>
+        </header>
     );
 }
 
