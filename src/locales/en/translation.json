@@ -92,7 +92,7 @@
     "steps": {
       "welcome": {
         "title": "Welcome to Energy visualisation",
-        "content": "This tool helps you explore and understand energy prices across the EU."
+        "content": "This tool helps you explore and understand energy data across the EU."
       },
       "cards": {
         "title": "Visualisation Tools",
