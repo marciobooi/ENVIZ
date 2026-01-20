@@ -18,7 +18,7 @@ const Card = forwardRef(({ id, imageUrl, imageAlt, title, description, onCustomi
     };
 
     return (
-        <li
+        <div
             ref={ref}
             className="ecl-card"
             tabIndex="0"
@@ -84,7 +84,7 @@ const Card = forwardRef(({ id, imageUrl, imageAlt, title, description, onCustomi
                     {t('card.goToToolButton')}
                 </button>
             </div>
-        </li>
+        </div>
     );
 });
 

@@ -76,18 +76,18 @@ const getCardData = (t, toggleModal) => [
       (window.location.href =
         'https://ec.europa.eu/eurostat/web/interactive-publications/energy-2025'),
   },
-  {
-    id: 'EnergyScenarios',
-    imageUrl: './ENSCENARIOS.webp',
-    imageAlt: t('card.EnergyScenarios.imageAlt'),
-    title: t('card.EnergyScenarios.title'),
-    description: t('card.EnergyScenarios.description'),
-    hasCustomization: false,
-    label: t('common.toolBy', { organization: 'JRC' }),
-    onGoToTool: () =>
-      (window.location.href =
-        'https://web.jrc.ec.europa.eu/visitors-centre-tools/energy_scenarios/'),
-  },
+  // {
+  //   id: 'EnergyScenarios',
+  //   imageUrl: './ENSCENARIOS.webp',
+  //   imageAlt: t('card.EnergyScenarios.imageAlt'),
+  //   title: t('card.EnergyScenarios.title'),
+  //   description: t('card.EnergyScenarios.description'),
+  //   hasCustomization: false,
+  //   label: t('common.toolBy', { organization: 'JRC' }),
+  //   onGoToTool: () =>
+  //     (window.location.href =
+  //       'https://web.jrc.ec.europa.eu/visitors-centre-tools/energy_scenarios/'),
+  // },
 ];
 
 export default getCardData;
