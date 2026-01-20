@@ -13,9 +13,20 @@
   list-style: none;
 }
 
-/* Make the 7th card (shedthelight) span 2 columns */
-.cards-container > *:nth-child(7) {
+/* Make the last card span 2 columns and center it */
+.cards-container > *:last-child {
+  /* Span two columns in multi-column layouts */
   grid-column: span 2;
+  justify-self: center; /* center item within its grid area */
+}
+
+/* Desktop (3 columns): center the card by constraining its width to two columns */
+@media (min-width: 1024px) {
+  .cards-container > *:last-child {
+    grid-column: 1 / -1; /* place on its own row so we can center it */
+    width: 66.666%;
+    margin: 0 auto;
+  }
 }
 
 
@@ -56,8 +67,10 @@
   }
 
   /* Reset span on mobile */
-  .cards-container > *:nth-child(7) {
+  .cards-container > *:last-child {
     grid-column: 1;
+    width: 100%;
+    margin: 0;
   }
 }
 
