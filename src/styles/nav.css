@@ -34,6 +34,20 @@
   max-width: 100%;
 }
 
+/* Give the title a solid background so contrast scanners can evaluate it
+   (white text on #082b7a = ~10:1 contrast ratio, well above WCAG AA) */
+#es_app_header_title {
+  background-color: #082b7a;
+  padding: 0.2rem 0.4rem;
+  border-radius: 2px;
+}
+
+/* Explicit text colour for language button label
+   (dark-blue text on white/light background = sufficient contrast) */
+#toggleLanguageBtn .language-text {
+  color: #082b7a;
+}
+
 /* Layout components */
 .social-container {
   display: flex;
