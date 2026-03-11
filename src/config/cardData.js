@@ -67,14 +67,14 @@ const getCardData = (t, toggleModal) => [
   },
   {
     id: 'shedthelight',
-    imageUrl: './SHEDLIGHT.png',
+    imageUrl: '	https://ec.europa.eu/eurostat/documents/16236493/a2d343f8-9e0e-ceb7-0f81-5023f72af50d?t=1734424900950',
     imageAlt: t('card.shedthelight.imageAlt'),
     title: t('card.shedthelight.title'),
     description: t('card.shedthelight.description'),
     hasCustomization: false,
     onGoToTool: () =>
       (window.location.href =
-        'https://ec.europa.eu/eurostat/web/interactive-publications/energy-2025'),
+        'https://ec.europa.eu/eurostat/web/interactive-publications/energy'),
   },
   // {
   //   id: 'EnergyScenarios',
