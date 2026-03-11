@@ -21,6 +21,7 @@ const Card = forwardRef(({ id, imageUrl, imageAlt, title, description, onCustomi
         <div
             ref={ref}
             className="ecl-card"
+            role="article"
             tabIndex="0"
             aria-labelledby={`card-title-${id}`}
             aria-describedby={`card-desc-${id}`}

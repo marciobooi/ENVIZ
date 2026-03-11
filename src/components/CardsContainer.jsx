@@ -36,6 +36,7 @@ const CardsContainer = ({ toggleModal }) => {
     return (
         <div
             className="cards-container"
+            role="region"
             aria-label={t('card.containerLabel')}
         >
             {cardData.map((card, index) => (
