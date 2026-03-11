@@ -104,7 +104,7 @@ function LanguageSwitcher() {
                 <span className="language-text">
                     {t(`languageSwitcher.languages.${activeLanguage}`)}
                 </span>
-          
+            </button>
 
             {isVisible && (
                 <div
@@ -117,9 +117,9 @@ function LanguageSwitcher() {
                     aria-modal="true"
                 >
                     <div className="ecl-site-header__language-header">
-                        <div className="ecl-site-header__language-title" id="ecl-site-header__language-title">
+                        <h2 className="ecl-site-header__language-title" id="ecl-site-header__language-title">
                             {t('languageSwitcher.selectLanguage')}
-                        </div>
+                        </h2>
                         <button
                             id="languageClsBtn"
                             className="ecl-button ecl-button--ghost ecl-site-header__language-close"
@@ -161,7 +161,6 @@ function LanguageSwitcher() {
                     </div>
                 </div>
                 )}
-            </button>
         </div>
     );
 }

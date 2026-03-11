@@ -106,9 +106,9 @@ const ModalComponent = ({
             <div className="ecl-modal__container">
                 <div className="ecl-modal__content ecl-container">
                     <header className="ecl-modal__header">
-                        <div className="ecl-modal__header-content" id="modal-example-header">
+                        <h2 className="ecl-modal__header-content" id="modal-example-header">
                             {modalTitle}
-                        </div>
+                        </h2>
                         <button
                             className="ecl-button ecl-button--tertiary ecl-modal__close"
                             type="button"
