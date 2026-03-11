@@ -203,9 +203,9 @@ top: 50%;
     padding: calc(var(--s-xs) - 2px) calc(var(--s-m) - 2px);
   }
 
-      #toggleLanguageBtn .language-text {
-        display: none;
-    }
+  #toggleLanguageBtn .language-text {
+    display: none;
+  }
 
   .roundBtn {
     margin: 0 0.2rem;
@@ -223,6 +223,22 @@ top: 50%;
     top: 29%;
     width: 90%;
   }
+}
+
+/* skip link styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #fff;
+  color: #000;
+  padding: 8px;
+  z-index: 1000;
+  text-decoration: none;
+  transition: top 0.3s;
+}
+.skip-link:focus {
+  top: 0;
 }
 
 

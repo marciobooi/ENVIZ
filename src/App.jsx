@@ -76,6 +76,10 @@ function App() {
                 <Navbar />
                 <main id="main-content" tabIndex="-1">
                   <CardsContainer toggleModal={handleToggleModal} />
+                  {!activeModal && (
+                    // keep a hidden dialog present so aria-controls always references an existing id
+                    <dialog id="modal-example" style={{ display: 'none' }} aria-hidden="true" />
+                  )}
                   {ModalComponent && <ModalComponent isOpen onClose={handleCloseModal} />}
                 </main>
                 <Footer />

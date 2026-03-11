@@ -28,6 +28,14 @@ function Navbar() {
         setIsShareMenuVisible(!isShareMenuVisible);
     };
 
+    // hide page content from assistive tech when the share menu is open
+    useEffect(() => {
+        const main = document.getElementById('main-content');
+        if (main) {
+            main.setAttribute('aria-hidden', isShareMenuVisible ? 'true' : 'false');
+        }
+    }, [isShareMenuVisible]);
+
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (event.key === 'Escape' && isShareMenuVisible) {
@@ -38,6 +46,13 @@ function Navbar() {
 
         document.addEventListener('keydown', handleKeyDown);
         return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [isShareMenuVisible]);
+
+    useEffect(() => {
+        const main = document.getElementById('main-content');
+        if (main) {
+            main.setAttribute('aria-hidden', isShareMenuVisible ? 'true' : 'false');
+        }
     }, [isShareMenuVisible]);
 
     return (

@@ -46,6 +46,12 @@ const Tutorial = () => {
     useEffect(() => {
         if (!isTutorialOpen) return;
 
+        // hide main content while tutorial is running
+        const main = document.getElementById('main-content');
+        if (main) {
+            main.setAttribute('aria-hidden', 'true');
+        }
+
         const trapFocus = (e) => {
             if (!tooltipRef.current) return;
 
@@ -79,6 +85,14 @@ const Tutorial = () => {
                 const tooltip = document.querySelector('.react-joyride__tooltip');
                 if (tooltip) {
                     tooltipRef.current = tooltip;
+                    // fix icons inside tooltip by ensuring they have a role
+                    const svgs = tooltip.querySelectorAll('svg');
+                    svgs.forEach(s => {
+                        if (!s.hasAttribute('role')) {
+                            s.setAttribute('role', 'img');
+                        }
+                    });
+
                     const focusable = tooltip.querySelector(
                         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
                     );
@@ -104,8 +118,14 @@ const Tutorial = () => {
             setStepIndex(0); // Reset to the first step
             setJoyrideKey((prevKey) => prevKey + 1); // Force Joyride to restart
             lastFocusedElement.current = document.activeElement;
-        } else if (lastFocusedElement.current) {
-            lastFocusedElement.current.focus();
+        } else {
+            if (lastFocusedElement.current) {
+                lastFocusedElement.current.focus();
+            }
+            const main = document.getElementById('main-content');
+            if (main) {
+                main.removeAttribute('aria-hidden');
+            }
         }
     }, [isTutorialOpen]);
 
