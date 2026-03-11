@@ -3,6 +3,7 @@ import { faLinkedin, faXTwitter, faFacebook } from '@fortawesome/free-brands-svg
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import useClickOutside from '../hooks/useClickOutside';
 
 import '../styles/dropdown.css';
@@ -16,6 +17,20 @@ const SocialSharing = ({ isVisible, setIsVisible }) => {
     const { t } = useTranslation();
     const currentUrl = encodeURIComponent(window.location.href);
 
+    // hide #root from assistive tech while the dialog is open
+    useEffect(() => {
+        const root = document.getElementById('root');
+        if (root) {
+            if (isVisible) {
+                root.setAttribute('aria-hidden', 'true');
+            } else {
+                root.removeAttribute('aria-hidden');
+            }
+        }
+        return () => {
+            if (root) root.removeAttribute('aria-hidden');
+        };
+    }, [isVisible]);
     useEffect(() => {
         if (!isVisible) return;
 
@@ -70,20 +85,22 @@ const SocialSharing = ({ isVisible, setIsVisible }) => {
         openWindow(url, 500, 700);
     };
 
-    return (
+    if (!isVisible) return null;
+
+    return createPortal(
         <div
             className="social-share-wrapper"
             ref={menuRef}
             role="dialog"
+            aria-modal="true"
             aria-label={t('shareMenu.shareAreaLabel')}
         >
-            {isVisible && (
-                <ul
-                    className="dropdown-menu"
-                    role="menu"
-                    aria-labelledby="shareBtn"
-                    tabIndex={-1}
-                >
+            <ul
+                className="dropdown-menu"
+                role="menu"
+                aria-labelledby="shareBtn"
+                tabIndex={-1}
+            >
                     <div className="ecl-social-media-share">
                         <p
                             className="ecl-social-media-share__description"
@@ -147,9 +164,9 @@ const SocialSharing = ({ isVisible, setIsVisible }) => {
                             </li>
                         </ul>
                     </div>
-                </ul>
-            )}
-        </div>
+            </ul>
+        </div>,
+        document.body
     );
 };
 

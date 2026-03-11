@@ -22,6 +22,10 @@
   align-items: center;
   margin-top: var(--s-xs) !important;
   color: var(--c-p) !important;
+
+}
+
+.ecl-link.ecl-link--standalone.ecl-site-footer__link {
   text-decoration: underline !important;
 }
 

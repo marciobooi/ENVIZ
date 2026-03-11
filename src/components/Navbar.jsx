@@ -48,13 +48,6 @@ function Navbar() {
         return () => document.removeEventListener('keydown', handleKeyDown);
     }, [isShareMenuVisible]);
 
-    useEffect(() => {
-        const main = document.getElementById('main-content');
-        if (main) {
-            main.setAttribute('aria-hidden', isShareMenuVisible ? 'true' : 'false');
-        }
-    }, [isShareMenuVisible]);
-
     return (
         <div id="navbar-container" role="region" aria-label="Application header">
             <div id="es_app_header_title">
@@ -114,6 +107,8 @@ function Navbar() {
                     />
                 </a>
             </div>
+            {/* hidden element used by aria-describedby and tooltip library fallback */}
+            <span id="navbar-tooltip" className="sr-only">{t('tooltips.share')}</span>
             <ECLTooltip id="navbar-tooltip" />
         </div>
     );
