@@ -33,3 +33,7 @@ html {
 #globan.dark .wt-globan--flag {
     border: 1px solid rgba(255, 255, 255, 0.797) !important;
 }
+
+#globan .wt-globan--invalid-domain {
+    display: none;
+}
