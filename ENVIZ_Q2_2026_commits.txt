@@ -1,0 +1,10 @@
+﻿2e4c670 | 2026-03-11 | marcio | Add initial HTML structure for ENVIZ application
+1015ea2 | 2026-03-11 | marcio | Add styles for header title and language button for improved contrast
+b72b694 | 2026-03-11 | marcio | Refactor Navbar and SocialSharing components for improved accessibility; remove redundant aria-hidden logic and implement portal for dialog
+e542c11 | 2026-03-11 | marcio | Enhance accessibility by adding skip link and aria attributes; implement hidden dialog for better screen reader support
+84a6d81 | 2026-03-11 | marcio | Add role attributes to Card and CardsContainer components for improved accessibility
+6d3fe71 | 2026-03-11 | marcio | Refactor LanguageSwitcher and Modal components for improved semantics; adjust CSS for language container positioning
+e549e52 | 2026-03-11 | marcio | Add header for EU official website and improve Navbar accessibility; update CSS for invalid domain display
+f6f10a3 | 2026-03-11 | marcio | Add initial HTML structure and assets for ENVIZ application
+08c416d | 2026-01-20 | marcio | Update cards-container styles to center the last card and adjust its column span for better layout on desktop and mobile views
+0b253e5 | 2026-01-20 | marcio | Refactor Card and CardsContainer components to use <div> instead of <li> for better semantic structure; comment out unused energy scenarios data
