@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import '../styles/footer.css';
+import { accessibilityHref } from '../accessibility/mode';
 
 const Footer = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const handleKeyDown = (event, href) => {
         if (event.key === 'Enter' || event.key === ' ') {
@@ -58,10 +59,10 @@ const Footer = () => {
                         <li className="ecl-site-footer__list-item" role="none">
                             <a
                                 id="footer-access"
-                                href="https://ec.europa.eu/eurostat/web/main/help/accessibility"
+                                href={accessibilityHref(i18n.resolvedLanguage ?? 'en')}
                                 className="ecl-link ecl-link--standalone ecl-site-footer__link"
                                 role="menuitem"
-                                onKeyDown={(e) => handleKeyDown(e, "https://ec.europa.eu/eurostat/web/main/help/accessibility")}
+                                onKeyDown={(e) => handleKeyDown(e, accessibilityHref(i18n.resolvedLanguage ?? 'en'))}
                                 aria-label={t('footer.accessibilityAriaLabel')}
                             >
                                 {t('footer.accessibility')}

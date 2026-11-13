@@ -21,6 +21,8 @@ import Endash from './components/Endash';
 import ErrorBoundary from './components/ErrorBoundary';
 import MetaTags from './components/MetaTags';
 import Spinner from './components/Spinner';
+import { AccessibilityPage } from './pages/AccessibilityPage';
+import { isAccessibilityMode } from './accessibility/mode';
 
 
 function App() {
@@ -74,14 +76,18 @@ function App() {
               <MetaTags />
               <div className="app-container">
                 <Navbar />
-                <main id="main-content" tabIndex="-1">
-                  <CardsContainer toggleModal={handleToggleModal} />
-                  {!activeModal && (
-                    // keep a hidden dialog present so aria-controls always references an existing id
-                    <dialog id="modal-example" style={{ display: 'none' }} aria-hidden="true" />
-                  )}
-                  {ModalComponent && <ModalComponent isOpen onClose={handleCloseModal} />}
-                </main>
+                {isAccessibilityMode() ? (
+                  <AccessibilityPage />
+                ) : (
+                  <main id="main-content" tabIndex="-1">
+                    <CardsContainer toggleModal={handleToggleModal} />
+                    {!activeModal && (
+                      // keep a hidden dialog present so aria-controls always references an existing id
+                      <dialog id="modal-example" style={{ display: 'none' }} aria-hidden="true" />
+                    )}
+                    {ModalComponent && <ModalComponent isOpen onClose={handleCloseModal} />}
+                  </main>
+                )}
                 <Footer />
                 <Tutorial />
                 <ScrollToTop />
