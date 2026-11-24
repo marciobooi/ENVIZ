@@ -55,6 +55,9 @@ var languageNameSpace = {
     languageNameSpace.initLanguage(lang);
     
     new Navbar().addToDOM('#navbar-container');
+    $('#componentFooter').empty();
+    new Footer().addToDOM('#componentFooter');
+    if (isAccessibilityMode()) { showAccessibilityView(); return; }
     populateElements()
 
   },
