@@ -1,4 +1,4 @@
-/* Accessibility statement (?accessibility) */
+/* Accessibility statement (?accessibility) - same look as the Eurostat accessibility pages */
 
 .a11y-statement {
   padding: 0 1rem 1rem;
@@ -19,53 +19,117 @@
   text-decoration: none;
 }
 
-#a11y-statement-title {
-  margin-bottom: 1.5rem;
-}
-
 #a11y-statement-title:focus {
   outline: none;
 }
 
-.a11y-intro {
-  margin-bottom: 1.5rem;
+/* Paragraphs: 16px above and below, 24px lines */
+.a11y-statement p.ecl-u-type-paragraph {
+  margin: 1rem 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #515560 !important;
 }
 
-/* Inline links stay inline in running text */
+/* Titles: 32px above, 16px below, 44px line height */
+.a11y-statement h2.ecl-u-type-heading-2 {
+  margin: 2rem 0 1rem;
+  font-size: 2rem !important;
+  line-height: 2.75rem !important;
+}
 
+/* Lists */
+.a11y-statement .ecl-unordered-list {
+  margin-bottom: 1rem;
+}
+
+.a11y-statement .ecl-unordered-list__item {
+  list-style-type: disc;
+  color: #262b38;
+}
+
+.a11y-statement .ecl-unordered-list__item::marker {
+  color: #262b38;
+}
+
+/* Links in running text: blue, thick underline; undo any padded "standalone" link style */
 .a11y-statement p .ecl-link,
 .a11y-statement li .ecl-link {
   display: inline;
   padding: 0;
   min-height: 0;
+  color: #0e47cb;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.a11y-statement p .ecl-link:hover,
+.a11y-statement li .ecl-link:hover {
+  color: #09318e;
+}
+
+.a11y-statement .text-nowrap {
+  white-space: nowrap;
+}
+
+.a11y-statement .ecl-link__icon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.25rem;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.a11y-statement .a11y-pdf-icon {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.2em;
+}
+
+/* Related links block (Eurostat link box) */
+.a11y-statement .block-link-item {
+  margin: 1rem 0;
+  position: relative;
+  border-left: 8px solid #0e47cb;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 0 6px rgba(9, 49, 142, 0.2);
+}
+
+.a11y-statement .block-link-item .estat-title:hover {
+  background-color: #e7ecf9;
+}
+
+.a11y-statement .block-link-item .estat-title a,
+.a11y-statement .block-link-item .estat-title a:visited,
+.a11y-statement .block-link-item .estat-title a:focus {
+  font-size: 1.1875rem;
+  display: block;
+  position: relative;
+  min-height: 0;
+  color: #262b38;
+  padding: 0.5rem 3rem 0.5rem 1.5rem;
+  text-decoration: none;
+}
+
+.a11y-statement .block-link-item .estat-title a:hover {
   text-decoration: underline;
 }
 
-.a11y-statement .ecl-unordered-list,
-.a11y-statement p.ecl-u-type-paragraph {
-  margin-bottom: 1rem;
+.a11y-statement .block-link-item-icon {
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  background-color: #f4f5fa;
 }
 
-/* "On this page" box */
-
-.a11y-toc {
-  padding: 1rem 1.5rem;
-  border-left: 4px solid #0e47cb;
-  border-radius: 0 4px 4px 0;
-  background: #f3f6fc;
-}
-
-.a11y-toc .ecl-u-type-heading-3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.75rem;
-}
-
-.a11y-toc .ecl-unordered-list {
-  margin: 0;
-}
-
-.a11y-statement .ecl-unordered-list__item::marker {
-  color: #0e47cb;
+.a11y-statement .block-link-item-icon > svg {
+  height: 100%;
+  width: 1.5rem;
+  fill: none;
+  color: #1f2127;
 }

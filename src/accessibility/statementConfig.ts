@@ -68,7 +68,7 @@ export const statementConfig: AccessibilityStatementConfig = {
     phone: '+352 4301 33 408',
     email: 'ESTAT-USER-SUPPORT@ec.europa.eu',
     contactFormUrl: 'https://ec.europa.eu/eurostat/web/main/contact-us/user-support',
-    contactFormLabel: 'Multilingual user support page',
+    contactFormLabel: 'multilingual user support page',
     responseTime: 'We try to respond to feedback within 15 business days from the date of receipt of the enquiry by the responsible Commission department.',
   },
   compatibility: {

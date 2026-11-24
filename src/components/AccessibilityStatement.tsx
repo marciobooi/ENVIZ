@@ -13,9 +13,61 @@ const COMPLIANCE_LABEL = {
   not: 'not compliant',
 } as const
 
+const EN_301_549_URL = 'https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf'
+const WCAG_URL = 'https://www.w3.org/TR/WCAG21/'
+const WCAG_STANDARDS_URL = 'https://www.w3.org/WAI/standards-guidelines/wcag/'
+const RELATED_LINK_URL = 'https://ec.europa.eu/eurostat/web/main/help/accessibility/sequence-accounts'
+
+/** Same look as the external-link icon on the Eurostat accessibility pages. */
+function ExternalIcon() {
+  return (
+    <svg
+      className="ecl-icon ecl-icon--2xs ecl-link__icon ecl-u-ml-xs"
+      focusable="false"
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      style={{ marginInlineEnd: 0 }}
+    >
+      <path d="M19 20H5c-.6 0-1-.5-1-1V5c0-.6.4-1 1-1h6c.6 0 1-.5 1-1s-.4-1-1-1H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-7c0-.6-.5-1-1-1s-1 .4-1 1v6c0 .5-.5 1-1 1M14 3c0 .5.4 1 1 1h3.6l-6.3 6.3c-.4.4-.4 1 0 1.4.4.4 1 .4 1.4 0L20 5.4V9c0 .6.5 1 1 1s1-.4 1-1V3c0-.5-.5-1-1-1h-6c-.5 0-1 .5-1 1" />
+    </svg>
+  )
+}
+
+function PdfIcon() {
+  return (
+    <svg className="a11y-pdf-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+      <path fill="#d3281e" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
+      <path fill="#fff" fillOpacity=".45" d="M14 2l6 6h-4a2 2 0 0 1-2-2z" />
+      <path
+        fill="#fff"
+        d="M7 15.5c1.8-.4 3.4-2.3 4.1-4.4-.3-1-.4-2 0-2.6.4-.5 1-.2 1.1.4.1.9-.1 1.8-.5 2.7.6 1 1.5 1.8 2.5 2.1.8-.1 1.8-.2 1.9.5.1.9-1.3.9-2.3.6-1-.3-2-.3-3.1.1-.6 1.1-1.4 1.9-2.2 2.1-.9.2-1.4-.7-.5-1.5zm1 .7c.4-.1.9-.6 1.3-1.3-.6.3-1.2.7-1.3 1.3z"
+      />
+    </svg>
+  )
+}
+
+/** Link to an external document: icon after the last word (kept together so it never wraps alone). */
+function IconLink({ href, children }: { href: string; children: string }) {
+  const cut = children.lastIndexOf(' ')
+  const head = cut === -1 ? '' : children.slice(0, cut + 1)
+  const tail = cut === -1 ? children : children.slice(cut + 1)
+  return (
+    <a className="ecl-link ecl-link--icon" href={href} target="_blank" rel="noopener noreferrer">
+      <span className="ecl-link__label">
+        {head}
+        <span className="text-nowrap">
+          {tail}
+          <ExternalIcon />
+        </span>
+      </span>
+      <span className="ecl-u-sr-only"> (opens in new tab)</span>
+    </a>
+  )
+}
+
 function NewTabLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <a className="ecl-link" href={href} target="_blank" rel="noopener">
+    <a className="ecl-link" href={href} target="_blank" rel="noopener noreferrer">
       {children}
       <span className="ecl-u-sr-only"> (opens in new tab)</span>
     </a>
@@ -47,17 +99,14 @@ function BackButton({ href }: { href: string }) {
   )
 }
 
+/** Plain heading + content, as on the Eurostat accessibility pages (no section wrapper, no divider). */
 function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   const anchor = `a11y-${id}`
   return (
-    <section
-      id={anchor}
-      className="ecl-u-border-top ecl-u-border-color-primary-20 ecl-u-mt-xl ecl-u-pt-l"
-      aria-labelledby={`${anchor}-title`}
-    >
-      <h3 className="ecl-u-type-heading-2" id={`${anchor}-title`}>{title}</h3>
+    <>
+      <h2 className="ecl-u-type-heading-2" id={anchor}>{title}</h2>
       {children}
-    </section>
+    </>
   )
 }
 
@@ -71,21 +120,11 @@ function TextSection({ id, title, text }: { id: string; title: string; text: Sta
 }
 
 /**
- * English-only accessibility statement (same structure for every tool).
- * Heading levels: the site header already has the page h1, so the statement title is an h2 and sections are h3.
+ * English-only accessibility statement, same structure as the Eurostat accessibility pages:
+ * h1 "Accessibility", intro paragraphs, plain h2 sections (no "On this page" index), "Related links".
  */
 export function AccessibilityStatement({ config, backHref }: AccessibilityStatementProps) {
   const { productionUrl, feedback } = config
-
-  const sections: Array<Pick<StatementSection, 'id' | 'title'>> = [
-    { id: 'compliance-status', title: 'Compliance status' },
-    { id: 'preparation-of-this-statement', title: 'Preparation of this statement' },
-    { id: 'feedback', title: 'Feedback' },
-    { id: 'compatibility-with-browsers-and-assistive-technology', title: 'Compatibility with browsers and assistive technology' },
-    { id: 'technical-specifications', title: 'Technical specifications' },
-    { id: 'non-accessible-content', title: 'Non-accessible content' },
-    ...(config.extraSections ?? []).map(({ id, title }) => ({ id, title })),
-  ]
 
   return (
     <div
@@ -98,15 +137,17 @@ export function AccessibilityStatement({ config, backHref }: AccessibilityStatem
       <div className="a11y-wrapper">
         <BackButton href={backHref} />
 
-        <h2 className="ecl-u-type-heading-1" id="a11y-statement-title" tabIndex={-1}>Accessibility statement</h2>
+        <div className="ecl-page-header__info">
+          <h1 className="ecl-page-header__title ecl-u-mt-none ecl-u-mb-l" id="a11y-statement-title" tabIndex={-1}>
+            Accessibility
+          </h1>
+        </div>
 
         <div className="a11y-intro">
-          <p className="ecl-u-type-paragraph">This statement applies to content published on the domain:</p>
-          <ul className="ecl-unordered-list">
-            <li className="ecl-unordered-list__item">
-              <NewTabLink href={productionUrl}>{productionUrl}</NewTabLink>
-            </li>
-          </ul>
+          <p className="ecl-u-type-paragraph">
+            This statement applies to content published on the domain{' '}
+            <NewTabLink href={productionUrl}>{productionUrl}</NewTabLink>.
+          </p>
           <p className="ecl-u-type-paragraph">
             It does not apply to other content or websites published on any of its subdomains. These websites and
             their content will have their own specific accessibility statement.
@@ -118,34 +159,23 @@ export function AccessibilityStatement({ config, backHref }: AccessibilityStatem
           <p className="ecl-u-type-paragraph">You should be able to:</p>
           <List items={config.youShouldBeAbleTo} />
           <p className="ecl-u-type-paragraph">
-            This interactive tool is designed to comply with the technical standard for websites and mobile apps,{' '}
-            EN 301 549, v.3.2.1. This closely follows level AA of the{' '}
-            <NewTabLink href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG)</NewTabLink>
-            {' '}version 2.1.
+            This interactive tool is designed to comply with the <PdfIcon />{' '}
+            <IconLink href={EN_301_549_URL}>technical standard for websites and mobile apps, EN 301 549, v.3.2.1</IconLink>.
+            This closely follows level ‘AA’ of the{' '}
+            <IconLink href={WCAG_URL}>Web Content Accessibility Guidelines (WCAG) version 2.1</IconLink>.
           </p>
         </div>
-
-        <nav className="a11y-toc ecl-u-mt-l" aria-labelledby="a11y-toc-title">
-          <h3 className="ecl-u-type-heading-3" id="a11y-toc-title">On this page</h3>
-          <ul className="ecl-unordered-list">
-            {sections.map(({ id, title }) => (
-              <li key={id} className="ecl-unordered-list__item">
-                <a className="ecl-link" href={`#a11y-${id}`}>{title}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
 
         <div className="a11y-sections">
           <Section id="compliance-status" title="Compliance status">
             <p className="ecl-u-type-paragraph">
-              This interactive tool is <strong>{COMPLIANCE_LABEL[config.compliance]}</strong> with technical
-              standard EN 301 549 v.3.2.1 and the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA. See “
-              <a className="ecl-link" href="#a11y-non-accessible-content">Non-accessible content</a>” for more
-              details.
+              This interactive tool is <strong>{COMPLIANCE_LABEL[config.compliance]}</strong> with <PdfIcon />{' '}
+              <IconLink href={EN_301_549_URL}>technical standard EN 301 549 v.3.2.1</IconLink> and the{' '}
+              <IconLink href={WCAG_STANDARDS_URL}>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</IconLink>.
+              See ‘<a className="ecl-link" href="#a11y-non-accessible-content">Non-accessible content</a>’ below for
+              more details.
             </p>
             <p className="ecl-u-type-paragraph">The interactive tool was last tested on {config.lastTested}.</p>
-            <p className="ecl-u-type-paragraph">This statement was last reviewed on {config.lastReviewed}.</p>
           </Section>
 
           <TextSection
@@ -172,7 +202,8 @@ export function AccessibilityStatement({ config, backHref }: AccessibilityStatem
               )}
               {feedback.contactFormUrl && (
                 <li className="ecl-unordered-list__item">
-                  <NewTabLink href={feedback.contactFormUrl}>{feedback.contactFormLabel ?? 'Contact form'}</NewTabLink>
+                  Contact form:{' '}
+                  <NewTabLink href={feedback.contactFormUrl}>{feedback.contactFormLabel ?? 'contact form'}</NewTabLink>
                 </li>
               )}
             </ul>
@@ -187,9 +218,23 @@ export function AccessibilityStatement({ config, backHref }: AccessibilityStatem
           <TextSection id="technical-specifications" title="Technical specifications" text={config.technicalSpecifications} />
           <TextSection id="non-accessible-content" title="Non-accessible content" text={config.nonAccessibleContent} />
 
-          {config.extraSections?.map((section) => (
+          {config.extraSections?.map((section: StatementSection) => (
             <TextSection key={section.id} id={section.id} title={section.title} text={section} />
           ))}
+
+          <h2 className="ecl-u-type-heading-2 ecl-u-type-align-left" id="a11y-related-links">Related links</h2>
+          <div className="block-link-item ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-primary">
+            <div className="block-link-item-icon">
+              <svg className="ecl-icon ecl-icon--m" focusable="false" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M9 4.5l7.5 7.5L9 19.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </div>
+            <div className="estat-title">
+              <a href={RELATED_LINK_URL} className="ecl-link ecl-link--standalone ecl-u-type-color-dark">
+                <div>Sequence of accounts: accessibility statement</div>
+              </a>
+            </div>
+          </div>
         </div>
 
         <BackButton href={backHref} />

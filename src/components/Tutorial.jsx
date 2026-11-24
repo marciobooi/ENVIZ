@@ -1,3 +1,4 @@
+import { isAccessibilityMode } from '../accessibility/mode';
 import { useEffect, useState, useRef } from 'react';
 import Joyride, { ACTIONS, EVENTS, STATUS } from 'react-joyride';
 import { useTranslation } from 'react-i18next';
@@ -25,7 +26,8 @@ const Tutorial = () => {
                 .split('; ')
                 .find(row => row.startsWith(TUTORIAL_COOKIE_NAME));
 
-            if (!tutorialCookie) {
+            // The statement page (?accessibility) shows no tour
+            if (!tutorialCookie && !isAccessibilityMode()) {
                 // No cookie found, start tutorial
                 startTutorial();
             }
