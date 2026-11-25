@@ -92,7 +92,6 @@ export const statementConfig: AccessibilityStatementConfig = {
       'Known limitations for the Energy Visualisation Portal website:',
     ],
     items: [
-      'Interactive tools / visualisations: The interactive tools and visualisations on this site do not always have text alternatives. We are aware that this is inaccessible for people using the screen reader or keyboard. However, all visualisations provide a direct link to the source dataset to display the data in table format.',
       'Automatically generated, downloadable documents in PDF format are not fully accessible.',
       'The tool is optimized for standard screen sizes, the user experience may be degraded on smaller displays (mobile phones and similar devices).',
     ],

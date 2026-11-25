@@ -16,7 +16,6 @@ const COMPLIANCE_LABEL = {
 const EN_301_549_URL = 'https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf'
 const WCAG_URL = 'https://www.w3.org/TR/WCAG21/'
 const WCAG_STANDARDS_URL = 'https://www.w3.org/WAI/standards-guidelines/wcag/'
-const RELATED_LINK_URL = 'https://ec.europa.eu/eurostat/web/main/help/accessibility/sequence-accounts'
 
 /** Same look as the external-link icon on the Eurostat accessibility pages. */
 function ExternalIcon() {
@@ -121,7 +120,7 @@ function TextSection({ id, title, text }: { id: string; title: string; text: Sta
 
 /**
  * English-only accessibility statement, same structure as the Eurostat accessibility pages:
- * h1 "Accessibility", intro paragraphs, plain h2 sections (no "On this page" index), "Related links".
+ * h1 "Accessibility", intro paragraphs, plain h2 sections (no "On this page" index).
  */
 export function AccessibilityStatement({ config, backHref }: AccessibilityStatementProps) {
   const { productionUrl, feedback } = config
@@ -221,20 +220,6 @@ export function AccessibilityStatement({ config, backHref }: AccessibilityStatem
           {config.extraSections?.map((section: StatementSection) => (
             <TextSection key={section.id} id={section.id} title={section.title} text={section} />
           ))}
-
-          <h2 className="ecl-u-type-heading-2 ecl-u-type-align-left" id="a11y-related-links">Related links</h2>
-          <div className="block-link-item ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-primary">
-            <div className="block-link-item-icon">
-              <svg className="ecl-icon ecl-icon--m" focusable="false" aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M9 4.5l7.5 7.5L9 19.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-            </div>
-            <div className="estat-title">
-              <a href={RELATED_LINK_URL} className="ecl-link ecl-link--standalone ecl-u-type-color-dark">
-                <div>Sequence of accounts: accessibility statement</div>
-              </a>
-            </div>
-          </div>
         </div>
 
         <BackButton href={backHref} />
